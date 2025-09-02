@@ -1,0 +1,30 @@
+{
+  "name": "sportsinsyte-data-v2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "type": "module",
+  "dependencies": {
+    "@ulixee/hero": "^2.0.0-alpha.33",
+    "@ulixee/hero-core": "^2.0.0-alpha.33",
+    "@ulixee/hero-playground": "^2.0.0-alpha.33",
+    "danfojs-node": "^1.2.0",
+    "fast-levenshtein": "^3.0.0",
+    "fs": "^0.0.1-security",
+    "jaro-winkler": "^0.2.8",
+    "js-yaml": "^4.1.0",
+    "natural": "^8.1.0",
+    "node-fetch": "^3.3.2",
+    "node-vibrant": "^4.0.3",
+    "puppeteer": "^24.17.1",
+    "sharp": "^0.34.3",
+    "string-similarity": "^4.0.4",
+    "svg2img": "^1.0.0-beta.2"
+  }
+}

@@ -1,0 +1,4028 @@
+[
+  {
+    "team": "Army Black Knights",
+    "head_coach": "Jeff Monken",
+    "offensive_coordinator": "Cody Worley",
+    "defensive_coordinator": "Nate Woody"
+  },
+  {
+    "team": "Charlotte 49ers",
+    "head_coach": "2025",
+    "offensive_coordinator": "Nate Faanes / Kurt Mattix",
+    "defensive_coordinator": "Brian Haines / Danny Orrock"
+  },
+  {
+    "team": "East Carolina Pirates",
+    "head_coach": "2024",
+    "offensive_coordinator": "Josh Aldridge",
+    "defensive_coordinator": "Andre Powell"
+  },
+  {
+    "team": "Florida Atlantic Owls",
+    "head_coach": "2025",
+    "offensive_coordinator": "Brett Dewhurst",
+    "defensive_coordinator": "Tyler Shovanec"
+  },
+  {
+    "team": "Memphis Tigers",
+    "head_coach": "2020",
+    "offensive_coordinator": "Jordon Hankins",
+    "defensive_coordinator": "Chris White"
+  },
+  {
+    "team": "Navy Midshipmen",
+    "head_coach": "2023",
+    "offensive_coordinator": "P.J. Volker",
+    "defensive_coordinator": "Ricky Brown"
+  },
+  {
+    "team": "North Texas Mean Green",
+    "head_coach": "2023",
+    "offensive_coordinator": "Skyler Cassity",
+    "defensive_coordinator": "Drew Svoboda"
+  },
+  {
+    "team": "Rice Owls",
+    "head_coach": "2025",
+    "offensive_coordinator": "Jon Kay",
+    "defensive_coordinator": "Mark Hogan"
+  },
+  {
+    "team": "South Florida Bulls",
+    "head_coach": "2023",
+    "offensive_coordinator": "Todd Orlando",
+    "defensive_coordinator": "Chad Creamer"
+  },
+  {
+    "team": "Temple Owls",
+    "head_coach": "2025",
+    "offensive_coordinator": "Brian Smith",
+    "defensive_coordinator": "Brian Ginn"
+  },
+  {
+    "team": "Tulane Green Wave",
+    "head_coach": "2024",
+    "offensive_coordinator": "Greg Gasparato / Tayler Polk",
+    "defensive_coordinator": "Johnathan Galante"
+  },
+  {
+    "team": "Tulsa Golden Hurricane",
+    "head_coach": "2025",
+    "offensive_coordinator": "Mike Gray / Josh Reardon",
+    "defensive_coordinator": "Carter Barfield"
+  },
+  {
+    "team": "UAB Blazers",
+    "head_coach": "2023",
+    "offensive_coordinator": "Steve Russ",
+    "defensive_coordinator": "John Jones"
+  },
+  {
+    "team": "UTSA Roadrunners",
+    "head_coach": "2020",
+    "offensive_coordinator": "Jess Loepp",
+    "defensive_coordinator": "Zach Brown"
+  },
+  {
+    "team": "Boston College Eagles",
+    "head_coach": "Bill O'Brien",
+    "offensive_coordinator": "Will Lawing",
+    "defensive_coordinator": "Tim Lewis"
+  },
+  {
+    "team": "California Golden Bears",
+    "head_coach": "2017",
+    "offensive_coordinator": "Terrence Brown / Vic So'oto",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Clemson Tigers",
+    "head_coach": "2009",
+    "offensive_coordinator": "Tom Allen / Mickey Conn",
+    "defensive_coordinator": "Michael Reed"
+  },
+  {
+    "team": "Duke Blue Devils",
+    "head_coach": "2024",
+    "offensive_coordinator": "Jonathan Patke",
+    "defensive_coordinator": "Gabe Infante"
+  },
+  {
+    "team": "Florida State Seminoles",
+    "head_coach": "2020",
+    "offensive_coordinator": "Tony White",
+    "defensive_coordinator": "John Papuchis"
+  },
+  {
+    "team": "Georgia Tech Yellow Jackets",
+    "head_coach": "2022",
+    "offensive_coordinator": "Blake Gideon",
+    "defensive_coordinator": "Tim Salem"
+  },
+  {
+    "team": "Louisville Cardinals",
+    "head_coach": "2023",
+    "offensive_coordinator": "Ron English",
+    "defensive_coordinator": "Karl Maslowski"
+  },
+  {
+    "team": "Miami Hurricanes",
+    "head_coach": "2022",
+    "offensive_coordinator": "Corey Hetherman",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "North Carolina Tar Heels",
+    "head_coach": "2025",
+    "offensive_coordinator": "Stephen Belichick",
+    "defensive_coordinator": "Mike Priefer"
+  },
+  {
+    "team": "NC State Wolfpack",
+    "head_coach": "2013",
+    "offensive_coordinator": "D. J. Eliot / Charlton Warren",
+    "defensive_coordinator": "Todd Goebbel"
+  },
+  {
+    "team": "Pittsburgh Panthers",
+    "head_coach": "2015",
+    "offensive_coordinator": "Randy Bates",
+    "defensive_coordinator": "Jacob Bronowski"
+  },
+  {
+    "team": "SMU Mustangs",
+    "head_coach": "2022",
+    "offensive_coordinator": "Scott Symons",
+    "defensive_coordinator": "Kyle Cooper"
+  },
+  {
+    "team": "Stanford Cardinal",
+    "head_coach": "2025",
+    "offensive_coordinator": "Bobby April III / Andy Thompson",
+    "defensive_coordinator": "Bob Gregory"
+  },
+  {
+    "team": "Syracuse Orange",
+    "head_coach": "2024",
+    "offensive_coordinator": "Elijah Robinson / Robert Wright",
+    "defensive_coordinator": "Ricky Brumfield"
+  },
+  {
+    "team": "Virginia Cavaliers",
+    "head_coach": "2022",
+    "offensive_coordinator": "John Rudzinski",
+    "defensive_coordinator": "Keith Gaither"
+  },
+  {
+    "team": "Virginia Tech Hokies",
+    "head_coach": "2022",
+    "offensive_coordinator": "Sam Siefkes",
+    "defensive_coordinator": "Stu Holt"
+  },
+  {
+    "team": "Wake Forest Demon Deacons",
+    "head_coach": "2025",
+    "offensive_coordinator": "Scottie Hazelton",
+    "defensive_coordinator": "Nick Whitworth"
+  },
+  {
+    "team": "Arizona Wildcats",
+    "head_coach": "Brent Brennan",
+    "offensive_coordinator": "Seth Doege",
+    "defensive_coordinator": "Danny Gonzales"
+  },
+  {
+    "team": "Arizona State Sun Devils",
+    "head_coach": "2023",
+    "offensive_coordinator": "Brian Ward",
+    "defensive_coordinator": "Charlie Ragle"
+  },
+  {
+    "team": "Baylor Bears",
+    "head_coach": "2020",
+    "offensive_coordinator": "Matt Powledge",
+    "defensive_coordinator": "Mark Scott"
+  },
+  {
+    "team": "BYU Cougars",
+    "head_coach": "2016",
+    "offensive_coordinator": "Jay Hill",
+    "defensive_coordinator": "Kelly Poppinga"
+  },
+  {
+    "team": "Cincinnati Bearcats",
+    "head_coach": "2023",
+    "offensive_coordinator": "Cortney Braswell / Tyson Veidt",
+    "defensive_coordinator": "Luke Paschall"
+  },
+  {
+    "team": "Colorado Buffaloes",
+    "head_coach": "2023",
+    "offensive_coordinator": "Robert Livingston",
+    "defensive_coordinator": "Michael Pollack"
+  },
+  {
+    "team": "Houston Cougars",
+    "head_coach": "2024",
+    "offensive_coordinator": "Austin Armstrong",
+    "defensive_coordinator": "Chris Couch"
+  },
+  {
+    "team": "Iowa State Cyclones",
+    "head_coach": "2016",
+    "offensive_coordinator": "Jon Heacock",
+    "defensive_coordinator": "Rob Grande"
+  },
+  {
+    "team": "Kansas Jayhawks",
+    "head_coach": "2021",
+    "offensive_coordinator": "D.K. McDonald",
+    "defensive_coordinator": "Taiwo Onatolu"
+  },
+  {
+    "team": "Kansas State Wildcats",
+    "head_coach": "2019",
+    "offensive_coordinator": "Joe Klanderman",
+    "defensive_coordinator": "Nate Kaczor"
+  },
+  {
+    "team": "Oklahoma State Cowboys",
+    "head_coach": "2005",
+    "offensive_coordinator": "Todd Grantham",
+    "defensive_coordinator": "Sean Snyder"
+  },
+  {
+    "team": "TCU Horned Frogs",
+    "head_coach": "2022",
+    "offensive_coordinator": "Andy Avalos",
+    "defensive_coordinator": "Mark Tommerdahl"
+  },
+  {
+    "team": "Texas Tech Red Raiders",
+    "head_coach": "2022",
+    "offensive_coordinator": "Shiel Wood",
+    "defensive_coordinator": "Kenny Perry"
+  },
+  {
+    "team": "UCF Knights",
+    "head_coach": "2025",
+    "offensive_coordinator": "Alex Grinch",
+    "defensive_coordinator": "Pete Alamar"
+  },
+  {
+    "team": "Utah Utes",
+    "head_coach": "2005",
+    "offensive_coordinator": "Morgan Scalley",
+    "defensive_coordinator": "Sharrieff Shah"
+  },
+  {
+    "team": "West Virginia Mountaineers",
+    "head_coach": "2025",
+    "offensive_coordinator": "Zac Alley",
+    "defensive_coordinator": "Pat Kirkland"
+  },
+  {
+    "team": "Illinois Fighting Illini",
+    "head_coach": "Bret Bielema",
+    "offensive_coordinator": "Barry Lunney Jr.",
+    "defensive_coordinator": "Aaron Henry"
+  },
+  {
+    "team": "Indiana Hoosiers",
+    "head_coach": "2024",
+    "offensive_coordinator": "Bryant Haines",
+    "defensive_coordinator": "Grant Cain"
+  },
+  {
+    "team": "Iowa Hawkeyes",
+    "head_coach": "1999",
+    "offensive_coordinator": "Phil Parker",
+    "defensive_coordinator": "LeVar Woods"
+  },
+  {
+    "team": "Maryland Terrapins",
+    "head_coach": "2019",
+    "offensive_coordinator": "Aazaar Abdul-Rahim  / Ted Monachino",
+    "defensive_coordinator": "James Thomas Jr."
+  },
+  {
+    "team": "Michigan Wolverines",
+    "head_coach": "2024",
+    "offensive_coordinator": "Don Martindale",
+    "defensive_coordinator": "J. B. Brown"
+  },
+  {
+    "team": "Michigan State Spartans",
+    "head_coach": "2024",
+    "offensive_coordinator": "Joe Rossi",
+    "defensive_coordinator": "Chad Wilt"
+  },
+  {
+    "team": "Minnesota Golden Gophers",
+    "head_coach": "2017",
+    "offensive_coordinator": "Danny Collins",
+    "defensive_coordinator": "Bob Ligashesky"
+  },
+  {
+    "team": "Nebraska Cornhuskers",
+    "head_coach": "2023",
+    "offensive_coordinator": "John Butler",
+    "defensive_coordinator": "Mike Ekeler"
+  },
+  {
+    "team": "Northwestern Wildcats",
+    "head_coach": "2023",
+    "offensive_coordinator": "Tim McGarigle",
+    "defensive_coordinator": "Paul Creighton"
+  },
+  {
+    "team": "Ohio State Buckeyes",
+    "head_coach": "2019",
+    "offensive_coordinator": "Matt Patricia / Tim Walton",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Oregon Ducks",
+    "head_coach": "2022",
+    "offensive_coordinator": "Chris Hampton / Tosh Lupoi",
+    "defensive_coordinator": "Joe Lorig"
+  },
+  {
+    "team": "Penn State Nittany Lions",
+    "head_coach": "2014",
+    "offensive_coordinator": "Jim Knowles / Anthony Poindexter",
+    "defensive_coordinator": "Justin Lustig"
+  },
+  {
+    "team": "Purdue Boilermakers",
+    "head_coach": "2025",
+    "offensive_coordinator": "Michael Scherer",
+    "defensive_coordinator": "James Shibest"
+  },
+  {
+    "team": "Rutgers Scarlet Knights",
+    "head_coach": "2020",
+    "offensive_coordinator": "Robb Smith / Zach Sparber",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "UCLA Bruins",
+    "head_coach": "2024",
+    "offensive_coordinator": "Ikaika Malloe",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "USC Trojans",
+    "head_coach": "2022",
+    "offensive_coordinator": "Eric Henderson / D'Anton Lynn",
+    "defensive_coordinator": "Ryan Dougherty"
+  },
+  {
+    "team": "Washington Huskies",
+    "head_coach": "2024",
+    "offensive_coordinator": "Ryan Walters",
+    "defensive_coordinator": "Jordan Paopao"
+  },
+  {
+    "team": "Wisconsin Badgers",
+    "head_coach": "2023",
+    "offensive_coordinator": "Mike Tressel",
+    "defensive_coordinator": "Matt Mitchell"
+  },
+  {
+    "team": "Delaware Fightin' Blue Hens",
+    "head_coach": "Ryan Carty",
+    "offensive_coordinator": "Terence Archer",
+    "defensive_coordinator": "Manny Rojas"
+  },
+  {
+    "team": "Florida International Panthers",
+    "head_coach": "2025",
+    "offensive_coordinator": "Jovan Dewitt",
+    "defensive_coordinator": "Kenneth Gilstrap"
+  },
+  {
+    "team": "Jacksonville State Gamecocks",
+    "head_coach": "2025",
+    "offensive_coordinator": "Brian Williams",
+    "defensive_coordinator": "Max Thurmond"
+  },
+  {
+    "team": "Kennesaw State Owls",
+    "head_coach": "2025",
+    "offensive_coordinator": "Marc Mattioli",
+    "defensive_coordinator": "Kyle Blocker"
+  },
+  {
+    "team": "Liberty Flames",
+    "head_coach": "2023",
+    "offensive_coordinator": "Jack Curtis / Skylor Magee",
+    "defensive_coordinator": "Kyle Krantz"
+  },
+  {
+    "team": "Louisiana Tech Bulldogs",
+    "head_coach": "2022",
+    "offensive_coordinator": "Luke Olson",
+    "defensive_coordinator": "Dan Sharp"
+  },
+  {
+    "team": "Middle Tennessee Blue Raiders",
+    "head_coach": "2024",
+    "offensive_coordinator": "Brian Stewart",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Missouri State Bears",
+    "head_coach": "2023",
+    "offensive_coordinator": "L.D. Scott",
+    "defensive_coordinator": "Michael Downing / Wesley Satterfield"
+  },
+  {
+    "team": "New Mexico State Aggies",
+    "head_coach": "2024",
+    "offensive_coordinator": "Joe Morris",
+    "defensive_coordinator": "Nelson Fishback"
+  },
+  {
+    "team": "Sam Houston Bearkats",
+    "head_coach": "2025",
+    "offensive_coordinator": "Freddie Aughtry-Lindsay",
+    "defensive_coordinator": "Eric Raisbeck"
+  },
+  {
+    "team": "UTEP Miners",
+    "head_coach": "2024",
+    "offensive_coordinator": "Bobby Daly / Kelvin Sigler",
+    "defensive_coordinator": "Joe Pappalardo"
+  },
+  {
+    "team": "Western Kentucky Hilltoppers",
+    "head_coach": "2019",
+    "offensive_coordinator": "Da'Von Brown / Davis Merritt",
+    "defensive_coordinator": "Andy LaRussa"
+  },
+  {
+    "team": "Notre Dame Fighting Irish",
+    "head_coach": "Marcus Freeman",
+    "offensive_coordinator": "Mike Denbrock",
+    "defensive_coordinator": "Chris Ash / Mike Mickens"
+  },
+  {
+    "team": "UConn Huskies",
+    "head_coach": "2022",
+    "offensive_coordinator": "Matt Brock",
+    "defensive_coordinator": "Doug Shearer"
+  },
+  {
+    "team": "Akron Zips",
+    "head_coach": "Joe Moorhead",
+    "offensive_coordinator": "Joe Moorhead",
+    "defensive_coordinator": "Tim Tibesar"
+  },
+  {
+    "team": "Ball State Cardinals",
+    "head_coach": "2025",
+    "offensive_coordinator": "Jeff Knowles",
+    "defensive_coordinator": "Nick Fiacable"
+  },
+  {
+    "team": "Bowling Green Falcons",
+    "head_coach": "2025",
+    "offensive_coordinator": "Brandon Fisher",
+    "defensive_coordinator": "Alex Bayer"
+  },
+  {
+    "team": "Buffalo Bulls",
+    "head_coach": "2024",
+    "offensive_coordinator": "Joe Bowen",
+    "defensive_coordinator": "Chris Monfileto"
+  },
+  {
+    "team": "Central Michigan Chippewas",
+    "head_coach": "2025",
+    "offensive_coordinator": "Sean Cronin",
+    "defensive_coordinator": "Keith Murphy"
+  },
+  {
+    "team": "Eastern Michigan Eagles",
+    "head_coach": "2014",
+    "offensive_coordinator": "Ben Needham",
+    "defensive_coordinator": "Kasey Teegardin"
+  },
+  {
+    "team": "Kent State Golden Flashes",
+    "head_coach": "2025",
+    "offensive_coordinator": "Cherokee Valeria",
+    "defensive_coordinator": "C. J. Conrad"
+  },
+  {
+    "team": "Miami RedHawks",
+    "head_coach": "2014",
+    "offensive_coordinator": "Bill Brechin",
+    "defensive_coordinator": "Johnny Aylward"
+  },
+  {
+    "team": "Northern Illinois Huskies",
+    "head_coach": "2019",
+    "offensive_coordinator": "Rob Harley",
+    "defensive_coordinator": "Cory Connolly"
+  },
+  {
+    "team": "Ohio Bobcats",
+    "head_coach": "2024",
+    "offensive_coordinator": "John Hauser",
+    "defensive_coordinator": "Blair Cavanaugh"
+  },
+  {
+    "team": "Toledo Rockets",
+    "head_coach": "2016",
+    "offensive_coordinator": "Vince Kehres / Ross Watson",
+    "defensive_coordinator": "Stanton Weber"
+  },
+  {
+    "team": "UMass Minutemen",
+    "head_coach": "2025",
+    "offensive_coordinator": "Jared Keyte",
+    "defensive_coordinator": "Joe Castellitto"
+  },
+  {
+    "team": "Western Michigan Broncos",
+    "head_coach": "2023",
+    "offensive_coordinator": "Chris O'Leary",
+    "defensive_coordinator": "Dan Sabock"
+  },
+  {
+    "team": "Air Force Falcons",
+    "head_coach": "Troy Calhoun",
+    "offensive_coordinator": "Mike Thiessen",
+    "defensive_coordinator": "Brian Knorr"
+  },
+  {
+    "team": "Boise State Broncos",
+    "head_coach": "2023",
+    "offensive_coordinator": "Erik Chinander / Tyler Stockton",
+    "defensive_coordinator": "Stacy Collins"
+  },
+  {
+    "team": "Colorado State Rams",
+    "head_coach": "2022",
+    "offensive_coordinator": "Tyson Summers",
+    "defensive_coordinator": "Tommy Perry"
+  },
+  {
+    "team": "Fresno State Bulldogs",
+    "head_coach": "2025",
+    "offensive_coordinator": "Nick Benedetto",
+    "defensive_coordinator": "John Baxter"
+  },
+  {
+    "team": "Hawaiʻi Rainbow Warriors",
+    "head_coach": "2022",
+    "offensive_coordinator": "Dennis Thurman",
+    "defensive_coordinator": "Thomas Sheffield"
+  },
+  {
+    "team": "Nevada Wolf Pack",
+    "head_coach": "2024",
+    "offensive_coordinator": "Kane Ioane",
+    "defensive_coordinator": "Parker Henry"
+  },
+  {
+    "team": "New Mexico Lobos",
+    "head_coach": "2025",
+    "offensive_coordinator": "Spence Nowinsky",
+    "defensive_coordinator": "Daniel Da Prato"
+  },
+  {
+    "team": "San Diego State Aztecs",
+    "head_coach": "2024",
+    "offensive_coordinator": "Rob Aurich",
+    "defensive_coordinator": "Zac Barton"
+  },
+  {
+    "team": "San Jose State Spartans",
+    "head_coach": "2024",
+    "offensive_coordinator": "Derrick Odum",
+    "defensive_coordinator": "Joe Palcic"
+  },
+  {
+    "team": "UNLV Rebels",
+    "head_coach": "2025",
+    "offensive_coordinator": "Paul Guenther",
+    "defensive_coordinator": "Adam Scheier"
+  },
+  {
+    "team": "Utah State Aggies",
+    "head_coach": "2025",
+    "offensive_coordinator": "Nick Howell",
+    "defensive_coordinator": "Shane Hunter"
+  },
+  {
+    "team": "Wyoming Cowboys",
+    "head_coach": "2024",
+    "offensive_coordinator": "Aaron Bohl",
+    "defensive_coordinator": "Benny Boyd / Shannon Moore"
+  },
+  {
+    "team": "Oregon State Beavers",
+    "head_coach": "Trent Bray",
+    "offensive_coordinator": "Ryan Gunderson",
+    "defensive_coordinator": "Trent Bray / Rod Chance"
+  },
+  {
+    "team": "Washington State Cougars",
+    "head_coach": "2025",
+    "offensive_coordinator": "Jesse Bobbit",
+    "defensive_coordinator": "Pat Cashmore"
+  },
+  {
+    "team": "Alabama Crimson Tide",
+    "head_coach": "Kalen DeBoer",
+    "offensive_coordinator": "Ryan Grubb / Nick Sheridan",
+    "defensive_coordinator": "Maurice Linguist / Kane Wommack"
+  },
+  {
+    "team": "Arkansas Razorbacks",
+    "head_coach": "2020",
+    "offensive_coordinator": "Travis Williams / Marcus Woodson",
+    "defensive_coordinator": "Scott Fountain"
+  },
+  {
+    "team": "Auburn Tigers",
+    "head_coach": "2023",
+    "offensive_coordinator": "D. J. Durkin",
+    "defensive_coordinator": "Chad Lunsford"
+  },
+  {
+    "team": "Florida Gators",
+    "head_coach": "2022",
+    "offensive_coordinator": "Robert Bala / Ron Roberts / Vinnie Sunseri",
+    "defensive_coordinator": "Joe Houston"
+  },
+  {
+    "team": "Georgia Bulldogs",
+    "head_coach": "2016",
+    "offensive_coordinator": "Travaris Robinson / Glenn Schumann",
+    "defensive_coordinator": "Kirk Benedict"
+  },
+  {
+    "team": "Kentucky Wildcats",
+    "head_coach": "2013",
+    "offensive_coordinator": "Brad White",
+    "defensive_coordinator": "Jay Boulware"
+  },
+  {
+    "team": "LSU Tigers",
+    "head_coach": "2022",
+    "offensive_coordinator": "Blake Baker",
+    "defensive_coordinator": "Aman Anand"
+  },
+  {
+    "team": "Mississippi State Bulldogs",
+    "head_coach": "2024",
+    "offensive_coordinator": "Matt Barnes / Coleman Hutzler",
+    "defensive_coordinator": "Cliff Odom Jr."
+  },
+  {
+    "team": "Missouri Tigers",
+    "head_coach": "2020",
+    "offensive_coordinator": "Corey Batoon",
+    "defensive_coordinator": "Erik Link"
+  },
+  {
+    "team": "Oklahoma Sooners",
+    "head_coach": "2022",
+    "offensive_coordinator": "Todd Bates / Jay Valai",
+    "defensive_coordinator": "Doug Deakin"
+  },
+  {
+    "team": "Ole Miss Rebels",
+    "head_coach": "2020",
+    "offensive_coordinator": "Bryan Brown / Pete Golding",
+    "defensive_coordinator": "Jake Schoonover"
+  },
+  {
+    "team": "South Carolina Gamecocks",
+    "head_coach": "2021",
+    "offensive_coordinator": "Clayton White",
+    "defensive_coordinator": "Joe DeCamillis"
+  },
+  {
+    "team": "Tennessee Volunteers",
+    "head_coach": "2021",
+    "offensive_coordinator": "Tim Banks",
+    "defensive_coordinator": "Evan Crabtree"
+  },
+  {
+    "team": "Texas Longhorns",
+    "head_coach": "2021",
+    "offensive_coordinator": "Pete Kwiatkowski / Johnny Nansen",
+    "defensive_coordinator": "Jeff Banks"
+  },
+  {
+    "team": "Texas A&M Aggies",
+    "head_coach": "2024",
+    "offensive_coordinator": "Jay Bateman",
+    "defensive_coordinator": "Patrick Dougherty"
+  },
+  {
+    "team": "Vanderbilt Commodores",
+    "head_coach": "2021",
+    "offensive_coordinator": "Steve Gregory",
+    "defensive_coordinator": "Jeff LePak"
+  },
+  {
+    "team": "Appalachian State Mountaineers",
+    "head_coach": "Dowell Loggains",
+    "offensive_coordinator": "Dowell Loggains",
+    "defensive_coordinator": "D. J. Smith"
+  },
+  {
+    "team": "Arkansas State Red Wolves",
+    "head_coach": "2021",
+    "offensive_coordinator": "Griffin McCarley",
+    "defensive_coordinator": "Dakota Tillman"
+  },
+  {
+    "team": "Coastal Carolina Chanticleers",
+    "head_coach": "2023",
+    "offensive_coordinator": "Jeremiah Johnson",
+    "defensive_coordinator": "Josh Miller"
+  },
+  {
+    "team": "Georgia Southern Eagles",
+    "head_coach": "2022",
+    "offensive_coordinator": "Brandon Bailey",
+    "defensive_coordinator": "Blake Wilson"
+  },
+  {
+    "team": "Georgia State Panthers",
+    "head_coach": "2024",
+    "offensive_coordinator": "Travis Pearson",
+    "defensive_coordinator": "Carter Blount"
+  },
+  {
+    "team": "James Madison Dukes",
+    "head_coach": "2024",
+    "offensive_coordinator": "Colin Hitschler",
+    "defensive_coordinator": "Drew Canan"
+  },
+  {
+    "team": "Louisiana Ragin' Cajuns",
+    "head_coach": "2022",
+    "offensive_coordinator": "Jim Salgado",
+    "defensive_coordinator": "Mike Giuliani"
+  },
+  {
+    "team": "Louisiana-Monroe Warhawks",
+    "head_coach": "2024",
+    "offensive_coordinator": "Earnest Hill",
+    "defensive_coordinator": "Mark Modleski"
+  },
+  {
+    "team": "Marshall Thundering Herd",
+    "head_coach": "2025",
+    "offensive_coordinator": "Shannon Morrison",
+    "defensive_coordinator": "Jackson White"
+  },
+  {
+    "team": "Old Dominion Monarchs",
+    "head_coach": "2020",
+    "offensive_coordinator": "Blake Seiler",
+    "defensive_coordinator": "Kevin Smith"
+  },
+  {
+    "team": "South Alabama Jaguars",
+    "head_coach": "2024",
+    "offensive_coordinator": "Jason Washington / Will Windham",
+    "defensive_coordinator": "Tre Williams"
+  },
+  {
+    "team": "Southern Miss Golden Eagles",
+    "head_coach": "2025",
+    "offensive_coordinator": "Jason Semore",
+    "defensive_coordinator": "Joe Bolden"
+  },
+  {
+    "team": "Texas State Bobcats",
+    "head_coach": "2023",
+    "offensive_coordinator": "Dexter McCoil / Bradley Dale Peveto",
+    "defensive_coordinator": "Tanner Burns"
+  },
+  {
+    "team": "Troy Trojans",
+    "head_coach": "2024",
+    "offensive_coordinator": "Nathan Burton / Dontae Wright",
+    "defensive_coordinator": "Tyler Hancock"
+  },
+  {
+    "team": "Cal Poly Mustangs",
+    "head_coach": "Paul Wulff",
+    "offensive_coordinator": "Timm Rosenbach / Erik Meyer",
+    "defensive_coordinator": "Cody vonAppen"
+  },
+  {
+    "team": "Eastern Washington Eagles",
+    "head_coach": "2017",
+    "offensive_coordinator": "Eric Sanders",
+    "defensive_coordinator": "Danny McDonald"
+  },
+  {
+    "team": "Idaho Vandals",
+    "head_coach": "2025",
+    "offensive_coordinator": "Cort Dennison",
+    "defensive_coordinator": "Neil Fendall"
+  },
+  {
+    "team": "Idaho State Bengals",
+    "head_coach": "2023",
+    "offensive_coordinator": "Grant Duff",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Montana Grizzlies",
+    "head_coach": "2018",
+    "offensive_coordinator": "Tim Hauck / Roger Cooper",
+    "defensive_coordinator": "Bobby Hauck"
+  },
+  {
+    "team": "Montana State Bobcats",
+    "head_coach": "2021",
+    "offensive_coordinator": "Shawn Howe",
+    "defensive_coordinator": "Marcus Monaco"
+  },
+  {
+    "team": "Northern Arizona Lumberjacks",
+    "head_coach": "2024",
+    "offensive_coordinator": "Adam Clark",
+    "defensive_coordinator": "Josh Robinson"
+  },
+  {
+    "team": "Northern Colorado Bears",
+    "head_coach": "2023",
+    "offensive_coordinator": "Preston Hadley",
+    "defensive_coordinator": "James Pazak"
+  },
+  {
+    "team": "Portland State Vikings",
+    "head_coach": "2015",
+    "offensive_coordinator": "Bryant Thomas",
+    "defensive_coordinator": "Robby Hauck"
+  },
+  {
+    "team": "Sacramento State Hornets",
+    "head_coach": "2025",
+    "offensive_coordinator": "Marvcus Patton / Josh Brown",
+    "defensive_coordinator": "Rob Wenger"
+  },
+  {
+    "team": "UC Davis Aggies",
+    "head_coach": "2024",
+    "offensive_coordinator": "Matt Coombs",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Weber State Wildcats",
+    "head_coach": "2023",
+    "offensive_coordinator": "Joe Dale",
+    "defensive_coordinator": "Skyler Ridley"
+  },
+  {
+    "team": "Albany Great Danes",
+    "head_coach": "Jared Ambrose",
+    "offensive_coordinator": "Will Fiacci",
+    "defensive_coordinator": "Bill Nesselt"
+  },
+  {
+    "team": "Bryant Bulldogs",
+    "head_coach": "2019",
+    "offensive_coordinator": "Anthony Barese",
+    "defensive_coordinator": "John Sielawa"
+  },
+  {
+    "team": "Campbell Fighting Camels",
+    "head_coach": "2024",
+    "offensive_coordinator": "Eric Daniels",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Elon Phoenix",
+    "head_coach": "2019",
+    "offensive_coordinator": "Casey Vance",
+    "defensive_coordinator": "Milo Austin"
+  },
+  {
+    "team": "Hampton Pirates",
+    "head_coach": "2024",
+    "offensive_coordinator": "Todd McComb",
+    "defensive_coordinator": "Darren Jackson"
+  },
+  {
+    "team": "Maine Black Bears",
+    "head_coach": "2022",
+    "offensive_coordinator": "Umberto Di Meo",
+    "defensive_coordinator": "Spencer Carey"
+  },
+  {
+    "team": "Monmouth Hawks",
+    "head_coach": "1993",
+    "offensive_coordinator": "Lewis Walker",
+    "defensive_coordinator": "Dennis Long"
+  },
+  {
+    "team": "New Hampshire Wildcats",
+    "head_coach": "2022",
+    "offensive_coordinator": "Scott James",
+    "defensive_coordinator": "Nick Della Jacono"
+  },
+  {
+    "team": "North Carolina A&T Aggies",
+    "head_coach": "2025",
+    "offensive_coordinator": "Denzel Jones",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Rhode Island Rams",
+    "head_coach": "2014",
+    "offensive_coordinator": "Chris Lorenti",
+    "defensive_coordinator": "Troy Gilmer"
+  },
+  {
+    "team": "Stony Brook Seawolves",
+    "head_coach": "2024",
+    "offensive_coordinator": "Scott Lewis",
+    "defensive_coordinator": "Kevin Elliott"
+  },
+  {
+    "team": "Towson Tigers",
+    "head_coach": "2023",
+    "offensive_coordinator": "Darian Dulin",
+    "defensive_coordinator": "Alex Krutsch"
+  },
+  {
+    "team": "Villanova Wildcats",
+    "head_coach": "2017",
+    "offensive_coordinator": "Ross Pennypacker",
+    "defensive_coordinator": "Matt Colangelo"
+  },
+  {
+    "team": "William & Mary Tribe",
+    "head_coach": "2019",
+    "offensive_coordinator": "Ras-I Dowling / Bo Revell",
+    "defensive_coordinator": "Darryl Blackstock"
+  },
+  {
+    "team": "Merrimack Warriors",
+    "head_coach": "Mike Gennetti",
+    "offensive_coordinator": "Aynsley Rosenbaum",
+    "defensive_coordinator": "Mike Gennetti"
+  },
+  {
+    "team": "Sacred Heart Pioneers",
+    "head_coach": "2012",
+    "offensive_coordinator": "Darin Edwards",
+    "defensive_coordinator": "Pat Saporito"
+  },
+  {
+    "team": "Brown Bears",
+    "head_coach": "James Perry",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Dan Mulrooney"
+  },
+  {
+    "team": "Columbia Lions",
+    "head_coach": "2024",
+    "offensive_coordinator": "Justin Stovall",
+    "defensive_coordinator": "Garrett McLaughlin"
+  },
+  {
+    "team": "Cornell Big Red",
+    "head_coach": "2024",
+    "offensive_coordinator": "Jared Backus",
+    "defensive_coordinator": "Jeff Dittman"
+  },
+  {
+    "team": "Dartmouth Big Green",
+    "head_coach": "2023",
+    "offensive_coordinator": "Don Dobes",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Harvard Crimson",
+    "head_coach": "2024",
+    "offensive_coordinator": "Scott Larkee",
+    "defensive_coordinator": "Steven Williams"
+  },
+  {
+    "team": "Penn Quakers",
+    "head_coach": "2015",
+    "offensive_coordinator": "Bob Benson",
+    "defensive_coordinator": "Rick Ulrich"
+  },
+  {
+    "team": "Princeton Tigers",
+    "head_coach": "2010",
+    "offensive_coordinator": "Steve Verbit / EJ Henderson / Matt Weick",
+    "defensive_coordinator": "Mike Mendenhall"
+  },
+  {
+    "team": "Yale Bulldogs",
+    "head_coach": "2012",
+    "offensive_coordinator": "Sean McGowan / Jay Anderson",
+    "defensive_coordinator": "Steven Vashel"
+  },
+  {
+    "team": "Delaware State Hornets",
+    "head_coach": "DeSean Jackson",
+    "offensive_coordinator": "Nemo Washington",
+    "defensive_coordinator": "Brandon Blackmon"
+  },
+  {
+    "team": "Howard Bison",
+    "head_coach": "2020",
+    "offensive_coordinator": "Troy Douglas",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Morgan State Bears",
+    "head_coach": "2022",
+    "offensive_coordinator": "Antone' Sewell",
+    "defensive_coordinator": "Benton Harold"
+  },
+  {
+    "team": "Norfolk State Spartans",
+    "head_coach": "2025",
+    "offensive_coordinator": "Terence Garvin",
+    "defensive_coordinator": "Tory Woodbury"
+  },
+  {
+    "team": "North Carolina Central Eagles",
+    "head_coach": "2019",
+    "offensive_coordinator": "Jesse Thompson",
+    "defensive_coordinator": "Charles Bankins"
+  },
+  {
+    "team": "South Carolina State Bulldogs",
+    "head_coach": "2024",
+    "offensive_coordinator": "Jordan Odaffer",
+    "defensive_coordinator": "Kevin King"
+  },
+  {
+    "team": "Illinois State Redbirds",
+    "head_coach": "Brock Spack",
+    "offensive_coordinator": "Tony Petersen",
+    "defensive_coordinator": "Travis Niekamp"
+  },
+  {
+    "team": "Indiana State Sycamores",
+    "head_coach": "2017",
+    "offensive_coordinator": "David Elson",
+    "defensive_coordinator": "Joseph Seymour"
+  },
+  {
+    "team": "Murray State Racers",
+    "head_coach": "2024",
+    "offensive_coordinator": "Kirk Botkin",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "North Dakota Fighting Hawks",
+    "head_coach": "2025",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Shawn Kostich"
+  },
+  {
+    "team": "North Dakota State Bison",
+    "head_coach": "2024",
+    "offensive_coordinator": "Grant Olson",
+    "defensive_coordinator": "Joe Beschorner"
+  },
+  {
+    "team": "Northern Iowa Panthers",
+    "head_coach": "2025",
+    "offensive_coordinator": "Al Smith",
+    "defensive_coordinator": "Michael McCourt"
+  },
+  {
+    "team": "South Dakota Coyotes",
+    "head_coach": "2025",
+    "offensive_coordinator": "Billy Kirch",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "South Dakota State Jackrabbits",
+    "head_coach": "2025",
+    "offensive_coordinator": "Brian Bergstrom",
+    "defensive_coordinator": "Isaiah Jackson"
+  },
+  {
+    "team": "Southern Illinois Salukis",
+    "head_coach": "2016",
+    "offensive_coordinator": "Lee Pronschinske",
+    "defensive_coordinator": "Nathan Frame"
+  },
+  {
+    "team": "Youngstown State Penguins",
+    "head_coach": "2020",
+    "offensive_coordinator": "John Haneline",
+    "defensive_coordinator": "Pat Shepard"
+  },
+  {
+    "team": "Central Connecticut Blue Devils",
+    "head_coach": "Adam Lechtenberg",
+    "offensive_coordinator": "Caleb Gelsomino",
+    "defensive_coordinator": "Ron DiGravio"
+  },
+  {
+    "team": "Chicago State Cougars",
+    "head_coach": "2026",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Duquesne Dukes",
+    "head_coach": "2005",
+    "offensive_coordinator": "Mickey Jacobs",
+    "defensive_coordinator": "Colin Goodfellow"
+  },
+  {
+    "team": "LIU Sharks",
+    "head_coach": "2022",
+    "offensive_coordinator": "TyQuan Hammock / Ryan Jirgl",
+    "defensive_coordinator": "Rhett Purling"
+  },
+  {
+    "team": "Mercyhurst Lakers",
+    "head_coach": "2022",
+    "offensive_coordinator": "Ryan Riemedio",
+    "defensive_coordinator": "Fredrick Gladney"
+  },
+  {
+    "team": "New Haven Chargers",
+    "head_coach": "2025",
+    "offensive_coordinator": "Mark Powell",
+    "defensive_coordinator": "Michael Day"
+  },
+  {
+    "team": "Robert Morris Colonials",
+    "head_coach": "2018",
+    "offensive_coordinator": "Jason Makrinos",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Saint Francis Red Flash",
+    "head_coach": "2010",
+    "offensive_coordinator": "Jacob Craig",
+    "defensive_coordinator": "Josh Hutchison"
+  },
+  {
+    "team": "Stonehill Skyhawks",
+    "head_coach": "2016",
+    "offensive_coordinator": "Kyle Jones",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Wagner Seahawks",
+    "head_coach": "2020",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Jim Munson"
+  },
+  {
+    "team": "Charleston Southern Buccaneers",
+    "head_coach": "Gabe Giardina",
+    "offensive_coordinator": "Seth Strickland",
+    "defensive_coordinator": "Nick Reveiz"
+  },
+  {
+    "team": "Eastern Illinois Panthers",
+    "head_coach": "2022",
+    "offensive_coordinator": "Andrew Strobel",
+    "defensive_coordinator": "Andrew Brady"
+  },
+  {
+    "team": "Gardner–Webb Runnin' Bulldogs",
+    "head_coach": "2024",
+    "offensive_coordinator": "Tim Cooper",
+    "defensive_coordinator": "Pete Bennett"
+  },
+  {
+    "team": "Lindenwood Lions",
+    "head_coach": "2017",
+    "offensive_coordinator": "Eric Inama",
+    "defensive_coordinator": "Bryan Baldwin"
+  },
+  {
+    "team": "Southeast Missouri State Redhawks",
+    "head_coach": "2014",
+    "offensive_coordinator": "Ricky Coon",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Tennessee State Tigers",
+    "head_coach": "2025",
+    "offensive_coordinator": "Gregg Williams",
+    "defensive_coordinator": "Jerod Kruse"
+  },
+  {
+    "team": "Tennessee Tech Golden Eagles",
+    "head_coach": "2024",
+    "offensive_coordinator": "Chase Mummau",
+    "defensive_coordinator": "Frank Wilson Jr."
+  },
+  {
+    "team": "UT Martin Skyhawks",
+    "head_coach": "2006",
+    "offensive_coordinator": "Jerry Partridge",
+    "defensive_coordinator": "TJ Jefferson"
+  },
+  {
+    "team": "Western Illinois Leathernecks",
+    "head_coach": "2024",
+    "offensive_coordinator": "Landan Fox",
+    "defensive_coordinator": "Josh Caraway"
+  },
+  {
+    "team": "Bucknell Bison",
+    "head_coach": "Dave Cecchini",
+    "offensive_coordinator": "Drew Folmar",
+    "defensive_coordinator": "Chris Bowers"
+  },
+  {
+    "team": "Colgate Raiders",
+    "head_coach": "2025",
+    "offensive_coordinator": "Trevor Warner",
+    "defensive_coordinator": "Josh Ison"
+  },
+  {
+    "team": "Fordham Rams",
+    "head_coach": "2018",
+    "offensive_coordinator": "Allen Gant",
+    "defensive_coordinator": "Andrew DiRienzo"
+  },
+  {
+    "team": "Georgetown Hoyas",
+    "head_coach": "2014",
+    "offensive_coordinator": "Kevin Doherty",
+    "defensive_coordinator": "Trey Henderson"
+  },
+  {
+    "team": "Holy Cross Crusaders",
+    "head_coach": "2024",
+    "offensive_coordinator": "Brian Vaganek",
+    "defensive_coordinator": "Bryan Robbat"
+  },
+  {
+    "team": "Lafayette Leopards",
+    "head_coach": "2022",
+    "offensive_coordinator": "Mike Saint Germain",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Lehigh Mountain Hawks",
+    "head_coach": "2023",
+    "offensive_coordinator": "Rich Nagy",
+    "defensive_coordinator": "Mike Kashurba"
+  },
+  {
+    "team": "Richmond Spiders",
+    "head_coach": "2017",
+    "offensive_coordinator": "Justin Wood",
+    "defensive_coordinator": "Drew Anthony"
+  },
+  {
+    "team": "Butler Bulldogs",
+    "head_coach": "Kevin Lynch",
+    "offensive_coordinator": "Colin Johnson",
+    "defensive_coordinator": "Jordan Belfiori"
+  },
+  {
+    "team": "Davidson Wildcats",
+    "head_coach": "2025",
+    "offensive_coordinator": "Miles Ahles",
+    "defensive_coordinator": "Pat McGowan"
+  },
+  {
+    "team": "Dayton Flyers",
+    "head_coach": "2023",
+    "offensive_coordinator": "John Bowes",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Drake Bulldogs",
+    "head_coach": "2025",
+    "offensive_coordinator": "Adam Cox",
+    "defensive_coordinator": "Josh Manchigiah"
+  },
+  {
+    "team": "Marist Red Foxes",
+    "head_coach": "2024",
+    "offensive_coordinator": "Mike Horan",
+    "defensive_coordinator": "John Audino"
+  },
+  {
+    "team": "Morehead State Eagles",
+    "head_coach": "2024",
+    "offensive_coordinator": "Wil Truelove",
+    "defensive_coordinator": "Laurence Treadaway"
+  },
+  {
+    "team": "Presbyterian Blue Hose",
+    "head_coach": "2022",
+    "offensive_coordinator": "Dan Owen",
+    "defensive_coordinator": "Will Kirkendall"
+  },
+  {
+    "team": "St. Thomas Tommies",
+    "head_coach": "2008",
+    "offensive_coordinator": "Wallie Kuchinski",
+    "defensive_coordinator": "Guido Falbo"
+  },
+  {
+    "team": "San Diego Toreros",
+    "head_coach": "2023",
+    "offensive_coordinator": "Mike McGlinchey / Isaac Carter",
+    "defensive_coordinator": "Louis Cortes"
+  },
+  {
+    "team": "Stetson Hatters",
+    "head_coach": "2025",
+    "offensive_coordinator": "Dustin Kincaid",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Valparaiso Beacons",
+    "head_coach": "2025",
+    "offensive_coordinator": "Zach Feltrop",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Chattanooga Mocs",
+    "head_coach": "Rusty Wright",
+    "offensive_coordinator": "Joe Pizzo",
+    "defensive_coordinator": "Mike Yeager"
+  },
+  {
+    "team": "The Citadel Bulldogs",
+    "head_coach": "2023",
+    "offensive_coordinator": "Raleigh Jackson",
+    "defensive_coordinator": "Tony Coaxum"
+  },
+  {
+    "team": "East Tennessee State Buccaneers",
+    "head_coach": "2025",
+    "offensive_coordinator": "Chad Staggs",
+    "defensive_coordinator": "Randall McCray"
+  },
+  {
+    "team": "Furman Paladins",
+    "head_coach": "2017",
+    "offensive_coordinator": "Duane Vaughn / Chad Byers",
+    "defensive_coordinator": "Tommy Spangler"
+  },
+  {
+    "team": "Mercer Bears",
+    "head_coach": "2024",
+    "offensive_coordinator": "Jahmal Brown",
+    "defensive_coordinator": "Matt Ulrich"
+  },
+  {
+    "team": "Samford Bulldogs",
+    "head_coach": "2015",
+    "offensive_coordinator": "Scot Sloan",
+    "defensive_coordinator": "Tyler Zielenske"
+  },
+  {
+    "team": "VMI Keydets",
+    "head_coach": "2023",
+    "offensive_coordinator": "Rich Yahner",
+    "defensive_coordinator": "Greg Wood"
+  },
+  {
+    "team": "Western Carolina Catamounts",
+    "head_coach": "2021",
+    "offensive_coordinator": "Jerry Odom",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Wofford Terriers",
+    "head_coach": "2022",
+    "offensive_coordinator": "Jonathan Saxon / Mitch Doolittle",
+    "defensive_coordinator": "Dustin Royston"
+  },
+  {
+    "team": "East Texas A&M Lions",
+    "head_coach": "Clint Dolezel",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Jack Tyler"
+  },
+  {
+    "team": "Houston Christian Huskies",
+    "head_coach": "2024",
+    "offensive_coordinator": "Zach Wilkerson",
+    "defensive_coordinator": "Blake Dunham"
+  },
+  {
+    "team": "Incarnate Word Cardinals",
+    "head_coach": "2023",
+    "offensive_coordinator": "Jim Gush / Ben Olson",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Lamar Cardinals",
+    "head_coach": "2023",
+    "offensive_coordinator": "Drew Christ",
+    "defensive_coordinator": "Daryl Daleen"
+  },
+  {
+    "team": "McNeese Cowboys",
+    "head_coach": "2025",
+    "offensive_coordinator": "Tony Pecoraro",
+    "defensive_coordinator": "Thomas Reese"
+  },
+  {
+    "team": "Nicholls Colonels",
+    "head_coach": "2025",
+    "offensive_coordinator": "Darion Monroe",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Northwestern State Demons",
+    "head_coach": "2024",
+    "offensive_coordinator": "Matt Conner",
+    "defensive_coordinator": "Tyson Wachenheim"
+  },
+  {
+    "team": "Southeastern Louisiana Lions",
+    "head_coach": "2018",
+    "offensive_coordinator": "Bill D'Ottavio",
+    "defensive_coordinator": "Ross Jenkins"
+  },
+  {
+    "team": "Stephen F. Austin Lumberjacks",
+    "head_coach": "2019",
+    "offensive_coordinator": "Michael Mutz",
+    "defensive_coordinator": "Nik Nelson"
+  },
+  {
+    "team": "UTRGV Vaqueros",
+    "head_coach": "2025[d]",
+    "offensive_coordinator": "Brian Gamble",
+    "defensive_coordinator": "Marcus Coleman"
+  },
+  {
+    "team": "Alabama A&M Bulldogs",
+    "head_coach": "Sam Shade",
+    "offensive_coordinator": "Dennis Alexander",
+    "defensive_coordinator": "Chris Shelling"
+  },
+  {
+    "team": "Alabama State Hornets",
+    "head_coach": "2022",
+    "offensive_coordinator": "Billy Gresham / Todd Middleton",
+    "defensive_coordinator": "Ronnie Scott"
+  },
+  {
+    "team": "Alcorn State Braves",
+    "head_coach": "2024",
+    "offensive_coordinator": "Deion Roberson",
+    "defensive_coordinator": "Derek Welch"
+  },
+  {
+    "team": "Arkansas–Pine Bluff Lions",
+    "head_coach": "2023",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Tom Manley"
+  },
+  {
+    "team": "Bethune-Cookman Wildcats",
+    "head_coach": "2023",
+    "offensive_coordinator": "Robert Wimberly / Otis Mound",
+    "defensive_coordinator": "Keith Towbridge / Pat Brown"
+  },
+  {
+    "team": "Florida A&M Rattlers",
+    "head_coach": "2024",
+    "offensive_coordinator": "Kenwick Thompson",
+    "defensive_coordinator": "Kevin Weston"
+  },
+  {
+    "team": "Grambling State Tigers",
+    "head_coach": "2024",
+    "offensive_coordinator": "Jason Rollins",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Jackson State Tigers",
+    "head_coach": "2023",
+    "offensive_coordinator": "Torenzo Quinn",
+    "defensive_coordinator": "Javancy Jones"
+  },
+  {
+    "team": "Mississippi Valley State Delta Devils",
+    "head_coach": "2025",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Prairie View A&M Panthers",
+    "head_coach": "2025",
+    "offensive_coordinator": "Brandon Andersen / Trent Earley",
+    "defensive_coordinator": "Jackson Hadley"
+  },
+  {
+    "team": "Southern Jaguars",
+    "head_coach": "2023",
+    "offensive_coordinator": "Henry Miller",
+    "defensive_coordinator": "Everett Todd"
+  },
+  {
+    "team": "Texas Southern Tigers",
+    "head_coach": "2024",
+    "offensive_coordinator": "Billy Parker",
+    "defensive_coordinator": "Billy Owens"
+  },
+  {
+    "team": "Abilene Christian Wildcats",
+    "head_coach": "Keith Patterson",
+    "offensive_coordinator": "Graham Harrell",
+    "defensive_coordinator": "Nick Holt"
+  },
+  {
+    "team": "Austin Peay Governors",
+    "head_coach": "2024",
+    "offensive_coordinator": "Greg Jones",
+    "defensive_coordinator": "Lucas Reed"
+  },
+  {
+    "team": "Central Arkansas Bears",
+    "head_coach": "2018",
+    "offensive_coordinator": "Greg Stewart",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Eastern Kentucky Colonels",
+    "head_coach": "2020",
+    "offensive_coordinator": "Jake Johnson",
+    "defensive_coordinator": "Derek Day"
+  },
+  {
+    "team": "North Alabama Lions",
+    "head_coach": "2023",
+    "offensive_coordinator": "Brock Caraboa",
+    "defensive_coordinator": "Luke Roth"
+  },
+  {
+    "team": "Southern Utah Thunderbirds",
+    "head_coach": "2022",
+    "offensive_coordinator": "John Kelling",
+    "defensive_coordinator": "Shay McClure"
+  },
+  {
+    "team": "Tarleton State Texans",
+    "head_coach": "2016",
+    "offensive_coordinator": "Tyrone Nix",
+    "defensive_coordinator": "Michael Walton"
+  },
+  {
+    "team": "Utah Tech Trailblazers",
+    "head_coach": "2024",
+    "offensive_coordinator": "Patrick Moynahan",
+    "defensive_coordinator": "Kyan Brumfield"
+  },
+  {
+    "team": "West Georgia Wolves",
+    "head_coach": "2024",
+    "offensive_coordinator": "Woody Blevins / Tripp Weaver",
+    "defensive_coordinator": "Brandon Taylor"
+  },
+  {
+    "team": "Barton Bulldogs",
+    "head_coach": "Chip Hester",
+    "offensive_coordinator": "Landon Mariani",
+    "defensive_coordinator": "Treiston Burnette"
+  },
+  {
+    "team": "Chowan Hawks",
+    "head_coach": "2023",
+    "offensive_coordinator": "Tony Gilbert",
+    "defensive_coordinator": "Dedrick Payton"
+  },
+  {
+    "team": "Erskine Flying Fleet",
+    "head_coach": "2020",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Bryan Newhouse"
+  },
+  {
+    "team": "Ferrum Panthers",
+    "head_coach": "2024",
+    "offensive_coordinator": "Anthony Konieczka",
+    "defensive_coordinator": "Sam Martin"
+  },
+  {
+    "team": "North Greenville Crusaders",
+    "head_coach": "2025",
+    "offensive_coordinator": "Davis Lowery",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Shorter Hawks",
+    "head_coach": "2018",
+    "offensive_coordinator": "Harlen Jacobs",
+    "defensive_coordinator": "Ryne Strickland"
+  },
+  {
+    "team": "UNC Pembroke Braves",
+    "head_coach": "2023",
+    "offensive_coordinator": "Colin Neely",
+    "defensive_coordinator": "T. J. Denson"
+  },
+  {
+    "team": "Bluefield State Big Blues",
+    "head_coach": "Davon Morgan",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Curtis Terry"
+  },
+  {
+    "team": "Bowie State Bulldogs",
+    "head_coach": "2022",
+    "offensive_coordinator": "Avery Williams",
+    "defensive_coordinator": "Mike Andrews"
+  },
+  {
+    "team": "Elizabeth City State Vikings",
+    "head_coach": "2025",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Fayetteville State Broncos",
+    "head_coach": "2016",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Tyrone Jones"
+  },
+  {
+    "team": "Johnson C. Smith Golden Bulls",
+    "head_coach": "2022",
+    "offensive_coordinator": "Barry Tripp / Chi-Emeke Worthington",
+    "defensive_coordinator": "James Lott"
+  },
+  {
+    "team": "Lincoln Lions",
+    "head_coach": "2023",
+    "offensive_coordinator": "Demetrie McCray",
+    "defensive_coordinator": "Malik Jones"
+  },
+  {
+    "team": "Livingstone Blue Bears",
+    "head_coach": "2020",
+    "offensive_coordinator": "Michael Austin / Mark Williams",
+    "defensive_coordinator": "Ebony Kimbrough"
+  },
+  {
+    "team": "Shaw Bears",
+    "head_coach": "2025",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Virginia State Trojans",
+    "head_coach": "2022",
+    "offensive_coordinator": "Carlos Fields",
+    "defensive_coordinator": "John Pearce"
+  },
+  {
+    "team": "Virginia Union Panthers",
+    "head_coach": "2018",
+    "offensive_coordinator": "Edward Pointer",
+    "defensive_coordinator": "Diego Ryland"
+  },
+  {
+    "team": "Winston-Salem State Rams",
+    "head_coach": "2019",
+    "offensive_coordinator": "Markus McElveen",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Arkansas–Monticello Boll Weevils",
+    "head_coach": "Hud Jackson",
+    "offensive_coordinator": "Josh Qualls",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Arkansas Tech Wonder Boys",
+    "head_coach": "2025",
+    "offensive_coordinator": "Frank Espy",
+    "defensive_coordinator": "Chris Bonta"
+  },
+  {
+    "team": "East Central Tigers",
+    "head_coach": "2023",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Aretavious Hendrix"
+  },
+  {
+    "team": "Harding Bisons",
+    "head_coach": "2017",
+    "offensive_coordinator": "Roddy Mote",
+    "defensive_coordinator": "Luke Tribble"
+  },
+  {
+    "team": "Henderson State Reddies",
+    "head_coach": "2024",
+    "offensive_coordinator": "Donte' Colum",
+    "defensive_coordinator": "Will Wagner"
+  },
+  {
+    "team": "Northwestern Oklahoma State Rangers",
+    "head_coach": "2023",
+    "offensive_coordinator": "Jerry Glanville",
+    "defensive_coordinator": "Dax Benway"
+  },
+  {
+    "team": "Oklahoma Baptist Bison",
+    "head_coach": "2012",
+    "offensive_coordinator": "Tyler Roberts",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Ouachita Baptist Tigers",
+    "head_coach": "1999",
+    "offensive_coordinator": "Brady Carson",
+    "defensive_coordinator": "Hunter Scott"
+  },
+  {
+    "team": "Southeastern Oklahoma State Savage Storm",
+    "head_coach": "2023",
+    "offensive_coordinator": "Brandon Smith",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Southern Arkansas Muleriders",
+    "head_coach": "2022",
+    "offensive_coordinator": "Dionte Dean",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Southern Nazarene Crimson Storm",
+    "head_coach": "2020",
+    "offensive_coordinator": "Indy Siehndel",
+    "defensive_coordinator": "Kenneth West"
+  },
+  {
+    "team": "Southwestern Oklahoma State Bulldogs",
+    "head_coach": "2024",
+    "offensive_coordinator": "Mike Lucas",
+    "defensive_coordinator": "Aaron Jeffreys"
+  },
+  {
+    "team": "Davenport Panthers",
+    "head_coach": "Sparky McEwen",
+    "offensive_coordinator": "Devin Russell",
+    "defensive_coordinator": "Adrian McEwen"
+  },
+  {
+    "team": "Ferris State Bulldogs",
+    "head_coach": "2012",
+    "offensive_coordinator": "Tony Annese Jr. / Ryan Hodges",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Grand Valley State Lakers",
+    "head_coach": "2023",
+    "offensive_coordinator": "Jim Louis",
+    "defensive_coordinator": "Jacob Studdard"
+  },
+  {
+    "team": "Michigan Tech Huskies",
+    "head_coach": "2023",
+    "offensive_coordinator": "Bryan Thomas",
+    "defensive_coordinator": "Phil Milbrath"
+  },
+  {
+    "team": "Northern Michigan Wildcats",
+    "head_coach": "2023",
+    "offensive_coordinator": "Mike DuFrane",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Roosevelt Lakers",
+    "head_coach": "2025",
+    "offensive_coordinator": "Patton Fitzpatrick",
+    "defensive_coordinator": "Brent Johnson"
+  },
+  {
+    "team": "Saginaw Valley State Cardinals",
+    "head_coach": "2019",
+    "offensive_coordinator": "Brandon Clayton",
+    "defensive_coordinator": "Joshua Schumacher"
+  },
+  {
+    "team": "Wayne State Warriors",
+    "head_coach": "2023",
+    "offensive_coordinator": "Antwon Robinson",
+    "defensive_coordinator": "Ahmed Saleh"
+  },
+  {
+    "team": "Indianapolis Greyhounds",
+    "head_coach": "Chris Keevers",
+    "offensive_coordinator": "Michael Engle",
+    "defensive_coordinator": "Rahju Blackmon / Logan Plumley"
+  },
+  {
+    "team": "Lincoln Blue Tigers",
+    "head_coach": "2024",
+    "offensive_coordinator": "Steven Miller",
+    "defensive_coordinator": "Sheldon Tucker"
+  },
+  {
+    "team": "McKendree Bearcats",
+    "head_coach": "2024",
+    "offensive_coordinator": "Opetaia Tuiava",
+    "defensive_coordinator": "Mason Keeler"
+  },
+  {
+    "team": "Missouri S&T Miners",
+    "head_coach": "2022",
+    "offensive_coordinator": "Corey Sudhoff",
+    "defensive_coordinator": "Owen Jordan"
+  },
+  {
+    "team": "Quincy Hawks",
+    "head_coach": "2024",
+    "offensive_coordinator": "Dan McKeown",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Southwest Baptist Bearcats",
+    "head_coach": "2025",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Ethan Smith"
+  },
+  {
+    "team": "Truman Bulldogs",
+    "head_coach": "2024",
+    "offensive_coordinator": "Jeramey Dockery",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Upper Iowa Peacocks",
+    "head_coach": "2021",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "William Jewell Cardinals",
+    "head_coach": "2024",
+    "offensive_coordinator": "Kevin Corless",
+    "defensive_coordinator": "Mark Faubion"
+  },
+  {
+    "team": "Ashland Eagles",
+    "head_coach": "Doug Geiser",
+    "offensive_coordinator": "Tom Stacy",
+    "defensive_coordinator": "Tim Rose"
+  },
+  {
+    "team": "Findlay Oilers",
+    "head_coach": "2022",
+    "offensive_coordinator": "Thomas Rebholz",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Hillsdale Chargers",
+    "head_coach": "2024",
+    "offensive_coordinator": "Steve Otterbein",
+    "defensive_coordinator": "Nick Galvan"
+  },
+  {
+    "team": "Kentucky Wesleyan Panthers",
+    "head_coach": "2022",
+    "offensive_coordinator": "Brandon Frase",
+    "defensive_coordinator": "JeMichael Williams"
+  },
+  {
+    "team": "Lake Erie Storm",
+    "head_coach": "2024",
+    "offensive_coordinator": "Marquis Smith",
+    "defensive_coordinator": "Macklin Coleman"
+  },
+  {
+    "team": "Northwood Timberwolves",
+    "head_coach": "2023",
+    "offensive_coordinator": "Justin Sweeney",
+    "defensive_coordinator": "E. J. Arnold"
+  },
+  {
+    "team": "Ohio Dominican Panthers",
+    "head_coach": "2016",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Andy Allison"
+  },
+  {
+    "team": "Thomas More Saints",
+    "head_coach": "2022",
+    "offensive_coordinator": "Brad Zink",
+    "defensive_coordinator": "Devon Fisher"
+  },
+  {
+    "team": "Tiffin Dragons",
+    "head_coach": "2024",
+    "offensive_coordinator": "James Daniels",
+    "defensive_coordinator": "Cameron Lauck"
+  },
+  {
+    "team": "Walsh Cavaliers",
+    "head_coach": "2018",
+    "offensive_coordinator": "Adam Ferback",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Delta State Statesmen",
+    "head_coach": "Todd Cooley",
+    "offensive_coordinator": "Jonathan Fletcher",
+    "defensive_coordinator": "Chance Alberswerth"
+  },
+  {
+    "team": "Valdosta State Blazers",
+    "head_coach": "2025",
+    "offensive_coordinator": "Greg Harris",
+    "defensive_coordinator": "Aidan Panni"
+  },
+  {
+    "team": "West Alabama Tigers",
+    "head_coach": "2025",
+    "offensive_coordinator": "Steve Sisa",
+    "defensive_coordinator": "Thomas Fletcher"
+  },
+  {
+    "team": "West Florida Argonauts",
+    "head_coach": "2023",
+    "offensive_coordinator": "Kavell Conner",
+    "defensive_coordinator": "Jordan Remsza"
+  },
+  {
+    "team": "Northeastern State RiverHawks",
+    "head_coach": "Darrin Chiaverini",
+    "offensive_coordinator": "Darrin Chiaverini",
+    "defensive_coordinator": "Junior Tanuvasa"
+  },
+  {
+    "team": "Angelo State Rams",
+    "head_coach": "Jeff Girsch",
+    "offensive_coordinator": "Kevin Kilmer",
+    "defensive_coordinator": "Gary Salgado"
+  },
+  {
+    "team": "Central Washington Wildcats",
+    "head_coach": "2019",
+    "offensive_coordinator": "Grant Torgerson",
+    "defensive_coordinator": "Jared Gallatin"
+  },
+  {
+    "team": "Eastern New Mexico Greyhounds",
+    "head_coach": "2023",
+    "offensive_coordinator": "Brandon Perkins",
+    "defensive_coordinator": "Mike Pomfret"
+  },
+  {
+    "team": "Midwestern State Mustangs",
+    "head_coach": "2024",
+    "offensive_coordinator": "Blake Frazier",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Sul Ross Lobos",
+    "head_coach": "2025",
+    "offensive_coordinator": "Cadron Davis",
+    "defensive_coordinator": "Christian Escobar"
+  },
+  {
+    "team": "Texas A&M–Kingsville Javelinas",
+    "head_coach": "2025",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Keith Scott"
+  },
+  {
+    "team": "UT Permain Basin Falcons",
+    "head_coach": "2023",
+    "offensive_coordinator": "Devin Gaulden / Jake Shaw",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "West Texas A&M Buffaloes",
+    "head_coach": "2023",
+    "offensive_coordinator": "Justin Richter",
+    "defensive_coordinator": "Cody Russell"
+  },
+  {
+    "team": "Western New Mexico Mustangs",
+    "head_coach": "2023",
+    "offensive_coordinator": "Christopher Clift",
+    "defensive_coordinator": "Clyde Logan"
+  },
+  {
+    "team": "Western Oregon Wolves",
+    "head_coach": "2005",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Matt Overlin"
+  },
+  {
+    "team": "Central Missouri Mules",
+    "head_coach": "Josh Lamberson",
+    "offensive_coordinator": "Hayden Hawk / Joe Holtzclaw",
+    "defensive_coordinator": "Rich Wright"
+  },
+  {
+    "team": "Central Oklahoma Bronchos",
+    "head_coach": "2022",
+    "offensive_coordinator": "Thomas Pearson / Cody Swanson",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Emporia State Hornets",
+    "head_coach": "2007",
+    "offensive_coordinator": "Mike LoPorto / Jace McDown",
+    "defensive_coordinator": "Daniel Goodman"
+  },
+  {
+    "team": "Fort Hays State Tigers",
+    "head_coach": "2011",
+    "offensive_coordinator": "Cooper Harris",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Missouri Southern Lions",
+    "head_coach": "2020",
+    "offensive_coordinator": "Joe Bettasso",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Missouri Western Griffons",
+    "head_coach": "2023",
+    "offensive_coordinator": "Erik Johnson",
+    "defensive_coordinator": "Colin McQuillan"
+  },
+  {
+    "team": "Nebraska–Kearney Lopers",
+    "head_coach": "2023",
+    "offensive_coordinator": "Tim Schaffner",
+    "defensive_coordinator": "Jake Mandelko"
+  },
+  {
+    "team": "Northwest Missouri State Bearcats",
+    "head_coach": "2025",
+    "offensive_coordinator": "Chad Bostwick",
+    "defensive_coordinator": "Jake Willrich"
+  },
+  {
+    "team": "Pittsburg State Gorillas",
+    "head_coach": "2024",
+    "offensive_coordinator": "Lynn Nutt / Tyrell Everett",
+    "defensive_coordinator": "Gregg Hollins"
+  },
+  {
+    "team": "Washburn Ichabods",
+    "head_coach": "2025",
+    "offensive_coordinator": "Kaleb Koch",
+    "defensive_coordinator": "Jarvis Harrod"
+  },
+  {
+    "team": "Charleston Golden Eagles",
+    "head_coach": "Mike Tesch",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Alex Daugherty"
+  },
+  {
+    "team": "Concord Mountain Lions",
+    "head_coach": "2025",
+    "offensive_coordinator": "Ethan Harris",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Fairmont State Falcons",
+    "head_coach": "2024",
+    "offensive_coordinator": "Zack Johnson",
+    "defensive_coordinator": "Justice Lucas"
+  },
+  {
+    "team": "Frostburg State Bobcats",
+    "head_coach": "2022",
+    "offensive_coordinator": "Eric Rhodes",
+    "defensive_coordinator": "Derek Prather"
+  },
+  {
+    "team": "Glenville State Pioneers",
+    "head_coach": "2019",
+    "offensive_coordinator": "JJ Mayer",
+    "defensive_coordinator": "Anthony Kellar"
+  },
+  {
+    "team": "West Liberty Hilltoppers",
+    "head_coach": "2005",
+    "offensive_coordinator": "Jeff Monteroso",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "West Virginia State Yellow Jackets",
+    "head_coach": "2017",
+    "offensive_coordinator": "George Shehl",
+    "defensive_coordinator": "Rashad Jackson"
+  },
+  {
+    "team": "West Virginia Wesleyan Bobcats",
+    "head_coach": "2021",
+    "offensive_coordinator": "Paul Price",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Wheeling Cardinals",
+    "head_coach": "2019",
+    "offensive_coordinator": "Mott Gaymon",
+    "defensive_coordinator": "Arthur Smith"
+  },
+  {
+    "team": "American International Yellow Jackets",
+    "head_coach": "Daniel Chipka",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Michael Blochowski"
+  },
+  {
+    "team": "Assumption Greyhounds",
+    "head_coach": "2018",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Bentley Falcons",
+    "head_coach": "2025",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Franklin Pierce Ravens",
+    "head_coach": "2019",
+    "offensive_coordinator": "Taylor Ewen",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Pace Setters",
+    "head_coach": "2025",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Post Eagles",
+    "head_coach": "2022",
+    "offensive_coordinator": "Ross Ragonesi",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Saint Anselm Hawks",
+    "head_coach": "2016",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Chadd Braine"
+  },
+  {
+    "team": "Southern Connecticut Fighting Owls",
+    "head_coach": "2025",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Augustana Vikings",
+    "head_coach": "Jerry Olszewski",
+    "offensive_coordinator": "Andrew Loudenback",
+    "defensive_coordinator": "Mark Sipple"
+  },
+  {
+    "team": "Bemidji State Beavers",
+    "head_coach": "2016",
+    "offensive_coordinator": "Joe Ford",
+    "defensive_coordinator": "Austin Brown / Alex Ney"
+  },
+  {
+    "team": "Concordia Golden Bears",
+    "head_coach": "2016",
+    "offensive_coordinator": "Craig Stern",
+    "defensive_coordinator": "Dalton Thomas"
+  },
+  {
+    "team": "Jamestown Jimmies",
+    "head_coach": "2019",
+    "offensive_coordinator": "Shane Clancy",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Mary Marauders",
+    "head_coach": "2023",
+    "offensive_coordinator": "Ben Davis",
+    "defensive_coordinator": "Van Cooper"
+  },
+  {
+    "team": "Minnesota Duluth Bulldogs",
+    "head_coach": "2013",
+    "offensive_coordinator": "Trey Dill",
+    "defensive_coordinator": "John Steger"
+  },
+  {
+    "team": "Minnesota State Mavericks",
+    "head_coach": "2014",
+    "offensive_coordinator": "Todd Taylor",
+    "defensive_coordinator": "Graham Hevel"
+  },
+  {
+    "team": "Minnesota State–Moorhead Dragons",
+    "head_coach": "2011",
+    "offensive_coordinator": "Jesse Currier",
+    "defensive_coordinator": "Abe Roehrich"
+  },
+  {
+    "team": "Minot State Beavers",
+    "head_coach": "2023",
+    "offensive_coordinator": "Jake Rothschiller",
+    "defensive_coordinator": "Mike Famiglietti"
+  },
+  {
+    "team": "Northern State Wolves",
+    "head_coach": "2020",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Sioux Falls Cougars",
+    "head_coach": "2023",
+    "offensive_coordinator": "Spencer Capitani",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Southwest Minnesota State Mustangs",
+    "head_coach": "2022",
+    "offensive_coordinator": "Levi Bullerman",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Wayne State Wildcats",
+    "head_coach": "2022",
+    "offensive_coordinator": "Scott McLaughlin",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Winona State Warriors",
+    "head_coach": "2025",
+    "offensive_coordinator": "Spencer Erickson",
+    "defensive_coordinator": "Brian Curtin"
+  },
+  {
+    "team": "Bloomsburg Huskies",
+    "head_coach": "Frank Sheptock",
+    "offensive_coordinator": "Tim Landis",
+    "defensive_coordinator": "Zach Martin"
+  },
+  {
+    "team": "California Vulcans",
+    "head_coach": "2016",
+    "offensive_coordinator": "Jawan Turner",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Clarion Golden Eagles",
+    "head_coach": "2022",
+    "offensive_coordinator": "Josh Hager",
+    "defensive_coordinator": "Ed Groth IV"
+  },
+  {
+    "team": "East Stroudsburg Warriors",
+    "head_coach": "2018",
+    "offensive_coordinator": "Mike Lackey",
+    "defensive_coordinator": "Matt Hagelgans"
+  },
+  {
+    "team": "Edinboro Fighting Scots",
+    "head_coach": "2025",
+    "offensive_coordinator": "Eric Crandall",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Gannon Golden Knights",
+    "head_coach": "2020",
+    "offensive_coordinator": "Tony Caljean",
+    "defensive_coordinator": "Jovon Johnson"
+  },
+  {
+    "team": "IUP Crimson Hawks",
+    "head_coach": "2017",
+    "offensive_coordinator": "Jim Smith",
+    "defensive_coordinator": "Brett Brice"
+  },
+  {
+    "team": "Kutztown Golden Bears",
+    "head_coach": "2014",
+    "offensive_coordinator": "Eric Fargo",
+    "defensive_coordinator": "Gordon Winicov"
+  },
+  {
+    "team": "Lock Haven Bald Eagles",
+    "head_coach": "2025",
+    "offensive_coordinator": "Michael Derasmo",
+    "defensive_coordinator": "Nick Vorhees"
+  },
+  {
+    "team": "Millersville Marauders",
+    "head_coach": "2018",
+    "offensive_coordinator": "Ralph Clark",
+    "defensive_coordinator": "Dan Beard"
+  },
+  {
+    "team": "Seton Hill Griffins",
+    "head_coach": "2025",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Shepherd Rams",
+    "head_coach": "2018",
+    "offensive_coordinator": "Josh Kline",
+    "defensive_coordinator": "Luke Wright"
+  },
+  {
+    "team": "Shippensburg Raiders",
+    "head_coach": "2011",
+    "offensive_coordinator": "Mike Burket",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Slippery Rock",
+    "head_coach": "2016",
+    "offensive_coordinator": "Domenick Razzano",
+    "defensive_coordinator": "Cedric Whitaker"
+  },
+  {
+    "team": "West Chester Golden Rams",
+    "head_coach": "2024",
+    "offensive_coordinator": "Nick Brady",
+    "defensive_coordinator": "Gerald Toney"
+  },
+  {
+    "team": "Adams State Grizzlies",
+    "head_coach": "Levi Gallas",
+    "offensive_coordinator": "Chase Kyser",
+    "defensive_coordinator": "Levi Gallas"
+  },
+  {
+    "team": "Black Hills State Yellow Jackets",
+    "head_coach": "2020",
+    "offensive_coordinator": "JB Brown",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Chadron State Eagles",
+    "head_coach": "2012",
+    "offensive_coordinator": "Clint Sasse",
+    "defensive_coordinator": "Wes Coomes"
+  },
+  {
+    "team": "Colorado Mesa Mavericks",
+    "head_coach": "2022",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Levi Suiaunoa"
+  },
+  {
+    "team": "Colorado Mines Orediggers",
+    "head_coach": "2025",
+    "offensive_coordinator": "Trip Thomas",
+    "defensive_coordinator": "Yon Boone"
+  },
+  {
+    "team": "CSU Pueblo ThunderWolves",
+    "head_coach": "2023",
+    "offensive_coordinator": "Caid Faske",
+    "defensive_coordinator": "Mac Alexander"
+  },
+  {
+    "team": "Fort Lewis Skyhawks",
+    "head_coach": "2022",
+    "offensive_coordinator": "Spencer Brown",
+    "defensive_coordinator": "Emmanuel Jordan Bible"
+  },
+  {
+    "team": "New Mexico Highlands Cowboys",
+    "head_coach": "2024",
+    "offensive_coordinator": "Kurt Taufa'asau",
+    "defensive_coordinator": "Ben Langford / Bryndan McCoy"
+  },
+  {
+    "team": "South Dakota Mines Hardrockers",
+    "head_coach": "2020",
+    "offensive_coordinator": "Vance Winter",
+    "defensive_coordinator": "Bo Montgomery"
+  },
+  {
+    "team": "Western Colorado Mountaineers",
+    "head_coach": "2011",
+    "offensive_coordinator": "Todd Auer",
+    "defensive_coordinator": "Jake Van Groll"
+  },
+  {
+    "team": "Anderson Trojans",
+    "head_coach": "Bobby Lamb",
+    "offensive_coordinator": "James Thurn",
+    "defensive_coordinator": "Brett Hickman"
+  },
+  {
+    "team": "Carson–Newman Eagles",
+    "head_coach": "2024",
+    "offensive_coordinator": "Tyler Almond / Larry Slade",
+    "defensive_coordinator": "Antonio Goss"
+  },
+  {
+    "team": "Catawba Indians",
+    "head_coach": "2023",
+    "offensive_coordinator": "Khanis Hubbard / Tee Overman",
+    "defensive_coordinator": "Jake Vellucci"
+  },
+  {
+    "team": "Emory and Henry Wasps",
+    "head_coach": "2024",
+    "offensive_coordinator": "Mitchell Walters",
+    "defensive_coordinator": "Mitchell Walters"
+  },
+  {
+    "team": "Lenoir–Rhyne Bears",
+    "head_coach": "2024",
+    "offensive_coordinator": "Robbie Owens",
+    "defensive_coordinator": "Justin Hilliker"
+  },
+  {
+    "team": "Mars Hill Lions",
+    "head_coach": "1993",
+    "offensive_coordinator": "Kevin Barnette",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Newberry Wolves",
+    "head_coach": "2009",
+    "offensive_coordinator": "Stephen Flynn",
+    "defensive_coordinator": "Drew Watson"
+  },
+  {
+    "team": "Tusculum Pioneers",
+    "head_coach": "2024",
+    "offensive_coordinator": "Teddy Gaines",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "UVA Wise Cavaliers",
+    "head_coach": "2024",
+    "offensive_coordinator": "Kirby Cannon",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Wingate Bulldogs",
+    "head_coach": "2024",
+    "offensive_coordinator": "Travis Knight",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Albany State Golden Rams",
+    "head_coach": "Quinn Gray",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Matthew Brown / Chris Cash"
+  },
+  {
+    "team": "Allen Yellow Jackets",
+    "head_coach": "2024",
+    "offensive_coordinator": "Kienus Boulware",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Benedict Tigers",
+    "head_coach": "2024",
+    "offensive_coordinator": "Shea Campbell",
+    "defensive_coordinator": "Jordan Hopgood Sr."
+  },
+  {
+    "team": "Central State Marauders",
+    "head_coach": "2025",
+    "offensive_coordinator": "Pat Clark",
+    "defensive_coordinator": "Chris Murphy"
+  },
+  {
+    "team": "Clark Atlanta Panthers",
+    "head_coach": "2024",
+    "offensive_coordinator": "L. C. Cole",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Edward Waters Tigers",
+    "head_coach": "2025",
+    "offensive_coordinator": "Mike Fanoga",
+    "defensive_coordinator": "Alex Collier"
+  },
+  {
+    "team": "Fort Valley State Wildcats",
+    "head_coach": "2025",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Kentucky State Thorobreds",
+    "head_coach": "2023",
+    "offensive_coordinator": "Earl Chambers",
+    "defensive_coordinator": "Marco Sanchez"
+  },
+  {
+    "team": "Lane Dragons",
+    "head_coach": "2025",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Miles Golden Bears",
+    "head_coach": "2025",
+    "offensive_coordinator": "Kenneth Watson",
+    "defensive_coordinator": "Shawn Sellers"
+  },
+  {
+    "team": "Morehouse Maroon Tigers",
+    "head_coach": "2024",
+    "offensive_coordinator": "George Copeland",
+    "defensive_coordinator": "Saeed Lee"
+  },
+  {
+    "team": "Savannah State Tigers",
+    "head_coach": "2022",
+    "offensive_coordinator": "Johnson Hunter",
+    "defensive_coordinator": "Johnson Hunter"
+  },
+  {
+    "team": "Tuskegee Golden Tigers",
+    "head_coach": "2023",
+    "offensive_coordinator": "O.C. Williams",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Buena Vista Beavers",
+    "head_coach": "Austin Dickinson",
+    "offensive_coordinator": "Tom Rethman",
+    "defensive_coordinator": "Eric Hubbard"
+  },
+  {
+    "team": "Central (IA) Dutch",
+    "head_coach": "Jeff McMartin",
+    "offensive_coordinator": "Michael Chorowicz",
+    "defensive_coordinator": "Ben Hodges"
+  },
+  {
+    "team": "Coe Kohawks",
+    "head_coach": "Tyler Staker",
+    "offensive_coordinator": "Jacob Donohoe",
+    "defensive_coordinator": "Cody Baethke"
+  },
+  {
+    "team": "Dubuque Spartans",
+    "head_coach": "Ryan Maiuri",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Mitch Shepherd"
+  },
+  {
+    "team": "Loras Duhawks",
+    "head_coach": "Steve Helminiak",
+    "offensive_coordinator": "Jake Olsen",
+    "defensive_coordinator": "Greg Bower"
+  },
+  {
+    "team": "Luther Norse",
+    "head_coach": "Joe Troche",
+    "offensive_coordinator": "Lars Prestemon",
+    "defensive_coordinator": "Quinton Murphy"
+  },
+  {
+    "team": "Nebraska Wesleyan Prairie Wolves",
+    "head_coach": "Brian Keller",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Will Lawrence"
+  },
+  {
+    "team": "Simpson (IA) Storm",
+    "head_coach": "Reed Hoskins",
+    "offensive_coordinator": "Robbie Aldinger",
+    "defensive_coordinator": "Jason Martinez"
+  },
+  {
+    "team": "Wartburg Knights",
+    "head_coach": "Chris Winter",
+    "offensive_coordinator": "Matt Wheeler",
+    "defensive_coordinator": "Matt Tschetter"
+  },
+  {
+    "team": "East Texas Baptist Tigers",
+    "head_coach": "Calvin Ruzicka",
+    "offensive_coordinator": "Jeb Spinney",
+    "defensive_coordinator": "Scott Brock"
+  },
+  {
+    "team": "Hardin–Simmons Cowboys",
+    "head_coach": "Jesse Burleson",
+    "offensive_coordinator": "Jeff Whitehead",
+    "defensive_coordinator": "Craig Neece"
+  },
+  {
+    "team": "Howard Payne Yellow Jackets",
+    "head_coach": "Coby Gipson",
+    "offensive_coordinator": "James Douglas III",
+    "defensive_coordinator": "Will Snyder"
+  },
+  {
+    "team": "Mary Hardin–Baylor Crusaders",
+    "head_coach": "Larry Harmon",
+    "offensive_coordinator": "Stephen Lee",
+    "defensive_coordinator": "Mark Carey"
+  },
+  {
+    "team": "Schreiner Mountaineers",
+    "head_coach": "Keith Allen",
+    "offensive_coordinator": "David Jones",
+    "defensive_coordinator": "Shane Hallmark"
+  },
+  {
+    "team": "Augustana (IL) Vikings",
+    "head_coach": "Steve Bell",
+    "offensive_coordinator": "Keegan Jones",
+    "defensive_coordinator": "Dick Maloney"
+  },
+  {
+    "team": "Carroll (WI) Pioneers",
+    "head_coach": "Mike Budziszewski",
+    "offensive_coordinator": "Ken Ackerman",
+    "defensive_coordinator": "Garren Holley"
+  },
+  {
+    "team": "Carthage Firebirds",
+    "head_coach": "Matt Popino",
+    "offensive_coordinator": "Jeff Duvendeck",
+    "defensive_coordinator": "Adam Weber"
+  },
+  {
+    "team": "Elmhurst Bluejays",
+    "head_coach": "Mike Heffernan",
+    "offensive_coordinator": "Jake Tahaney",
+    "defensive_coordinator": "Kenny Treschitta"
+  },
+  {
+    "team": "Illinois Wesleyan Titans",
+    "head_coach": "Jared Williamson",
+    "offensive_coordinator": "Eli Kosanovich",
+    "defensive_coordinator": "Mike Murray"
+  },
+  {
+    "team": "Millikin Big Blue",
+    "head_coach": "Billy Riebock",
+    "offensive_coordinator": "Gunnard Twyner",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "North Central (IL) Cardinals",
+    "head_coach": "Brad Spencer",
+    "offensive_coordinator": "Eric Stuedemann",
+    "defensive_coordinator": "Shane Dierking"
+  },
+  {
+    "team": "North Park Vikings",
+    "head_coach": "Kyle Rooker",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Rob Nichols"
+  },
+  {
+    "team": "Washington (St. Louis) Bears",
+    "head_coach": "Aaron Keen",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Jeff Fisher"
+  },
+  {
+    "team": "Wheaton (IL) Thunder",
+    "head_coach": "Jesse Scott",
+    "offensive_coordinator": "James Houck",
+    "defensive_coordinator": "Mikey Swider"
+  },
+  {
+    "team": "Carnegie Mellon Tartans",
+    "head_coach": "Ryan Larsen",
+    "offensive_coordinator": "Andy Helms",
+    "defensive_coordinator": "Ben Gibboney"
+  },
+  {
+    "team": "Dickinson Red Devils",
+    "head_coach": "Brad Fordyce",
+    "offensive_coordinator": "Scott Knapp",
+    "defensive_coordinator": "Paul Padalino"
+  },
+  {
+    "team": "Franklin & Marshall Diplomats",
+    "head_coach": "Michael Phelan",
+    "offensive_coordinator": "Matt Quattrone",
+    "defensive_coordinator": "Mike Furlong"
+  },
+  {
+    "team": "Gettysburg Bullets",
+    "head_coach": "Maurice Banks",
+    "offensive_coordinator": "Nick Turchyn",
+    "defensive_coordinator": "Mike Hoyt"
+  },
+  {
+    "team": "Johns Hopkins Blue Jays",
+    "head_coach": "Dan Wodicka",
+    "offensive_coordinator": "Alex Horvatits",
+    "defensive_coordinator": "BJ Hill"
+  },
+  {
+    "team": "McDaniel Green Terror",
+    "head_coach": "Skyler Fultz",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Muhlenberg Mules",
+    "head_coach": "Nate Milne",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Greg Frantz"
+  },
+  {
+    "team": "Ursinus Bears",
+    "head_coach": "Peter Gallagher",
+    "offensive_coordinator": "Jeff Endy / Rob Quigley",
+    "defensive_coordinator": "Steve Devlin"
+  },
+  {
+    "team": "Curry Colonels",
+    "head_coach": "Todd Parsons",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "McKinley Pippin"
+  },
+  {
+    "team": "Endicott Gulls",
+    "head_coach": "Paul McGonagle",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Mehdi Squalli"
+  },
+  {
+    "team": "Husson Eagles",
+    "head_coach": "Nat Clark",
+    "offensive_coordinator": "Greg Vreeland",
+    "defensive_coordinator": "Paytton Hobbs"
+  },
+  {
+    "team": "Maine Maritime Mariners",
+    "head_coach": "Nick Sheehan",
+    "offensive_coordinator": "Joe O'Rourke",
+    "defensive_coordinator": "Aaron Archie"
+  },
+  {
+    "team": "New England (ME) Nor'easters",
+    "head_coach": "Mike Lichten",
+    "offensive_coordinator": "Tim Viall",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "New England (NH) Pilgrims",
+    "head_coach": "Kevin Kelly",
+    "offensive_coordinator": "Drew Luongo",
+    "defensive_coordinator": "Matt Elsker"
+  },
+  {
+    "team": "Nichols Bison",
+    "head_coach": "Vinny Marino",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Tony Brinson"
+  },
+  {
+    "team": "Western New England Golden Bears",
+    "head_coach": "Jason Lebeau",
+    "offensive_coordinator": "Connor Dunn",
+    "defensive_coordinator": "Frank Forcucci"
+  },
+  {
+    "team": "Alfred Saxons",
+    "head_coach": "Bob Rankl",
+    "offensive_coordinator": "Curtis Bailey",
+    "defensive_coordinator": "Brady Bonacquisti"
+  },
+  {
+    "team": "Alfred State Pioneers",
+    "head_coach": "Scott Linn",
+    "offensive_coordinator": "Ethan Williams",
+    "defensive_coordinator": "Owen Albers"
+  },
+  {
+    "team": "Brockport Golden Eagles",
+    "head_coach": "Jason Mangone",
+    "offensive_coordinator": "Steve Potter",
+    "defensive_coordinator": "Mike Fox"
+  },
+  {
+    "team": "Cortland Red Dragons",
+    "head_coach": "Tom Blumenauer",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Hartwick Hawks",
+    "head_coach": "Matt Rogers",
+    "offensive_coordinator": "Tyler Elmore",
+    "defensive_coordinator": "Mark Theophel"
+  },
+  {
+    "team": "Morrisville Mustangs",
+    "head_coach": "Eric Jendryaszek",
+    "offensive_coordinator": "Jake Orlando",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "St. John Fisher Cardinals",
+    "head_coach": "Ed Raby Jr.",
+    "offensive_coordinator": "Brees Segala",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Utica Pioneers",
+    "head_coach": "Blaise Faggiano",
+    "offensive_coordinator": "Jerrod Clowes",
+    "defensive_coordinator": "Jamey McClendon"
+  },
+  {
+    "team": "Anderson Ravens",
+    "head_coach": "Jonathan Coddington",
+    "offensive_coordinator": "LaMont Johnson",
+    "defensive_coordinator": "Chad Montgomery"
+  },
+  {
+    "team": "Bluffton Beavers",
+    "head_coach": "Chris Hedden",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Corey Briggs"
+  },
+  {
+    "team": "Franklin Grizzlies",
+    "head_coach": "Mike Leonard",
+    "offensive_coordinator": "Daniel Hill / Blaine Kowalkowski",
+    "defensive_coordinator": "Kenny Kuzmuk"
+  },
+  {
+    "team": "Hanover Panthers",
+    "head_coach": "Matt Theobald",
+    "offensive_coordinator": "Chase Burton",
+    "defensive_coordinator": "Ronald Rankin"
+  },
+  {
+    "team": "Manchester Spartans",
+    "head_coach": "Vann Hunt",
+    "offensive_coordinator": "Zach Metkler",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Mount St. Joseph Lions",
+    "head_coach": "Tyler Hopperton",
+    "offensive_coordinator": "Darold Hughes",
+    "defensive_coordinator": "Rick Thompson"
+  },
+  {
+    "team": "Rose–Hulman Fightin' Engineers",
+    "head_coach": "Jeff Sokol",
+    "offensive_coordinator": "Lucas Skibba",
+    "defensive_coordinator": "Jeffrey Stanton"
+  },
+  {
+    "team": "Catholic University Cardinals",
+    "head_coach": "Mike Gutelius",
+    "offensive_coordinator": "George Coles",
+    "defensive_coordinator": "Brandon Beech"
+  },
+  {
+    "team": "Juniata Eagles",
+    "head_coach": "Blake Treadwell",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Matthew Adolph"
+  },
+  {
+    "team": "Keystone Giants",
+    "head_coach": "Justin Higgins",
+    "offensive_coordinator": "Dontavius Smith",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Lycoming Warriors",
+    "head_coach": "Mike Clark",
+    "offensive_coordinator": "Greg Merchlinsky",
+    "defensive_coordinator": "Mark DeLucia / Steve Wiser"
+  },
+  {
+    "team": "Moravian Greyhounds",
+    "head_coach": "Jeffrey Long Jr.",
+    "offensive_coordinator": "Mike Kane",
+    "defensive_coordinator": "Yoni Offit"
+  },
+  {
+    "team": "Susquehanna River Hawks",
+    "head_coach": "Tom Perkovich",
+    "offensive_coordinator": "Mike Wiland",
+    "defensive_coordinator": "Tim Kologrivov"
+  },
+  {
+    "team": "Western Connecticut Wolves",
+    "head_coach": "Joe Loth",
+    "offensive_coordinator": "Drew Hennessy",
+    "defensive_coordinator": "Kevin Jones"
+  },
+  {
+    "team": "Wilkes Colonels",
+    "head_coach": "David Biever",
+    "offensive_coordinator": "Kyle Dickerson",
+    "defensive_coordinator": "Chris Bantell"
+  },
+  {
+    "team": "Buffalo State Bengals",
+    "head_coach": "Lazarus Morgan",
+    "offensive_coordinator": "Tyrone Nichols",
+    "defensive_coordinator": "Holden Whitehead"
+  },
+  {
+    "team": "Hilbert Hawks",
+    "head_coach": "Ted Egger",
+    "offensive_coordinator": "Aron Aydelott",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Hobart Statesmen",
+    "head_coach": "Kevin DeWall",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Michael Green"
+  },
+  {
+    "team": "Ithaca Bombers",
+    "head_coach": "Michael Toerper",
+    "offensive_coordinator": "Brandon Maguire",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Rochester Yellowjackets",
+    "head_coach": "Chad Martinovich",
+    "offensive_coordinator": "Eric Ruest",
+    "defensive_coordinator": "Chris Sapp"
+  },
+  {
+    "team": "RPI Engineers",
+    "head_coach": "Ralph Isernia",
+    "offensive_coordinator": "Nick Marcella",
+    "defensive_coordinator": "Rob Barbieri"
+  },
+  {
+    "team": "St. Lawrence Saints",
+    "head_coach": "Dan Puckhaber",
+    "offensive_coordinator": "Austin Coleman",
+    "defensive_coordinator": "Zach Mallard"
+  },
+  {
+    "team": "Union Garnet Chargers",
+    "head_coach": "Jon Drach",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Anthony Trotta"
+  },
+  {
+    "team": "Albright Lions",
+    "head_coach": "Shaun Weaver",
+    "offensive_coordinator": "Danny Collins",
+    "defensive_coordinator": "Mark Fetterman"
+  },
+  {
+    "team": "Alvernia Golden Wolves",
+    "head_coach": "Steve Azzanesi",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Aaron Benson"
+  },
+  {
+    "team": "Delaware Valley Aggies",
+    "head_coach": "Mike Isgro",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Mike Neale"
+  },
+  {
+    "team": "Eastern Eagles",
+    "head_coach": "Billy Crocker",
+    "offensive_coordinator": "Nate Hinkle / Colin Scott",
+    "defensive_coordinator": "Kory David"
+  },
+  {
+    "team": "Fairleigh Dickinson–Florham Devils",
+    "head_coach": "Anthony Van Curen",
+    "offensive_coordinator": "Michael Tufaro",
+    "defensive_coordinator": "Ashley Pierre"
+  },
+  {
+    "team": "King's Monarchs",
+    "head_coach": "Mike Cebrosky",
+    "offensive_coordinator": "Casey Tosches",
+    "defensive_coordinator": "Joe Gorton / Mickey Rehring"
+  },
+  {
+    "team": "Lebanon Valley Flying Dutchmen",
+    "head_coach": "Chris Thompson (interim)",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Misericordia Cougars",
+    "head_coach": "Steve Cushing",
+    "offensive_coordinator": "Kyle Gallagher",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Stevenson Mustangs",
+    "head_coach": "Ed Hottle",
+    "offensive_coordinator": "Josh Hoeg",
+    "defensive_coordinator": "Cory Pietrzyk"
+  },
+  {
+    "team": "Widener Pride",
+    "head_coach": "Mike Barainyak",
+    "offensive_coordinator": "Nathaniel Hogge",
+    "defensive_coordinator": "Nick Crowle"
+  },
+  {
+    "team": "Anna Maria Amcats",
+    "head_coach": "Tanner Kingsley",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Hayden Braga"
+  },
+  {
+    "team": "Bridgewater State Bears",
+    "head_coach": "Joe Verria",
+    "offensive_coordinator": "Rene Moyen",
+    "defensive_coordinator": "John Gendron"
+  },
+  {
+    "team": "Dean Bulldogs",
+    "head_coach": "Luke Bakanowsky",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Nick Crowley"
+  },
+  {
+    "team": "Fitchburg State Falcons",
+    "head_coach": "Izzy Abraham",
+    "offensive_coordinator": "Garrett DelleChiaie",
+    "defensive_coordinator": "Mark Sullivan"
+  },
+  {
+    "team": "Framingham State Rams",
+    "head_coach": "Tom Kelley",
+    "offensive_coordinator": "Joe Pappagallo",
+    "defensive_coordinator": "Cully Curran"
+  },
+  {
+    "team": "Massachusetts Maritime Buccaneers",
+    "head_coach": "Jeremy Cameron",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Greg Gigantino"
+  },
+  {
+    "team": "Plymouth State Panthers",
+    "head_coach": "Paul Castonia",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Devin Zeman"
+  },
+  {
+    "team": "UMass Dartmouth Corsairs",
+    "head_coach": "Josh Sylvester",
+    "offensive_coordinator": "Ryan Struthers",
+    "defensive_coordinator": "Steve Faniel"
+  },
+  {
+    "team": "Westfield State Owls",
+    "head_coach": "Lou Conte",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Worcester State Lancers",
+    "head_coach": "Lazaro Mitjans Jr.",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Adrian Bulldogs",
+    "head_coach": "Joe Palka",
+    "offensive_coordinator": "Tyler Palka",
+    "defensive_coordinator": "Ron Shiels"
+  },
+  {
+    "team": "Albion Britons",
+    "head_coach": "Travis Rundle",
+    "offensive_coordinator": "Stephen Wasil",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Alma Scots",
+    "head_coach": "Jason Couch",
+    "offensive_coordinator": "Zach Riepma",
+    "defensive_coordinator": "Ryan Ettinger"
+  },
+  {
+    "team": "Calvin Knights",
+    "head_coach": "Trent Figg",
+    "offensive_coordinator": "Ben Dixon",
+    "defensive_coordinator": "Lamar Bell"
+  },
+  {
+    "team": "Hope Flying Dutchmen",
+    "head_coach": "Peter Stuursma",
+    "offensive_coordinator": "Andrew Hawken",
+    "defensive_coordinator": "Jacob Pardonnet"
+  },
+  {
+    "team": "Kalamazoo Hornets",
+    "head_coach": "Jamie Zorbo",
+    "offensive_coordinator": "John Krajacic",
+    "defensive_coordinator": "Clay Whitehead"
+  },
+  {
+    "team": "Olivet Comets",
+    "head_coach": "Erik Ieuter",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Casey Huhn"
+  },
+  {
+    "team": "Trine Thunder",
+    "head_coach": "Troy Abbs",
+    "offensive_coordinator": "Jacob Kinsey",
+    "defensive_coordinator": "Ben Cullen"
+  },
+  {
+    "team": "Augsburg Auggies",
+    "head_coach": "Derrin Lamker",
+    "offensive_coordinator": "Connor Wilkie",
+    "defensive_coordinator": "Jeff Rogers"
+  },
+  {
+    "team": "Bethel Royals",
+    "head_coach": "Mike McElroy",
+    "offensive_coordinator": "Colin Duling",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Carleton Knights",
+    "head_coach": "Tom Journell",
+    "offensive_coordinator": "Alex Balogh",
+    "defensive_coordinator": "Sam Kent"
+  },
+  {
+    "team": "Concordia (Moorhead) Cobbers",
+    "head_coach": "Terry Horan",
+    "offensive_coordinator": "Jake Pollock",
+    "defensive_coordinator": "Kyle Bakken"
+  },
+  {
+    "team": "Gustavus Adolphus Gusties",
+    "head_coach": "Peter Haugen",
+    "offensive_coordinator": "Carlin Shoemaker",
+    "defensive_coordinator": "Landon Rauen"
+  },
+  {
+    "team": "Hamline Pipers",
+    "head_coach": "Chip Taylor",
+    "offensive_coordinator": "Jon Brown",
+    "defensive_coordinator": "Seth Greenwald"
+  },
+  {
+    "team": "Macalester Scots",
+    "head_coach": "Phil Nicolaides",
+    "offensive_coordinator": "Scott Glicksberg / Matthew Reed",
+    "defensive_coordinator": "Kyle Artinian"
+  },
+  {
+    "team": "Saint John's (MN) Johnnies",
+    "head_coach": "Gary Fasching",
+    "offensive_coordinator": "Kole Heckendorf",
+    "defensive_coordinator": "Brandon Novak"
+  },
+  {
+    "team": "St. Olaf Oles",
+    "head_coach": "James Kilian",
+    "offensive_coordinator": "Matthew Paulson",
+    "defensive_coordinator": "Lucas Kleinschrodt"
+  },
+  {
+    "team": "St. Scholastica Saints",
+    "head_coach": "Matt Bremer",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Beloit Buccaneers",
+    "head_coach": "Kyle Langhoff",
+    "offensive_coordinator": "Brody Pogue",
+    "defensive_coordinator": "Joe Butz"
+  },
+  {
+    "team": "Chicago Maroons",
+    "head_coach": "Craig Knoche",
+    "offensive_coordinator": "Max Andrews",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Cornell (IA) Rams",
+    "head_coach": "Curt Ritchie",
+    "offensive_coordinator": "Ryan Kaltenmark",
+    "defensive_coordinator": "Michael Juscik"
+  },
+  {
+    "team": "Grinnell Pioneers",
+    "head_coach": "Brent Barnes",
+    "offensive_coordinator": "Josh Villarreal",
+    "defensive_coordinator": "Gene Blalock"
+  },
+  {
+    "team": "Illinois College Blueboys",
+    "head_coach": "Ray DeFrisco",
+    "offensive_coordinator": "Drew Chance",
+    "defensive_coordinator": "Austin Guptel"
+  },
+  {
+    "team": "Knox Prairie Fire",
+    "head_coach": "Aaron Willits",
+    "offensive_coordinator": "Dom Parello",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Lake Forest Foresters",
+    "head_coach": "Jim Catanzaro",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Adam Gonzaga"
+  },
+  {
+    "team": "Lawrence Vikings",
+    "head_coach": "Tony Aker",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Matt Sosinsky"
+  },
+  {
+    "team": "Monmouth (IL) Fighting Scots",
+    "head_coach": "Chad Braun",
+    "offensive_coordinator": "Joe Freitag",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Ripon Red Hawks",
+    "head_coach": "Jake Marshall",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Mike Hepp"
+  },
+  {
+    "team": "Aurora Spartans",
+    "head_coach": "Don Beebe",
+    "offensive_coordinator": "Ryan Gehlert",
+    "defensive_coordinator": "J. T. Zimmerman"
+  },
+  {
+    "team": "Benedictine Eagles",
+    "head_coach": "Jim Schroeder",
+    "offensive_coordinator": "Michael Whitley",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Concordia (IL) Cougars",
+    "head_coach": "Chase Hankins",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Charlie Drewek"
+  },
+  {
+    "team": "Concordia (WI) Falcons",
+    "head_coach": "Greg Etter",
+    "offensive_coordinator": "Curran White",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Eureka Red Devils",
+    "head_coach": "Randy Starks",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Lakeland Muskies",
+    "head_coach": "Colin Bruton",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Joey Lehto"
+  },
+  {
+    "team": "Rockford Regents",
+    "head_coach": "Calvin Toliver",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "St. Norbert Green Knights",
+    "head_coach": "Dan McCarty",
+    "offensive_coordinator": "Dennis Cooper",
+    "defensive_coordinator": "Rob Huberty"
+  },
+  {
+    "team": "Wisconsin Lutheran Warriors",
+    "head_coach": "Eric Treske",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Steve Donovan"
+  },
+  {
+    "team": "Denison Big Red",
+    "head_coach": "Jack Hatem",
+    "offensive_coordinator": "Adam Moses",
+    "defensive_coordinator": "Jovon Johnson"
+  },
+  {
+    "team": "DePauw Tigers",
+    "head_coach": "Brett Dietz",
+    "offensive_coordinator": "Mason Espinosa",
+    "defensive_coordinator": "Ryan McElwain"
+  },
+  {
+    "team": "John Carroll Blue Streaks",
+    "head_coach": "Jeff Behrman",
+    "offensive_coordinator": "Travis James",
+    "defensive_coordinator": "Alex Gray"
+  },
+  {
+    "team": "Kenyon Owls",
+    "head_coach": "Ian Good",
+    "offensive_coordinator": "Blake Cattrell",
+    "defensive_coordinator": "Ken Delgado"
+  },
+  {
+    "team": "Oberlin Yeomen",
+    "head_coach": "John Pont",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Ben Hammer"
+  },
+  {
+    "team": "Ohio Wesleyan Battling Bishops",
+    "head_coach": "Tom Watts",
+    "offensive_coordinator": "Hayden Thomas",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Wabash Little Giants",
+    "head_coach": "Jake Gilbert",
+    "offensive_coordinator": "Casey Gillin",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Wittenberg Tigers",
+    "head_coach": "Jim Collins",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Allan Moore"
+  },
+  {
+    "team": "Wooster Fighting Scots",
+    "head_coach": "Austin Holter",
+    "offensive_coordinator": "Zach Dennis",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Amherst Mammoths",
+    "head_coach": "E. J. Mills",
+    "offensive_coordinator": "Malik Grove",
+    "defensive_coordinator": "Luke Bussard"
+  },
+  {
+    "team": "Bates Bobcats",
+    "head_coach": "Matt Coyne",
+    "offensive_coordinator": "Mitchell Thompson",
+    "defensive_coordinator": "Matt Wehrhahn"
+  },
+  {
+    "team": "Bowdoin Polar Bears",
+    "head_coach": "B. J. Hammer",
+    "offensive_coordinator": "Jimmy Cerf",
+    "defensive_coordinator": "Kyle McAllister"
+  },
+  {
+    "team": "Colby Mules",
+    "head_coach": "Jack Cosgrove",
+    "offensive_coordinator": "Mark Clements",
+    "defensive_coordinator": "Liam Hobbins"
+  },
+  {
+    "team": "Hamilton Continentals",
+    "head_coach": "Dave Murray",
+    "offensive_coordinator": "Shea Dwyer",
+    "defensive_coordinator": "Randi Moore"
+  },
+  {
+    "team": "Middlebury Panthers",
+    "head_coach": "Doug Mandigo",
+    "offensive_coordinator": "Jason Thomas",
+    "defensive_coordinator": "Ryan Paquette"
+  },
+  {
+    "team": "Trinity (CT) Bantams",
+    "head_coach": "Jeff Devanney",
+    "offensive_coordinator": "Mark Melnitsky",
+    "defensive_coordinator": "Lewis Acquarulo"
+  },
+  {
+    "team": "Tufts Jumbos",
+    "head_coach": "Jay Civetti",
+    "offensive_coordinator": "Mike MacDonald",
+    "defensive_coordinator": "Kenn Jones / Tino Lopes"
+  },
+  {
+    "team": "Wesleyan Cardinals",
+    "head_coach": "Dan DiCenzo",
+    "offensive_coordinator": "Eric Ludwig",
+    "defensive_coordinator": "Adam Chicoine"
+  },
+  {
+    "team": "Williams Ephs",
+    "head_coach": "Mark Raymond",
+    "offensive_coordinator": "Nick Hennessey",
+    "defensive_coordinator": "Mark McDonough"
+  },
+  {
+    "team": "Coast Guard Bears",
+    "head_coach": "C. C. Grant",
+    "offensive_coordinator": "J. B. Wells",
+    "defensive_coordinator": "Dana Fleischmann"
+  },
+  {
+    "team": "Maritime Privateers",
+    "head_coach": "Jamel Ramsay",
+    "offensive_coordinator": "Omar King",
+    "defensive_coordinator": "Tom Lindley"
+  },
+  {
+    "team": "Merchant Marine Mariners",
+    "head_coach": "Jameson Croall",
+    "offensive_coordinator": "James Kikel",
+    "defensive_coordinator": "Harry Passante"
+  },
+  {
+    "team": "MIT Engineers",
+    "head_coach": "Brian Bubna",
+    "offensive_coordinator": "Steve Brennan",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Norwich Cadets",
+    "head_coach": "Bill Russell",
+    "offensive_coordinator": "Bobby Johnson III",
+    "defensive_coordinator": "Pat Madden"
+  },
+  {
+    "team": "Salve Regina Seahawks",
+    "head_coach": "Kevin Gilmartin",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Greg DeLade"
+  },
+  {
+    "team": "Springfield Pride",
+    "head_coach": "Mike Cerasuolo",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Louis DiRienzo"
+  },
+  {
+    "team": "WPI Engineers",
+    "head_coach": "Chris Robertson",
+    "offensive_coordinator": "Matt Kelly",
+    "defensive_coordinator": "Sam Casey"
+  },
+  {
+    "team": "Castleton Spartans",
+    "head_coach": "Tyler Higley",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Christopher Newport Captains",
+    "head_coach": "Paul Crowley",
+    "offensive_coordinator": "Craig Smith",
+    "defensive_coordinator": "Eli Wicklund"
+  },
+  {
+    "team": "Kean Cougars",
+    "head_coach": "Dan Garrett",
+    "offensive_coordinator": "Evan Durand",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Montclair State Red Hawks",
+    "head_coach": "Mike Palazzo",
+    "offensive_coordinator": "Steve Sciarappa",
+    "defensive_coordinator": "Liam Nelson"
+  },
+  {
+    "team": "Rowan Profs",
+    "head_coach": "Pat Ruley",
+    "offensive_coordinator": "Gino Gradkowski",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Salisbury Seagulls",
+    "head_coach": "Sherman Wood",
+    "offensive_coordinator": "Ryan Fleetwood",
+    "defensive_coordinator": "Robb Disbennett"
+  },
+  {
+    "team": "TCNJ Lions",
+    "head_coach": "Tyler Moody",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "William Paterson Pioneers",
+    "head_coach": "Shaun Williams",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "George Fox Bruins",
+    "head_coach": "Spencer Crace",
+    "offensive_coordinator": "Ken Ingram",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Lewis & Clark Pioneers",
+    "head_coach": "Brett Elliott",
+    "offensive_coordinator": "Mike Machado",
+    "defensive_coordinator": "Daniel Fields"
+  },
+  {
+    "team": "Linfield Wildcats",
+    "head_coach": "Joseph Smith",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Jackson Vaughan"
+  },
+  {
+    "team": "Pacific (OR) Boxers",
+    "head_coach": "Ian Falconer",
+    "offensive_coordinator": "Jim Craft",
+    "defensive_coordinator": "Lukkes Gilgan"
+  },
+  {
+    "team": "Pacific Lutheran Lutes",
+    "head_coach": "Brant McAdams",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Ketner Kupp"
+  },
+  {
+    "team": "Puget Sound Loggers",
+    "head_coach": "Jeff Thomas",
+    "offensive_coordinator": "David Carskie",
+    "defensive_coordinator": "Jud Keim"
+  },
+  {
+    "team": "Whitworth Pirates",
+    "head_coach": "Rod Sandberg",
+    "offensive_coordinator": "Bryce Missey",
+    "defensive_coordinator": "Mac Shaw"
+  },
+  {
+    "team": "Willamette Bearcats",
+    "head_coach": "Aric Williams",
+    "offensive_coordinator": "Gerardo Magaña",
+    "defensive_coordinator": "Tim Rude"
+  },
+  {
+    "team": "Baldwin Wallace Yellow Jackets",
+    "head_coach": "Jim Hilvert",
+    "offensive_coordinator": "Matt Brown",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Capital Comets",
+    "head_coach": "Brian Foos",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Charles Alexander"
+  },
+  {
+    "team": "Heidelberg Student Princes",
+    "head_coach": "Scott Donaldson",
+    "offensive_coordinator": "Jason Lewis",
+    "defensive_coordinator": "Branden Jakubcin"
+  },
+  {
+    "team": "Marietta Pioneers",
+    "head_coach": "Tom Kaufman",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Mount Union Purple Raiders",
+    "head_coach": "Geoff Dartt",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Daryl Ely"
+  },
+  {
+    "team": "Muskingum Fighting Muskies",
+    "head_coach": "Matt Nardo",
+    "offensive_coordinator": "Chris Shank",
+    "defensive_coordinator": "Nehemiah Bowie"
+  },
+  {
+    "team": "Ohio Northern Polar Bears",
+    "head_coach": "Andy Fries",
+    "offensive_coordinator": "Matt Simon",
+    "defensive_coordinator": "Robbie Brown"
+  },
+  {
+    "team": "Otterbein Cardinals",
+    "head_coach": "Dave Marquis",
+    "offensive_coordinator": "Jake Kennedy",
+    "defensive_coordinator": "Jaymar Hines"
+  },
+  {
+    "team": "Wilmington Quakers",
+    "head_coach": "Kevin Burke",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Mark Murnyack"
+  },
+  {
+    "team": "Averett Cougars",
+    "head_coach": "Patrick Henry",
+    "offensive_coordinator": "Tim Reynolds Jr.",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Bridgewater Eagles",
+    "head_coach": "Scott Lemn",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Peyton Allen"
+  },
+  {
+    "team": "Gallaudet Bison",
+    "head_coach": "Stefan LeFors",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Guilford Quakers",
+    "head_coach": "Brad Davis",
+    "offensive_coordinator": "David Stadler",
+    "defensive_coordinator": "Khalid Jones"
+  },
+  {
+    "team": "Hampden–Sydney Tigers",
+    "head_coach": "Vince Luvara",
+    "offensive_coordinator": "Max Beal / Ryan Wilson",
+    "defensive_coordinator": "David Clark Jr."
+  },
+  {
+    "team": "Randolph–Macon Yellow Jackets",
+    "head_coach": "Pedro Arruza",
+    "offensive_coordinator": "Nick McGee",
+    "defensive_coordinator": "Clay Emmrich / Matt Szymanski"
+  },
+  {
+    "team": "Roanoke Maroons",
+    "head_coach": "Bryan Stinespring",
+    "offensive_coordinator": "Mitch Ferrick",
+    "defensive_coordinator": "Mike Giancola"
+  },
+  {
+    "team": "Shenandoah Hornets",
+    "head_coach": "Scott Yoder",
+    "offensive_coordinator": "Stan Hodgin",
+    "defensive_coordinator": "Kalvin Oliver"
+  },
+  {
+    "team": "Washington and Lee Generals",
+    "head_coach": "Garrett LeRose",
+    "offensive_coordinator": "Mat Rapoza",
+    "defensive_coordinator": "Vaughn Johnson"
+  },
+  {
+    "team": "Allegheny Gators",
+    "head_coach": "Braden Layer",
+    "offensive_coordinator": "Matt Cochran",
+    "defensive_coordinator": "Matt Hanhold"
+  },
+  {
+    "team": "Bethany Bison",
+    "head_coach": "Brandon Robinson",
+    "offensive_coordinator": "Bryar DeSanti",
+    "defensive_coordinator": "Nicholas Thayer"
+  },
+  {
+    "team": "Case Western Reserve Spartans",
+    "head_coach": "Greg Debeljak",
+    "offensive_coordinator": "Dereck Slesh",
+    "defensive_coordinator": "Warren Miller"
+  },
+  {
+    "team": "Geneva Tornadoes",
+    "head_coach": "Geno DeMarco",
+    "offensive_coordinator": "Jason Wargo",
+    "defensive_coordinator": "Tom Contenta"
+  },
+  {
+    "team": "Grove City Wolverines",
+    "head_coach": "Andrew DiDonato",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Dan Vogt"
+  },
+  {
+    "team": "Hiram Terriers",
+    "head_coach": "Xavier Dupree",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Tanner Niles"
+  },
+  {
+    "team": "Saint Vincent Bearcats",
+    "head_coach": "Casey Goff",
+    "offensive_coordinator": "Zach Shaw",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Thiel Tomcats",
+    "head_coach": "Sam Bauman",
+    "offensive_coordinator": "Darricle Jones",
+    "defensive_coordinator": "Andrew Geisler"
+  },
+  {
+    "team": "Washington & Jefferson Presidents",
+    "head_coach": "Mike Sirianni",
+    "offensive_coordinator": "Shawn Glosek",
+    "defensive_coordinator": "Phillip Bobich"
+  },
+  {
+    "team": "Waynesburg Yellow Jackets",
+    "head_coach": "Cornelius Coleman",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Dave Arnold"
+  },
+  {
+    "team": "Westminster (PA) Titans",
+    "head_coach": "Scott Benzel",
+    "offensive_coordinator": "EJ White",
+    "defensive_coordinator": "Jared Heck"
+  },
+  {
+    "team": "Berry Vikings",
+    "head_coach": "Tony Kunczewski",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Joel Elliott"
+  },
+  {
+    "team": "Centre Colonels",
+    "head_coach": "Andy Frye",
+    "offensive_coordinator": "Rick Fox",
+    "defensive_coordinator": "Carter Conley"
+  },
+  {
+    "team": "Maryville (TN) Scots",
+    "head_coach": "Ben Fox",
+    "offensive_coordinator": "Michael McGuire",
+    "defensive_coordinator": "Scott Brumett"
+  },
+  {
+    "team": "Millsaps Majors",
+    "head_coach": "Brandon Lechtenberg",
+    "offensive_coordinator": "Armani Lonardo Ball",
+    "defensive_coordinator": "Julian Jean-Baptiste"
+  },
+  {
+    "team": "Rhodes Lynx",
+    "head_coach": "Rich Duncan",
+    "offensive_coordinator": "Matt Kalb",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Sewanee Tigers",
+    "head_coach": "Andy McCollum",
+    "offensive_coordinator": "Graham Hobbs",
+    "defensive_coordinator": "Drew Gaither"
+  },
+  {
+    "team": "Southwestern Pirates",
+    "head_coach": "Bill Kriesel",
+    "offensive_coordinator": "Nick Mask",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Trinity (TX) Tigers",
+    "head_coach": "Jerheme Urban",
+    "offensive_coordinator": "Wade Lytal",
+    "defensive_coordinator": "Paul Michalak"
+  },
+  {
+    "team": "Austin Kangaroos",
+    "head_coach": "Tony Joe White",
+    "offensive_coordinator": "Chad O'Melia",
+    "defensive_coordinator": "George Love"
+  },
+  {
+    "team": "Centenary Gentlemen",
+    "head_coach": "Byron Dawson",
+    "offensive_coordinator": "Keondre Wudtee",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Hendrix Warriors",
+    "head_coach": "Justin \"Buck\" Buchanan",
+    "offensive_coordinator": "Russ Phillips",
+    "defensive_coordinator": "Zach Schultz"
+  },
+  {
+    "team": "Lyon Scots",
+    "head_coach": "Chris Douglas",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Andy Paider"
+  },
+  {
+    "team": "McMurry War Hawks",
+    "head_coach": "Jordan Neal",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Texas Lutheran Bulldogs",
+    "head_coach": "Neal LaHue",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Tommy Holmes / Julius Scott"
+  },
+  {
+    "team": "Azusa Pacific Cougars",
+    "head_coach": "A.J. Parnell",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Cal Lutheran Kingsmen",
+    "head_coach": "Anthony Lugo",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Casey Blum"
+  },
+  {
+    "team": "Chapman Panthers",
+    "head_coach": "Bob Owens",
+    "offensive_coordinator": "Casey Shine",
+    "defensive_coordinator": "David Bishop"
+  },
+  {
+    "team": "Claremont–Mudd–Scripps Stags",
+    "head_coach": "Kyle Sweeney",
+    "offensive_coordinator": "Chris Vicory",
+    "defensive_coordinator": "Marvin Sanders"
+  },
+  {
+    "team": "La Verne Leopards",
+    "head_coach": "Richard Sanchez",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Pomona-Pitzer Sagehens",
+    "head_coach": "John Walsh",
+    "offensive_coordinator": "Brian Carroll",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Redlands Bulldogs",
+    "head_coach": "Jim Good",
+    "offensive_coordinator": "Eric Acciani",
+    "defensive_coordinator": "Joey Mariani"
+  },
+  {
+    "team": "Whittier Poets",
+    "head_coach": "Cory White",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Crown Polars",
+    "head_coach": "Anthony Franz",
+    "offensive_coordinator": "Dominic Bornman",
+    "defensive_coordinator": "Eric Shourds"
+  },
+  {
+    "team": "Greenville Panthers",
+    "head_coach": "Robbie Schomaker",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Lee Tenenoff"
+  },
+  {
+    "team": "Martin Luther Knights",
+    "head_coach": "Paul Huebner",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Minnesota Morris Cougars",
+    "head_coach": "Marty Hoffmann",
+    "offensive_coordinator": "Hunter Glenn",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Northwestern (MN) Eagles",
+    "head_coach": "Matt Moore",
+    "offensive_coordinator": "Boomer Roepke",
+    "defensive_coordinator": "Luke Sommerlot"
+  },
+  {
+    "team": "Westminster (MO) Blue Jays",
+    "head_coach": "Luke Butts",
+    "offensive_coordinator": "Kendall Roberts",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Belhaven Blazers",
+    "head_coach": "CJ Nightingale",
+    "offensive_coordinator": "Jonston MacIntyre / Josh Sheron",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Brevard Tornados",
+    "head_coach": "Bill Khayat",
+    "offensive_coordinator": "Chris Symington",
+    "defensive_coordinator": "Martin Bayless"
+  },
+  {
+    "team": "Greensboro Pride",
+    "head_coach": "Tyler Card",
+    "offensive_coordinator": "Chance Green",
+    "defensive_coordinator": "Maurice Torain"
+  },
+  {
+    "team": "Huntingdon Hawks",
+    "head_coach": "Mike Turk",
+    "offensive_coordinator": "Vacant",
+    "defensive_coordinator": "Steven Hicks"
+  },
+  {
+    "team": "LaGrange Panthers",
+    "head_coach": "Wes Dodson",
+    "offensive_coordinator": "Michael McCarty",
+    "defensive_coordinator": "Tony Talbert"
+  },
+  {
+    "team": "Methodist Monarchs",
+    "head_coach": "Keven Williams",
+    "offensive_coordinator": "Brian Radakovich",
+    "defensive_coordinator": "Carl Coleman"
+  },
+  {
+    "team": "North Carolina Wesleyan Battling Bishops",
+    "head_coach": "Jeff Filkovski",
+    "offensive_coordinator": "Justin Clark",
+    "defensive_coordinator": "Vacant"
+  },
+  {
+    "team": "Southern Virginia Knights",
+    "head_coach": "Joe DuPaix",
+    "offensive_coordinator": "Mark Murdoch",
+    "defensive_coordinator": "Chris Ehorn"
+  },
+  {
+    "team": "Wisconsin–Eau Claire Blugolds",
+    "head_coach": "Rob Erickson",
+    "offensive_coordinator": "Bob Dunn",
+    "defensive_coordinator": "Brady Grayvold"
+  },
+  {
+    "team": "Wisconsin–La Crosse Eagles",
+    "head_coach": "Matt Janus",
+    "offensive_coordinator": "Tarek Yaeggi",
+    "defensive_coordinator": "Mitchell Collicott / Michael Zweifel"
+  },
+  {
+    "team": "Wisconsin–Oshkosh Titans",
+    "head_coach": "Peter Jennings",
+    "offensive_coordinator": "Rich Worsell",
+    "defensive_coordinator": "Craig Stenbroten"
+  },
+  {
+    "team": "Wisconsin–Platteville Pioneers",
+    "head_coach": "Ryan Munz",
+    "offensive_coordinator": "Brent Allen",
+    "defensive_coordinator": "Dan Bauder"
+  },
+  {
+    "team": "Wisconsin–River Falls Falcons",
+    "head_coach": "Matt Walker",
+    "offensive_coordinator": "Joe Matheson",
+    "defensive_coordinator": "Jake Wissing"
+  },
+  {
+    "team": "Wisconsin–Stevens Point Pointers",
+    "head_coach": "Luke Venne",
+    "offensive_coordinator": "Austin Archer",
+    "defensive_coordinator": "Trent LaCombe / Mitchell Snyder"
+  },
+  {
+    "team": "Wisconsin–Stout Blue Devils",
+    "head_coach": "Clayt Birmingham",
+    "offensive_coordinator": "Nick Pesik",
+    "defensive_coordinator": "Travis Destache"
+  },
+  {
+    "team": "Wisconsin–Whitewater Warhawks",
+    "head_coach": "Jace Rindahl",
+    "offensive_coordinator": "Tim Shields",
+    "defensive_coordinator": "Marcus McLin"
+  }
+]

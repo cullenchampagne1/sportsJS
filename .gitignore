@@ -1,0 +1,10 @@
+
+# Dependencies
+/node_modules
+
+# R files
+*.R
+
+# Scripts
+/scripts
+.DS_Store

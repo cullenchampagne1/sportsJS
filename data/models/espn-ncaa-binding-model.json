@@ -1,0 +1,3280 @@
+{
+  "sport_bindings": [
+    {
+      "espn_id": "2000",
+      "ncaa_id": "589074",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2001",
+      "ncaa_id": "589284",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2003",
+      "ncaa_id": "589530",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2005",
+      "ncaa_id": "589002",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2006",
+      "ncaa_id": "589020",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2010",
+      "ncaa_id": "589075",
+      "sport": "football"
+    },
+    {
+      "espn_id": "333",
+      "ncaa_id": "589021",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2011",
+      "ncaa_id": "589076",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2013",
+      "ncaa_id": "589217",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2790",
+      "ncaa_id": "589531",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2015",
+      "ncaa_id": "589532",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2016",
+      "ncaa_id": "589078",
+      "sport": "football"
+    },
+    {
+      "espn_id": "3162",
+      "ncaa_id": "589524",
+      "sport": "football"
+    },
+    {
+      "espn_id": "365",
+      "ncaa_id": "589533",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2018",
+      "ncaa_id": "589534",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2019",
+      "ncaa_id": "589355",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2800",
+      "ncaa_id": "589535",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2022",
+      "ncaa_id": "589218",
+      "sport": "football"
+    },
+    {
+      "espn_id": "7",
+      "ncaa_id": "589536",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2023",
+      "ncaa_id": "589477",
+      "sport": "football"
+    },
+    {
+      "espn_id": "129469",
+      "ncaa_id": "593347",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2025",
+      "ncaa_id": "589219",
+      "sport": "football"
+    },
+    {
+      "espn_id": "15",
+      "ncaa_id": "589537",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2026",
+      "ncaa_id": "589022",
+      "sport": "football"
+    },
+    {
+      "espn_id": "9",
+      "ncaa_id": "589023",
+      "sport": "football"
+    },
+    {
+      "espn_id": "12",
+      "ncaa_id": "589024",
+      "sport": "football"
+    },
+    {
+      "espn_id": "8",
+      "ncaa_id": "589026",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2032",
+      "ncaa_id": "589025",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2033",
+      "ncaa_id": "589286",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2028",
+      "ncaa_id": "589334",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2029",
+      "ncaa_id": "589192",
+      "sport": "football"
+    },
+    {
+      "espn_id": "349",
+      "ncaa_id": "589003",
+      "sport": "football"
+    },
+    {
+      "espn_id": "308",
+      "ncaa_id": "589220",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2038",
+      "ncaa_id": "589221",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2",
+      "ncaa_id": "589027",
+      "sport": "football"
+    },
+    {
+      "espn_id": "124",
+      "ncaa_id": "589538",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2042",
+      "ncaa_id": "589539",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2043",
+      "ncaa_id": "589222",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2044",
+      "ncaa_id": "589540",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2045",
+      "ncaa_id": "589478",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2046",
+      "ncaa_id": "589079",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2047",
+      "ncaa_id": "589541",
+      "sport": "football"
+    },
+    {
+      "espn_id": "188",
+      "ncaa_id": "589542",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2050",
+      "ncaa_id": "589028",
+      "sport": "football"
+    },
+    {
+      "espn_id": "121",
+      "ncaa_id": "589543",
+      "sport": "football"
+    },
+    {
+      "espn_id": "239",
+      "ncaa_id": "589029",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2056",
+      "ncaa_id": "589528",
+      "sport": "football"
+    },
+    {
+      "espn_id": "266",
+      "ncaa_id": "589544",
+      "sport": "football"
+    },
+    {
+      "espn_id": "132",
+      "ncaa_id": "589223",
+      "sport": "football"
+    },
+    {
+      "espn_id": "490",
+      "ncaa_id": "589224",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2283",
+      "ncaa_id": "589366",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2060",
+      "ncaa_id": "589225",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2757",
+      "ncaa_id": "589479",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2062",
+      "ncaa_id": "589545",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2802",
+      "ncaa_id": "589546",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2065",
+      "ncaa_id": "589081",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2069",
+      "ncaa_id": "589207",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2071",
+      "ncaa_id": "589226",
+      "sport": "football"
+    },
+    {
+      "espn_id": "124180",
+      "ncaa_id": "589352",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2074",
+      "ncaa_id": "589480",
+      "sport": "football"
+    },
+    {
+      "espn_id": "68",
+      "ncaa_id": "589030",
+      "sport": "football"
+    },
+    {
+      "espn_id": "103",
+      "ncaa_id": "589031",
+      "sport": "football"
+    },
+    {
+      "espn_id": "340",
+      "ncaa_id": "589547",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2075",
+      "ncaa_id": "589227",
+      "sport": "football"
+    },
+    {
+      "espn_id": "189",
+      "ncaa_id": "589032",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2913",
+      "ncaa_id": "589529",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2079",
+      "ncaa_id": "589548",
+      "sport": "football"
+    },
+    {
+      "espn_id": "18",
+      "ncaa_id": "589549",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2781",
+      "ncaa_id": "589550",
+      "sport": "football"
+    },
+    {
+      "espn_id": "225",
+      "ncaa_id": "589082",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2803",
+      "ncaa_id": "589083",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2083",
+      "ncaa_id": "589084",
+      "sport": "football"
+    },
+    {
+      "espn_id": "63",
+      "ncaa_id": "589551",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2084",
+      "ncaa_id": "589034",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2085",
+      "ncaa_id": "589552",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2086",
+      "ncaa_id": "589085",
+      "sport": "football"
+    },
+    {
+      "espn_id": "252",
+      "ncaa_id": "589033",
+      "sport": "football"
+    },
+    {
+      "espn_id": "13",
+      "ncaa_id": "589086",
+      "sport": "football"
+    },
+    {
+      "espn_id": "25",
+      "ncaa_id": "589036",
+      "sport": "football"
+    },
+    {
+      "espn_id": "129738",
+      "ncaa_id": "593670",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2097",
+      "ncaa_id": "589089",
+      "sport": "football"
+    },
+    {
+      "espn_id": "424",
+      "ncaa_id": "589554",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2101",
+      "ncaa_id": "589555",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2102",
+      "ncaa_id": "589556",
+      "sport": "football"
+    },
+    {
+      "espn_id": "32",
+      "ncaa_id": "589557",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2105",
+      "ncaa_id": "589287",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2106",
+      "ncaa_id": "589558",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2107",
+      "ncaa_id": "589288",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2108",
+      "ncaa_id": "589561",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2110",
+      "ncaa_id": "589187",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2964",
+      "ncaa_id": "589562",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2115",
+      "ncaa_id": "589090",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2117",
+      "ncaa_id": "589039",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2118",
+      "ncaa_id": "589229",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2122",
+      "ncaa_id": "589289",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2119",
+      "ncaa_id": "589361",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2120",
+      "ncaa_id": "589290",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2121",
+      "ncaa_id": "589563",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2123",
+      "ncaa_id": "589291",
+      "sport": "football"
+    },
+    {
+      "espn_id": "411",
+      "ncaa_id": "589564",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2127",
+      "ncaa_id": "589080",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2429",
+      "ncaa_id": "588951",
+      "sport": "football"
+    },
+    {
+      "espn_id": "236",
+      "ncaa_id": "589173",
+      "sport": "football"
+    },
+    {
+      "espn_id": "80",
+      "ncaa_id": "589565",
+      "sport": "football"
+    },
+    {
+      "espn_id": "3112",
+      "ncaa_id": "589566",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2132",
+      "ncaa_id": "589040",
+      "sport": "football"
+    },
+    {
+      "espn_id": "17",
+      "ncaa_id": "589567",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2134",
+      "ncaa_id": "589230",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2805",
+      "ncaa_id": "589231",
+      "sport": "football"
+    },
+    {
+      "espn_id": "228",
+      "ncaa_id": "589041",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2557",
+      "ncaa_id": "589444",
+      "sport": "football"
+    },
+    {
+      "espn_id": "324",
+      "ncaa_id": "589042",
+      "sport": "football"
+    },
+    {
+      "espn_id": "33",
+      "ncaa_id": "589569",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2142",
+      "ncaa_id": "589092",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2442",
+      "ncaa_id": "589440",
+      "sport": "football"
+    },
+    {
+      "espn_id": "38",
+      "ncaa_id": "589044",
+      "sport": "football"
+    },
+    {
+      "espn_id": "11",
+      "ncaa_id": "589347",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2146",
+      "ncaa_id": "589232",
+      "sport": "football"
+    },
+    {
+      "espn_id": "36",
+      "ncaa_id": "589043",
+      "sport": "football"
+    },
+    {
+      "espn_id": "171",
+      "ncaa_id": "589093",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2148",
+      "ncaa_id": "589293",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2152",
+      "ncaa_id": "589571",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2151",
+      "ncaa_id": "589570",
+      "sport": "football"
+    },
+    {
+      "espn_id": "3066",
+      "ncaa_id": "589343",
+      "sport": "football"
+    },
+    {
+      "espn_id": "409",
+      "ncaa_id": "589481",
+      "sport": "football"
+    },
+    {
+      "espn_id": "172",
+      "ncaa_id": "589094",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2155",
+      "ncaa_id": "589572",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2782",
+      "ncaa_id": "589573",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2570",
+      "ncaa_id": "589329",
+      "sport": "football"
+    },
+    {
+      "espn_id": "40",
+      "ncaa_id": "589574",
+      "sport": "football"
+    },
+    {
+      "espn_id": "159",
+      "ncaa_id": "589095",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2166",
+      "ncaa_id": "589096",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2168",
+      "ncaa_id": "589097",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2169",
+      "ncaa_id": "589098",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2808",
+      "ncaa_id": "589576",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2170",
+      "ncaa_id": "589233",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2171",
+      "ncaa_id": "589577",
+      "sport": "football"
+    },
+    {
+      "espn_id": "83",
+      "ncaa_id": "589575",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2175",
+      "ncaa_id": "589578",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2181",
+      "ncaa_id": "589100",
+      "sport": "football"
+    },
+    {
+      "espn_id": "49",
+      "ncaa_id": "589579",
+      "sport": "football"
+    },
+    {
+      "espn_id": "150",
+      "ncaa_id": "589046",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2184",
+      "ncaa_id": "589101",
+      "sport": "football"
+    },
+    {
+      "espn_id": "151",
+      "ncaa_id": "589047",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2191",
+      "ncaa_id": "589339",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2188",
+      "ncaa_id": "589234",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2194",
+      "ncaa_id": "589483",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2197",
+      "ncaa_id": "589103",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2198",
+      "ncaa_id": "589104",
+      "sport": "football"
+    },
+    {
+      "espn_id": "127954",
+      "ncaa_id": "589422",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2201",
+      "ncaa_id": "589235",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2199",
+      "ncaa_id": "589048",
+      "sport": "football"
+    },
+    {
+      "espn_id": "331",
+      "ncaa_id": "589105",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2205",
+      "ncaa_id": "589236",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2206",
+      "ncaa_id": "589353",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2207",
+      "ncaa_id": "589237",
+      "sport": "football"
+    },
+    {
+      "espn_id": "72",
+      "ncaa_id": "589580",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2210",
+      "ncaa_id": "589188",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2213",
+      "ncaa_id": "589354",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2214",
+      "ncaa_id": "589294",
+      "sport": "football"
+    },
+    {
+      "espn_id": "452",
+      "ncaa_id": "589512",
+      "sport": "football"
+    },
+    {
+      "espn_id": "101",
+      "ncaa_id": "589581",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2986",
+      "ncaa_id": "589295",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2220",
+      "ncaa_id": "589316",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2221",
+      "ncaa_id": "589582",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2222",
+      "ncaa_id": "589317",
+      "sport": "football"
+    },
+    {
+      "espn_id": "366",
+      "ncaa_id": "589583",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2224",
+      "ncaa_id": "589296",
+      "sport": "football"
+    },
+    {
+      "espn_id": "114",
+      "ncaa_id": "589584",
+      "sport": "football"
+    },
+    {
+      "espn_id": "50",
+      "ncaa_id": "589106",
+      "sport": "football"
+    },
+    {
+      "espn_id": "57",
+      "ncaa_id": "589052",
+      "sport": "football"
+    },
+    {
+      "espn_id": "52",
+      "ncaa_id": "589051",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2230",
+      "ncaa_id": "589107",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2231",
+      "ncaa_id": "589340",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2237",
+      "ncaa_id": "589297",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2232",
+      "ncaa_id": "589318",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2967",
+      "ncaa_id": "589585",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2234",
+      "ncaa_id": "589586",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2233",
+      "ncaa_id": "589504",
+      "sport": "football"
+    },
+    {
+      "espn_id": "112334",
+      "ncaa_id": "589349",
+      "sport": "football"
+    },
+    {
+      "espn_id": "278",
+      "ncaa_id": "589035",
+      "sport": "football"
+    },
+    {
+      "espn_id": "341",
+      "ncaa_id": "589348",
+      "sport": "football"
+    },
+    {
+      "espn_id": "231",
+      "ncaa_id": "589108",
+      "sport": "football"
+    },
+    {
+      "espn_id": "417",
+      "ncaa_id": "589587",
+      "sport": "football"
+    },
+    {
+      "espn_id": "367",
+      "ncaa_id": "589319",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2241",
+      "ncaa_id": "589189",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2242",
+      "ncaa_id": "589522",
+      "sport": "football"
+    },
+    {
+      "espn_id": "46",
+      "ncaa_id": "589109",
+      "sport": "football"
+    },
+    {
+      "espn_id": "61",
+      "ncaa_id": "589056",
+      "sport": "football"
+    },
+    {
+      "espn_id": "290",
+      "ncaa_id": "589053",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2247",
+      "ncaa_id": "589054",
+      "sport": "football"
+    },
+    {
+      "espn_id": "59",
+      "ncaa_id": "589055",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2248",
+      "ncaa_id": "589588",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2249",
+      "ncaa_id": "589298",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2755",
+      "ncaa_id": "589110",
+      "sport": "football"
+    },
+    {
+      "espn_id": "125",
+      "ncaa_id": "589320",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2839",
+      "ncaa_id": "589360",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2256",
+      "ncaa_id": "589590",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2257",
+      "ncaa_id": "589485",
+      "sport": "football"
+    },
+    {
+      "espn_id": "65",
+      "ncaa_id": "589591",
+      "sport": "football"
+    },
+    {
+      "espn_id": "146",
+      "ncaa_id": "589592",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2258",
+      "ncaa_id": "589486",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2968",
+      "ncaa_id": "589593",
+      "sport": "football"
+    },
+    {
+      "espn_id": "348",
+      "ncaa_id": "589594",
+      "sport": "football"
+    },
+    {
+      "espn_id": "162",
+      "ncaa_id": "589595",
+      "sport": "football"
+    },
+    {
+      "espn_id": "297",
+      "ncaa_id": "589596",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2261",
+      "ncaa_id": "589111",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2262",
+      "ncaa_id": "589487",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2810",
+      "ncaa_id": "589597",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2264",
+      "ncaa_id": "589299",
+      "sport": "football"
+    },
+    {
+      "espn_id": "173",
+      "ncaa_id": "589598",
+      "sport": "football"
+    },
+    {
+      "espn_id": "108",
+      "ncaa_id": "589112",
+      "sport": "football"
+    },
+    {
+      "espn_id": "62",
+      "ncaa_id": "589057",
+      "sport": "football"
+    },
+    {
+      "espn_id": "191",
+      "ncaa_id": "589599",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2271",
+      "ncaa_id": "589300",
+      "sport": "football"
+    },
+    {
+      "espn_id": "418",
+      "ncaa_id": "589488",
+      "sport": "football"
+    },
+    {
+      "espn_id": "125974",
+      "ncaa_id": "589602",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2273",
+      "ncaa_id": "589321",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2274",
+      "ncaa_id": "589600",
+      "sport": "football"
+    },
+    {
+      "espn_id": "174",
+      "ncaa_id": "589364",
+      "sport": "football"
+    },
+    {
+      "espn_id": "107",
+      "ncaa_id": "589113",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2812",
+      "ncaa_id": "589365",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2277",
+      "ncaa_id": "589114",
+      "sport": "football"
+    },
+    {
+      "espn_id": "248",
+      "ncaa_id": "589058",
+      "sport": "football"
+    },
+    {
+      "espn_id": "47",
+      "ncaa_id": "589115",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2758",
+      "ncaa_id": "589505",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2938",
+      "ncaa_id": "589489",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2280",
+      "ncaa_id": "589490",
+      "sport": "football"
+    },
+    {
+      "espn_id": "304",
+      "ncaa_id": "589116",
+      "sport": "football"
+    },
+    {
+      "espn_id": "70",
+      "ncaa_id": "589073",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2286",
+      "ncaa_id": "589367",
+      "sport": "football"
+    },
+    {
+      "espn_id": "356",
+      "ncaa_id": "589059",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2287",
+      "ncaa_id": "589117",
+      "sport": "football"
+    },
+    {
+      "espn_id": "84",
+      "ncaa_id": "589060",
+      "sport": "football"
+    },
+    {
+      "espn_id": "282",
+      "ncaa_id": "589118",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2291",
+      "ncaa_id": "589322",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2294",
+      "ncaa_id": "589062",
+      "sport": "football"
+    },
+    {
+      "espn_id": "66",
+      "ncaa_id": "589061",
+      "sport": "football"
+    },
+    {
+      "espn_id": "175",
+      "ncaa_id": "589369",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2296",
+      "ncaa_id": "589119",
+      "sport": "football"
+    },
+    {
+      "espn_id": "55",
+      "ncaa_id": "588977",
+      "sport": "football"
+    },
+    {
+      "espn_id": "256",
+      "ncaa_id": "588976",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2302",
+      "ncaa_id": "589370",
+      "sport": "football"
+    },
+    {
+      "espn_id": "118",
+      "ncaa_id": "589371",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2304",
+      "ncaa_id": "589238",
+      "sport": "football"
+    },
+    {
+      "espn_id": "246",
+      "ncaa_id": "589372",
+      "sport": "football"
+    },
+    {
+      "espn_id": "126",
+      "ncaa_id": "589373",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2305",
+      "ncaa_id": "589064",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2306",
+      "ncaa_id": "589063",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2871",
+      "ncaa_id": "589374",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2309",
+      "ncaa_id": "589065",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2310",
+      "ncaa_id": "589239",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2316",
+      "ncaa_id": "589240",
+      "sport": "football"
+    },
+    {
+      "espn_id": "96",
+      "ncaa_id": "589066",
+      "sport": "football"
+    },
+    {
+      "espn_id": "247",
+      "ncaa_id": "589376",
+      "sport": "football"
+    },
+    {
+      "espn_id": "255",
+      "ncaa_id": "589377",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2315",
+      "ncaa_id": "589241",
+      "sport": "football"
+    },
+    {
+      "espn_id": "122774",
+      "ncaa_id": "589601",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2318",
+      "ncaa_id": "589378",
+      "sport": "football"
+    },
+    {
+      "espn_id": "322",
+      "ncaa_id": "589120",
+      "sport": "football"
+    },
+    {
+      "espn_id": "437",
+      "ncaa_id": "589330",
+      "sport": "football"
+    },
+    {
+      "espn_id": "262",
+      "ncaa_id": "589379",
+      "sport": "football"
+    },
+    {
+      "espn_id": "6353",
+      "ncaa_id": "589492",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2320",
+      "ncaa_id": "589121",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2323",
+      "ncaa_id": "589242",
+      "sport": "football"
+    },
+    {
+      "espn_id": "268",
+      "ncaa_id": "589380",
+      "sport": "football"
+    },
+    {
+      "espn_id": "388",
+      "ncaa_id": "589381",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2329",
+      "ncaa_id": "589122",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2331",
+      "ncaa_id": "589302",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2333",
+      "ncaa_id": "589515",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2335",
+      "ncaa_id": "589018",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2336",
+      "ncaa_id": "589303",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2876",
+      "ncaa_id": "589243",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2339",
+      "ncaa_id": "589244",
+      "sport": "football"
+    },
+    {
+      "espn_id": "203",
+      "ncaa_id": "589493",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2940",
+      "ncaa_id": "589246",
+      "sport": "football"
+    },
+    {
+      "espn_id": "209",
+      "ncaa_id": "589247",
+      "sport": "football"
+    },
+    {
+      "espn_id": "263",
+      "ncaa_id": "589382",
+      "sport": "football"
+    },
+    {
+      "espn_id": "309",
+      "ncaa_id": "588987",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2348",
+      "ncaa_id": "589068",
+      "sport": "football"
+    },
+    {
+      "espn_id": "97",
+      "ncaa_id": "589069",
+      "sport": "football"
+    },
+    {
+      "espn_id": "99",
+      "ncaa_id": "589067",
+      "sport": "football"
+    },
+    {
+      "espn_id": "67",
+      "ncaa_id": "589383",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2354",
+      "ncaa_id": "589384",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2359",
+      "ncaa_id": "589385",
+      "sport": "football"
+    },
+    {
+      "espn_id": "311",
+      "ncaa_id": "589123",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2362",
+      "ncaa_id": "589494",
+      "sport": "football"
+    },
+    {
+      "espn_id": "317",
+      "ncaa_id": "589386",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2368",
+      "ncaa_id": "589124",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2369",
+      "ncaa_id": "589304",
+      "sport": "football"
+    },
+    {
+      "espn_id": "276",
+      "ncaa_id": "589070",
+      "sport": "football"
+    },
+    {
+      "espn_id": "446",
+      "ncaa_id": "589509",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2371",
+      "ncaa_id": "589495",
+      "sport": "football"
+    },
+    {
+      "espn_id": "120",
+      "ncaa_id": "588938",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2373",
+      "ncaa_id": "589387",
+      "sport": "football"
+    },
+    {
+      "espn_id": "110",
+      "ncaa_id": "589389",
+      "sport": "football"
+    },
+    {
+      "espn_id": "113",
+      "ncaa_id": "588939",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2700",
+      "ncaa_id": "589456",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2816",
+      "ncaa_id": "589208",
+      "sport": "football"
+    },
+    {
+      "espn_id": "241",
+      "ncaa_id": "589507",
+      "sport": "football"
+    },
+    {
+      "espn_id": "235",
+      "ncaa_id": "588940",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2382",
+      "ncaa_id": "589126",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2383",
+      "ncaa_id": "589445",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2771",
+      "ncaa_id": "589196",
+      "sport": "football"
+    },
+    {
+      "espn_id": "291",
+      "ncaa_id": "589390",
+      "sport": "football"
+    },
+    {
+      "espn_id": "193",
+      "ncaa_id": "588941",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2390",
+      "ncaa_id": "588942",
+      "sport": "football"
+    },
+    {
+      "espn_id": "127",
+      "ncaa_id": "588943",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2392",
+      "ncaa_id": "589250",
+      "sport": "football"
+    },
+    {
+      "espn_id": "130",
+      "ncaa_id": "588944",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2393",
+      "ncaa_id": "588945",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2394",
+      "ncaa_id": "589391",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2395",
+      "ncaa_id": "589305",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2396",
+      "ncaa_id": "589251",
+      "sport": "football"
+    },
+    {
+      "espn_id": "210",
+      "ncaa_id": "589252",
+      "sport": "football"
+    },
+    {
+      "espn_id": "74",
+      "ncaa_id": "589392",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2398",
+      "ncaa_id": "589393",
+      "sport": "football"
+    },
+    {
+      "espn_id": "134",
+      "ncaa_id": "589253",
+      "sport": "football"
+    },
+    {
+      "espn_id": "135",
+      "ncaa_id": "588946",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2399",
+      "ncaa_id": "589496",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2364",
+      "ncaa_id": "589248",
+      "sport": "football"
+    },
+    {
+      "espn_id": "568",
+      "ncaa_id": "589204",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2969",
+      "ncaa_id": "589513",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2401",
+      "ncaa_id": "589254",
+      "sport": "football"
+    },
+    {
+      "espn_id": "344",
+      "ncaa_id": "588947",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2400",
+      "ncaa_id": "589127",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2402",
+      "ncaa_id": "589255",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2403",
+      "ncaa_id": "589341",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2623",
+      "ncaa_id": "589167",
+      "sport": "football"
+    },
+    {
+      "espn_id": "142",
+      "ncaa_id": "588949",
+      "sport": "football"
+    },
+    {
+      "espn_id": "137",
+      "ncaa_id": "589342",
+      "sport": "football"
+    },
+    {
+      "espn_id": "109",
+      "ncaa_id": "589388",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2919",
+      "ncaa_id": "589394",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2405",
+      "ncaa_id": "589128",
+      "sport": "football"
+    },
+    {
+      "espn_id": "149",
+      "ncaa_id": "589130",
+      "sport": "football"
+    },
+    {
+      "espn_id": "147",
+      "ncaa_id": "589129",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2818",
+      "ncaa_id": "589395",
+      "sport": "football"
+    },
+    {
+      "espn_id": "323",
+      "ncaa_id": "589396",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2413",
+      "ncaa_id": "589131",
+      "sport": "football"
+    },
+    {
+      "espn_id": "60",
+      "ncaa_id": "589256",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2415",
+      "ncaa_id": "589132",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2422",
+      "ncaa_id": "589398",
+      "sport": "football"
+    },
+    {
+      "espn_id": "93",
+      "ncaa_id": "589133",
+      "sport": "football"
+    },
+    {
+      "espn_id": "332",
+      "ncaa_id": "589399",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2426",
+      "ncaa_id": "589004",
+      "sport": "football"
+    },
+    {
+      "espn_id": "152",
+      "ncaa_id": "588957",
+      "sport": "football"
+    },
+    {
+      "espn_id": "158",
+      "ncaa_id": "588952",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2438",
+      "ncaa_id": "589301",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2440",
+      "ncaa_id": "588954",
+      "sport": "football"
+    },
+    {
+      "espn_id": "160",
+      "ncaa_id": "589134",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2441",
+      "ncaa_id": "589257",
+      "sport": "football"
+    },
+    {
+      "espn_id": "167",
+      "ncaa_id": "588956",
+      "sport": "football"
+    },
+    {
+      "espn_id": "166",
+      "ncaa_id": "588955",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2444",
+      "ncaa_id": "589307",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2447",
+      "ncaa_id": "589135",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2884",
+      "ncaa_id": "589402",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2450",
+      "ncaa_id": "589136",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2453",
+      "ncaa_id": "589195",
+      "sport": "football"
+    },
+    {
+      "espn_id": "153",
+      "ncaa_id": "588950",
+      "sport": "football"
+    },
+    {
+      "espn_id": "3071",
+      "ncaa_id": "589404",
+      "sport": "football"
+    },
+    {
+      "espn_id": "155",
+      "ncaa_id": "589143",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2449",
+      "ncaa_id": "589139",
+      "sport": "football"
+    },
+    {
+      "espn_id": "75",
+      "ncaa_id": "589405",
+      "sport": "football"
+    },
+    {
+      "espn_id": "249",
+      "ncaa_id": "588958",
+      "sport": "football"
+    },
+    {
+      "espn_id": "196",
+      "ncaa_id": "589359",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2464",
+      "ncaa_id": "589144",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2458",
+      "ncaa_id": "589145",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2460",
+      "ncaa_id": "589146",
+      "sport": "football"
+    },
+    {
+      "espn_id": "128",
+      "ncaa_id": "589259",
+      "sport": "football"
+    },
+    {
+      "espn_id": "425",
+      "ncaa_id": "589308",
+      "sport": "football"
+    },
+    {
+      "espn_id": "138",
+      "ncaa_id": "589260",
+      "sport": "football"
+    },
+    {
+      "espn_id": "583",
+      "ncaa_id": "589517",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2823",
+      "ncaa_id": "589213",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2466",
+      "ncaa_id": "589147",
+      "sport": "football"
+    },
+    {
+      "espn_id": "77",
+      "ncaa_id": "588961",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2886",
+      "ncaa_id": "589261",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2467",
+      "ncaa_id": "589406",
+      "sport": "football"
+    },
+    {
+      "espn_id": "87",
+      "ncaa_id": "588962",
+      "sport": "football"
+    },
+    {
+      "espn_id": "391",
+      "ncaa_id": "589407",
+      "sport": "football"
+    },
+    {
+      "espn_id": "427",
+      "ncaa_id": "589408",
+      "sport": "football"
+    },
+    {
+      "espn_id": "194",
+      "ncaa_id": "588963",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2980",
+      "ncaa_id": "589409",
+      "sport": "football"
+    },
+    {
+      "espn_id": "319",
+      "ncaa_id": "589215",
+      "sport": "football"
+    },
+    {
+      "espn_id": "201",
+      "ncaa_id": "588966",
+      "sport": "football"
+    },
+    {
+      "espn_id": "197",
+      "ncaa_id": "588965",
+      "sport": "football"
+    },
+    {
+      "espn_id": "295",
+      "ncaa_id": "588967",
+      "sport": "football"
+    },
+    {
+      "espn_id": "145",
+      "ncaa_id": "588948",
+      "sport": "football"
+    },
+    {
+      "espn_id": "354",
+      "ncaa_id": "589410",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2483",
+      "ncaa_id": "588969",
+      "sport": "football"
+    },
+    {
+      "espn_id": "204",
+      "ncaa_id": "588968",
+      "sport": "football"
+    },
+    {
+      "espn_id": "359",
+      "ncaa_id": "589411",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2888",
+      "ncaa_id": "589309",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2487",
+      "ncaa_id": "589262",
+      "sport": "football"
+    },
+    {
+      "espn_id": "205",
+      "ncaa_id": "589506",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2486",
+      "ncaa_id": "589497",
+      "sport": "football"
+    },
+    {
+      "espn_id": "213",
+      "ncaa_id": "588970",
+      "sport": "football"
+    },
+    {
+      "espn_id": "219",
+      "ncaa_id": "589148",
+      "sport": "football"
+    },
+    {
+      "espn_id": "90",
+      "ncaa_id": "589310",
+      "sport": "football"
+    },
+    {
+      "espn_id": "221",
+      "ncaa_id": "588971",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2972",
+      "ncaa_id": "589412",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2923",
+      "ncaa_id": "589413",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2502",
+      "ncaa_id": "589149",
+      "sport": "football"
+    },
+    {
+      "espn_id": "126086",
+      "ncaa_id": "589315",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2504",
+      "ncaa_id": "589150",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2506",
+      "ncaa_id": "589191",
+      "sport": "football"
+    },
+    {
+      "espn_id": "163",
+      "ncaa_id": "589151",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2508",
+      "ncaa_id": "589414",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2509",
+      "ncaa_id": "588972",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2825",
+      "ncaa_id": "589264",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2516",
+      "ncaa_id": "589415",
+      "sport": "football"
+    },
+    {
+      "espn_id": "29",
+      "ncaa_id": "589416",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2528",
+      "ncaa_id": "589417",
+      "sport": "football"
+    },
+    {
+      "espn_id": "227",
+      "ncaa_id": "589152",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2519",
+      "ncaa_id": "589418",
+      "sport": "football"
+    },
+    {
+      "espn_id": "242",
+      "ncaa_id": "588973",
+      "sport": "football"
+    },
+    {
+      "espn_id": "257",
+      "ncaa_id": "589153",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2891",
+      "ncaa_id": "589419",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2523",
+      "ncaa_id": "589154",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2524",
+      "ncaa_id": "589423",
+      "sport": "football"
+    },
+    {
+      "espn_id": "86",
+      "ncaa_id": "589424",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2827",
+      "ncaa_id": "589589",
+      "sport": "football"
+    },
+    {
+      "espn_id": "164",
+      "ncaa_id": "588974",
+      "sport": "football"
+    },
+    {
+      "espn_id": "16",
+      "ncaa_id": "589087",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2529",
+      "ncaa_id": "589155",
+      "sport": "football"
+    },
+    {
+      "espn_id": "129",
+      "ncaa_id": "589265",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2600",
+      "ncaa_id": "589426",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2614",
+      "ncaa_id": "589520",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2532",
+      "ncaa_id": "589431",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2776",
+      "ncaa_id": "589432",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2534",
+      "ncaa_id": "588978",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2535",
+      "ncaa_id": "589157",
+      "sport": "football"
+    },
+    {
+      "espn_id": "21",
+      "ncaa_id": "588975",
+      "sport": "football"
+    },
+    {
+      "espn_id": "301",
+      "ncaa_id": "589158",
+      "sport": "football"
+    },
+    {
+      "espn_id": "23",
+      "ncaa_id": "588979",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2542",
+      "ncaa_id": "589357",
+      "sport": "football"
+    },
+    {
+      "espn_id": "611",
+      "ncaa_id": "589199",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2553",
+      "ncaa_id": "589435",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2551",
+      "ncaa_id": "589268",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2828",
+      "ncaa_id": "589433",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2974",
+      "ncaa_id": "589346",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2559",
+      "ncaa_id": "589269",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2564",
+      "ncaa_id": "589434",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2894",
+      "ncaa_id": "589206",
+      "sport": "football"
+    },
+    {
+      "espn_id": "215",
+      "ncaa_id": "589270",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2567",
+      "ncaa_id": "588984",
+      "sport": "football"
+    },
+    {
+      "espn_id": "6",
+      "ncaa_id": "588980",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2579",
+      "ncaa_id": "588981",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2569",
+      "ncaa_id": "589159",
+      "sport": "football"
+    },
+    {
+      "espn_id": "233",
+      "ncaa_id": "589161",
+      "sport": "football"
+    },
+    {
+      "espn_id": "613",
+      "ncaa_id": "589209",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2571",
+      "ncaa_id": "589160",
+      "sport": "football"
+    },
+    {
+      "espn_id": "58",
+      "ncaa_id": "588982",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2546",
+      "ncaa_id": "589162",
+      "sport": "football"
+    },
+    {
+      "espn_id": "199",
+      "ncaa_id": "589311",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2568",
+      "ncaa_id": "589312",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2583",
+      "ncaa_id": "589271",
+      "sport": "football"
+    },
+    {
+      "espn_id": "79",
+      "ncaa_id": "589164",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2582",
+      "ncaa_id": "589165",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2572",
+      "ncaa_id": "588985",
+      "sport": "football"
+    },
+    {
+      "espn_id": "200",
+      "ncaa_id": "589212",
+      "sport": "football"
+    },
+    {
+      "espn_id": "253",
+      "ncaa_id": "589166",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2896",
+      "ncaa_id": "589523",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2586",
+      "ncaa_id": "589331",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2587",
+      "ncaa_id": "589336",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2927",
+      "ncaa_id": "589337",
+      "sport": "football"
+    },
+    {
+      "espn_id": "81",
+      "ncaa_id": "589437",
+      "sport": "football"
+    },
+    {
+      "espn_id": "374",
+      "ncaa_id": "589425",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2830",
+      "ncaa_id": "589266",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2598",
+      "ncaa_id": "589156",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2779",
+      "ncaa_id": "589427",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2832",
+      "ncaa_id": "589428",
+      "sport": "football"
+    },
+    {
+      "espn_id": "133",
+      "ncaa_id": "589429",
+      "sport": "football"
+    },
+    {
+      "espn_id": "375",
+      "ncaa_id": "589430",
+      "sport": "football"
+    },
+    {
+      "espn_id": "24",
+      "ncaa_id": "588988",
+      "sport": "football"
+    },
+    {
+      "espn_id": "56",
+      "ncaa_id": "589169",
+      "sport": "football"
+    },
+    {
+      "espn_id": "471",
+      "ncaa_id": "589514",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2619",
+      "ncaa_id": "589170",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2951",
+      "ncaa_id": "589401",
+      "sport": "football"
+    },
+    {
+      "espn_id": "216",
+      "ncaa_id": "589438",
+      "sport": "football"
+    },
+    {
+      "espn_id": "183",
+      "ncaa_id": "588989",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2627",
+      "ncaa_id": "589198",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2628",
+      "ncaa_id": "588993",
+      "sport": "football"
+    },
+    {
+      "espn_id": "218",
+      "ncaa_id": "588990",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2634",
+      "ncaa_id": "589171",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2635",
+      "ncaa_id": "589172",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2633",
+      "ncaa_id": "588991",
+      "sport": "football"
+    },
+    {
+      "espn_id": "245",
+      "ncaa_id": "588992",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2658",
+      "ncaa_id": "589272",
+      "sport": "football"
+    },
+    {
+      "espn_id": "251",
+      "ncaa_id": "588995",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2639",
+      "ncaa_id": "589498",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2640",
+      "ncaa_id": "589175",
+      "sport": "football"
+    },
+    {
+      "espn_id": "326",
+      "ncaa_id": "588986",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2641",
+      "ncaa_id": "588994",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2643",
+      "ncaa_id": "589091",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2644",
+      "ncaa_id": "589439",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2838",
+      "ncaa_id": "589313",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2649",
+      "ncaa_id": "588998",
+      "sport": "football"
+    },
+    {
+      "espn_id": "119",
+      "ncaa_id": "589176",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2651",
+      "ncaa_id": "589519",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2977",
+      "ncaa_id": "589441",
+      "sport": "football"
+    },
+    {
+      "espn_id": "386",
+      "ncaa_id": "589442",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2653",
+      "ncaa_id": "588999",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2654",
+      "ncaa_id": "589258",
+      "sport": "football"
+    },
+    {
+      "espn_id": "112",
+      "ncaa_id": "589443",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2655",
+      "ncaa_id": "589000",
+      "sport": "football"
+    },
+    {
+      "espn_id": "202",
+      "ncaa_id": "589001",
+      "sport": "football"
+    },
+    {
+      "espn_id": "5",
+      "ncaa_id": "589019",
+      "sport": "football"
+    },
+    {
+      "espn_id": "399",
+      "ncaa_id": "589077",
+      "sport": "football"
+    },
+    {
+      "espn_id": "302",
+      "ncaa_id": "589088",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2116",
+      "ncaa_id": "589038",
+      "sport": "football"
+    },
+    {
+      "espn_id": "26",
+      "ncaa_id": "589037",
+      "sport": "football"
+    },
+    {
+      "espn_id": "41",
+      "ncaa_id": "589045",
+      "sport": "football"
+    },
+    {
+      "espn_id": "379",
+      "ncaa_id": "589436",
+      "sport": "football"
+    },
+    {
+      "espn_id": "237",
+      "ncaa_id": "589446",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2439",
+      "ncaa_id": "588953",
+      "sport": "football"
+    },
+    {
+      "espn_id": "389",
+      "ncaa_id": "589274",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2667",
+      "ncaa_id": "589447",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2630",
+      "ncaa_id": "589174",
+      "sport": "football"
+    },
+    {
+      "espn_id": "328",
+      "ncaa_id": "589005",
+      "sport": "football"
+    },
+    {
+      "espn_id": "3101",
+      "ncaa_id": "589197",
+      "sport": "football"
+    },
+    {
+      "espn_id": "254",
+      "ncaa_id": "589006",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2638",
+      "ncaa_id": "588996",
+      "sport": "football"
+    },
+    {
+      "espn_id": "390",
+      "ncaa_id": "589448",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2636",
+      "ncaa_id": "588997",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2673",
+      "ncaa_id": "589275",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2674",
+      "ncaa_id": "589177",
+      "sport": "football"
+    },
+    {
+      "espn_id": "238",
+      "ncaa_id": "589007",
+      "sport": "football"
+    },
+    {
+      "espn_id": "222",
+      "ncaa_id": "589178",
+      "sport": "football"
+    },
+    {
+      "espn_id": "258",
+      "ncaa_id": "589009",
+      "sport": "football"
+    },
+    {
+      "espn_id": "330",
+      "ncaa_id": "589276",
+      "sport": "football"
+    },
+    {
+      "espn_id": "259",
+      "ncaa_id": "589008",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2678",
+      "ncaa_id": "589179",
+      "sport": "football"
+    },
+    {
+      "espn_id": "89",
+      "ncaa_id": "589449",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2681",
+      "ncaa_id": "589180",
+      "sport": "football"
+    },
+    {
+      "espn_id": "154",
+      "ncaa_id": "589010",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2682",
+      "ncaa_id": "589210",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2685",
+      "ncaa_id": "589450",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2687",
+      "ncaa_id": "589333",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2686",
+      "ncaa_id": "589451",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2688",
+      "ncaa_id": "589452",
+      "sport": "football"
+    },
+    {
+      "espn_id": "264",
+      "ncaa_id": "589012",
+      "sport": "football"
+    },
+    {
+      "espn_id": "265",
+      "ncaa_id": "589011",
+      "sport": "football"
+    },
+    {
+      "espn_id": "143",
+      "ncaa_id": "589453",
+      "sport": "football"
+    },
+    {
+      "espn_id": "131",
+      "ncaa_id": "589278",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2844",
+      "ncaa_id": "589314",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2845",
+      "ncaa_id": "589499",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2692",
+      "ncaa_id": "589181",
+      "sport": "football"
+    },
+    {
+      "espn_id": "336",
+      "ncaa_id": "589454",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2695",
+      "ncaa_id": "589245",
+      "sport": "football"
+    },
+    {
+      "espn_id": "223",
+      "ncaa_id": "589279",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2699",
+      "ncaa_id": "589324",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2704",
+      "ncaa_id": "589281",
+      "sport": "football"
+    },
+    {
+      "espn_id": "277",
+      "ncaa_id": "589013",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2707",
+      "ncaa_id": "589325",
+      "sport": "football"
+    },
+    {
+      "espn_id": "455",
+      "ncaa_id": "589345",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2717",
+      "ncaa_id": "589182",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2714",
+      "ncaa_id": "589332",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2843",
+      "ncaa_id": "589455",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2710",
+      "ncaa_id": "589183",
+      "sport": "football"
+    },
+    {
+      "espn_id": "98",
+      "ncaa_id": "589014",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2711",
+      "ncaa_id": "589015",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2702",
+      "ncaa_id": "589457",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2703",
+      "ncaa_id": "589326",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2848",
+      "ncaa_id": "589327",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2909",
+      "ncaa_id": "589458",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2849",
+      "ncaa_id": "589501",
+      "sport": "football"
+    },
+    {
+      "espn_id": "433",
+      "ncaa_id": "589500",
+      "sport": "football"
+    },
+    {
+      "espn_id": "396",
+      "ncaa_id": "589459",
+      "sport": "football"
+    },
+    {
+      "espn_id": "112335",
+      "ncaa_id": "589356",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2721",
+      "ncaa_id": "589502",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2725",
+      "ncaa_id": "589460",
+      "sport": "football"
+    },
+    {
+      "espn_id": "398",
+      "ncaa_id": "589461",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2930",
+      "ncaa_id": "589462",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2729",
+      "ncaa_id": "589184",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2911",
+      "ncaa_id": "589203",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2731",
+      "ncaa_id": "589464",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2733",
+      "ncaa_id": "589503",
+      "sport": "football"
+    },
+    {
+      "espn_id": "351",
+      "ncaa_id": "589328",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2851",
+      "ncaa_id": "589282",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2736",
+      "ncaa_id": "589283",
+      "sport": "football"
+    },
+    {
+      "espn_id": "275",
+      "ncaa_id": "589016",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2738",
+      "ncaa_id": "589465",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2740",
+      "ncaa_id": "589466",
+      "sport": "football"
+    },
+    {
+      "espn_id": "271",
+      "ncaa_id": "589467",
+      "sport": "football"
+    },
+    {
+      "espn_id": "272",
+      "ncaa_id": "589468",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2743",
+      "ncaa_id": "589470",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2744",
+      "ncaa_id": "589471",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2745",
+      "ncaa_id": "589472",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2746",
+      "ncaa_id": "589473",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2747",
+      "ncaa_id": "589194",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2748",
+      "ncaa_id": "589474",
+      "sport": "football"
+    },
+    {
+      "espn_id": "402",
+      "ncaa_id": "589476",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2751",
+      "ncaa_id": "589017",
+      "sport": "football"
+    },
+    {
+      "espn_id": "43",
+      "ncaa_id": "589185",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2754",
+      "ncaa_id": "589186",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2433",
+      "ncaa_id": "588959",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2459",
+      "ncaa_id": "588960",
+      "sport": "football"
+    },
+    {
+      "espn_id": "30",
+      "ncaa_id": "588983",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2226",
+      "ncaa_id": "589049",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2229",
+      "ncaa_id": "589050",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2341",
+      "ncaa_id": "589072",
+      "sport": "football"
+    },
+    {
+      "espn_id": "48",
+      "ncaa_id": "589099",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2193",
+      "ncaa_id": "589102",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2448",
+      "ncaa_id": "589137",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2428",
+      "ncaa_id": "589138",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2617",
+      "ncaa_id": "589168",
+      "sport": "football"
+    },
+    {
+      "espn_id": "559",
+      "ncaa_id": "589200",
+      "sport": "football"
+    },
+    {
+      "espn_id": "110243",
+      "ncaa_id": "589201",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2657",
+      "ncaa_id": "589273",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2128",
+      "ncaa_id": "589292",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2817",
+      "ncaa_id": "589306",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2424",
+      "ncaa_id": "589335",
+      "sport": "football"
+    },
+    {
+      "espn_id": "306",
+      "ncaa_id": "589368",
+      "sport": "football"
+    },
+    {
+      "espn_id": "6845",
+      "ncaa_id": "589400",
+      "sport": "football"
+    },
+    {
+      "espn_id": "286",
+      "ncaa_id": "589403",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2970",
+      "ncaa_id": "589463",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2723",
+      "ncaa_id": "589469",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2749",
+      "ncaa_id": "589475",
+      "sport": "football"
+    },
+    {
+      "espn_id": "548",
+      "ncaa_id": "589491",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2419",
+      "ncaa_id": "589508",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2741",
+      "ncaa_id": "589511",
+      "sport": "football"
+    },
+    {
+      "espn_id": "509",
+      "ncaa_id": "589518",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2963",
+      "ncaa_id": "589559",
+      "sport": "football"
+    },
+    {
+      "espn_id": "293",
+      "ncaa_id": "589560",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2141",
+      "ncaa_id": "589568",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2804",
+      "ncaa_id": "589338",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2377",
+      "ncaa_id": "589125",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2560",
+      "ncaa_id": "589211",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2882",
+      "ncaa_id": "589263",
+      "sport": "football"
+    },
+    {
+      "espn_id": "101442",
+      "ncaa_id": "593572",
+      "sport": "football"
+    },
+    {
+      "espn_id": "101784",
+      "ncaa_id": "589350",
+      "sport": "football"
+    },
+    {
+      "espn_id": "3110",
+      "ncaa_id": "589521",
+      "sport": "football"
+    },
+    {
+      "espn_id": "111674",
+      "ncaa_id": "589527",
+      "sport": "football"
+    },
+    {
+      "espn_id": "184",
+      "ncaa_id": "589420",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2545",
+      "ncaa_id": "590728",
+      "sport": "football"
+    },
+    {
+      "espn_id": "338",
+      "ncaa_id": "590493",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2676",
+      "ncaa_id": "589277",
+      "sport": "football"
+    },
+    {
+      "espn_id": "426",
+      "ncaa_id": "589397",
+      "sport": "football"
+    },
+    {
+      "espn_id": "195",
+      "ncaa_id": "588964",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2842",
+      "ncaa_id": "589214",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2588",
+      "ncaa_id": "589510",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2545",
+      "ncaa_id": "589163",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2477",
+      "ncaa_id": "589202",
+      "sport": "football"
+    },
+    {
+      "espn_id": "122666",
+      "ncaa_id": "589351",
+      "sport": "football"
+    },
+    {
+      "espn_id": "110242",
+      "ncaa_id": "589358",
+      "sport": "football"
+    },
+    {
+      "espn_id": "352",
+      "ncaa_id": "589375",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2292",
+      "ncaa_id": "589323",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2858",
+      "ncaa_id": "589228",
+      "sport": "football"
+    },
+    {
+      "espn_id": "415",
+      "ncaa_id": "589484",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2916",
+      "ncaa_id": "589193",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2094",
+      "ncaa_id": "589553",
+      "sport": "football"
+    },
+    {
+      "espn_id": "110438",
+      "ncaa_id": "589525",
+      "sport": "football"
+    },
+    {
+      "espn_id": "101161",
+      "ncaa_id": "589421",
+      "sport": "football"
+    },
+    {
+      "espn_id": "2822",
+      "ncaa_id": "589344",
+      "sport": "football"
+    },
+    {
+      "espn_id": "111675",
+      "ncaa_id": "589526",
+      "sport": "football"
+    }
+  ],
+  "model_threshold": 0
+}
