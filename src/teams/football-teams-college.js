@@ -25,14 +25,15 @@ import crypto from 'crypto';
 
 import { getBrowserConfigWithHeaders } from '../util/browser-headers.js'
 import cacheManager from '../util/cache-manager.js';
+import { fetchNcaaTeamData, scrapeNcaaTeamDetails, scrapeHeadCoachFromStatsPage } from '../util/ncaa-school-util.js';
 
 const CONFIG_FILE = "configs/football-college.yaml"
 const OUTPUT_FILE = "data/processed/football-teams-college.json"
 const CHROME_EXEC = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
 const NCAA_STAT_TTL = 7 * 24 * 60 * 60 * 1000; // 7 days
-const NCAA_DETAIL_TTL = 30 * 24 * 60 * 60 * 1000; // 30 days
 const NCAA_COACH_TTL = 365 * 24 * 60 * 60 * 1000; // 1 year
+const LOCAL_COLOR_CACHE_TTL = 365 * 24 * 60 * 60 * 1000; // 7 days
 
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 const BROWSER_COLORS = ['\u001b[33m', '\u001b[34m', '\u001b[32m'];
@@ -48,8 +49,8 @@ const defaultValue = (value, fallback = null) => (value && value.trim()) ? value
  */
 const _fetchEspnTeamData = async (config, verbose) => {
     const espn_response = await fetch(config.LINKS.ESPN_TEAMS);
-     if (!espn_response.ok) console.log(`\u001b[32mError Downloading ESPN Football Teams: ${config.LINKS.ESPN_TEAMS}\u001b[0m`);
-     else if (verbose) console.log(`\u001b[32mDownloading ESPN Football Teams: ${config.LINKS.ESPN_TEAMS}\u001b[0m`);
+    if (!espn_response.ok) console.log(`\u001b[32mError Downloading ESPN Football Teams: ${config.LINKS.ESPN_TEAMS}\u001b[0m`);
+    else if (verbose) console.log(`\u001b[32mDownloading ESPN Football Teams: ${config.LINKS.ESPN_TEAMS}\u001b[0m`);
     const college_espn_teams = await espn_response.json();
     return college_espn_teams?.sports?.[0]?.leagues?.[0]?.teams.map(x => x.team) || [];
 }
@@ -140,7 +141,7 @@ const _fetchNcaaIdBindings = async (config, verbose, browsers) => {
                         }).filter(Boolean); // Filter out any null results.
                     }, ATTRIBUTES);
                     batchResults.push(...idsOnPage);
-                    await sleep(1000 + Math.random() * 2000); 
+                    await sleep(1000 + Math.random() * 2000);
                 } catch (error) {
                     console.error(`${BROWSER_COLORS[browserIndex]}Failed to process ${link}: ${error.message}\u001b[0m`);
                 }
@@ -150,314 +151,6 @@ const _fetchNcaaIdBindings = async (config, verbose, browsers) => {
     const scrapedIds = (await Promise.all(scrapingPromises)).flat();
     if (scrapedIds.length > 0) cacheManager.set("football_college_ids", scrapedIds);
     return scrapedIds;
-};
-
-
-
-/**
- * Scrapes school data from multiple pages of the ncaa.com schools index, distributing the workload
- * across multiple concurrent browser instances for efficiency. This function serves as the primary
- * data source for the initial list of schools.
- *
- * @param {object} config - The application's configuration object, containing necessary selectors.
- * @param {boolean} verbose - If true, enables detailed logging to the console.
- * @param {Array<import('puppeteer').Browser>} browsers - An array of pre-launched Puppeteer browser instances to use for scraping.
- * @returns {Promise<Array<{school_name: string, school_url: string, img_src: string | null}>>} A promise that resolves to a flattened array of scraped school objects.
- */
-const _fetchNcaaSchoolsList = async (config, verbose, browsers) => {
-    const CONCURRENT_BROWSERS = browsers.length;
-    const MAX_PAGES = 23; // Total number of pages to scrape in the schools index.
-    const BASE_URL = 'https://www.ncaa.com/schools-index';
-    // Create page URLs and distribute across browsers
-    const pageUrls = Array.from({ length: MAX_PAGES }, (_, i) => `${BASE_URL}/${i + 1}`);
-    const urlBatches = Array.from({ length: CONCURRENT_BROWSERS }, () => []);
-    pageUrls.forEach((url, index) => urlBatches[index % CONCURRENT_BROWSERS].push(url));
-
-    const batchPromises = urlBatches.map(async (urls, browserIndex) => {
-        const batchResults = [];
-        for (const url of urls) {
-            if (verbose) console.log(`${BROWSER_COLORS[browserIndex]}Downloading NCAA School List: ${url}\u001b[0m`);
-            try {
-                const response = await fetch(url);
-                if (!response.ok) continue;
-                const html = await response.text();
-                
-                const schoolLinkRegex = /<a[^>]+href="\/schools\/([^"]+)"[^>]*>([^<]+)<\/a>/g;
-                let match;
-                while ((match = schoolLinkRegex.exec(html)) !== null) {
-                    const [, slug, name] = match;
-                    if (slug && name && name.trim()) {
-                        batchResults.push({
-                            school_name: name.trim(),
-                            school_url: `https://www.ncaa.com/schools/${slug}`,
-                            img_src: `https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/${slug}.svg`
-                        });
-                    }
-                }
-                await sleep(100);
-            } catch (error) {
-                if (verbose) console.log(`${BROWSER_COLORS[browserIndex]}Warning: Failed to scrape ${url}: ${error.message}\u001b[0m`);
-            }
-        }
-        return batchResults;
-    });
-    
-    const batchResults = await Promise.all(batchPromises);
-    return batchResults.flat();
-};
-
-/**
- * Orchestrates the fetching of all NCAA team data. It first attempts to retrieve a fresh list
- * from the cache. If the cache is empty or stale, it concurrently scrapes data from both a
- * primary and a backup source, merges the lists while prioritizing the primary source,
- * caches the final unique list, and then returns it.
- *
- * @param {object} config - The application's configuration object, containing links and selectors.
- * @param {boolean} verbose - If true, enables detailed logging to the console.
- * @param {Array<import('puppeteer').Browser>} browsers - An array of pre-launched Puppeteer browser instances.
- * @returns {Promise<Array<Object>>} A promise that resolves to a comprehensive, deduplicated array of NCAA team objects.
- */
-const _fetchNcaaTeamData = async (config, verbose, browsers) => {
-    const CACHE_KEY = "ncaa_schools_backup";
-    const cachedResult = cacheManager.get(CACHE_KEY, NCAA_STAT_TTL);
-    if (cachedResult) {
-        if (verbose) console.log(`\u001b[36mUsing cached NCAA Football Teams data from ${cachedResult.savedAt.toLocaleString()}\u001b[0m`)
-        // If valid cache exists, return it immediately.
-        return cachedResult.data;
-    }    
-    // Fetch initial list of schools (name, URL, img_src)
-    const schoolsList = await _fetchNcaaSchoolsList(config, verbose, browsers);
-    if (schoolsList.length > 0) cacheManager.set(CACHE_KEY, schoolsList);
-    return schoolsList;
-};
-
-/**
- * Scrapes detailed NCAA team information from school pages and updates team data with divisions
- * where missing. It uses a unified cache keyed by URL and handles concurrent processing.
- *
- * @param {Array<Object>} ncaaTeams - Array of NCAA team objects to process
- * @param {object} config - The application's configuration object
- * @param {boolean} verbose - If true, enables detailed logging
- * @param {Array<import('puppeteer').Browser>} browsers - Pre-launched browser instances
- * @returns {Promise<Array<Object>>} Promise resolving to teams with additional detail fields
- */
-const _scrapeNcaaTeamDetails = async (ncaaTeams, config, verbose, browsers) => {
-    const CONCURRENT_BROWSERS = browsers.length;
-
-    /**
-     * Generates a consistent cache key from NCAA school URLs by normalizing different URL formats.
-     * This ensures that equivalent URLs from different NCAA domains map to the same cache entry.
-     * 
-     * @param {string|null|undefined} schoolUrl - The full NCAA school URL to convert to a cache key
-     * @returns {string|null} Normalized URL path for use as cache key, or null if input is invalid
-     */
-    const getUrlKey = (schoolUrl) => {
-        if (!schoolUrl) return null;
-        // Normalize stats.ncaa.org URLs to relative paths
-        if (schoolUrl.includes('stats.ncaa.org/schools/')) return schoolUrl.replace('https://stats.ncaa.org', '');
-        // Normalize www.ncaa.com URLs to relative paths  
-        if (schoolUrl.includes('ncaa.com/schools/')) return schoolUrl.replace('https://www.ncaa.com', '');
-        // Return as-is for other URLs (fallback)
-        return schoolUrl;
-    };
-
-    /**
-     * Maps various division text formats to standardized division codes.
-     * Handles NCAA division text scraped from web pages and normalizes it to consistent values.
-     * 
-     * @param {string|null|undefined} divisionText - Raw division text from scraped content
-     * @returns {string|null} Standardized division code or null if no match
-     * 
-     */
-    const mapDivisionToStandard = (divisionText) => {
-        if (!divisionText) return null;
-        const text = divisionText.toLowerCase();
-        if (text.includes('fbs')) return 'fbs';
-        if (text.includes('fcs')) return 'fcs';
-        // Check for specific divisions first (more specific matches first)
-        if (text.includes('division iii')) return 'd3';
-        if (text.includes('division ii')) return 'd2';
-        // Only match "division i" when it's NOT followed by other text (like "ii" or "iii")
-        if (text.match(/division\s+i(?!\w)/)) return 'fbs';
-        return null;
-    };
-    
-    // Use unified school details cache keyed by URL
-    const cachedSchoolDetailsResult = cacheManager.get("ncaa_school_details_backup", NCAA_DETAIL_TTL);
-    let unifiedSchoolDetailsCache = (cachedSchoolDetailsResult && cachedSchoolDetailsResult.data) ? cachedSchoolDetailsResult.data : {};
-    
-    // Identify teams that need details scraped based on school_url
-    const teamsToScrape = ncaaTeams.filter(team => {
-        if (!team.school_url) return false;
-        let urlKey = getUrlKey(team.school_url)
-        if (!urlKey) return false;
-        // Check if we already have cached data for this URL
-        return !unifiedSchoolDetailsCache[urlKey];
-    });
-
-    if (teamsToScrape.length > 0) {
-        if (Object.keys(unifiedSchoolDetailsCache).length > 0 && cachedSchoolDetailsResult) {
-            if (verbose) console.log(`\u001b[36mFound ${Object.keys(unifiedSchoolDetailsCache).length} schools in unified details cache (from ${cachedSchoolDetailsResult.savedAt.toLocaleString()}). Scraping details for ${teamsToScrape.length} new schools.\u001b[0m`);
-        } else if (verbose) console.log(`\u001b[36mScraping details for ${teamsToScrape.length} schools.\u001b[0m`);
-        
-        // Concurrent processing with multiple browser instances
-        const BATCH_SIZE = Math.ceil(teamsToScrape.length / CONCURRENT_BROWSERS);
-
-        // Function to process a batch of teams
-        const processBatch = async (teams, browserInstance, batchIndex) => {
-            const page = await browserInstance.newPage();
-            const browserConfig = getBrowserConfigWithHeaders({
-                'Referer': 'https://stats.ncaa.org/',
-                'Sec-Fetch-Dest': 'document',
-                'Sec-Fetch-Mode': 'navigate',
-                'Sec-Fetch-Site': 'same-origin',
-                'Sec-GPC': '1',
-                'Upgrade-Insecure-Requests': '1',
-                'Priority': 'u=0, i'
-            });
-            
-            await page.setUserAgent(browserConfig.userAgent);
-            await page.setViewport({ width: 1920, height: 1080 });
-            await page.setExtraHTTPHeaders(browserConfig.headers);
-
-            const results = [];
-            for (const team of teams) {
-                if (verbose) console.log(`${BROWSER_COLORS[batchIndex % CONCURRENT_BROWSERS]}Downloading School Details: ${team.school_url}\u001b[0m`);
-                const detailedData = await _scrapeTeamDetailsWithPage(team.school_url, page, config);
-                const urlKey = getUrlKey(team.school_url);
-                // Store all results in unified cache by URL key
-                const result = {
-                    urlKey: urlKey,
-                    school_url: team.school_url,
-                    ncaa_id: team.ncaa_id || null,
-                    details: {
-                        conference: defaultValue(detailedData?.conference),
-                        nickname_ncaa: defaultValue(detailedData?.nickname_ncaa),
-                        colors: defaultValue(detailedData?.colors),
-                        name_ncaa: defaultValue(detailedData?.name_ncaa),
-                        website: defaultValue(detailedData?.website),
-                        twitter: defaultValue(detailedData?.twitter)
-                    },
-                    division: detailedData?.division ? mapDivisionToStandard(detailedData.division) : null
-                };
-                results.push(result);
-                // Update cache immediately after each school is processed
-                unifiedSchoolDetailsCache[result.urlKey] = {
-                    ...result.details,
-                    school_url: result.school_url,
-                    scraped_at: new Date().toISOString(),
-                    division: result.division // Add division as a direct property
-                };
-                cacheManager.set("ncaa_school_details_backup", unifiedSchoolDetailsCache);
-                // Rate limiting between requests within the same browser
-                await sleep(500 + Math.random() * 500);
-            }
-            await page.close();
-            return results;
-        };
-
-        // Split teams into batches and process concurrently
-        const batches = [];
-        for (let i = 0; i < teamsToScrape.length; i += BATCH_SIZE) batches.push(teamsToScrape.slice(i, i + BATCH_SIZE)); 
-        const batchPromises = batches.map((batch, index) => 
-            processBatch(batch, browsers[index % CONCURRENT_BROWSERS], index)
-        );    
-        const batchResults = await Promise.all(batchPromises);
-    } else {
-        if (verbose && cachedSchoolDetailsResult) console.log(`\u001b[36mUsing cached school details data for all schools (from ${cachedSchoolDetailsResult.savedAt.toLocaleString()}).\u001b[0m`);
-    }
-
-    // Function to get cached details by URL
-    const getCachedDetailsByUrl = (schoolUrl) => {
-        const urlKey = getUrlKey(schoolUrl);
-        return urlKey ? unifiedSchoolDetailsCache[urlKey] || null : null;
-    };
-    
-    // Merge cached details into all NCAA teams using URL-based matching
-    const processedNcaaTeams = ncaaTeams.map(team => {
-        // Get details from unified cache by URL
-        const cachedDetails = getCachedDetailsByUrl(team.school_url);
-        // Merge team data with cached details
-        const teamData = {
-            ...team,
-            // Use cached details (only source for these fields)
-            conference: cachedDetails?.conference || null,
-            nickname_ncaa: cachedDetails?.nickname_ncaa || null,
-            colors: cachedDetails?.colors || null,
-            name_ncaa: cachedDetails?.name_ncaa || null,
-            website: cachedDetails?.website || null,
-            twitter: cachedDetails?.twitter || null,
-            
-        };
-        return teamData;
-    });
-    return processedNcaaTeams;
-};
-
-/**
- * Legacy scraper for NCAA team details (keeping existing functionality)
- * 
- * @param {string} teamUrl - The NCAA school URL to scrape (e.g., https://stats.ncaa.org/schools/...)
- * @param {Object} page - Puppeteer page instance to use for scraping
- * @param {Object} config - Configuration object with selectors
- * @returns {Object|null} Object containing team details or null if scraping fails
- */
-const _scrapeTeamDetailsWithPage = async (teamUrl, page, config) => {
-    if (!teamUrl) return null;
-    try {
-        await page.goto(teamUrl, { waitUntil: 'networkidle0', timeout: 30000 });
-        await sleep(3000); // Wait longer for content to load
-        // Extract detailed team data using config selectors
-        const teamDetails = await page.evaluate((config) => {
-            // Extracts trimmed text by XPath
-            const getTextByXPath = (xpath) => {
-                try { return document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue?.textContent.trim() || null; }
-                catch { return null; }
-            };
-            // Extracts attribute (or text fallback) by XPath
-            const getAttributeByXPath = (xpath) => {
-                try { const node = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue; return node?.nodeValue || node?.textContent.trim() || null; }
-                catch { return null; }
-            };
-            // Also extract division information from the page
-            let division = null;
-            // First, try to extract Division I/II/III
-            const divEl = document.querySelector(config.NCAA_DETAILED.DIVISION);
-            if (divEl) {
-                const match = divEl.textContent.match(/Division\s+[IVX]+/i);
-                if (match) division = match[0]; 
-            }
-            // If Division I is found, try to refine with FCS/FBS
-            if (division.toLowerCase().match(/division\s+i(?!\w)/)) {
-                const tagLineText = getTextByXPath(config.NCAA_DETAILED.SUB_DIVISION)
-                if (tagLineText) {
-                    const match = tagLineText.match(/(FCS|FBS) Football/i);
-                    if (match && match[1]) division = match[1].toLowerCase();
-                }
-            }
-            return {
-                conference: getTextByXPath(config.NCAA_DETAILED.CONFERENCE),
-                nickname_ncaa: getTextByXPath(config.NCAA_DETAILED.NICKNAME),
-                colors: getTextByXPath(config.NCAA_DETAILED.COLORS),
-                name_ncaa: getTextByXPath(config.NCAA_DETAILED.SCHOOL),
-                website: getAttributeByXPath(config.NCAA_DETAILED.WEBSITE),
-                twitter: getAttributeByXPath(config.NCAA_DETAILED.TWITTER),
-                division: division
-            };
-        }, config.ATTRIBUTES);
-        return teamDetails;
-    } catch (error) {
-        console.error(`Download Failed: ${teamUrl}: `, error);
-        return {
-            conference: null,
-            nickname_ncaa: null,
-            colors: null,
-            name_ncaa: null,
-            website: null,
-            twitter: null,
-            division: null
-        };
-    }
 };
 
 /**
@@ -472,15 +165,15 @@ const _scrapeTeamDetailsWithPage = async (teamUrl, page, config) => {
 const _addNcaaIdsToTeams = (ncaaTeams, ncaaIds, verbose) => {
     const teamsWithIds = [];
     const teamsWithoutIds = [];
-    ncaaTeams.forEach(team => {        
+    ncaaTeams.forEach(team => {
         // Try to find matching NCAA ID by team name (exact match like backup file)
         const matchingId = ncaaIds.find(idRecord => {
             if (!idRecord.team_name || !team.school_name) return false;
             return idRecord.team_name.toLowerCase().trim() === team.school_name.toLowerCase().trim();
         });
-        if (matchingId) teamsWithIds.push({...team, ncaa_id: matchingId.ncaa_id});
-        else teamsWithoutIds.push({...team, ncaa_id: null});
-        
+        if (matchingId) teamsWithIds.push({ ...team, ncaa_id: matchingId.ncaa_id });
+        else teamsWithoutIds.push({ ...team, ncaa_id: null });
+
     });
     return {
         matchedTeams: teamsWithIds,
@@ -498,7 +191,7 @@ const _addNcaaIdsToTeams = (ncaaTeams, ncaaIds, verbose) => {
  * @returns {Promise<{matchedTeams: Array<Object>, unmatchedEspn: Array<Object>, unmatchedNcaa: Array<Object>}>} Object containing matched and unmatched teams
  */
 const _matchEspnToNcaaTeams = async (espnTeams, ncaaTeamsWithIds, verbose) => {
-    
+
     // Generate unique ID for each team
     const generateId = (espnId, abbreviation) => {
         const base = abbreviation || espnId || 'unknown';
@@ -544,9 +237,9 @@ const _matchEspnToNcaaTeams = async (espnTeams, ncaaTeamsWithIds, verbose) => {
             university: team.name_ncaa || team.location || null,
             division: team.division || null,
             conference: team.conference || null,
-            primary: team.color ? `#${team.color}` : null, 
-            secondary: team.alternateColor ? `#${team.alternateColor}` : null, 
-            logo: team.logo || null,
+            primary: team.color ? `#${team.color}` : null,
+            secondary: team.alternateColor ? `#${team.alternateColor}` : null,
+            logo: team.img_src || null,
             head_coach: null, // Will be filled by coach scraping later
             offensive_coordinator: null, // Will be filled by coordinator matching later
             defensive_coordinator: null, // Will be filled by coordinator matching later
@@ -563,6 +256,259 @@ const _matchEspnToNcaaTeams = async (espnTeams, ncaaTeamsWithIds, verbose) => {
         unmatchedEspn: unmatchedEspn,
         unmatchedNcaa: unmatchedNcaa
     };
+};
+
+/**
+ * Scrapes head coach information from NCAA team stats pages with robust error handling
+ * 
+ * @param {Array<Object>} teams - Array of team objects with ncaa_id property
+ * @param {boolean} verbose - If true, enables detailed logging to the console
+ * @param {Array<import('puppeteer').Browser>} browsers - Array of pre-launched browser instances
+ * @returns {Promise<Object>} Promise resolving to cache object with ncaa_id as keys and coach names as values
+ */
+const _scrapeFootballHeadCoaches = async (teams, verbose, browsers) => {
+    const CONCURRENT_BROWSERS = browsers.length;
+    const cached = cacheManager.get("football_college_coaches", NCAA_COACH_TTL);
+    let teamCoachesCache = cached?.data || {};
+    const teamsNeedingCoaches = teams.filter(t => t.ncaa_id && !teamCoachesCache[t.ncaa_id]);
+    
+    if (teamsNeedingCoaches.length === 0) {
+        if (verbose && cached) console.log(`\u001b[36mUsing cached Head Coach data for all teams (from ${cached.savedAt.toLocaleString()}).\u001b[0m`);
+        return teamCoachesCache;
+    } else if (verbose) {
+        const cachedCount = Object.keys(teamCoachesCache).length;
+        const cacheMsg = cachedCount ? 
+            `Found ${cachedCount} cached coaches (from ${cached.savedAt?.toLocaleString()}).` : 
+            `No cached coaches.`;
+        console.log(`\u001b[36m${cacheMsg} Scraping head coaches for ${teamsNeedingCoaches.length} new teams.\u001b[0m`);
+    }
+
+    const COACH_BATCH_SIZE = Math.ceil(teamsNeedingCoaches.length / CONCURRENT_BROWSERS);
+    const processCoachBatch = async (batch, browser, idx) => {
+        const page = await browser.newPage();
+        const cfg = getBrowserConfigWithHeaders({
+            'Referer': 'https://stats.ncaa.org/',
+            'Sec-Fetch-Dest': 'document',
+            'Sec-Fetch-Mode': 'navigate',
+            'Sec-Fetch-Site': 'same-origin',
+            'Sec-GPC': '1',
+            'Upgrade-Insecure-Requests': '1',
+            'Priority': 'u=0, i'
+        });
+
+        await page.setUserAgent(cfg.userAgent);
+        await page.setViewport({ width: 1920, height: 1080 });
+        await page.setExtraHTTPHeaders(cfg.headers);
+
+        try {
+            if (verbose) console.log(`${BROWSER_COLORS[idx]}Establishing NCAA session...\u001b[0m`);
+            await page.goto('https://stats.ncaa.org/', { waitUntil: 'networkidle0', timeout: 30000 });
+            await sleep(3000);
+        } catch {
+            if (verbose) console.log(`${BROWSER_COLORS[idx]}Warning: Session setup failed, continuing...\u001b[0m`);
+        }
+
+        for (const team of batch) {
+            if (verbose) console.log(`${BROWSER_COLORS[idx]}Downloading Head Coach: https://stats.ncaa.org/teams/${team.ncaa_id}\u001b[0m`);
+            const headCoach = await scrapeHeadCoachFromStatsPage(team.ncaa_id, page);
+            if (team.ncaa_id && headCoach) {
+                teamCoachesCache[team.ncaa_id] = defaultValue(headCoach);
+                cacheManager.set("football_college_coaches", teamCoachesCache);
+            }
+            await sleep(5000 + Math.random() * 1000);
+        }
+
+        await page.close();
+    };
+    const batches = [];
+    for (let i = 0; i < teamsNeedingCoaches.length; i += COACH_BATCH_SIZE) batches.push(teamsNeedingCoaches.slice(i, i + COACH_BATCH_SIZE));
+    await Promise.all(batches.map((batch, i) => processCoachBatch(batch, browsers[i % CONCURRENT_BROWSERS], i)));
+    return teamCoachesCache;
+};
+
+/**
+ * Scrapes coordinator information from Wikipedia pages and caches the results
+ * 
+ * @param {Object} config - Configuration object with links and selectors
+ * @param {boolean} verbose - Enable console logging
+ * @param {Array<import('puppeteer').Browser>} browsers - Array of pre-launched browser instances
+ * @returns {Promise<Array<Object>>}
+ */
+const _scrapeFootballCoordinators = async (config, verbose, browsers) => {
+    const cacheKey = "football_college_coordinators";
+    const cached = cacheManager.get(cacheKey, NCAA_COACH_TTL);
+    let coordinatorCache = cached?.data || [];
+    if (coordinatorCache.length) {
+        if (verbose) console.log(`\u001b[36mUsing cached coordinator data (${coordinatorCache.length} records from ${cached.savedAt.toLocaleString()})\u001b[0m`);
+        return coordinatorCache;
+    }
+    const extractCoordinators = (xpath) => {
+        const getNode = (xp) => document.evaluate(xp, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        const table = getNode(xpath);
+        if (!table) return [];
+        const rows = [...table.querySelectorAll("tr")];
+        let headerRow;
+        for (const row of rows) {
+            const texts = [...row.querySelectorAll("th, td")].map(c => c.textContent.trim().toLowerCase());
+            if (texts.some(t => /team|school/.test(t)) && texts.some(t => /offensive/.test(t)) && texts.some(t => /defensive/.test(t))) {
+                headerRow = {
+                    team: texts.findIndex(t => /team|school/.test(t)),
+                    head: texts.findIndex(t => /head coach/.test(t)),
+                    off: texts.findIndex(t => /offensive/.test(t)),
+                    def: texts.findIndex(t => /defensive/.test(t))
+                };
+                break;
+            }
+        }
+        if (!headerRow) return [];
+        return rows.slice(1).map(r => {
+            const cells = [...r.querySelectorAll("td")];
+            if (cells.length <= Math.max(headerRow.team, headerRow.off, headerRow.def)) return null;
+            const clean = (val) => val?.replace(/\[[0-9]+\]/g, "").trim() || null;
+            return {
+                team: clean(cells[headerRow.team]?.textContent),
+                head_coach: clean(cells[headerRow.head]?.textContent),
+                offensive_coordinator: clean(cells[headerRow.off]?.textContent),
+                defensive_coordinator: clean(cells[headerRow.def]?.textContent),
+            };
+        }).filter(Boolean);
+    };
+    const scrapeCoordinatorsFromWiki = async (url, page) => {
+        try {
+            await page.goto(url, { waitUntil: "networkidle0", timeout: 60000 });
+            await sleep(3000);
+            const tableSelector = config.ATTRIBUTES[url]?.TABLE;
+            if (!tableSelector) return [];
+            return page.evaluate(extractCoordinators, tableSelector);
+        } catch (e) {
+            console.error(`\u001b[31mFailed to scrape coordinators from ${url}: ${e.message}\u001b[0m`);
+            return [];
+        }
+    };
+    const batches = Array.from({ length: browsers.length }, () => []);
+    config.LINKS.NCAA_COACHES.forEach((url, i) => batches[i % browsers.length].push(url));
+    const allCoordinators = (
+        await Promise.all(batches.map(async (urls, i) => {
+            const page = await browsers[i].newPage();
+            const browserConfig = getBrowserConfigWithHeaders({
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
+                "Accept-Language": "en-US,en;q=0.9",
+                "Referer": "https://en.wikipedia.org/",
+                "Sec-Fetch-Dest": "document",
+                "Sec-Fetch-Mode": "navigate",
+                "Sec-Fetch-Site": "same-origin",
+            });
+            await page.setUserAgent(browserConfig.userAgent);
+            await page.setViewport({ width: 1920, height: 1080 });
+            await page.setExtraHTTPHeaders(browserConfig.headers);
+            const results = [];
+            for (const url of urls) {
+                if (verbose) console.log(`${BROWSER_COLORS[i]}Downloading NCAA Coordinators: ${url}\u001b[0m`);
+                results.push(...await scrapeCoordinatorsFromWiki(url, page));
+                await sleep(2000);
+            }
+            await page.close();
+            return results;
+        }))
+    ).flat();
+    cacheManager.set(cacheKey, allCoordinators);
+    return allCoordinators;
+};
+
+/**
+ * Matches coordinator data with team records using multiple name matching strategies
+ * 
+ * @param {string} teamName - The team name to match against coordinator records
+ * @param {Array<Object>} coordinatorData - Array of coordinator records from Wikipedia tables
+ * @returns {Object|null} Matched coordinator record with offensive/defensive coordinators, or null if no match found
+ */
+const _matchCoordinatorByName = (teamName, coordinatorData) => {
+    if (!teamName) return null;
+    // Try exact match first
+    let match = coordinatorData.find(coord => coord.team === teamName);
+    if (match) return match;
+    // Try partial matching - look for team name in coordinator team name
+    const teamWords = teamName.toLowerCase().split(/\s+/);
+    match = coordinatorData.find(coord => {
+        const coordTeam = coord.team.toLowerCase();
+        return teamWords.some(word => word.length > 3 && coordTeam.includes(word));
+    });
+    if (match) return match;
+    // Try matching by university name if available
+    const universityWords = (teamName || '').toLowerCase().split(/\s+/);
+    match = coordinatorData.find(coord => {
+        const coordTeam = coord.team.toLowerCase();
+        return universityWords.some(word => word.length > 4 && coordTeam.includes(word));
+    });
+    return match;
+};
+
+/**
+ * Extracts dominant colors from an image URL using SVG to PNG conversion and color analysis
+ * 
+ * @param {string} imageUrl - URL of the image to process
+ * @param {Array<Object>} colorBindings - Cache array of previously processed images
+ * @param {boolean} verbose - If true, enables detailed logging to the console
+ * @returns {Promise<string|null>} Comma-separated hex colors or null if extraction fails
+ */
+const _extractDominantColors = async (imageUrl, colorBindings, verbose) => {
+    if (!imageUrl) return null;
+    // Check cache first
+    const cached = colorBindings.find(binding => binding.url === imageUrl);
+    if (cached && cached.colors)  return cached.colors;
+    // Extract colors from SVG by converting to PNG first
+    try {
+        if (verbose) console.log(`\u001b[32mDownloading Logo Colors: ${imageUrl}\u001b[0m`);
+        // Download the SVG
+        const svgResponse = await fetch(imageUrl);
+        if (!svgResponse.ok) throw new Error(`HTTP ${svgResponse.status}`);
+        const svgBuffer = await svgResponse.arrayBuffer();
+        const svgString = new TextDecoder().decode(svgBuffer);
+        // Convert SVG to PNG using svg2img
+        const pngBuffer = await new Promise((resolve, reject) => {
+            svg2img(svgString, { width: 200, height: 200, format: 'png' }, (error, buffer) => {
+                if (error) reject(error);
+                else resolve(buffer);
+            });
+        });
+        // Use node-vibrant on the converted PNG
+        const palette = await Vibrant.from(pngBuffer).getPalette();
+        const colors = [];
+        // Get the most vibrant colors, prioritizing vibrant over muted
+        if (palette.Vibrant) colors.push(palette.Vibrant.hex);
+        else if (palette.DarkVibrant) colors.push(palette.DarkVibrant.hex);
+        else if (palette.LightVibrant) colors.push(palette.LightVibrant.hex);
+        // Get a secondary color
+        if (palette.DarkVibrant && colors[0] !== palette.DarkVibrant.hex) {
+            colors.push(palette.DarkVibrant.hex);
+        } else if (palette.LightVibrant && colors[0] !== palette.LightVibrant.hex) {
+            colors.push(palette.LightVibrant.hex);
+        } else if (palette.Muted && colors[0] !== palette.Muted.hex) {
+            colors.push(palette.Muted.hex);
+        }
+        if (colors.length > 0) {
+            const result = colors.join(', ');
+            // Update local cache with new colors
+            colorBindings.push({ url: imageUrl, colors: result });
+            return result;
+        }
+        return null;
+    } catch (error) {
+        if (verbose) console.log(`\u001b[33mWarning: Could not extract colors from ${imageUrl}: ${error.message}\u001b[0m`);
+        return null;
+    }
+};
+
+/**
+ * Processes colors to ensure proper hex format
+ * 
+ * @param {string} color - Color string to process
+ * @returns {string|null} Properly formatted hex color with # prefix, or null
+ */
+const _formatColor = (color) => {
+    if (!color || color === 'null' || color === '000000') return null;
+    const upperColor = color.toUpperCase();
+    return upperColor.startsWith('#') ? upperColor : `#${upperColor}`;
 };
 
 /**
@@ -603,12 +549,11 @@ const _matchEspnToNcaaTeams = async (espnTeams, ncaaTeamsWithIds, verbose) => {
  *  * venue [string] - Current venue where team plays
  */
 async function get_formated_teams(verbose = true, save = true) {
-    
+
     const CONFIG = yaml.load(fs.readFileSync(CONFIG_FILE, "utf8"))
-    
     // Fetch ESPN team data using helper function
     const espn_teams = await _fetchEspnTeamData(CONFIG, verbose);
-    
+
     // Set up browsers for concurrent scraping
     const CONCURRENT_BROWSERS = 3;
     const browsers = [];
@@ -619,13 +564,13 @@ async function get_formated_teams(verbose = true, save = true) {
             args: ['--no-sandbox', '--disable-setuid-sandbox']
         }));
     }
-    
+
     // Fetch NCAA team data
-    const ncaa_teams = await _fetchNcaaTeamData(CONFIG, verbose, browsers);
+    const ncaa_teams = await fetchNcaaTeamData(verbose, browsers);
     // Fetch NCAA ID bindings
-    const ncaa_ids = await _fetchNcaaIdBindings(CONFIG, verbose, browsers);    
+    const ncaa_ids = await _fetchNcaaIdBindings(CONFIG, verbose, browsers);
     // Scrape NCAA team details
-    const processedNcaaTeams = await _scrapeNcaaTeamDetails(ncaa_teams, CONFIG, verbose, browsers);    
+    const processedNcaaTeams = await scrapeNcaaTeamDetails(ncaa_teams, verbose, browsers);
     // Match NCAA teams with IDs
     const ncaaIdMatching = _addNcaaIdsToTeams(processedNcaaTeams, ncaa_ids, verbose);
     const { matchedTeams: ncaaTeamsWithIds, unmatchedTeams: ncaaTeamsWithoutIds } = ncaaIdMatching;
@@ -633,30 +578,75 @@ async function get_formated_teams(verbose = true, save = true) {
     const teamMatching = await _matchEspnToNcaaTeams(espn_teams, ncaaTeamsWithIds, verbose);
     const { matchedTeams: finalTeams, unmatchedEspn, unmatchedNcaa } = teamMatching;
 
-    // TODO: COACH ADDITIONS BASED ON NCAA_ID
-    // TODO: ADDITIONAL COACHES BASED ON WIKI DATA
-    // TODO: COLOR VERIFICATION
+    // Scrape head coaches based on NCAA_ID
+    const teamCoachesCache = await _scrapeFootballHeadCoaches(ncaaTeamsWithIds, verbose, browsers);
+    // Scrape coordinators from Wikipedia
+    const coordinatorCache = await _scrapeFootballCoordinators(CONFIG, verbose, browsers);
+
+    // Load color bindings cache and remote data if needed
+    const cachedColorsResult = cacheManager.get("football_college_colors", LOCAL_COLOR_CACHE_TTL);
+    let colorBindings = [];
+    if (cachedColorsResult) {
+        colorBindings = cachedColorsResult.data;
+        if (verbose) console.log(`\u001b[36mUsing local color cache (${colorBindings.length} entries from ${cachedColorsResult.savedAt.toLocaleString()})\u001b[0m`);
+    }
+
+    // Close all browser instances with error handling
+    await Promise.all(browsers.map(async b => {
+        if (!b || b.process()?.killed) return;
+        try { await b.close() } catch { b.process()?.kill("SIGKILL") }
+    }));
+
+    // Process final teams and add coach data and colors
+    const processedFinalTeams = await Promise.all(finalTeams.map(async team => {
+        
+        // Try to match coordinator data using different team name variations
+        const coordinatorMatch =
+            _matchCoordinatorByName(team.full_name, coordinatorCache) ||
+            _matchCoordinatorByName(team.short_name, coordinatorCache) ||
+            _matchCoordinatorByName(team.university, coordinatorCache) ||
+            _matchCoordinatorByName(team.abv, coordinatorCache);
+        // Get head coach from NCAA ID cache (if available) - this has precedence over coordinator cache
+        const headCoachFromCache = team.ncaa_id ? teamCoachesCache[team.ncaa_id] : null;
+        
+        // Extract dominant colors from logo URL for both primary and secondary
+        const logoUrl = team.img_src || team.logo;
+        const dominantColors = await _extractDominantColors(logoUrl, colorBindings, verbose);
+        
+        let primaryColor = null;
+        let secondaryColor = null;
+        
+        if (dominantColors) {
+            const colors = dominantColors.split(', ');
+            primaryColor = colors[0] || null;
+            secondaryColor = colors[1] || null;
+        }
+        
+        return {
+            ...team,
+            // Head coach: NCAA cache has precedence, fallback to coordinator cache
+            head_coach: headCoachFromCache || coordinatorMatch?.head_coach || null,
+            // Coordinators always come from coordinator cache
+            offensive_coordinator: coordinatorMatch?.offensive_coordinator || null,
+            defensive_coordinator: coordinatorMatch?.defensive_coordinator || null,
+            // Use formatted colors with proper fallback logic
+            primary: _formatColor(primaryColor),
+            secondary: _formatColor(secondaryColor)
+        };
+    }));
     
-    // Close all browser instances
-    await Promise.all(browsers.map(browser => browser.close()));
-    
-    // Return complete pipeline data
-    return {
-        espn_teams: espn_teams,
-        ncaa_teams: processedNcaaTeams,
-        ncaa_ids: ncaa_ids,
-        ncaa_teams_with_ids: ncaaTeamsWithIds,
-        ncaa_teams_without_ids: ncaaTeamsWithoutIds,
-        final_teams: finalTeams,
-        unmatched_espn: unmatchedEspn,
-        unmatched_ncaa: unmatchedNcaa
-    };
+    // Save updated color bindings cache
+    if (colorBindings.length > 0) cacheManager.set("football_college_colors", colorBindings);
+
+    // Save data as JSON - more efficient and maintains data types
+    const final_json = JSON.stringify(processedFinalTeams, null, 2);
+    if (save) fs.writeFileSync(OUTPUT_FILE, final_json, "utf8");
+    if (verbose && save) console.log(`\u001b[90mCollege Football Data Saved To: /data/processed/football-teams-college.json\u001b[0m`);
+    return processedFinalTeams;
+
 }
 
 // Export the function as default
 export default get_formated_teams;
 // Run if called directly
 if (import.meta.url === `file://${process.argv[1]}`) get_formated_teams();
-
-
-// TODO: GIVEN A NCAA_ID CAN WE ADD A NEW TEAM TO LOAD (NEED TO UPDATE IDS CACHE, RERUN AND RETURN)

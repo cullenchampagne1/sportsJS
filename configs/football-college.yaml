@@ -1,21 +1,5 @@
 LINKS:
   ESPN_TEAMS: "https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams?limit=200000"
-  NCAA_TEAMS:
-    - "https://www.ncaa.com/stats/football/fcs/current/team/27"
-    - "https://www.ncaa.com/stats/football/fcs/current/team/27/p2"
-    - "https://www.ncaa.com/stats/football/fcs/current/team/27/p3"
-    - "https://www.ncaa.com/stats/football/fbs/current/team/27"
-    - "https://www.ncaa.com/stats/football/fbs/current/team/27/p2"
-    - "https://www.ncaa.com/stats/football/fbs/current/team/27/p3"
-    - "https://www.ncaa.com/stats/football/d2/current/team/27"
-    - "https://www.ncaa.com/stats/football/d2/current/team/27/p2"
-    - "https://www.ncaa.com/stats/football/d2/current/team/27/p3"
-    - "https://www.ncaa.com/stats/football/d2/current/team/27/p4"
-    - "https://www.ncaa.com/stats/football/d3/current/team/27"
-    - "https://www.ncaa.com/stats/football/d3/current/team/27/p2"
-    - "https://www.ncaa.com/stats/football/d3/current/team/27/p3"
-    - "https://www.ncaa.com/stats/football/d3/current/team/27/p4"
-    - "https://www.ncaa.com/stats/football/d3/current/team/27/p5"
   NCAA_COACHES:
     - "https://en.wikipedia.org/wiki/List_of_current_NCAA_Division_I_FBS_football_coaches"
     - "https://en.wikipedia.org/wiki/List_of_current_NCAA_Division_II_football_coaches"
@@ -32,22 +16,6 @@ ATTRIBUTES:
   NCAA_TEAM_REF: "td.reclass a.skipMask[href^='/teams/']"
   NCAA_PAGINATION:
     SHOW_ALL_SELECTOR: "select[name*='length'] option[value='-1'], select[name*='length'] option:last-child"
-  NCAA_TEAMS:
-    ROWS: "table tr[class^='stats-table-row']"
-    COLUMNS: "td"
-    COLUMN_NUMBER: 1
-    IMG_SRC: "img"
-    SCHOOL_URL: "a[href^='/schools/']"
-    SCHOOL_NAME: "a[href^='/schools/']"
-  NCAA_DETAILED:
-    CONFERENCE: "//dl[contains(@class, 'school-details')]//dt[text()='Conference']/following-sibling::dd"
-    NICKNAME: "//dl[contains(@class, 'school-details')]//dt[text()='Nickname']/following-sibling::dd"
-    COLORS: "//dl[contains(@class, 'school-details')]//dt[text()='Colors']/following-sibling::dd"
-    SCHOOL: "//h1[contains(@class, 'school-name')]"
-    WEBSITE: "//div[contains(@class, 'school-links')]//a[not(contains(@href, 'twitter.com')) and not(contains(@href, 'facebook.com')) and not(contains(@href, 'instagram.com'))]/@href"
-    TWITTER: "//div[contains(@class, 'school-links')]//a[contains(@href, 'twitter.com')]/@href"
-    DIVISION: ".division-location"
-    SUB_DIVISION: '//*[@id="item-0"]/p'
   NCAA_STAT:
     HEAD_COACH: "//div[contains(@class,'card-header') and contains(text(), 'Coach')]/following-sibling::div//a"
     VENUE: "//div[contains(@class, 'card-header') and contains(text(), 'Stadium')]/following-sibling::div//dt[contains(text(), 'Name:')]/following-sibling::dd"
