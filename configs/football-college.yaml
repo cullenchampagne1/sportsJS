@@ -39,14 +39,6 @@ ATTRIBUTES:
     IMG_SRC: "img"
     SCHOOL_URL: "a[href^='/schools/']"
     SCHOOL_NAME: "a[href^='/schools/']"
-  "https://en.wikipedia.org/wiki/List_of_current_NCAA_Division_I_FBS_football_coaches": 
-    TABLE: "(//table)[1]"
-  "https://en.wikipedia.org/wiki/List_of_current_NCAA_Division_I_FCS_football_coaches": 
-    TABLE: "(//table)[2]"
-  "https://en.wikipedia.org/wiki/List_of_current_NCAA_Division_II_football_coaches": 
-    TABLE: "(//table)[2]"
-  "https://en.wikipedia.org/wiki/List_of_current_NCAA_Division_III_football_coaches": 
-    TABLE: "(//table)[1]"
   NCAA_DETAILED:
     CONFERENCE: "//dl[contains(@class, 'school-details')]//dt[text()='Conference']/following-sibling::dd"
     NICKNAME: "//dl[contains(@class, 'school-details')]//dt[text()='Nickname']/following-sibling::dd"
@@ -55,6 +47,7 @@ ATTRIBUTES:
     WEBSITE: "//div[contains(@class, 'school-links')]//a[not(contains(@href, 'twitter.com')) and not(contains(@href, 'facebook.com')) and not(contains(@href, 'instagram.com'))]/@href"
     TWITTER: "//div[contains(@class, 'school-links')]//a[contains(@href, 'twitter.com')]/@href"
     DIVISION: ".division-location"
+    SUB_DIVISION: '//*[@id="item-0"]/p'
   NCAA_STAT:
     HEAD_COACH: "//div[contains(@class,'card-header') and contains(text(), 'Coach')]/following-sibling::div//a"
     VENUE: "//div[contains(@class, 'card-header') and contains(text(), 'Stadium')]/following-sibling::div//dt[contains(text(), 'Name:')]/following-sibling::dd"
@@ -63,3 +56,11 @@ ATTRIBUTES:
     LOCATION: "//th[@class='infobox-label'][contains(., 'Location')]/following-sibling::td[1]"
     LATLON_DECIMAL: "//span[contains(@class, 'geo-dec')]/text()"
     SURFACE: "//th[@class='infobox-label'][contains(., 'Surface')]/following-sibling::td[1]"
+  "https://en.wikipedia.org/wiki/List_of_current_NCAA_Division_I_FBS_football_coaches": 
+    TABLE: "(//table)[1]"
+  "https://en.wikipedia.org/wiki/List_of_current_NCAA_Division_I_FCS_football_coaches": 
+    TABLE: "(//table)[2]"
+  "https://en.wikipedia.org/wiki/List_of_current_NCAA_Division_II_football_coaches": 
+    TABLE: "(//table)[2]"
+  "https://en.wikipedia.org/wiki/List_of_current_NCAA_Division_III_football_coaches": 
+    TABLE: "(//table)[1]"
