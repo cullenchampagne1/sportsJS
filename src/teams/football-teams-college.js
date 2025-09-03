@@ -40,54 +40,16 @@ const BROWSER_COLORS = ['\u001b[33m', '\u001b[34m', '\u001b[32m'];
 const defaultValue = (value, fallback = null) => (value && value.trim()) ? value.trim() : fallback;
 
 /**
- * Generates a consistent cache key from NCAA school URLs by normalizing different URL formats.
- * This ensures that equivalent URLs from different NCAA domains map to the same cache entry.
- * 
- * @param {string|null|undefined} schoolUrl - The full NCAA school URL to convert to a cache key
- * @returns {string|null} Normalized URL path for use as cache key, or null if input is invalid
- */
-const getUrlKey = (schoolUrl) => {
-    if (!schoolUrl) return null;
-    // Normalize stats.ncaa.org URLs to relative paths
-    if (schoolUrl.includes('stats.ncaa.org/schools/')) return schoolUrl.replace('https://stats.ncaa.org', '');
-    // Normalize www.ncaa.com URLs to relative paths  
-    if (schoolUrl.includes('ncaa.com/schools/')) return schoolUrl.replace('https://www.ncaa.com', '');
-    // Return as-is for other URLs (fallback)
-    return schoolUrl;
-};
-
-/**
- * Maps various division text formats to standardized division codes.
- * Handles NCAA division text scraped from web pages and normalizes it to consistent values.
- * 
- * @param {string|null|undefined} divisionText - Raw division text from scraped content
- * @returns {string|null} Standardized division code or null if no match
- * 
- */
-const mapDivisionToStandard = (divisionText) => {
-    if (!divisionText) return null;
-    const text = divisionText.toLowerCase();
-    if (text.includes('fbs')) return 'FBS';
-    if (text.includes('fcs')) return 'FCS';
-    // Check for specific divisions first (more specific matches first)
-    if (text.includes('division iii')) return 'D3';
-    if (text.includes('division ii')) return 'D2';
-    // Only match "division i" when it's NOT followed by other text (like "ii" or "iii")
-    if (text.match(/division\s+i(?!\w)/)) return 'FBS';
-    return null;
-};
-
-/**
  * Visits espn api and extracts teams from a predefined link, the espn link must be avalaible
  * under `CONFIG.LINKS.ESPN_TEAMS` to be succesfully extracted
  * 
- * @param {yaml} CONFIG configuration with espn team link
- * @param {boolean} VERBOSE weather or not to print console messages
+ * @param {yaml} config configuration with espn team link
+ * @param {boolean} verbose weather or not to print console messages
  */
-const _fetchEspnTeamData = async (CONFIG, VERBOSE) => {
-    const espn_response = await fetch(CONFIG.LINKS.ESPN_TEAMS);
-     if (!espn_response.ok) console.log(`\u001b[32mError Downloading ESPN Football Teams: ${CONFIG.LINKS.ESPN_TEAMS}\u001b[0m`);
-     else if (VERBOSE) console.log(`\u001b[32mDownloading ESPN Football Teams: ${CONFIG.LINKS.ESPN_TEAMS}\u001b[0m`);
+const _fetchEspnTeamData = async (config, verbose) => {
+    const espn_response = await fetch(config.LINKS.ESPN_TEAMS);
+     if (!espn_response.ok) console.log(`\u001b[32mError Downloading ESPN Football Teams: ${config.LINKS.ESPN_TEAMS}\u001b[0m`);
+     else if (verbose) console.log(`\u001b[32mDownloading ESPN Football Teams: ${config.LINKS.ESPN_TEAMS}\u001b[0m`);
     const college_espn_teams = await espn_response.json();
     return college_espn_teams?.sports?.[0]?.leagues?.[0]?.teams.map(x => x.team) || [];
 }
@@ -97,19 +59,19 @@ const _fetchEspnTeamData = async (CONFIG, VERBOSE) => {
  * If the cache is stale or empty, it scrapes the data from stats.ncaa.org, handling
  * pagination to retrieve all teams before caching the results.
  *
- * @param {object} CONFIG - The application's configuration object, containing links and CSS selectors.
- * @param {boolean} VERBOSE - If true, enables detailed logging to the console.
- * @param {Array<import('puppeteer').Browser>} BROWSERS - An array of pre-launched Puppeteer browser instances.
+ * @param {object} config - The application's configuration object, containing links and CSS selectors.
+ * @param {boolean} verbose - If true, enables detailed logging to the console.
+ * @param {Array<import('puppeteer').Browser>} browsers - An array of pre-launched Puppeteer browser instances.
  * @returns {Promise<Array<{ team_name: string, ncaa_id: string }>>} A promise resolving to an array of team-ID binding objects.
  */
-const _fetchNcaaIdBindings = async (CONFIG, VERBOSE, BROWSERS) => {
-    const { LINKS, ATTRIBUTES } = CONFIG;
+const _fetchNcaaIdBindings = async (config, verbose, browsers) => {
+    const { LINKS, ATTRIBUTES } = config;
     const cachedResult = cacheManager.get("football_college_ids", NCAA_STAT_TTL);
     if (cachedResult) {
-        if (VERBOSE) console.log(`\u001b[36mUsing cached NCAA Football IDs from ${cachedResult.savedAt.toLocaleString()}\u001b[0m`);
+        if (verbose) console.log(`\u001b[36mUsing cached NCAA Football IDs from ${cachedResult.savedAt.toLocaleString()}\u001b[0m`);
         return cachedResult.data;
     }
-    const CONCURRENT_BROWSERS = BROWSERS.length;
+    const CONCURRENT_BROWSERS = browsers.length;
     // Distribute URLs into batches for each concurrent browser.
     const urlBatches = Array.from({ length: CONCURRENT_BROWSERS }, () => []);
     LINKS.NCAA_IDS.forEach((link, index) => {
@@ -126,7 +88,7 @@ const _fetchNcaaIdBindings = async (CONFIG, VERBOSE, BROWSERS) => {
             await page.goto(url, { waitUntil: 'networkidle0', timeout: 60000 });
             await sleep(5000);
         } catch (error) {
-            if (VERBOSE) console.log(`\u001b[33mNavigation failed for ${url}. Retrying...\u001b[0m`);
+            if (verbose) console.log(`\u001b[33mNavigation failed for ${url}. Retrying...\u001b[0m`);
             await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 });
             await sleep(8000);
         }
@@ -134,7 +96,7 @@ const _fetchNcaaIdBindings = async (CONFIG, VERBOSE, BROWSERS) => {
 
     // Map over each batch and process it in a separate browser instance.
     const scrapingPromises = urlBatches.map(async (links, browserIndex) => {
-        const browser = BROWSERS[browserIndex];
+        const browser = browsers[browserIndex];
         const page = await browser.newPage();
         const batchResults = [];
         try {
@@ -151,7 +113,7 @@ const _fetchNcaaIdBindings = async (CONFIG, VERBOSE, BROWSERS) => {
             await page.setViewport({ width: 1920, height: 1080 });
             await page.setExtraHTTPHeaders(browserConfig.headers);
             for (const link of links) {
-                if (VERBOSE) console.log(`${BROWSER_COLORS[browserIndex]}Scraping NCAA IDs: ${link}\u001b[0m`);
+                if (verbose) console.log(`${BROWSER_COLORS[browserIndex]}Scraping NCAA IDs: ${link}\u001b[0m`);
                 try {
                     await navigateWithRetry(page, link);
                     // Execute scraping logic in the browser context. This function is async
@@ -194,14 +156,14 @@ const _fetchNcaaIdBindings = async (CONFIG, VERBOSE, BROWSERS) => {
  * Scrapes primary NCAA team data from a configured list of division-specific URLs. It distributes
  * the workload across multiple concurrent browsers and uses robust retry and fallback mechanisms.
  *
- * @param {object} CONFIG - The application's configuration object, containing links and CSS selectors.
- * @param {boolean} VERBOSE - If true, enables detailed logging to the console.
- * @param {Array<import('puppeteer').Browser>} BROWSERS - An array of pre-launched Puppeteer browser instances.
+ * @param {object} config - The application's configuration object, containing links and CSS selectors.
+ * @param {boolean} verbose - If true, enables detailed logging to the console.
+ * @param {Array<import('puppeteer').Browser>} browsers - An array of pre-launched Puppeteer browser instances.
  * @returns {Promise<Array<{school_name: string, school_url: string, img_src: string | null, division: string}>>} A promise that resolves to a flattened array of scraped school objects.
  */
-const _scrapePrimaryNcaaTeams = async (CONFIG, VERBOSE, BROWSERS) => {
-    const { LINKS, ATTRIBUTES } = CONFIG;
-    const CONCURRENT_BROWSERS = BROWSERS.length;
+const _scrapePrimaryNcaaTeams = async (config, verbose, browsers) => {
+    const { LINKS, ATTRIBUTES } = config;
+    const CONCURRENT_BROWSERS = browsers.length;
     // Distribute the list of URLs evenly among the available browser instances.
     const linkBatches = Array.from({ length: CONCURRENT_BROWSERS }, () => []);
     LINKS.NCAA_TEAMS.forEach((link, index) => {
@@ -221,7 +183,7 @@ const _scrapePrimaryNcaaTeams = async (CONFIG, VERBOSE, BROWSERS) => {
             await sleep(5000); // Extra wait for dynamic content to settle.
         } catch (error) {
             // Attempt 2 (Fallback): Wait only for the main DOM to load. Faster but less reliable for SPAs.
-            if (VERBOSE) console.log(`\u001b[33mNavigation with 'networkidle0' failed for ${url}. Retrying with 'domcontentloaded'...\u001b[0m`);
+            if (verbose) console.log(`\u001b[33mNavigation with 'networkidle0' failed for ${url}. Retrying with 'domcontentloaded'...\u001b[0m`);
             await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 });
             await sleep(8000);
         }
@@ -229,7 +191,7 @@ const _scrapePrimaryNcaaTeams = async (CONFIG, VERBOSE, BROWSERS) => {
 
     // Process each batch of links in parallel using a dedicated browser instance.
     const scrapingPromises = linkBatches.map(async (links, browserIndex) => {
-        const browser = BROWSERS[browserIndex];
+        const browser = browsers[browserIndex];
         const page = await browser.newPage();
         const batchResults = [];
         try {
@@ -248,7 +210,7 @@ const _scrapePrimaryNcaaTeams = async (CONFIG, VERBOSE, BROWSERS) => {
             await page.setExtraHTTPHeaders(browserConfig.headers);
             // Process each link in the batch sequentially.
             for (const link of links) {
-                if (VERBOSE) console.log(`${BROWSER_COLORS[browserIndex]}Downloading NCAA Football Team: ${link}\u001b[0m`);
+                if (verbose) console.log(`${BROWSER_COLORS[browserIndex]}Downloading NCAA Football Team: ${link}\u001b[0m`);
                 try {
                     await navigateWithRetry(page, link);
                     // Extract the football division from the URL (e.g., 'fbs', 'fcs').
@@ -317,13 +279,13 @@ const _scrapePrimaryNcaaTeams = async (CONFIG, VERBOSE, BROWSERS) => {
  * across multiple concurrent browser instances for efficiency. This function serves as a backup
  * data source.
  *
- * @param {object} CONFIG - The application's configuration object, containing necessary selectors.
- * @param {boolean} VERBOSE - If true, enables detailed logging to the console.
- * @param {Array<import('puppeteer').Browser>} BROWSERS - An array of pre-launched Puppeteer browser instances to use for scraping.
+ * @param {object} config - The application's configuration object, containing necessary selectors.
+ * @param {boolean} verbose - If true, enables detailed logging to the console.
+ * @param {Array<import('puppeteer').Browser>} browsers - An array of pre-launched Puppeteer browser instances to use for scraping.
  * @returns {Promise<Array<{school_name: string, school_url: string, img_src: string | null, division: string}>>} A promise that resolves to a flattened array of scraped school objects.
  */
-const _scrapeNcaaSchoolsBackup = async (CONFIG, VERBOSE, BROWSERS) => {
-    const CONCURRENT_BROWSERS = BROWSERS.length;
+const _scrapeNcaaSchoolsBackup = async (config, verbose, browsers) => {
+    const CONCURRENT_BROWSERS = browsers.length;
     const MAX_PAGES = 23; // Total number of pages to scrape in the schools index.
     const BASE_URL = 'https://www.ncaa.com/schools-index';
     // Create page URLs and distribute across browsers
@@ -334,7 +296,7 @@ const _scrapeNcaaSchoolsBackup = async (CONFIG, VERBOSE, BROWSERS) => {
     const batchPromises = urlBatches.map(async (urls, browserIndex) => {
         const batchResults = [];
         for (const url of urls) {
-            if (VERBOSE) console.log(`${BROWSER_COLORS[browserIndex]}Downloading NCAA School Backup: ${url}\u001b[0m`);
+            if (verbose) console.log(`${BROWSER_COLORS[browserIndex]}Downloading NCAA School Backup: ${url}\u001b[0m`);
             try {
                 const response = await fetch(url);
                 if (!response.ok) continue;
@@ -355,7 +317,7 @@ const _scrapeNcaaSchoolsBackup = async (CONFIG, VERBOSE, BROWSERS) => {
                 }
                 await sleep(100);
             } catch (error) {
-                if (VERBOSE) console.log(`${BROWSER_COLORS[browserIndex]}Warning: Failed to scrape ${url}: ${error.message}\u001b[0m`);
+                if (verbose) console.log(`${BROWSER_COLORS[browserIndex]}Warning: Failed to scrape ${url}: ${error.message}\u001b[0m`);
             }
         }
         return batchResults;
@@ -371,23 +333,23 @@ const _scrapeNcaaSchoolsBackup = async (CONFIG, VERBOSE, BROWSERS) => {
  * primary and a backup source, merges the lists while prioritizing the primary source,
  * caches the final unique list, and then returns it.
  *
- * @param {object} CONFIG - The application's configuration object, containing links and selectors.
- * @param {boolean} VERBOSE - If true, enables detailed logging to the console.
- * @param {Array<import('puppeteer').Browser>} BROWSERS - An array of pre-launched Puppeteer browser instances.
+ * @param {object} config - The application's configuration object, containing links and selectors.
+ * @param {boolean} verbose - If true, enables detailed logging to the console.
+ * @param {Array<import('puppeteer').Browser>} browsers - An array of pre-launched Puppeteer browser instances.
  * @returns {Promise<Array<Object>>} A promise that resolves to a comprehensive, deduplicated array of NCAA team objects.
  */
-const _fetchNcaaTeamData = async (CONFIG, VERBOSE, BROWSERS) => {
+const _fetchNcaaTeamData = async (config, verbose, browsers) => {
     const CACHE_KEY = "ncaa_schools_backup";
     const cachedResult = cacheManager.get(CACHE_KEY, NCAA_STAT_TTL);
     if (cachedResult) {
-        if (VERBOSE) console.log(`\u001b[36mUsing cached NCAA Football Teams data from ${cachedResult.savedAt.toLocaleString()}\u001b[0m`)
+        if (verbose) console.log(`\u001b[36mUsing cached NCAA Football Teams data from ${cachedResult.savedAt.toLocaleString()}\u001b[0m`)
         // If valid cache exists, return it immediately.
         return cachedResult.data;
     }    
     // Run primary scraper first (uses browsers)
-    const primaryTeams = await _scrapePrimaryNcaaTeams(CONFIG, VERBOSE, BROWSERS);
+    const primaryTeams = await _scrapePrimaryNcaaTeams(config, verbose, browsers);
     // Run backup scraper (uses fetch, doesn't need browsers)
-    const backupSchools = await _scrapeNcaaSchoolsBackup(CONFIG, VERBOSE, BROWSERS);
+    const backupSchools = await _scrapeNcaaSchoolsBackup(config, verbose, browsers);
     // Compare against primary teams to find truly new schools from backup
     const existingUrls = new Set(primaryTeams.map(team => team.school_url).filter(Boolean));
     const newSchoolsFromBackup = backupSchools.filter(backupSchool => {
@@ -404,13 +366,51 @@ const _fetchNcaaTeamData = async (CONFIG, VERBOSE, BROWSERS) => {
  * where missing. It uses a unified cache keyed by URL and handles concurrent processing.
  *
  * @param {Array<Object>} ncaaTeams - Array of NCAA team objects to process
- * @param {object} CONFIG - The application's configuration object
- * @param {boolean} VERBOSE - If true, enables detailed logging
- * @param {Array<import('puppeteer').Browser>} BROWSERS - Pre-launched browser instances
+ * @param {object} config - The application's configuration object
+ * @param {boolean} verbose - If true, enables detailed logging
+ * @param {Array<import('puppeteer').Browser>} browsers - Pre-launched browser instances
  * @returns {Promise<Array<Object>>} Promise resolving to teams with additional detail fields
  */
-const _scrapeNcaaTeamDetails = async (ncaaTeams, CONFIG, VERBOSE, BROWSERS) => {
-    const CONCURRENT_BROWSERS = BROWSERS.length;
+const _scrapeNcaaTeamDetails = async (ncaaTeams, config, verbose, browsers) => {
+    const CONCURRENT_BROWSERS = browsers.length;
+
+    /**
+     * Generates a consistent cache key from NCAA school URLs by normalizing different URL formats.
+     * This ensures that equivalent URLs from different NCAA domains map to the same cache entry.
+     * 
+     * @param {string|null|undefined} schoolUrl - The full NCAA school URL to convert to a cache key
+     * @returns {string|null} Normalized URL path for use as cache key, or null if input is invalid
+     */
+    const getUrlKey = (schoolUrl) => {
+        if (!schoolUrl) return null;
+        // Normalize stats.ncaa.org URLs to relative paths
+        if (schoolUrl.includes('stats.ncaa.org/schools/')) return schoolUrl.replace('https://stats.ncaa.org', '');
+        // Normalize www.ncaa.com URLs to relative paths  
+        if (schoolUrl.includes('ncaa.com/schools/')) return schoolUrl.replace('https://www.ncaa.com', '');
+        // Return as-is for other URLs (fallback)
+        return schoolUrl;
+    };
+
+    /**
+     * Maps various division text formats to standardized division codes.
+     * Handles NCAA division text scraped from web pages and normalizes it to consistent values.
+     * 
+     * @param {string|null|undefined} divisionText - Raw division text from scraped content
+     * @returns {string|null} Standardized division code or null if no match
+     * 
+     */
+    const mapDivisionToStandard = (divisionText) => {
+        if (!divisionText) return null;
+        const text = divisionText.toLowerCase();
+        if (text.includes('fbs')) return 'FBS';
+        if (text.includes('fcs')) return 'FCS';
+        // Check for specific divisions first (more specific matches first)
+        if (text.includes('division iii')) return 'D3';
+        if (text.includes('division ii')) return 'D2';
+        // Only match "division i" when it's NOT followed by other text (like "ii" or "iii")
+        if (text.match(/division\s+i(?!\w)/)) return 'FBS';
+        return null;
+    };
     
     // Use unified school details cache keyed by URL
     const cachedSchoolDetailsResult = cacheManager.get("ncaa_school_details_backup", NCAA_DETAIL_TTL);
@@ -427,8 +427,8 @@ const _scrapeNcaaTeamDetails = async (ncaaTeams, CONFIG, VERBOSE, BROWSERS) => {
 
     if (teamsToScrape.length > 0) {
         if (Object.keys(unifiedSchoolDetailsCache).length > 0 && cachedSchoolDetailsResult) {
-            if (VERBOSE) console.log(`\u001b[36mFound ${Object.keys(unifiedSchoolDetailsCache).length} schools in unified details cache (from ${cachedSchoolDetailsResult.savedAt.toLocaleString()}). Scraping details for ${teamsToScrape.length} new schools.\u001b[0m`);
-        } else if (VERBOSE) console.log(`\u001b[36mScraping details for ${teamsToScrape.length} schools.\u001b[0m`);
+            if (verbose) console.log(`\u001b[36mFound ${Object.keys(unifiedSchoolDetailsCache).length} schools in unified details cache (from ${cachedSchoolDetailsResult.savedAt.toLocaleString()}). Scraping details for ${teamsToScrape.length} new schools.\u001b[0m`);
+        } else if (verbose) console.log(`\u001b[36mScraping details for ${teamsToScrape.length} schools.\u001b[0m`);
         
         // Concurrent processing with multiple browser instances
         const BATCH_SIZE = Math.ceil(teamsToScrape.length / CONCURRENT_BROWSERS);
@@ -452,8 +452,8 @@ const _scrapeNcaaTeamDetails = async (ncaaTeams, CONFIG, VERBOSE, BROWSERS) => {
 
             const results = [];
             for (const team of teams) {
-                if (VERBOSE) console.log(`${BROWSER_COLORS[batchIndex % CONCURRENT_BROWSERS]}Downloading School Details: ${team.school_url}\u001b[0m`);
-                const detailedData = await _scrapeTeamDetailsWithPage(team.school_url, page, CONFIG);
+                if (verbose) console.log(`${BROWSER_COLORS[batchIndex % CONCURRENT_BROWSERS]}Downloading School Details: ${team.school_url}\u001b[0m`);
+                const detailedData = await _scrapeTeamDetailsWithPage(team.school_url, page, config);
                 const urlKey = getUrlKey(team.school_url);
                 // Store all results in unified cache by URL key
                 const result = {
@@ -490,7 +490,7 @@ const _scrapeNcaaTeamDetails = async (ncaaTeams, CONFIG, VERBOSE, BROWSERS) => {
         const batches = [];
         for (let i = 0; i < teamsToScrape.length; i += BATCH_SIZE) batches.push(teamsToScrape.slice(i, i + BATCH_SIZE)); 
         const batchPromises = batches.map((batch, index) => 
-            processBatch(batch, BROWSERS[index % CONCURRENT_BROWSERS], index)
+            processBatch(batch, browsers[index % CONCURRENT_BROWSERS], index)
         );    
         const batchResults = await Promise.all(batchPromises);
         // Flatten results (cache was already updated incrementally during processing)
@@ -518,7 +518,7 @@ const _scrapeNcaaTeamDetails = async (ncaaTeams, CONFIG, VERBOSE, BROWSERS) => {
             if (teamsUpdated > 0) cacheManager.set("ncaa_schools_backup", currentTeams);
         }
     } else {
-        if (VERBOSE && cachedSchoolDetailsResult) console.log(`\u001b[36mUsing cached school details data for all schools (from ${cachedSchoolDetailsResult.savedAt.toLocaleString()}).\u001b[0m`);
+        if (verbose && cachedSchoolDetailsResult) console.log(`\u001b[36mUsing cached school details data for all schools (from ${cachedSchoolDetailsResult.savedAt.toLocaleString()}).\u001b[0m`);
     }
 
     // Function to get cached details by URL
@@ -552,10 +552,10 @@ const _scrapeNcaaTeamDetails = async (ncaaTeams, CONFIG, VERBOSE, BROWSERS) => {
  * 
  * @param {string} teamUrl - The NCAA school URL to scrape (e.g., https://stats.ncaa.org/schools/...)
  * @param {Object} page - Puppeteer page instance to use for scraping
- * @param {Object} CONFIG - Configuration object with selectors
+ * @param {Object} config - Configuration object with selectors
  * @returns {Object|null} Object containing team details or null if scraping fails
  */
-const _scrapeTeamDetailsWithPage = async (teamUrl, page, CONFIG) => {
+const _scrapeTeamDetailsWithPage = async (teamUrl, page, config) => {
     if (!teamUrl) return null;
     try {
         await page.goto(teamUrl, { waitUntil: 'networkidle0', timeout: 30000 });
@@ -574,7 +574,7 @@ const _scrapeTeamDetailsWithPage = async (teamUrl, page, CONFIG) => {
             };
             // Also extract division information from the page
             let division = null;
-            const divEl = document.querySelector(selectors.NCAA_DETAILED.DIVISION);
+            const divEl = document.querySelector(config.NCAA_DETAILED.DIVISION);
             if (divEl) {
                 const match = divEl.textContent.match(/Division\s+[IVX]+/i);
                 division = match ? match[0] : null;
@@ -588,7 +588,7 @@ const _scrapeTeamDetailsWithPage = async (teamUrl, page, CONFIG) => {
                 twitter: getAttributeByXPath(config.NCAA_DETAILED.TWITTER),
                 division: division
             };
-        }, CONFIG.ATTRIBUTES);
+        }, config.ATTRIBUTES);
         return teamDetails;
     } catch (error) {
         console.error(`Download Failed: ${teamUrl}: `, error);
@@ -610,10 +610,10 @@ const _scrapeTeamDetailsWithPage = async (teamUrl, page, CONFIG) => {
  *
  * @param {Array<Object>} ncaaTeams - Array of NCAA team objects with school details
  * @param {Array<Object>} ncaaIds - Array of NCAA ID bindings for team matching  
- * @param {boolean} VERBOSE - If true, enables detailed logging
+ * @param {boolean} verbose - If true, enables detailed logging
  * @returns {{matchedTeams: Array<Object>, unmatchedTeams: Array<Object>}} Object containing matched and unmatched NCAA teams
  */
-const _addNcaaIdsToTeams = (ncaaTeams, ncaaIds, VERBOSE) => {
+const _addNcaaIdsToTeams = (ncaaTeams, ncaaIds, verbose) => {
     const teamsWithIds = [];
     const teamsWithoutIds = [];
     ncaaTeams.forEach(team => {        
@@ -638,10 +638,10 @@ const _addNcaaIdsToTeams = (ncaaTeams, ncaaIds, VERBOSE) => {
  *
  * @param {Array<Object>} espnTeams - Array of ESPN team objects 
  * @param {Array<Object>} ncaaTeamsWithIds - Array of NCAA team objects that have NCAA IDs
- * @param {boolean} VERBOSE - If true, enables detailed logging
+ * @param {boolean} verbose - If true, enables detailed logging
  * @returns {Promise<{matchedTeams: Array<Object>, unmatchedEspn: Array<Object>, unmatchedNcaa: Array<Object>}>} Object containing matched and unmatched teams
  */
-const _matchEspnToNcaaTeams = async (espnTeams, ncaaTeamsWithIds, VERBOSE) => {
+const _matchEspnToNcaaTeams = async (espnTeams, ncaaTeamsWithIds, verbose) => {
     
     // Generate unique ID for each team
     const generateId = (espnId, abbreviation) => {
@@ -654,7 +654,7 @@ const _matchEspnToNcaaTeams = async (espnTeams, ncaaTeamsWithIds, VERBOSE) => {
         const modelData = fs.readFileSync('data/models/espn-ncaa-binding-model.json', 'utf8');
         matchingModel = JSON.parse(modelData);
     } catch (error) {
-        if (VERBOSE) console.log(`\u001b[33mWarning: Could not load binding model, using empty bindings\u001b[0m`);
+        if (verbose) console.log(`\u001b[33mWarning: Could not load binding model, using empty bindings\u001b[0m`);
         matchingModel = { sport_bindings: [], model_threshold: 4.58e-05 };
     }
     // Get football bindings
@@ -673,7 +673,7 @@ const _matchEspnToNcaaTeams = async (espnTeams, ncaaTeamsWithIds, VERBOSE) => {
             matchedData.push({ ...espnTeam, ...ncaaTeam });
         }
     });
-    if (VERBOSE) console.log(`\u001b[32mPerforming ESPN-NCAA team matching using hardcoded bindings...\u001b[0m`);
+    if (verbose) console.log(`\u001b[32mPerforming ESPN-NCAA team matching using hardcoded bindings...\u001b[0m`);
     // Format matched teams into final structure (with ESPN colors, coaches/venue filled later)
     const formattedTeams = matchedData.map(team => {
         return {

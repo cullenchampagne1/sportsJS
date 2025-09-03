@@ -11,9 +11,6 @@
   "description": "",
   "type": "module",
   "dependencies": {
-    "@ulixee/hero": "^2.0.0-alpha.33",
-    "@ulixee/hero-core": "^2.0.0-alpha.33",
-    "@ulixee/hero-playground": "^2.0.0-alpha.33",
     "danfojs-node": "^1.2.0",
     "fast-levenshtein": "^3.0.0",
     "fs": "^0.0.1-security",

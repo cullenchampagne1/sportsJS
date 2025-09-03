@@ -8579,16 +8579,6 @@
     "school_url": "https://www.ncaa.com/schools/creighton",
     "scraped_at": "2025-09-03T00:21:13.525Z"
   },
-  "/schools/christian-bros": {
-    "conference": "Gulf South",
-    "nickname_ncaa": "Buccaneers",
-    "colors": "Red & Gray",
-    "name_ncaa": "Christian Brothers University",
-    "website": "https://gobucsgo.com",
-    "twitter": "https://twitter.com/@gobucsgoCBU",
-    "school_url": "https://www.ncaa.com/schools/christian-bros",
-    "scraped_at": "2025-09-03T00:21:14.652Z"
-  },
   "/schools/caldwell": {
     "conference": "Central Atlantic Collegiate",
     "nickname_ncaa": "Cougars",
@@ -11558,5 +11548,15 @@
     "twitter": "https://twitter.com/@UWGAthletics",
     "school_url": "https://www.ncaa.com/schools/west-ga",
     "scraped_at": "2025-09-03T00:31:31.466Z"
+  },
+  "/schools/christian-bros": {
+    "conference": "Gulf South",
+    "nickname_ncaa": "Buccaneers",
+    "colors": "Red & Gray",
+    "name_ncaa": "Christian Brothers University",
+    "website": "https://gobucsgo.com",
+    "twitter": "https://twitter.com/@gobucsgoCBU",
+    "school_url": "https://www.ncaa.com/schools/christian-bros",
+    "scraped_at": "2025-09-03T01:31:17.315Z"
   }
 }
