@@ -334,71 +334,132 @@ const _scrapeTeamDetailsWithPage = async (teamUrl, page) => {
 };
 
 /**
- * Scrapes head coach information from a single NCAA team stats page with hardcoded selectors
- * 
- * @param {string} ncaaId - The NCAA team ID for constructing the stats URL
- * @param {Object} page - Puppeteer page instance to use for scraping
- * @returns {string|null} The head coach's name, or null if not found or scraping fails
+ * A higher-order function that wraps a scraping action with robust retry and session-handling logic
+ * for stats.ncaa.org.
+ *
+ * @param {import('puppeteer').Page} page - The Puppeteer page instance to use.
+ * @param {string} url - The URL to navigate to and scrape.
+ * @param {Function} scrapeAction - An async function that performs the actual scraping on the page.
+ *   It receives the page as an argument and should return the scraped data.
+ * @param {boolean} verbose - If true, enables detailed logging.
+ * @returns {Promise<any|null>} The data returned by scrapeAction, or null if all retries fail.
  */
-const scrapeHeadCoachFromStatsPage = async (ncaaId, page) => {
-    if (!ncaaId) return null;
-    const statsUrl = `https://stats.ncaa.org/teams/${ncaaId}`;
-    
-    // Retry logic for access denied issues
+const _scrapeWithRetry = async (page, url, scrapeAction, verbose) => {
+    let result = null;
     for (let attempt = 1; attempt <= 3; attempt++) {
         try {
-            await page.goto(statsUrl, { waitUntil: 'networkidle0', timeout: 30000 });
-            await sleep(5000);
-            
-            // Check if we got an access denied page
+            await page.goto(url, { waitUntil: 'networkidle0', timeout: 30000 });
+            await sleep(1000);
             const pageTitle = await page.title();
             const pageText = await page.evaluate(() => document.body.textContent);
-            
             if (pageTitle.includes('Access Denied') || pageText.includes('Access Denied') || pageText.includes("don't have permission")) {
                 if (attempt < 3) {
-                    console.log(`\u001b[31mAccess denied for ${statsUrl}, establishing new session... (attempt ${attempt}/3)\u001b[0m`);
-                    await sleep(10000); // Wait 10 seconds
-                    // Establish new session by visiting main page
+                    if (verbose) console.log(`\u001b[31mAccess denied for ${url}, re-establishing new session... (attempt ${attempt}/3)\u001b[0m`);
+                    await sleep(5000);
                     try {
                         await page.goto('https://stats.ncaa.org/', { waitUntil: 'networkidle0', timeout: 30000 });
                         await sleep(3000);
                     } catch (sessionError) {
-                        console.log('Warning: Could not establish new session, continuing anyway...');
+                        if (verbose) console.log('Warning: Could not re-establish new session, continuing anyway...');
                     }
-                    continue;
+                    continue; 
                 } else {
-                    console.log(`\u001b[31mAccess denied for ${statsUrl} after 3 attempts\u001b[0m`);
-                    return null;
+                    if (verbose) console.log(`\u001b[31mAccess denied for ${url} after 3 attempts\u001b[0m`);
+                    break;
                 }
             }
-            
-            // Extract head coach using hardcoded selector for stats.ncaa.org
-            const headCoach = await page.evaluate(() => {
-                const getTextByXPath = (xpath) => {
-                    try {
-                        const result = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
-                        return result.singleNodeValue ? result.singleNodeValue.textContent.trim() : null;
-                    } catch (error) {
-                        return null;
-                    }
-                };
-                return getTextByXPath("//div[contains(@class,'card-header') and contains(text(), 'Coach')]/following-sibling::div//a");
-            });
-            
-            // Success - return the result
-            return headCoach;
+            result = await scrapeAction(page);
+            break;
         } catch (error) {
-            if (attempt < 3) {
-                console.log(`Error on attempt ${attempt} for ${statsUrl}, retrying...`);
-                await sleep(5000 * attempt);
-                continue;
-            } else {
-                console.error(`Download Failed after 3 attempts: ${statsUrl}: `, error);
-                return null;
-            }
+            if (verbose) console.error(`Attempt ${attempt} for ${url}: ${error.message}`);
+            await sleep(3000 * attempt);
         }
     }
-    return null;
+    return result;
 };
 
-export { fetchNcaaTeamData, scrapeNcaaTeamDetails, scrapeHeadCoachFromStatsPage };
+/**
+ * Scrapes head coach information from a single NCAA team stats page.
+ *
+ * @param {string} ncaaId - The NCAA team ID for constructing the stats URL.
+ * @param {import('puppeteer').Page} page - Puppeteer page instance to use for scraping.
+ * @param {boolean} verbose - If true, enables detailed logging.
+ * @returns {Promise<string|null>} The head coach's name, or null if not found or scraping fails.
+ */
+const scrapeHeadCoachFromStatsPage = async (ncaaId, page, verbose) => {
+    if (!ncaaId) return null;
+    const statsUrl = `https://stats.ncaa.org/teams/${ncaaId}`;
+    const coachAction = async (p) => {
+        return p.evaluate(() => {
+            const getTextByXPath = (xpath) => {
+                try {
+                    const result = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+                    return result.singleNodeValue ? result.singleNodeValue.textContent.trim() : null;
+                } catch (error) {
+                    return null;
+                }
+            };
+            return getTextByXPath("//div[contains(@class,'card-header') and contains(text(), 'Coach')]/following-sibling::div//a");
+        });
+    };
+    return await _scrapeWithRetry(page, statsUrl, coachAction, verbose);
+};
+
+/**
+ * Fetches team names from stats.ncaa.org for a given list of NCAA IDs.
+ *
+ * @param {Array<string>} ncaaIds - A list of NCAA team IDs to look up.
+ * @param {Array<import('puppeteer').Browser>} browsers - An array of pre-launched Puppeteer browser instances.
+ * @param {boolean} verbose - If true, enables detailed logging to the console.
+ * @returns {Promise<Object>} A promise that resolves to an object mapping NCAA IDs to team names.
+ */
+const getNcaaTeamNamesFromIds = async (ncaaIds, browsers, verbose) => {
+    const CONCURRENT_BROWSERS = browsers.length;
+    const idBatches = Array.from({ length: CONCURRENT_BROWSERS }, () => []);
+    ncaaIds.forEach((id, index) => idBatches[index % CONCURRENT_BROWSERS].push(id));
+    const batchPromises = idBatches.map(async (ids, browserIndex) => {
+        const results = {};
+        const browser = browsers[browserIndex];
+        const page = await browser.newPage();
+        const browserConfig = getBrowserConfigWithHeaders({
+            'Referer': 'https://stats.ncaa.org/',
+            'Sec-Fetch-Dest': 'document',
+            'Sec-Fetch-Mode': 'navigate',
+            'Sec-Fetch-Site': 'same-origin',
+            'Sec-GPC': '1',
+            'Upgrade-Insecure-Requests': '1',
+            'Priority': 'u=0, i'
+        });
+        
+        await page.setUserAgent(browserConfig.userAgent);
+        await page.setViewport({ width: 1920, height: 1080 });
+        await page.setExtraHTTPHeaders(browserConfig.headers);
+        // Establish session proactively
+        try {
+            if (verbose) console.log(`${BROWSER_COLORS[browserIndex % BROWSER_COLORS.length]}Establishing NCAA session...\u001b[0m`);
+            await page.goto('https://stats.ncaa.org/', { waitUntil: 'networkidle0', timeout: 30000 });
+            await sleep(3000);
+        } catch (sessionError) {
+            if (verbose) console.log(`${BROWSER_COLORS[browserIndex % BROWSER_COLORS.length]}Warning: Session setup failed, continuing anyway...\u001b[0m`);
+        }
+        for (const id of ids) {
+            const url = `https://stats.ncaa.org/teams/${id}`;
+            if (verbose) console.log(`${BROWSER_COLORS[browserIndex % BROWSER_COLORS.length]}Fetching team name for NCAA ID: ${id} from ${url}\u001b[0m`);
+            const teamNameAction = async (p) => {
+                return p.evaluate(() => {
+                    const el = document.querySelector('a.nav-link.skipMask.dropdown-toggle[data-toggle="collapse"]');
+                    return el ? el.textContent.trim().replace(/ Sports$/, '') : null;
+                });
+            };
+            const teamName = await _scrapeWithRetry(page, url, teamNameAction, verbose);
+            if (teamName) results[id] = teamName;
+            await sleep(5000 + Math.random() * 1000);
+        }
+        await page.close();
+        return results;
+    });
+    const batchResults = await Promise.all(batchPromises);
+    return batchResults.reduce((acc, res) => ({ ...acc, ...res }), {});
+};
+
+export { fetchNcaaTeamData, scrapeNcaaTeamDetails, scrapeHeadCoachFromStatsPage, getNcaaTeamNamesFromIds };

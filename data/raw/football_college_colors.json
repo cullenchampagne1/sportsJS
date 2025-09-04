@@ -3010,5 +3010,45 @@
   {
     "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/chowan.svg",
     "colors": "#1474c4, #1f3f77"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/mercyhurst.svg",
+    "colors": "#3fbfad, #1c544c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/lindenwood-mo.svg",
+    "colors": "#bf8f3f, #0c0904"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/stonehill.svg",
+    "colors": "#2c2c74, #36337c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/thomas-more.svg",
+    "colors": "#044c9c, #0b54a4"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/west-ga.svg",
+    "colors": "#ea3042, #1c5cac"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-thomas-mn.svg",
+    "colors": "#442484, #442c84"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/maine-maritime.svg",
+    "colors": "#f7df36, #1c64b4"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/sul-ross-st.svg",
+    "colors": "#bd1c22, #731114"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/long-beach-st.svg",
+    "colors": "#7f7f7f, #424242"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/lemoyne-owen.svg",
+    "colors": "#54349c, #8c7b04"
   }
 ]
