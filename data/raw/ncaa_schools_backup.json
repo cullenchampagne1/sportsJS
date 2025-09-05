@@ -495,7 +495,7 @@
     "school_url": "https://www.ncaa.com/schools/ucf"
   },
   {
-    "school_name": "Texas A&M",
+    "school_name": "East Texas A&M",
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/texas-am.svg",
     "school_url": "https://www.ncaa.com/schools/texas-am"
   },
@@ -3470,7 +3470,7 @@
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/daniel-webster.svg"
   },
   {
-    "school_name": "Davis &amp; Elkins",
+    "school_name": "Davis & Elkins",
     "school_url": "https://www.ncaa.com/schools/davis-elkins",
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/davis-elkins.svg"
   },
@@ -3860,7 +3860,7 @@
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/sage-colleges.svg"
   },
   {
-    "school_name": "Saint Joseph&#039;s",
+    "school_name": "Saint Joseph's",
     "school_url": "https://www.ncaa.com/schools/saint-josephs",
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/saint-josephs.svg"
   },
@@ -3880,7 +3880,7 @@
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/saint-martins.svg"
   },
   {
-    "school_name": "St. Michael&#039;s",
+    "school_name": "St. Michael's",
     "school_url": "https://www.ncaa.com/schools/saint-michaels",
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/saint-michaels.svg"
   },
@@ -3995,7 +3995,7 @@
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/tampa.svg"
   },
   {
-    "school_name": "Tex. A&amp;M Int&#039;l",
+    "school_name": "Tex. A&M Int'l",
     "school_url": "https://www.ncaa.com/schools/tex-am-intl",
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/tex-am-intl.svg"
   },
@@ -4020,7 +4020,7 @@
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/texas-wesleyan.svg"
   },
   {
-    "school_name": "Texas Woman&#039;s",
+    "school_name": "Texas Woman's",
     "school_url": "https://www.ncaa.com/schools/texas-womans",
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/texas-womans.svg"
   },
@@ -4205,7 +4205,7 @@
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/cal-st-northridge.svg"
   },
   {
-    "school_name": "Cal St. San B&#039;dino",
+    "school_name": "Cal St. San B'dino",
     "school_url": "https://www.ncaa.com/schools/cal-st-san-bdino",
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/cal-st-san-bdino.svg"
   },
@@ -4305,7 +4305,7 @@
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/drury.svg"
   },
   {
-    "school_name": "D&#039;Youville",
+    "school_name": "D'Youville",
     "school_url": "https://www.ncaa.com/schools/dyouville",
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/dyouville.svg"
   },
@@ -4320,7 +4320,7 @@
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/east-mennonite.svg"
   },
   {
-    "school_name": "East Tex. A&amp;M",
+    "school_name": "East Tex. A&M",
     "school_url": "https://www.ncaa.com/schools/east-tex-am",
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/east-tex-am.svg"
   },
@@ -5150,12 +5150,12 @@
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/ga-southwestern.svg"
   },
   {
-    "school_name": "Johnson &amp; Wales (RI)",
+    "school_name": "Johnson & Wales (RI)",
     "school_url": "https://www.ncaa.com/schools/johnson-wales-ri",
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/johnson-wales-ri.svg"
   },
   {
-    "school_name": "Johnson &amp; Wales (Denver)",
+    "school_name": "Johnson & Wales (Denver)",
     "school_url": "https://www.ncaa.com/schools/jwu-denver",
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/jwu-denver.svg"
   },
@@ -5330,7 +5330,7 @@
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/mt-st-mary-ny.svg"
   },
   {
-    "school_name": "Mt. St. Mary&#039;s",
+    "school_name": "Mt. St. Mary's",
     "school_url": "https://www.ncaa.com/schools/mt-st-marys",
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/mt-st-marys.svg"
   },
@@ -5550,7 +5550,7 @@
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-andrews.svg"
   },
   {
-    "school_name": "St. Augustine&#039;s",
+    "school_name": "St. Augustine's",
     "school_url": "https://www.ncaa.com/schools/st-augustines",
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-augustines.svg"
   },
@@ -5575,7 +5575,7 @@
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-cloud-st.svg"
   },
   {
-    "school_name": "St. Edward&#039;s",
+    "school_name": "St. Edward's",
     "school_url": "https://www.ncaa.com/schools/st-edwards",
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-edwards.svg"
   },
@@ -5595,7 +5595,7 @@
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-francis-ny.svg"
   },
   {
-    "school_name": "St. John&#039;s (NY)",
+    "school_name": "St. John's (NY)",
     "school_url": "https://www.ncaa.com/schools/st-johns-ny",
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-johns-ny.svg"
   },
@@ -5605,57 +5605,57 @@
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-joseph-ct.svg"
   },
   {
-    "school_name": "St. Joseph&#039;s (Brkln)",
+    "school_name": "St. Joseph's (Brkln)",
     "school_url": "https://www.ncaa.com/schools/st-josephs-brkln",
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-josephs-brkln.svg"
   },
   {
-    "school_name": "St. Joseph&#039;s (IN)",
+    "school_name": "St. Joseph's (IN)",
     "school_url": "https://www.ncaa.com/schools/st-josephs-in",
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-josephs-in.svg"
   },
   {
-    "school_name": "St. Joseph&#039;s (L.I.)",
+    "school_name": "St. Joseph's (L.I.)",
     "school_url": "https://www.ncaa.com/schools/st-josephs-li",
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-josephs-li.svg"
   },
   {
-    "school_name": "St. Joseph&#039;s (Me.)",
+    "school_name": "St. Joseph's (Me.)",
     "school_url": "https://www.ncaa.com/schools/st-josephs-me",
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-josephs-me.svg"
   },
   {
-    "school_name": "Saint-Mary&#039;s (CA)",
+    "school_name": "Saint-Mary's (CA)",
     "school_url": "https://www.ncaa.com/schools/st-marys-ca",
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-marys-ca.svg"
   },
   {
-    "school_name": "Saint-Mary&#039;s (IN)",
+    "school_name": "Saint-Mary's (IN)",
     "school_url": "https://www.ncaa.com/schools/st-marys-in",
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-marys-in.svg"
   },
   {
-    "school_name": "Saint-Mary&#039;s (MD)",
+    "school_name": "Saint-Mary's (MD)",
     "school_url": "https://www.ncaa.com/schools/st-marys-md",
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-marys-md.svg"
   },
   {
-    "school_name": "Saint Mary&#039;s (Minn.)",
+    "school_name": "Saint Mary's (Minn.)",
     "school_url": "https://www.ncaa.com/schools/st-marys-mn",
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-marys-mn.svg"
   },
   {
-    "school_name": "St. Mary&#039;s (TX)",
+    "school_name": "St. Mary's (TX)",
     "school_url": "https://www.ncaa.com/schools/st-marys-tx",
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-marys-tx.svg"
   },
   {
-    "school_name": "St. Paul&#039;s",
+    "school_name": "St. Paul's",
     "school_url": "https://www.ncaa.com/schools/st-pauls",
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-pauls.svg"
   },
   {
-    "school_name": "Saint Peter&#039;s",
+    "school_name": "Saint Peter's",
     "school_url": "https://www.ncaa.com/schools/st-peters",
     "img_src": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-peters.svg"
   },

@@ -1,0 +1,981 @@
+[
+  {
+    "id": "116",
+    "uid": "s:40~l:54~t:116",
+    "slug": "mount-st-marys-mountaineers",
+    "abbreviation": "MSM",
+    "displayName": "Mount St. Mary's Mountaineers",
+    "shortDisplayName": "Mount St Marys",
+    "name": "Mountaineers",
+    "nickname": "Mount St Marys",
+    "location": "Mount St. Mary's",
+    "color": "005596",
+    "alternateColor": "ebebeb",
+    "isActive": true,
+    "isAllStar": false,
+    "logos": [
+      {
+        "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/116.png",
+        "alt": "",
+        "rel": [
+          "full",
+          "default"
+        ],
+        "width": 500,
+        "height": 500
+      },
+      {
+        "href": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/116.png",
+        "alt": "",
+        "rel": [
+          "full",
+          "dark"
+        ],
+        "width": 500,
+        "height": 500
+      }
+    ],
+    "links": [
+      {
+        "language": "en-US",
+        "rel": [
+          "clubhouse",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/womens-college-basketball/team/_/id/116/mount-st-marys-mountaineers",
+        "text": "Clubhouse",
+        "shortText": "Clubhouse",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "roster",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/womens-college-basketball/team/roster/_/id/116",
+        "text": "Roster",
+        "shortText": "Roster",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "stats",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/womens-college-basketball/team/stats/_/id/116",
+        "text": "Statistics",
+        "shortText": "Statistics",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "schedule",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/womens-college-basketball/team/schedule/_/id/116",
+        "text": "Schedule",
+        "shortText": "Schedule",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "tickets",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.vividseats.com/mount-st-marys-mountaineers-womens-basketball-tickets--sports-ncaa-basketball/performer/55533?wsUser=717",
+        "text": "Tickets",
+        "shortText": "Tickets",
+        "isExternal": true,
+        "isPremium": false,
+        "isHidden": false
+      }
+    ]
+  },
+  {
+    "id": "2870",
+    "uid": "s:40~l:54~t:2870",
+    "slug": "purdue-fort-wayne-mastodons",
+    "abbreviation": "PFW",
+    "displayName": "Purdue Fort Wayne Mastodons",
+    "shortDisplayName": "Purdue FW",
+    "name": "Mastodons",
+    "nickname": "Purdue FW",
+    "location": "Purdue Fort Wayne",
+    "color": "00378A",
+    "alternateColor": "f0f0f0",
+    "isActive": true,
+    "isAllStar": false,
+    "logos": [
+      {
+        "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/2870.png",
+        "alt": "",
+        "rel": [
+          "full",
+          "default"
+        ],
+        "width": 500,
+        "height": 500
+      },
+      {
+        "href": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2870.png",
+        "alt": "",
+        "rel": [
+          "full",
+          "dark"
+        ],
+        "width": 500,
+        "height": 500
+      }
+    ],
+    "links": [
+      {
+        "language": "en-US",
+        "rel": [
+          "clubhouse",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/womens-college-basketball/team/_/id/2870/purdue-fort-wayne-mastodons",
+        "text": "Clubhouse",
+        "shortText": "Clubhouse",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "roster",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/womens-college-basketball/team/roster/_/id/2870",
+        "text": "Roster",
+        "shortText": "Roster",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "stats",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/womens-college-basketball/team/stats/_/id/2870",
+        "text": "Statistics",
+        "shortText": "Statistics",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "schedule",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/womens-college-basketball/team/schedule/_/id/2870",
+        "text": "Schedule",
+        "shortText": "Schedule",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "tickets",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.vividseats.com/fort-wayne-mastodons-womens-basketball-tickets--sports-ncaa-basketball/performer/53796?wsUser=717",
+        "text": "Tickets",
+        "shortText": "Tickets",
+        "isExternal": true,
+        "isPremium": false,
+        "isHidden": false
+      }
+    ]
+  },
+  {
+    "id": "2511",
+    "uid": "s:40~l:54~t:2511",
+    "slug": "queens-university-royals",
+    "abbreviation": "QUC",
+    "displayName": "Queens University Royals",
+    "shortDisplayName": "Queens",
+    "name": "Royals",
+    "nickname": "Queens",
+    "location": "Queens University",
+    "color": "000000",
+    "isActive": true,
+    "isAllStar": false,
+    "logos": [
+      {
+        "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/2511.png",
+        "alt": "",
+        "rel": [
+          "full",
+          "default"
+        ],
+        "width": 500,
+        "height": 500
+      },
+      {
+        "href": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2511.png",
+        "alt": "",
+        "rel": [
+          "full",
+          "dark"
+        ],
+        "width": 500,
+        "height": 500
+      }
+    ],
+    "links": [
+      {
+        "language": "en-US",
+        "rel": [
+          "clubhouse",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/womens-college-basketball/team/_/id/2511/queens-university-royals",
+        "text": "Clubhouse",
+        "shortText": "Clubhouse",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "roster",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/womens-college-basketball/team/roster/_/id/2511",
+        "text": "Roster",
+        "shortText": "Roster",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "stats",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/womens-college-basketball/team/stats/_/id/2511",
+        "text": "Statistics",
+        "shortText": "Statistics",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "schedule",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/womens-college-basketball/team/schedule/_/id/2511",
+        "text": "Schedule",
+        "shortText": "Schedule",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "tickets",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.vividseats.com/queens-royals-womens-basketball-tickets--sports-college/performer/94825?wsUser=717",
+        "text": "Tickets",
+        "shortText": "Tickets",
+        "isExternal": true,
+        "isPremium": false,
+        "isHidden": false
+      }
+    ]
+  },
+  {
+    "id": "2545",
+    "uid": "s:40~l:54~t:2545",
+    "slug": "se-louisiana-lady-lions",
+    "abbreviation": "SELA",
+    "displayName": "SE Louisiana Lady Lions",
+    "shortDisplayName": "SE Louisiana",
+    "name": "Lady Lions",
+    "nickname": "SE Louisiana",
+    "location": "SE Louisiana",
+    "color": "215732",
+    "alternateColor": "ffc72c",
+    "isActive": true,
+    "isAllStar": false,
+    "logos": [
+      {
+        "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/2545.png",
+        "alt": "",
+        "rel": [
+          "full",
+          "default"
+        ],
+        "width": 500,
+        "height": 500
+      },
+      {
+        "href": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2545.png",
+        "alt": "",
+        "rel": [
+          "full",
+          "dark"
+        ],
+        "width": 500,
+        "height": 500
+      }
+    ],
+    "links": [
+      {
+        "language": "en-US",
+        "rel": [
+          "clubhouse",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/womens-college-basketball/team/_/id/2545/se-louisiana-lady-lions",
+        "text": "Clubhouse",
+        "shortText": "Clubhouse",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "roster",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/womens-college-basketball/team/roster/_/id/2545",
+        "text": "Roster",
+        "shortText": "Roster",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "stats",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/womens-college-basketball/team/stats/_/id/2545",
+        "text": "Statistics",
+        "shortText": "Statistics",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "schedule",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/womens-college-basketball/team/schedule/_/id/2545",
+        "text": "Schedule",
+        "shortText": "Schedule",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "tickets",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.vividseats.com/southeastern-louisiana-lions-womens-basketball-tickets--sports-ncaa-basketball/performer/55612?wsUser=717",
+        "text": "Tickets",
+        "shortText": "Tickets",
+        "isExternal": true,
+        "isPremium": false,
+        "isHidden": false
+      }
+    ]
+  },
+  {
+    "id": "2908",
+    "uid": "s:40~l:54~t:2908",
+    "slug": "south-carolina-upstate-spartans",
+    "abbreviation": "UPST",
+    "displayName": "South Carolina Upstate Spartans",
+    "shortDisplayName": "SC Upstate",
+    "name": "Spartans",
+    "nickname": "SC Upstate",
+    "location": "South Carolina Upstate",
+    "color": "008545",
+    "alternateColor": "000000",
+    "isActive": true,
+    "isAllStar": false,
+    "logos": [
+      {
+        "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/2908.png",
+        "alt": "",
+        "rel": [
+          "full",
+          "default"
+        ],
+        "width": 500,
+        "height": 500
+      },
+      {
+        "href": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/2908.png",
+        "alt": "",
+        "rel": [
+          "full",
+          "dark"
+        ],
+        "width": 500,
+        "height": 500
+      }
+    ],
+    "links": [
+      {
+        "language": "en-US",
+        "rel": [
+          "clubhouse",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/womens-college-basketball/team/_/id/2908/south-carolina-upstate-spartans",
+        "text": "Clubhouse",
+        "shortText": "Clubhouse",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "roster",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/womens-college-basketball/team/roster/_/id/2908",
+        "text": "Roster",
+        "shortText": "Roster",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "stats",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/womens-college-basketball/team/stats/_/id/2908",
+        "text": "Statistics",
+        "shortText": "Statistics",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "schedule",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/womens-college-basketball/team/schedule/_/id/2908",
+        "text": "Schedule",
+        "shortText": "Schedule",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "tickets",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.vividseats.com/south-carolina-upstate-spartans-womens-basketball-tickets--sports-ncaa-basketball/performer/55635?wsUser=717",
+        "text": "Tickets",
+        "shortText": "Tickets",
+        "isExternal": true,
+        "isPremium": false,
+        "isHidden": false
+      }
+    ]
+  },
+  {
+    "id": "88",
+    "uid": "s:40~l:54~t:88",
+    "slug": "southern-indiana-screaming-eagles",
+    "abbreviation": "USI",
+    "displayName": "Southern Indiana Screaming Eagles",
+    "shortDisplayName": "So Indiana",
+    "name": "Screaming Eagles",
+    "nickname": "So Indiana",
+    "location": "Southern Indiana",
+    "color": "000000",
+    "isActive": true,
+    "isAllStar": false,
+    "logos": [
+      {
+        "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/88.png",
+        "alt": "",
+        "rel": [
+          "full",
+          "default"
+        ],
+        "width": 500,
+        "height": 500
+      },
+      {
+        "href": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/88.png",
+        "alt": "",
+        "rel": [
+          "full",
+          "dark"
+        ],
+        "width": 500,
+        "height": 500
+      }
+    ],
+    "links": [
+      {
+        "language": "en-US",
+        "rel": [
+          "clubhouse",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/womens-college-basketball/team/_/id/88/southern-indiana-screaming-eagles",
+        "text": "Clubhouse",
+        "shortText": "Clubhouse",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "roster",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/womens-college-basketball/team/roster/_/id/88",
+        "text": "Roster",
+        "shortText": "Roster",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "stats",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/womens-college-basketball/team/stats/_/id/88",
+        "text": "Statistics",
+        "shortText": "Statistics",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "schedule",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/womens-college-basketball/team/schedule/_/id/88",
+        "text": "Schedule",
+        "shortText": "Schedule",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "tickets",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.vividseats.com/southern-indiana-screaming-eagles-womens-basketball-tickets--sports-basketball/performer/63821?wsUser=717",
+        "text": "Tickets",
+        "shortText": "Tickets",
+        "isExternal": true,
+        "isPremium": false,
+        "isHidden": false
+      }
+    ]
+  },
+  {
+    "id": "253",
+    "uid": "s:40~l:54~t:253",
+    "slug": "southern-utah-thunderbirds",
+    "abbreviation": "SUU",
+    "displayName": "Southern Utah Thunderbirds",
+    "shortDisplayName": "Southern Utah",
+    "name": "Thunderbirds",
+    "nickname": "Southern Utah",
+    "location": "Southern Utah",
+    "color": "c72026",
+    "alternateColor": "000000",
+    "isActive": true,
+    "isAllStar": false,
+    "logos": [
+      {
+        "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/253.png",
+        "alt": "",
+        "rel": [
+          "full",
+          "default"
+        ],
+        "width": 500,
+        "height": 500
+      },
+      {
+        "href": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/253.png",
+        "alt": "",
+        "rel": [
+          "full",
+          "dark"
+        ],
+        "width": 500,
+        "height": 500
+      }
+    ],
+    "links": [
+      {
+        "language": "en-US",
+        "rel": [
+          "clubhouse",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/womens-college-basketball/team/_/id/253/southern-utah-thunderbirds",
+        "text": "Clubhouse",
+        "shortText": "Clubhouse",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "roster",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/womens-college-basketball/team/roster/_/id/253",
+        "text": "Roster",
+        "shortText": "Roster",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "stats",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/womens-college-basketball/team/stats/_/id/253",
+        "text": "Statistics",
+        "shortText": "Statistics",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "schedule",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/womens-college-basketball/team/schedule/_/id/253",
+        "text": "Schedule",
+        "shortText": "Schedule",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "tickets",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.vividseats.com/southern-utah-thunderbirds-womens-basketball-tickets--sports-ncaa-basketball/performer/55548?wsUser=717",
+        "text": "Tickets",
+        "shortText": "Tickets",
+        "isExternal": true,
+        "isPremium": false,
+        "isHidden": false
+      }
+    ]
+  },
+  {
+    "id": "250",
+    "uid": "s:40~l:54~t:250",
+    "slug": "ut-arlington-mavericks",
+    "abbreviation": "UTA",
+    "displayName": "UT Arlington Mavericks",
+    "shortDisplayName": "UT Arlington",
+    "name": "Mavericks",
+    "nickname": "UT Arlington",
+    "location": "UT Arlington",
+    "color": "004b7c",
+    "alternateColor": "f58024",
+    "isActive": true,
+    "isAllStar": false,
+    "logos": [
+      {
+        "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/250.png",
+        "alt": "",
+        "rel": [
+          "full",
+          "default"
+        ],
+        "width": 500,
+        "height": 500
+      },
+      {
+        "href": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/250.png",
+        "alt": "",
+        "rel": [
+          "full",
+          "dark"
+        ],
+        "width": 500,
+        "height": 500
+      }
+    ],
+    "links": [
+      {
+        "language": "en-US",
+        "rel": [
+          "clubhouse",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/womens-college-basketball/team/_/id/250/ut-arlington-mavericks",
+        "text": "Clubhouse",
+        "shortText": "Clubhouse",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "roster",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/womens-college-basketball/team/roster/_/id/250",
+        "text": "Roster",
+        "shortText": "Roster",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "stats",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/womens-college-basketball/team/stats/_/id/250",
+        "text": "Statistics",
+        "shortText": "Statistics",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "schedule",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/womens-college-basketball/team/schedule/_/id/250",
+        "text": "Schedule",
+        "shortText": "Schedule",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "tickets",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.vividseats.com/ut-arlington-mavericks-womens-basketball-tickets--sports-ncaa-basketball/performer/55547?wsUser=717",
+        "text": "Tickets",
+        "shortText": "Tickets",
+        "isExternal": true,
+        "isPremium": false,
+        "isHidden": false
+      }
+    ]
+  },
+  {
+    "id": "292",
+    "uid": "s:40~l:54~t:292",
+    "slug": "ut-rio-grande-valley-vaqueros",
+    "abbreviation": "RGV",
+    "displayName": "UT Rio Grande Valley Vaqueros",
+    "shortDisplayName": "UT Rio Grande",
+    "name": "Vaqueros",
+    "nickname": "UT Rio Grande",
+    "location": "UT Rio Grande Valley",
+    "color": "dc6000",
+    "alternateColor": "e1732d",
+    "isActive": true,
+    "isAllStar": false,
+    "logos": [
+      {
+        "href": "https://a.espncdn.com/i/teamlogos/ncaa/500/292.png",
+        "alt": "",
+        "rel": [
+          "full",
+          "default"
+        ],
+        "width": 500,
+        "height": 500
+      },
+      {
+        "href": "https://a.espncdn.com/i/teamlogos/ncaa/500-dark/292.png",
+        "alt": "",
+        "rel": [
+          "full",
+          "dark"
+        ],
+        "width": 500,
+        "height": 500
+      }
+    ],
+    "links": [
+      {
+        "language": "en-US",
+        "rel": [
+          "clubhouse",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/womens-college-basketball/team/_/id/292/ut-rio-grande-valley-vaqueros",
+        "text": "Clubhouse",
+        "shortText": "Clubhouse",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "roster",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/womens-college-basketball/team/roster/_/id/292",
+        "text": "Roster",
+        "shortText": "Roster",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "stats",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/womens-college-basketball/team/stats/_/id/292",
+        "text": "Statistics",
+        "shortText": "Statistics",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "schedule",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/womens-college-basketball/team/schedule/_/id/292",
+        "text": "Schedule",
+        "shortText": "Schedule",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "tickets",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.vividseats.com/ut-rio-grande-valley-vaqueros-womens-basketball-tickets--sports-ncaa-basketball/performer/52563?wsUser=717",
+        "text": "Tickets",
+        "shortText": "Tickets",
+        "isExternal": true,
+        "isPremium": false,
+        "isHidden": false
+      }
+    ]
+  }
+]

@@ -16,20 +16,42 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-import fs from "fs";
-import yaml from "js-yaml";
-import puppeteer from 'puppeteer';
-
+import Fuse from 'fuse.js';
+import he from 'he';
 import { getBrowserConfigWithHeaders } from './browser-headers.js';
 import cacheManager from './cache-manager.js';
 
 const NCAA_STAT_TTL = 7 * 24 * 60 * 60 * 1000; // 7 days
-const NCAA_DETAIL_TTL = 30 * 24 * 60 * 60 * 1000; // 30 days
+const NCAA_DETAIL_TTL = 500 * 24 * 60 * 60 * 1000; // 500 days
 
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 const BROWSER_COLORS = ['\u001b[33m', '\u001b[34m', '\u001b[32m'];
 
-const defaultValue = (value, fallback = null) => (value && value.trim()) ? value.trim() : fallback;
+/**
+ * Recursively decode HTML entities in all string values within an object or array
+ * @param {*} obj - Object, array, or primitive to process
+ * @returns {*} - Processed object with decoded strings
+ */
+const decodeHtmlEntities = (obj) => {
+    if (typeof obj === 'string') {
+        return he.decode(obj);
+    } else if (Array.isArray(obj)) {
+        return obj.map(item => decodeHtmlEntities(item));
+    } else if (obj !== null && typeof obj === 'object') {
+        const decoded = {};
+        for (const [key, value] of Object.entries(obj)) {
+            decoded[key] = decodeHtmlEntities(value);
+        }
+        return decoded;
+    }
+    return obj;
+};
+
+const defaultValue = (value, fallback = null) => {
+    if (!value) return fallback;
+    const decoded = typeof value === 'string' ? he.decode(value) : value;
+    return (decoded && decoded.toString().trim()) ? decoded.toString().trim() : fallback;
+};
 
 /**
  * Scrapes school data from multiple pages of the ncaa.com schools index, distributing the workload
@@ -96,13 +118,18 @@ const fetchNcaaTeamData = async (verbose, browsers) => {
     const CACHE_KEY = "ncaa_schools_backup";
     const cachedResult = cacheManager.get(CACHE_KEY, NCAA_STAT_TTL);
     if (cachedResult) {
-        if (verbose) console.log(`\u001b[36mUsing cached NCAA Football Teams data from ${cachedResult.savedAt.toLocaleString()}\u001b[0m`)
+        if (verbose) console.log(`\u001b[36mUsing cached NCAA Schools data from ${cachedResult.savedAt.toLocaleString()}\u001b[0m`)
         // If valid cache exists, return it immediately.
         return cachedResult.data;
     }    
     // Fetch initial list of schools (name, URL, img_src)
     const schoolsList = await _fetchNcaaSchoolsList(verbose, browsers);
-    if (schoolsList.length > 0) cacheManager.set(CACHE_KEY, schoolsList);
+    if (schoolsList.length > 0) {
+        // Decode HTML entities before caching
+        const decodedSchoolsList = decodeHtmlEntities(schoolsList);
+        cacheManager.set(CACHE_KEY, decodedSchoolsList);
+        return decodedSchoolsList;
+    }
     return schoolsList;
 };
 
@@ -216,12 +243,14 @@ const scrapeNcaaTeamDetails = async (ncaaTeams, verbose, browsers) => {
                 };
                 results.push(result);
                 // Update cache immediately after each school is processed
-                unifiedSchoolDetailsCache[result.urlKey] = {
+                const schoolDetails = {
                     ...result.details,
                     school_url: result.school_url,
                     scraped_at: new Date().toISOString(),
                     division: result.division // Add division as a direct property
                 };
+                // Decode HTML entities before caching
+                unifiedSchoolDetailsCache[result.urlKey] = decodeHtmlEntities(schoolDetails);
                 cacheManager.set("ncaa_school_details_backup", unifiedSchoolDetailsCache);
                 // Rate limiting between requests within the same browser
                 await sleep(500 + Math.random() * 500);
@@ -265,7 +294,8 @@ const scrapeNcaaTeamDetails = async (ncaaTeams, verbose, browsers) => {
         };
         return teamData;
     });
-    return processedNcaaTeams;
+    // Decode HTML entities in final data before returning
+    return decodeHtmlEntities(processedNcaaTeams);
 };
 
 /**
@@ -459,7 +489,73 @@ const getNcaaTeamNamesFromIds = async (ncaaIds, browsers, verbose) => {
         return results;
     });
     const batchResults = await Promise.all(batchPromises);
-    return batchResults.reduce((acc, res) => ({ ...acc, ...res }), {});
+    const combinedResults = batchResults.reduce((acc, res) => ({ ...acc, ...res }), {});
+    // Decode HTML entities in team names before returning
+    return decodeHtmlEntities(combinedResults);
 };
 
-export { fetchNcaaTeamData, scrapeNcaaTeamDetails, scrapeHeadCoachFromStatsPage, getNcaaTeamNamesFromIds };
+/**
+ * Matches NCAA teams with their corresponding NCAA IDs using exact matching first, 
+ * then fuzzy matching with fuse.js for unmatched teams.
+ *
+ * @param {Array<Object>} ncaaTeams - Array of NCAA team objects with school details
+ * @param {Array<Object>} ncaaIds - Array of NCAA ID bindings for team matching  
+ * @param {boolean} verbose - If true, enables detailed logging
+ * @returns {{matchedTeams: Array<Object>, unmatchedTeams: Array<Object>, unusedIds: Array<Object>}} 
+ */
+const addNcaaIdsToTeams = (ncaaTeams, ncaaIds, verbose) => {
+    const normalize = val => (typeof val === "string" ? val.toLowerCase().trim() : val);
+    const exactMatchMap = new Map();
+    ncaaIds.forEach(idRecord => {
+        Object.values(idRecord).forEach(val => {
+            const normalized = normalize(val);
+            if (normalized) exactMatchMap.set(normalized, idRecord);
+        });
+    });
+    const initialResult = ncaaTeams.reduce((acc, team) => {
+        const teamValues = Object.values(team).map(normalize);
+        for (const val of teamValues) {
+            const match = exactMatchMap.get(val);
+            if (match && !acc.usedIds.has(match.ncaa_id)) {
+                acc.matched.push({ ...team, ncaa_id: match.ncaa_id });
+                acc.usedIds.add(match.ncaa_id);
+                return acc; // Team matched, move to next team
+            }
+        }
+        acc.unmatched.push(team); // No match found
+        return acc;
+    }, { matched: [], unmatched: [], usedIds: new Set() });
+    let { matched: matchedTeams, unmatched: unmatchedTeams, usedIds } = initialResult;
+    if (verbose) console.log(`\u001b[32mExact matching: ${matchedTeams.length} teams matched, ${unmatchedTeams.length} teams remaining\u001b[0m`);
+    const remainingIds = ncaaIds.filter(id => !usedIds.has(id.ncaa_id));
+    if (unmatchedTeams.length > 0 && remainingIds.length > 0) {
+        if (verbose) console.log(`\u001b[36mAttempting fuzzy matching for ${unmatchedTeams.length} unmatched teams...\u001b[0m`);
+        const preprocess = name => (name || '').replace(/\s*\([^)]*\)/g, '').replace(/University/gi, 'Univ').replace(/State/gi, 'St').replace(/&/g, 'and').trim();
+        const generateAbbr = name => (name || '').replace(/\s*\([^)]*\)/g, '').split(/[\s\-\.]+/).filter(w => w && !/^(of|the|and|at|in|a|an|for|to)$/i.test(w)).map(w => w[0]).join('').toUpperCase();
+        const fuse = new Fuse(remainingIds, { keys: ['team_name'], threshold: 0.3, distance: 50, includeScore: true });
+        const fuzzyResult = unmatchedTeams.reduce((acc, team) => {
+            const searchQueries = [...new Set([team.school_name, team.name_ncaa].filter(Boolean).flatMap(q => [q, preprocess(q), generateAbbr(q)]))];
+            const bestMatch = searchQueries
+                .flatMap(q => fuse.search(q))
+                .filter(res => res.score < 0.3 && !usedIds.has(res.item.ncaa_id))
+                .reduce((best, current) => (!best || current.score < best.score) ? current : best, null);
+            if (bestMatch) {
+                acc.newlyMatched.push({ ...team, ncaa_id: bestMatch.item.ncaa_id });
+                usedIds.add(bestMatch.item.ncaa_id);
+            } else acc.stillUnmatched.push({ ...team, ncaa_id: null });
+            return acc;
+        }, { newlyMatched: [], stillUnmatched: [] });
+
+        matchedTeams.push(...fuzzyResult.newlyMatched);
+        unmatchedTeams = fuzzyResult.stillUnmatched;
+        if (verbose) console.log(`\u001b[32mFuzzy matching: ${fuzzyResult.newlyMatched.length} additional teams matched, ${unmatchedTeams.length} still unmatched\u001b[0m`);
+    }
+    // Decode HTML entities in all returned data
+    return {
+        matchedTeams: decodeHtmlEntities(matchedTeams),
+        unmatchedTeams: decodeHtmlEntities(unmatchedTeams),
+        unusedIds: decodeHtmlEntities(ncaaIds.filter(id => !usedIds.has(id.ncaa_id))),
+    };
+};
+
+export { fetchNcaaTeamData, scrapeNcaaTeamDetails, scrapeHeadCoachFromStatsPage, getNcaaTeamNamesFromIds, addNcaaIdsToTeams };

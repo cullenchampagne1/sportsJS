@@ -36,6 +36,14 @@
     "colors": "#E09A14, #2954AB"
   },
   {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/northeastern-ill.svg",
+    "colors": "#FFD700, #002366"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/suny-brockport.svg",
+    "colors": "#00462D, #00462D"
+  },
+  {
     "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/albion.svg",
     "colors": "#C6BA84, #46156B"
   },
@@ -3050,5 +3058,1357 @@
   {
     "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/lemoyne-owen.svg",
     "colors": "#54349c, #8c7b04"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/azusa-pacific.svg",
+    "colors": "#b4141c, #ba1a24"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/babson.svg",
+    "colors": "#2c7454, #145c44"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/biola.svg",
+    "colors": "#e41434, #790a1b"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/bloomfield.svg",
+    "colors": "#fcd43c, #9d141c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/davenport.svg",
+    "colors": "#ec3424, #982d25"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/bethany-lutheran.svg",
+    "colors": "#a5242c, #792428"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/belmont-abbey.svg",
+    "colors": "#d21444, #7b1f37"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/colby-sawyer.svg",
+    "colors": "#0594d4, #10668c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/colorado-col.svg",
+    "colors": "#f1aa34, #5c3c14"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/concordia-tx.svg",
+    "colors": "#fccc2c, #542c84"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/lincoln-memorial.svg",
+    "colors": "#2c3c72, #24346c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/goucher.svg",
+    "colors": "#f6dc09, #766805"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/hawaii-pacific.svg",
+    "colors": "#1c749c, #1c74a4"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/new-england-col.svg",
+    "colors": "#ca0c2c, #041c44"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/lynn.svg",
+    "colors": "#2c54ac, #325cac"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/colo-christian.svg",
+    "colors": "#ecd31c, #141c2c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/blackburn.svg",
+    "colors": "#ec384f, #790b19"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/georgia-college.svg",
+    "colors": "#184494, #053182"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/connecticut-col.svg",
+    "colors": "#507faf, #144474"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/lubbock-christian.svg",
+    "colors": "#e12833, #2c2c74"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/mansfield.svg",
+    "colors": "#a01c2c, #70131f"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/columbus-st.svg",
+    "colors": "#d42d3c, #1c3454"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/covenant.svg",
+    "colors": "#04349c, #0b3c9c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/haverford.svg",
+    "colors": "#a41c34, #892036"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/marian-wi.svg",
+    "colors": "#346bbc, #243c64"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/new-jersey-city.svg",
+    "colors": "#f2c23d, #144c3c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/hawaii-hilo.svg",
+    "colors": "#ec2424, #9c2424"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/georgian-court.svg",
+    "colors": "#1c549c, #1f56a4"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/maranatha-baptist.svg",
+    "colors": "#ebbc2c, #6b5f2c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/malone.svg",
+    "colors": "#21568b, #043c7c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/rockhurst.svg",
+    "colors": "#f4a41c, #045ca4"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/rutgers-newark.svg",
+    "colors": "#e31434, #771c2a"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/roger-williams.svg",
+    "colors": "#fbb41c, #042c5c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/suny-delhi.svg",
+    "colors": "#fccc04, #044c14"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/rivier.svg",
+    "colors": "#0f66a0, #044c80"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/roanoke.svg",
+    "colors": "#941844, #8c0c3c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/northwest-nazarene.svg",
+    "colors": "#c41c34, #5e0e19"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/rutgers-camden.svg",
+    "colors": "#e31434, #641c26"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/swarthmore.svg",
+    "colors": "#a41c34, #a42444"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/tampa.svg",
+    "colors": "#d41c2c, #6a232a"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/cal-poly-pomona.svg",
+    "colors": "#fcac14, #7a7024"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/northland.svg",
+    "colors": "#e46424, #243454"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/san-fran-st.svg",
+    "colors": "#fbd34c, #442c8c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/cal-st-dom-hills.svg",
+    "colors": "#e7a40c, #840434"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/brandeis.svg",
+    "colors": "#344c74, #1c345c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/elms.svg",
+    "colors": "#e4ae0d, #cc7404"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/whitman.svg",
+    "colors": "#fbc42c, #04245c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/maryville-mo.svg",
+    "colors": "#e91c24, #6e0d14"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/elmira.svg",
+    "colors": "#f0c83e, #542c6c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/cal-st-east-bay.svg",
+    "colors": "#ec154c, #7a0926"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/dominican-il.svg",
+    "colors": "#fbbb14, #043c74"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/rollins.svg",
+    "colors": "#fcb40c, #24449c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/minn-crookston.svg",
+    "colors": "#fcb424, #604926"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/desales.svg",
+    "colors": "#c01c34, #1c2c4c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/dist-columbia.svg",
+    "colors": "#f89f1e, #7e2216"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/cal-st-monterey-bay.svg",
+    "colors": "#1d7fe1, #0c345c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/oneonta-st.svg",
+    "colors": "#ce3a52, #9d2134"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/thomas-me.svg",
+    "colors": "#c4544c, #681c14"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/penn-st-altoona.svg",
+    "colors": "#324a71, #0c2c5c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/medgar-evers.svg",
+    "colors": "#f3bb14, #765e1c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/elizabethtown.svg",
+    "colors": "#1564aa, #1c4b75"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/iit.svg",
+    "colors": "#f4b514, #a1750d"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/cal-st-la.svg",
+    "colors": "#f2c409, #a3831c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/penn-st-behrend.svg",
+    "colors": "#324a71, #0c2c5c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/eckerd.svg",
+    "colors": "#244c7c, #143c7c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/humboldt-st.svg",
+    "colors": "#fcc42d, #047544"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/ozarks-ar.svg",
+    "colors": "#5c3074, #4a265d"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/penn-st-abington.svg",
+    "colors": "#324a71, #0c2c5c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/immaculata.svg",
+    "colors": "#5cb4e4, #042464"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/manhattanville.svg",
+    "colors": "#a20c30, #7d132c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/baruch.svg",
+    "colors": "#127fec, #041c34"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/bard.svg",
+    "colors": "#867878, #463e3e"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/coker.svg",
+    "colors": "#fcbc14, #1b477a"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/gordon.svg",
+    "colors": "#3f6abf, #0c1424"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/trevecca-nazarene.svg",
+    "colors": "#8c49b5, #542c6c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/newman.svg",
+    "colors": "#a32c2c, #14244c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/bridgeport.svg",
+    "colors": "#5c2c84, #402553"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/whittier.svg",
+    "colors": "#ad8f44, #49296f"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/western-wash.svg",
+    "colors": "#31456c, #0c2454"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/rosemont.svg",
+    "colors": "#f71707, #7d0c04"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/wilmington-de.svg",
+    "colors": "#188c5c, #048454"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/richard-stockton.svg",
+    "colors": "#f4c032, #806824"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/suffolk.svg",
+    "colors": "#c4a444, #172c44"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/me-farmington.svg",
+    "colors": "#6c3444, #71344c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/drew.svg",
+    "colors": "#0fefa4, #054d35"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/marymount-va.svg",
+    "colors": "#2c3484, #2c348c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/edgewood.svg",
+    "colors": "#b3053c, #8a1a3c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/mary-baldwin.svg",
+    "colors": "#fbc21c, #ae8e36"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/sarah-lawrence.svg",
+    "colors": "#367c6d, #045c4c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/hunter.svg",
+    "colors": "#f6b624, #3c0453"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/emerson.svg",
+    "colors": "#f6c834, #715f29"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/uc-santa-cruz.svg",
+    "colors": "#fbcc04, #041c44"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/southern-me.svg",
+    "colors": "#1c4c9c, #1f549c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/north-central-mn.svg",
+    "colors": "#bca464, #05244c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/neumann.svg",
+    "colors": "#fccc04, #143c6c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/roberts-wesleyan.svg",
+    "colors": "#c21c34, #7f1e2b"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/transylvania.svg",
+    "colors": "#ac4856, #a42536"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/suny-new-paltz.svg",
+    "colors": "#f0741d, #1f4481"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/wilson.svg",
+    "colors": "#243c94, #2c3c94"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/suny-potsdam.svg",
+    "colors": "#8c1434, #7c1434"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/wheaton-ma.svg",
+    "colors": "#145494, #18467d"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/occidental.svg",
+    "colors": "#e46434, #7b4b3a"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/palm-beach-atl.svg",
+    "colors": "#1f74df, #0c2c54"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/nova-southeastern.svg",
+    "colors": "#1c4c95, #265ba2"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/william-peace.svg",
+    "colors": "#348267, #046444"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/me-presque-isle.svg",
+    "colors": "#0474bc, #0774b3"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/mary-washington.svg",
+    "colors": "#344c74, #14345c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/suny-geneseo.svg",
+    "colors": "#2e406e, #0c2454"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/messiah.svg",
+    "colors": "#3f6898, #144484"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/southern-nh.svg",
+    "colors": "#b84553, #0c3454"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/skidmore.svg",
+    "colors": "#eec40c, #145434"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/mercy.svg",
+    "colors": "#2a5578, #04346c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/scranton.svg",
+    "colors": "#7e609e, #413252"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/simon-fraser.svg",
+    "colors": "#dc243c, #72121e"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/earlham.svg",
+    "colors": "#94142c, #941c34"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/centenary-nj.svg",
+    "colors": "#294e74, #042c5c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/lander.svg",
+    "colors": "#ecec2c, #253564"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/emory.svg",
+    "colors": "#c68607, #042c5c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/seattle-pacific.svg",
+    "colors": "#8c2c4c, #8c344c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/chatham.svg",
+    "colors": "#443c84, #4c3c84"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/lehman.svg",
+    "colors": "#7f7f7f, #424242"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/chaminade.svg",
+    "colors": "#0c54c4, #0c24a4"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/lee.svg",
+    "colors": "#843845, #742434"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/schreiner.svg",
+    "colors": "#8c2434, #691b27"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/la-roche.svg",
+    "colors": "#eb2c24, #5d200e"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/felician.svg",
+    "colors": "#fbdc2c, #6c5c0c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/pr-mayaguez.svg",
+    "colors": "#7f7f7f, #424242"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/florida-tech.svg",
+    "colors": "#d82626, #440c0c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/penn-st-berks.svg",
+    "colors": "#324a71, #0c2c5c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/york-pa.svg",
+    "colors": "#148c64, #048454"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/lasell.svg",
+    "colors": "#7abbe9, #04245c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/pr-bayamon.svg",
+    "colors": "#7f7f7f, #424242"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-thomas-aquinas.svg",
+    "colors": "#e9be39, #64140c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/pr-rio-piedras.svg",
+    "colors": "#7f7f7f, #424242"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/purdue-northwest.svg",
+    "colors": "#c09b3e, #645020"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/sonoma-st.svg",
+    "colors": "#0c4c94, #0c5494"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/mitchell.svg",
+    "colors": "#d02333, #701c24"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/penn-tech.svg",
+    "colors": "#0668a8, #1e4b6c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/montevallo.svg",
+    "colors": "#f7cd4e, #3c1454"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/francis-marion.svg",
+    "colors": "#b41c44, #18579c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/principia.svg",
+    "colors": "#b69853, #154474"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/point-loma.svg",
+    "colors": "#f9b316, #1c543c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/pfeiffer.svg",
+    "colors": "#fcc424, #7a6224"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/randolph.svg",
+    "colors": "#fbcc04, #846c14"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/clayton-st.svg",
+    "colors": "#f38424, #044c8c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/clarkson.svg",
+    "colors": "#facb25, #0c443c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/claflin.svg",
+    "colors": "#bc2c24, #5d161c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/wis-superior.svg",
+    "colors": "#eec02c, #725e25"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/barry.svg",
+    "colors": "#f1bb21, #149444"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/lynchburg.svg",
+    "colors": "#77252e, #651f27"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/lewis.svg",
+    "colors": "#c42434, #060e16"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/bryn-athyn.svg",
+    "colors": "#941d25, #691e27"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/suny-canton.svg",
+    "colors": "#1c448c, #088c6c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/drury.svg",
+    "colors": "#e4243c, #672024"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/converse.svg",
+    "colors": "#b49445, #4c2764"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/cedarville.svg",
+    "colors": "#f09c10, #1c5471"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/young-harris.svg",
+    "colors": "#583a98, #37245f"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/keuka.svg",
+    "colors": "#847636, #1c3c2c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/york-ny.svg",
+    "colors": "#dc2c1c, #6e2c25"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/fresno-pacific.svg",
+    "colors": "#e45c2c, #1e2444"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/marywood.svg",
+    "colors": "#e29b34, #055c34"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/pitt-johnstown.svg",
+    "colors": "#fcb41c, #234885"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/mount-olive.svg",
+    "colors": "#346c51, #1b5b3c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/lesley.svg",
+    "colors": "#9ccc7c, #3c5f25"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/stevens.svg",
+    "colors": "#ee903c, #084778"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/ga-southwestern.svg",
+    "colors": "#fab31c, #15293c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/mt-st-mary-ny.svg",
+    "colors": "#0464b4, #1070b6"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/vassar.svg",
+    "colors": "#ac0434, #ac0c34"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/pitt-bradford.svg",
+    "colors": "#3f64bf, #1c2c54"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/spalding.svg",
+    "colors": "#fcdc14, #2c348c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/piedmont.svg",
+    "colors": "#4ab48a, #1c4434"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/king-tn.svg",
+    "colors": "#d42c3c, #28448c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/daemen.svg",
+    "colors": "#324f81, #042c84"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/dallas.svg",
+    "colors": "#2777d7, #143c6c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/goldey-beacom.svg",
+    "colors": "#cca04c, #1e3466"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/houghton.svg",
+    "colors": "#ccb46c, #32376c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/east-mennonite.svg",
+    "colors": "#3080c7, #225f94"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/caldwell.svg",
+    "colors": "#c48c84, #58282c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/hood.svg",
+    "colors": "#1594e9, #041c2c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/notre-dame-md.svg",
+    "colors": "#4a84b4, #043464"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/mo-st-louis.svg",
+    "colors": "#eca90c, #b4141c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/nazareth.svg",
+    "colors": "#cca46c, #624722"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/molloy.svg",
+    "colors": "#a41c34, #7c1d30"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/southern-wesleyan.svg",
+    "colors": "#2d3d9c, #243472"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/webster.svg",
+    "colors": "#fcbc14, #81672c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/valley-forge-chrst.svg",
+    "colors": "#2c5474, #14344c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/purchase-st.svg",
+    "colors": "#f08427, #1c4c9c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/holy-family.svg",
+    "colors": "#349bd6, #2e526a"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/caltech.svg",
+    "colors": "#f25424, #6c3018"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/dominican-ny.svg",
+    "colors": "#c7223b, #944454"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/lancaster-bible.svg",
+    "colors": "#c41434, #510d18"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/flagler.svg",
+    "colors": "#dd7d28, #b2151c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/letourneau.svg",
+    "colors": "#fccc34, #1c448c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/clark-ma.svg",
+    "colors": "#ec2c24, #8a2d28"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/lake-superior-st.svg",
+    "colors": "#fcc41c, #2c52a1"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/fla-southern.svg",
+    "colors": "#c4062d, #0c4c8c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/lees-mcrae.svg",
+    "colors": "#f7bc1c, #2c5c4c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/spring-hill.svg",
+    "colors": "#512f72, #441c64"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/salem-st.svg",
+    "colors": "#e87a33, #04245c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/fontbonne.svg",
+    "colors": "#f0ae3b, #144470"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/staten-island.svg",
+    "colors": "#74b4d4, #1f4d65"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/john-jay.svg",
+    "colors": "#3c74b4, #042e64"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/fredonia-st.svg",
+    "colors": "#2e7ccc, #926f1d"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/washington-col.svg",
+    "colors": "#eca414, #926414"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/regis-co.svg",
+    "colors": "#fad207, #0c2c54"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/rhode-island-col.svg",
+    "colors": "#be900e, #8d0c25"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/wis-parkside.svg",
+    "colors": "#358460, #056a3b"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/mont-st-billings.svg",
+    "colors": "#ecb018, #144474"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/ramapo.svg",
+    "colors": "#941934, #870d25"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/pitt-greensburg.svg",
+    "colors": "#304c6c, #04244c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/franciscan.svg",
+    "colors": "#ac9425, #5b651e"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/farmingdale-st.svg",
+    "colors": "#3cc2ba, #154441"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/keene-st.svg",
+    "colors": "#d42331, #a9212e"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/westminster-ut.svg",
+    "colors": "#c49c64, #3d1c64"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/brooklyn.svg",
+    "colors": "#fbb53f, #a40544"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/queens-ny.svg",
+    "colors": "#e12c48, #083256"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/eastern-conn-st.svg",
+    "colors": "#a9524e, #8c0d05"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/oglethorpe.svg",
+    "colors": "#b4a43c, #5f521d"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/sunyit.svg",
+    "colors": "#ecb62d, #1c448b"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/ccny.svg",
+    "colors": "#823534, #6a1f17"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/yeshiva.svg",
+    "colors": "#065594, #0a4275"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/chestnut-hill.svg",
+    "colors": "#d82434, #991c19"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/cameron.svg",
+    "colors": "#fcb41c, #694e0c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/cairn.svg",
+    "colors": "#b34b71, #6a2d43"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/umass-boston.svg",
+    "colors": "#546cbb, #25335e"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/salem.svg",
+    "colors": "#f2cc04, #046cac"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/dominican-ca.svg",
+    "colors": "#fbd306, #846c18"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/emmanuel-ga.svg",
+    "colors": "#fcb40c, #63461c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-cloud-st.svg",
+    "colors": "#cc0c3c, #7d0724"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/plattsburgh-st.svg",
+    "colors": "#d21c2c, #a49414"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/union-tn.svg",
+    "colors": "#ca3457, #681b2d"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/scad.svg",
+    "colors": "#fcd404, #8c640c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/penn-st-harrisburg.svg",
+    "colors": "#324a71, #0c2c5c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/chico-st.svg",
+    "colors": "#8c2434, #8c2c3c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/ill-springfield.svg",
+    "colors": "#2872d6, #102d54"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-thomas-fl.svg",
+    "colors": "#347cb0, #04447c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-joseph-ct.svg",
+    "colors": "#caa408, #082e61"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/rogers-st.svg",
+    "colors": "#c21c34, #602739"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/cobleskill-st.svg",
+    "colors": "#f4641c, #7c3c1c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/christian-bros.svg",
+    "colors": "#e01434, #7e1c2c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/saint-martins.svg",
+    "colors": "#be0431, #890524"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/wesley.svg",
+    "colors": "#4cb4e4, #14517a"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/rust.svg",
+    "colors": "#45388e, #4c4494"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/gwynedd-mercy.svg",
+    "colors": "#cc3444, #6c2c32"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/saint-rose.svg",
+    "colors": "#f0ca1a, #967e1c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/msoe.svg",
+    "colors": "#bc303f, #5e141c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-pauls.svg",
+    "colors": "#7f7f7f, #424242"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/cazenovia.svg",
+    "colors": "#fcd404, #0a447e"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/roosevelt-university.svg",
+    "colors": "#14945c, #048c54"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/north-georgia.svg",
+    "colors": "#243c7c, #1c3c7c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/gru-augusta.svg",
+    "colors": "#3f76bf, #1c3454"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/concordia-irvine.svg",
+    "colors": "#f2b124, #044c24"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/aub-montgomery.svg",
+    "colors": "#e13a24, #6b2824"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/new-york-u.svg",
+    "colors": "#4c2c74, #3e2460"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/tex-am-intl.svg",
+    "colors": "#743444, #5c142c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/salem-intl.svg",
+    "colors": "#14944c, #249454"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/va-wesleyan.svg",
+    "colors": "#3d6885, #043c6c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/lincoln-christian.svg",
+    "colors": "#7f7f7f, #424242"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/sweet-briar.svg",
+    "colors": "#d62d6b, #6e1536"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/mcneese-st.svg",
+    "colors": "#fcd40b, #1c4c9c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/holy-names.svg",
+    "colors": "#c21c34, #541f28"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/morris-brown.svg",
+    "colors": "#7f7f7f, #424242"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/texas-dallas.svg",
+    "colors": "#f47c2c, #044c34"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/eastern-ore.svg",
+    "colors": "#7f7f7f, #424242"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/cal-st-san-marcos.svg",
+    "colors": "#045cbb, #0c4782"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/daniel-webster.svg",
+    "colors": "#e3424c, #043c7c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/rochester-inst.svg",
+    "colors": "#f46c15, #713c1d"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/oakland-city.svg",
+    "colors": "#73abe3, #1c3474"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/liu-post.svg",
+    "colors": "#ebac04, #0c5443"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/ursuline.svg",
+    "colors": "#344cac, #4458a0"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/uc-colo-springs.svg",
+    "colors": "#b19e5c, #594f2a"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/cal-st-san-bdino.svg",
+    "colors": "#056ca9, #085c8a"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/notre-dame-oh.svg",
+    "colors": "#e9b922, #785e0c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/saint-leo.svg",
+    "colors": "#f4b94f, #24543c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/texas-wesleyan.svg",
+    "colors": "#fcd404, #042564"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/davis-elkins.svg",
+    "colors": "#d5404f, #67262d"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/oswego-st.svg",
+    "colors": "#ecb414, #046234"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/mt-aloysius.svg",
+    "colors": "#046bb3, #045ca4"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/mcla.svg",
+    "colors": "#fcb424, #142d4a"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/green-mountain.svg",
+    "colors": "#fbc31c, #7c5c14"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/texas-tyler.svg",
+    "colors": "#d56b22, #042c6c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/baptist-bible-pa.svg",
+    "colors": "#2554a4, #2f5bac"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/mt-st-vincent.svg",
+    "colors": "#3ad1c6, #3c2c04"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/lyndon-st.svg",
+    "colors": "#dab516, #143c14"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/ohio-valley.svg",
+    "colors": "#b92d26, #1c448c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/smith.svg",
+    "colors": "#fcc434, #1c2c54"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/simmons.svg",
+    "colors": "#eac728, #1c3c6c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/morningside.svg",
+    "colors": "#7f7f7f, #424242"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/southampton.svg",
+    "colors": "#7f7f7f, #424242"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/fisk.svg",
+    "colors": "#7f7f7f, #424242"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/hartford.svg",
+    "colors": "#db1434, #741c2c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/spelman.svg",
+    "colors": "#7f7f7f, #424242"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-elizabeth.svg",
+    "colors": "#333c6a, #1c245c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/mills.svg",
+    "colors": "#096bf5, #042c64"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/stillman.svg",
+    "colors": "#bc9334, #040444"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/paine.svg",
+    "colors": "#442c94, #3d297a"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/cabrini.svg",
+    "colors": "#0877f6, #043b7a"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/meredith.svg",
+    "colors": "#8b1434, #841c34"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/emmanuel-ma.svg",
+    "colors": "#eab613, #1c4c7c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/lambuth.svg",
+    "colors": "#e12833, #2c2c74"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/newbury.svg",
+    "colors": "#3dc16d, #1d5c34"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/hollins.svg",
+    "colors": "#fbdb04, #046454"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/menlo.svg",
+    "colors": "#345471, #042c4c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/langston.svg",
+    "colors": "#f16c2c, #1c3464"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/wheelock.svg",
+    "colors": "#fcab1c, #24345c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/cheyney.svg",
+    "colors": "#3474c4, #1b3e68"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/finlandia.svg",
+    "colors": "#1c5cac, #123c72"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/incarnate-word.svg",
+    "colors": "#cd2434, #74242b"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/stephens.svg",
+    "colors": "#f4b429, #802b3f"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/macmurray.svg",
+    "colors": "#c10c0c, #940c24"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-augustines.svg",
+    "colors": "#3a5a7a, #0c345c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/becker.svg",
+    "colors": "#04549c, #0b5c9c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/dowling.svg",
+    "colors": "#968636, #04244c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/concordia-ny.svg",
+    "colors": "#f4c91c, #2c3c94"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-andrews.svg",
+    "colors": "#16288c, #081982"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/nyack.svg",
+    "colors": "#941c1c, #8c1c1c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/evergreen-st.svg",
+    "colors": "#09f589, #046b3c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/medaille.svg",
+    "colors": "#f5c028, #042c5c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-edwards.svg",
+    "colors": "#4767b7, #24345c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/dyouville.svg",
+    "colors": "#bd1b2a, #8d0f1e"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/clarke.svg",
+    "colors": "#f8d008, #044c8c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/sage-colleges.svg",
+    "colors": "#15e994, #042c1c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-marys-tx.svg",
+    "colors": "#eebd39, #0c4c84"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-josephs-li.svg",
+    "colors": "#ecac04, #0f2c5f"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-josephs-brkln.svg",
+    "colors": "#3c5481, #04245c"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/metro-st.svg",
+    "colors": "#d41a45, #144474"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/trinity-washington.svg",
+    "colors": "#543474, #3c1c64"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/texas-womans.svg",
+    "colors": "#842434, #8c2c39"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/mount-holyoke.svg",
+    "colors": "#7cb8df, #1a4a6a"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-catherine.svg",
+    "colors": "#fbe154, #4c2484"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/st-benedict.svg",
+    "colors": "#cc143c, #780b23"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/wellesley.svg",
+    "colors": "#041cac, #0c1cac"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/cedar-crest.svg",
+    "colors": "#fbcc34, #6a5824"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/bryn-mawr.svg",
+    "colors": "#fccc04, #705c18"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/william-smith.svg",
+    "colors": "#2e7048, #145c34"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/wesleyan-ga.svg",
+    "colors": "#7a7a84, #3f3f44"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/queens-nc.svg",
+    "colors": "#4361bb, #243464"
+  },
+  {
+    "url": "https://www.ncaa.com/sites/default/files/images/logos/schools/bgl/southern-ind.svg",
+    "colors": "#bc1c34, #0d2c54"
   }
 ]

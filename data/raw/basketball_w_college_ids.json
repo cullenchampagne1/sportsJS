@@ -1,0 +1,4234 @@
+[
+  {
+    "team_name": "UConn",
+    "ncaa_id": "591983"
+  },
+  {
+    "team_name": "UCLA",
+    "ncaa_id": "591708"
+  },
+  {
+    "team_name": "Grand Canyon",
+    "ncaa_id": "591970"
+  },
+  {
+    "team_name": "South Carolina",
+    "ncaa_id": "592003"
+  },
+  {
+    "team_name": "Texas",
+    "ncaa_id": "592007"
+  },
+  {
+    "team_name": "TCU",
+    "ncaa_id": "591921"
+  },
+  {
+    "team_name": "Southern California",
+    "ncaa_id": "592005"
+  },
+  {
+    "team_name": "FGCU",
+    "ncaa_id": "591980"
+  },
+  {
+    "team_name": "Montana St.",
+    "ncaa_id": "591818"
+  },
+  {
+    "team_name": "South Dakota St.",
+    "ncaa_id": "592004"
+  },
+  {
+    "team_name": "FDU",
+    "ncaa_id": "591744"
+  },
+  {
+    "team_name": "Portland",
+    "ncaa_id": "591998"
+  },
+  {
+    "team_name": "Norfolk St.",
+    "ncaa_id": "591996"
+  },
+  {
+    "team_name": "Fairfield",
+    "ncaa_id": "591987"
+  },
+  {
+    "team_name": "Quinnipiac",
+    "ncaa_id": "591873"
+  },
+  {
+    "team_name": "UTSA",
+    "ncaa_id": "591926"
+  },
+  {
+    "team_name": "LSU",
+    "ncaa_id": "591791"
+  },
+  {
+    "team_name": "James Madison",
+    "ncaa_id": "591780"
+  },
+  {
+    "team_name": "Green Bay",
+    "ncaa_id": "592008"
+  },
+  {
+    "team_name": "SFA",
+    "ncaa_id": "591911"
+  },
+  {
+    "team_name": "Harvard",
+    "ncaa_id": "591762"
+  },
+  {
+    "team_name": "Notre Dame",
+    "ncaa_id": "591997"
+  },
+  {
+    "team_name": "George Mason",
+    "ncaa_id": "591752"
+  },
+  {
+    "team_name": "Southeastern La.",
+    "ncaa_id": "591900"
+  },
+  {
+    "team_name": "Tennessee Tech",
+    "ncaa_id": "591917"
+  },
+  {
+    "team_name": "Buffalo",
+    "ncaa_id": "591696"
+  },
+  {
+    "team_name": "NC State",
+    "ncaa_id": "591841"
+  },
+  {
+    "team_name": "Richmond",
+    "ncaa_id": "592001"
+  },
+  {
+    "team_name": "Lehigh",
+    "ncaa_id": "591787"
+  },
+  {
+    "team_name": "Creighton",
+    "ncaa_id": "591726"
+  },
+  {
+    "team_name": "Liberty",
+    "ncaa_id": "591788"
+  },
+  {
+    "team_name": "Ohio St.",
+    "ncaa_id": "591855"
+  },
+  {
+    "team_name": "UAlbany",
+    "ncaa_id": "591671"
+  },
+  {
+    "team_name": "Duke",
+    "ncaa_id": "591735"
+  },
+  {
+    "team_name": "North Carolina",
+    "ncaa_id": "591825"
+  },
+  {
+    "team_name": "Oklahoma St.",
+    "ncaa_id": "591857"
+  },
+  {
+    "team_name": "UNC Greensboro",
+    "ncaa_id": "591827"
+  },
+  {
+    "team_name": "Baylor",
+    "ncaa_id": "591684"
+  },
+  {
+    "team_name": "Kansas St.",
+    "ncaa_id": "591781"
+  },
+  {
+    "team_name": "Columbia",
+    "ncaa_id": "591723"
+  },
+  {
+    "team_name": "Ball St.",
+    "ncaa_id": "591682"
+  },
+  {
+    "team_name": "Northern Ariz.",
+    "ncaa_id": "591847"
+  },
+  {
+    "team_name": "Oklahoma",
+    "ncaa_id": "591858"
+  },
+  {
+    "team_name": "UNLV",
+    "ncaa_id": "591995"
+  },
+  {
+    "team_name": "Army West Point",
+    "ncaa_id": "591935"
+  },
+  {
+    "team_name": "Col. of Charleston",
+    "ncaa_id": "591967"
+  },
+  {
+    "team_name": "Maryland",
+    "ncaa_id": "591802"
+  },
+  {
+    "team_name": "Murray St.",
+    "ncaa_id": "591823"
+  },
+  {
+    "team_name": "West Virginia",
+    "ncaa_id": "591951"
+  },
+  {
+    "team_name": "Purdue Fort Wayne",
+    "ncaa_id": "591775"
+  },
+  {
+    "team_name": "Middle Tenn.",
+    "ncaa_id": "591994"
+  },
+  {
+    "team_name": "Missouri St.",
+    "ncaa_id": "591907"
+  },
+  {
+    "team_name": "Kentucky",
+    "ncaa_id": "591783"
+  },
+  {
+    "team_name": "California",
+    "ncaa_id": "591706"
+  },
+  {
+    "team_name": "North Texas",
+    "ncaa_id": "591844"
+  },
+  {
+    "team_name": "Lamar University",
+    "ncaa_id": "591786"
+  },
+  {
+    "team_name": "Cleveland St.",
+    "ncaa_id": "591718"
+  },
+  {
+    "team_name": "Alabama",
+    "ncaa_id": "591669"
+  },
+  {
+    "team_name": "Florida St.",
+    "ncaa_id": "591748"
+  },
+  {
+    "team_name": "Oral Roberts",
+    "ncaa_id": "591860"
+  },
+  {
+    "team_name": "Toledo",
+    "ncaa_id": "591927"
+  },
+  {
+    "team_name": "Princeton",
+    "ncaa_id": "591999"
+  },
+  {
+    "team_name": "Coastal Carolina",
+    "ncaa_id": "591719"
+  },
+  {
+    "team_name": "Western Ky.",
+    "ncaa_id": "591954"
+  },
+  {
+    "team_name": "San Diego St.",
+    "ncaa_id": "591888"
+  },
+  {
+    "team_name": "Utah",
+    "ncaa_id": "591938"
+  },
+  {
+    "team_name": "Saint Joseph's",
+    "ncaa_id": "591882"
+  },
+  {
+    "team_name": "Tennessee",
+    "ncaa_id": "591918"
+  },
+  {
+    "team_name": "Central Ark.",
+    "ncaa_id": "591966"
+  },
+  {
+    "team_name": "Colgate",
+    "ncaa_id": "591720"
+  },
+  {
+    "team_name": "Seton Hall",
+    "ncaa_id": "591893"
+  },
+  {
+    "team_name": "Minnesota",
+    "ncaa_id": "591812"
+  },
+  {
+    "team_name": "Colorado St.",
+    "ncaa_id": "591721"
+  },
+  {
+    "team_name": "Hawaii",
+    "ncaa_id": "591763"
+  },
+  {
+    "team_name": "Illinois",
+    "ncaa_id": "591771"
+  },
+  {
+    "team_name": "Michigan St.",
+    "ncaa_id": "591810"
+  },
+  {
+    "team_name": "Gonzaga",
+    "ncaa_id": "591759"
+  },
+  {
+    "team_name": "UC Irvine",
+    "ncaa_id": "591982"
+  },
+  {
+    "team_name": "Iowa",
+    "ncaa_id": "591989"
+  },
+  {
+    "team_name": "Michigan",
+    "ncaa_id": "591811"
+  },
+  {
+    "team_name": "South Fla.",
+    "ncaa_id": "591898"
+  },
+  {
+    "team_name": "Belmont",
+    "ncaa_id": "591657"
+  },
+  {
+    "team_name": "Georgia Tech",
+    "ncaa_id": "591757"
+  },
+  {
+    "team_name": "Louisville",
+    "ncaa_id": "591793"
+  },
+  {
+    "team_name": "Ole Miss",
+    "ncaa_id": "591815"
+  },
+  {
+    "team_name": "Vanderbilt",
+    "ncaa_id": "591940"
+  },
+  {
+    "team_name": "Iowa St.",
+    "ncaa_id": "591777"
+  },
+  {
+    "team_name": "Alabama A&M",
+    "ncaa_id": "591667"
+  },
+  {
+    "team_name": "Arkansas St.",
+    "ncaa_id": "591677"
+  },
+  {
+    "team_name": "Marquette",
+    "ncaa_id": "591800"
+  },
+  {
+    "team_name": "Illinois St.",
+    "ncaa_id": "591770"
+  },
+  {
+    "team_name": "Drake",
+    "ncaa_id": "591984"
+  },
+  {
+    "team_name": "Howard",
+    "ncaa_id": "591767"
+  },
+  {
+    "team_name": "Longwood",
+    "ncaa_id": "591790"
+  },
+  {
+    "team_name": "Mississippi St.",
+    "ncaa_id": "591813"
+  },
+  {
+    "team_name": "Wyoming",
+    "ncaa_id": "591962"
+  },
+  {
+    "team_name": "Temple",
+    "ncaa_id": "591915"
+  },
+  {
+    "team_name": "Eastern Ky.",
+    "ncaa_id": "591741"
+  },
+  {
+    "team_name": "High Point",
+    "ncaa_id": "591658"
+  },
+  {
+    "team_name": "Kent St.",
+    "ncaa_id": "591991"
+  },
+  {
+    "team_name": "Nebraska",
+    "ncaa_id": "591829"
+  },
+  {
+    "team_name": "North Dakota St.",
+    "ncaa_id": "591842"
+  },
+  {
+    "team_name": "UC Davis",
+    "ncaa_id": "591707"
+  },
+  {
+    "team_name": "Troy",
+    "ncaa_id": "591929"
+  },
+  {
+    "team_name": "Abilene Christian",
+    "ncaa_id": "591665"
+  },
+  {
+    "team_name": "Campbell",
+    "ncaa_id": "591710"
+  },
+  {
+    "team_name": "Lipscomb",
+    "ncaa_id": "591659"
+  },
+  {
+    "team_name": "Oregon",
+    "ncaa_id": "591862"
+  },
+  {
+    "team_name": "Colorado",
+    "ncaa_id": "591722"
+  },
+  {
+    "team_name": "Duquesne",
+    "ncaa_id": "591736"
+  },
+  {
+    "team_name": "Vermont",
+    "ncaa_id": "591941"
+  },
+  {
+    "team_name": "Holy Cross",
+    "ncaa_id": "591988"
+  },
+  {
+    "team_name": "Miami (OH)",
+    "ncaa_id": "591808"
+  },
+  {
+    "team_name": "N.C. A&T",
+    "ncaa_id": "591839"
+  },
+  {
+    "team_name": "Navy",
+    "ncaa_id": "591936"
+  },
+  {
+    "team_name": "Indiana",
+    "ncaa_id": "591774"
+  },
+  {
+    "team_name": "Washington St.",
+    "ncaa_id": "591948"
+  },
+  {
+    "team_name": "Eastern Ill.",
+    "ncaa_id": "591739"
+  },
+  {
+    "team_name": "Idaho",
+    "ncaa_id": "591769"
+  },
+  {
+    "team_name": "Utah Valley",
+    "ncaa_id": "591660"
+  },
+  {
+    "team_name": "Virginia Tech",
+    "ncaa_id": "591944"
+  },
+  {
+    "team_name": "Tarleton St.",
+    "ncaa_id": "591663"
+  },
+  {
+    "team_name": "Wofford",
+    "ncaa_id": "591655"
+  },
+  {
+    "team_name": "Southern U.",
+    "ncaa_id": "591905"
+  },
+  {
+    "team_name": "Villanova",
+    "ncaa_id": "591942"
+  },
+  {
+    "team_name": "Bowling Green",
+    "ncaa_id": "591690"
+  },
+  {
+    "team_name": "Dayton",
+    "ncaa_id": "591729"
+  },
+  {
+    "team_name": "UC Santa Barbara",
+    "ncaa_id": "591705"
+  },
+  {
+    "team_name": "Arizona",
+    "ncaa_id": "591676"
+  },
+  {
+    "team_name": "Davidson",
+    "ncaa_id": "591728"
+  },
+  {
+    "team_name": "Washington",
+    "ncaa_id": "591949"
+  },
+  {
+    "team_name": "Drexel",
+    "ncaa_id": "591985"
+  },
+  {
+    "team_name": "ETSU",
+    "ncaa_id": "591738"
+  },
+  {
+    "team_name": "Tulane",
+    "ncaa_id": "591930"
+  },
+  {
+    "team_name": "New Mexico",
+    "ncaa_id": "591835"
+  },
+  {
+    "team_name": "UIW",
+    "ncaa_id": "591654"
+  },
+  {
+    "team_name": "UT Arlington",
+    "ncaa_id": "591924"
+  },
+  {
+    "team_name": "Coppin St.",
+    "ncaa_id": "591724"
+  },
+  {
+    "team_name": "Fresno St.",
+    "ncaa_id": "591700"
+  },
+  {
+    "team_name": "UC San Diego",
+    "ncaa_id": "591662"
+  },
+  {
+    "team_name": "Bucknell",
+    "ncaa_id": "591695"
+  },
+  {
+    "team_name": "Nicholls",
+    "ncaa_id": "591838"
+  },
+  {
+    "team_name": "Siena",
+    "ncaa_id": "591894"
+  },
+  {
+    "team_name": "Air Force",
+    "ncaa_id": "591934"
+  },
+  {
+    "team_name": "Bellarmine",
+    "ncaa_id": "591932"
+  },
+  {
+    "team_name": "Boise St.",
+    "ncaa_id": "591687"
+  },
+  {
+    "team_name": "Oregon St.",
+    "ncaa_id": "591861"
+  },
+  {
+    "team_name": "Penn",
+    "ncaa_id": "591866"
+  },
+  {
+    "team_name": "Kansas",
+    "ncaa_id": "591782"
+  },
+  {
+    "team_name": "Long Beach St.",
+    "ncaa_id": "591702"
+  },
+  {
+    "team_name": "Bryant",
+    "ncaa_id": "591694"
+  },
+  {
+    "team_name": "Chattanooga",
+    "ncaa_id": "592006"
+  },
+  {
+    "team_name": "East Carolina",
+    "ncaa_id": "591737"
+  },
+  {
+    "team_name": "Massachusetts",
+    "ncaa_id": "591804"
+  },
+  {
+    "team_name": "Tulsa",
+    "ncaa_id": "591933"
+  },
+  {
+    "team_name": "UC Riverside",
+    "ncaa_id": "591709"
+  },
+  {
+    "team_name": "Virginia",
+    "ncaa_id": "591945"
+  },
+  {
+    "team_name": "Louisiana Tech",
+    "ncaa_id": "591792"
+  },
+  {
+    "team_name": "New Mexico St.",
+    "ncaa_id": "591834"
+  },
+  {
+    "team_name": "Old Dominion",
+    "ncaa_id": "591859"
+  },
+  {
+    "team_name": "Cincinnati",
+    "ncaa_id": "591716"
+  },
+  {
+    "team_name": "Jackson St.",
+    "ncaa_id": "591990"
+  },
+  {
+    "team_name": "Manhattan",
+    "ncaa_id": "591798"
+  },
+  {
+    "team_name": "Marist",
+    "ncaa_id": "591799"
+  },
+  {
+    "team_name": "Monmouth",
+    "ncaa_id": "591817"
+  },
+  {
+    "team_name": "St. John's (NY)",
+    "ncaa_id": "591881"
+  },
+  {
+    "team_name": "Stanford",
+    "ncaa_id": "591910"
+  },
+  {
+    "team_name": "Stetson",
+    "ncaa_id": "591912"
+  },
+  {
+    "team_name": "Winthrop",
+    "ncaa_id": "591958"
+  },
+  {
+    "team_name": "Georgia St.",
+    "ncaa_id": "591756"
+  },
+  {
+    "team_name": "Rhode Island",
+    "ncaa_id": "591875"
+  },
+  {
+    "team_name": "Texas Southern",
+    "ncaa_id": "591922"
+  },
+  {
+    "team_name": "Florida",
+    "ncaa_id": "591749"
+  },
+  {
+    "team_name": "Texas Tech",
+    "ncaa_id": "591923"
+  },
+  {
+    "team_name": "Rice",
+    "ncaa_id": "592000"
+  },
+  {
+    "team_name": "UNI",
+    "ncaa_id": "591850"
+  },
+  {
+    "team_name": "Western Ill.",
+    "ncaa_id": "591953"
+  },
+  {
+    "team_name": "Furman",
+    "ncaa_id": "591751"
+  },
+  {
+    "team_name": "Northwestern St.",
+    "ncaa_id": "591852"
+  },
+  {
+    "team_name": "UAB",
+    "ncaa_id": "591670"
+  },
+  {
+    "team_name": "UTRGV",
+    "ncaa_id": "591864"
+  },
+  {
+    "team_name": "Binghamton",
+    "ncaa_id": "591686"
+  },
+  {
+    "team_name": "Detroit Mercy",
+    "ncaa_id": "591734"
+  },
+  {
+    "team_name": "Elon",
+    "ncaa_id": "591968"
+  },
+  {
+    "team_name": "Fordham",
+    "ncaa_id": "591750"
+  },
+  {
+    "team_name": "Grambling",
+    "ncaa_id": "591760"
+  },
+  {
+    "team_name": "Maine",
+    "ncaa_id": "591992"
+  },
+  {
+    "team_name": "Mount St. Mary's",
+    "ncaa_id": "591822"
+  },
+  {
+    "team_name": "Robert Morris",
+    "ncaa_id": "591877"
+  },
+  {
+    "team_name": "San Francisco",
+    "ncaa_id": "591890"
+  },
+  {
+    "team_name": "Miami (FL)",
+    "ncaa_id": "591809"
+  },
+  {
+    "team_name": "UMBC",
+    "ncaa_id": "591801"
+  },
+  {
+    "team_name": "Boston College",
+    "ncaa_id": "591688"
+  },
+  {
+    "team_name": "Butler",
+    "ncaa_id": "591697"
+  },
+  {
+    "team_name": "Ga. Southern",
+    "ncaa_id": "591755"
+  },
+  {
+    "team_name": "A&M-Corpus Christi",
+    "ncaa_id": "591979"
+  },
+  {
+    "team_name": "Charleston So.",
+    "ncaa_id": "591683"
+  },
+  {
+    "team_name": "Hofstra",
+    "ncaa_id": "591764"
+  },
+  {
+    "team_name": "LMU (CA)",
+    "ncaa_id": "591796"
+  },
+  {
+    "team_name": "Little Rock",
+    "ncaa_id": "591679"
+  },
+  {
+    "team_name": "William & Mary",
+    "ncaa_id": "591957"
+  },
+  {
+    "team_name": "Sacramento St.",
+    "ncaa_id": "591704"
+  },
+  {
+    "team_name": "UIC",
+    "ncaa_id": "591772"
+  },
+  {
+    "team_name": "Central Mich.",
+    "ncaa_id": "591714"
+  },
+  {
+    "team_name": "Clemson",
+    "ncaa_id": "591717"
+  },
+  {
+    "team_name": "Idaho St.",
+    "ncaa_id": "591768"
+  },
+  {
+    "team_name": "Jacksonville",
+    "ncaa_id": "591779"
+  },
+  {
+    "team_name": "Merrimack",
+    "ncaa_id": "591661"
+  },
+  {
+    "team_name": "Northern Colo.",
+    "ncaa_id": "591848"
+  },
+  {
+    "team_name": "Omaha",
+    "ncaa_id": "591830"
+  },
+  {
+    "team_name": "Radford",
+    "ncaa_id": "591874"
+  },
+  {
+    "team_name": "Saint Mary's (CA)",
+    "ncaa_id": "591884"
+  },
+  {
+    "team_name": "Santa Clara",
+    "ncaa_id": "591892"
+  },
+  {
+    "team_name": "UMES",
+    "ncaa_id": "591803"
+  },
+  {
+    "team_name": "Louisiana",
+    "ncaa_id": "591909"
+  },
+  {
+    "team_name": "Weber St.",
+    "ncaa_id": "591950"
+  },
+  {
+    "team_name": "Brown",
+    "ncaa_id": "591693"
+  },
+  {
+    "team_name": "Pacific",
+    "ncaa_id": "591863"
+  },
+  {
+    "team_name": "Saint Louis",
+    "ncaa_id": "591883"
+  },
+  {
+    "team_name": "Alcorn",
+    "ncaa_id": "591672"
+  },
+  {
+    "team_name": "Cal Poly",
+    "ncaa_id": "591698"
+  },
+  {
+    "team_name": "Missouri",
+    "ncaa_id": "591816"
+  },
+  {
+    "team_name": "Montana",
+    "ncaa_id": "591819"
+  },
+  {
+    "team_name": "UNCW",
+    "ncaa_id": "591828"
+  },
+  {
+    "team_name": "App State",
+    "ncaa_id": "591674"
+  },
+  {
+    "team_name": "BYU",
+    "ncaa_id": "591692"
+  },
+  {
+    "team_name": "Delaware",
+    "ncaa_id": "591732"
+  },
+  {
+    "team_name": "Loyola Chicago",
+    "ncaa_id": "591797"
+  },
+  {
+    "team_name": "Morgan St.",
+    "ncaa_id": "591821"
+  },
+  {
+    "team_name": "NIU",
+    "ncaa_id": "591849"
+  },
+  {
+    "team_name": "North Ala.",
+    "ncaa_id": "591664"
+  },
+  {
+    "team_name": "Sam Houston",
+    "ncaa_id": "591886"
+  },
+  {
+    "team_name": "Texas St.",
+    "ncaa_id": "591908"
+  },
+  {
+    "team_name": "Western Caro.",
+    "ncaa_id": "591952"
+  },
+  {
+    "team_name": "Wisconsin",
+    "ncaa_id": "591959"
+  },
+  {
+    "team_name": "Marshall",
+    "ncaa_id": "591993"
+  },
+  {
+    "team_name": "Bradley",
+    "ncaa_id": "591691"
+  },
+  {
+    "team_name": "Austin Peay",
+    "ncaa_id": "591681"
+  },
+  {
+    "team_name": "George Washington",
+    "ncaa_id": "591753"
+  },
+  {
+    "team_name": "Kennesaw St.",
+    "ncaa_id": "591971"
+  },
+  {
+    "team_name": "DePaul",
+    "ncaa_id": "591730"
+  },
+  {
+    "team_name": "Georgia",
+    "ncaa_id": "591758"
+  },
+  {
+    "team_name": "Pittsburgh",
+    "ncaa_id": "591868"
+  },
+  {
+    "team_name": "Providence",
+    "ncaa_id": "591871"
+  },
+  {
+    "team_name": "UT Martin",
+    "ncaa_id": "591919"
+  },
+  {
+    "team_name": "Valparaiso",
+    "ncaa_id": "591939"
+  },
+  {
+    "team_name": "Auburn",
+    "ncaa_id": "591680"
+  },
+  {
+    "team_name": "Stony Brook",
+    "ncaa_id": "591913"
+  },
+  {
+    "team_name": "Syracuse",
+    "ncaa_id": "591914"
+  },
+  {
+    "team_name": "UCF",
+    "ncaa_id": "591713"
+  },
+  {
+    "team_name": "Western Mich.",
+    "ncaa_id": "591955"
+  },
+  {
+    "team_name": "Rutgers",
+    "ncaa_id": "591878"
+  },
+  {
+    "team_name": "Boston U.",
+    "ncaa_id": "591689"
+  },
+  {
+    "team_name": "California Baptist",
+    "ncaa_id": "591981"
+  },
+  {
+    "team_name": "Georgetown",
+    "ncaa_id": "591754"
+  },
+  {
+    "team_name": "North Dakota",
+    "ncaa_id": "591843"
+  },
+  {
+    "team_name": "Samford",
+    "ncaa_id": "591887"
+  },
+  {
+    "team_name": "VCU",
+    "ncaa_id": "591943"
+  },
+  {
+    "team_name": "Youngstown St.",
+    "ncaa_id": "591965"
+  },
+  {
+    "team_name": "Gardner-Webb",
+    "ncaa_id": "591969"
+  },
+  {
+    "team_name": "Towson",
+    "ncaa_id": "591928"
+  },
+  {
+    "team_name": "Central Conn. St.",
+    "ncaa_id": "591712"
+  },
+  {
+    "team_name": "FIU",
+    "ncaa_id": "591747"
+  },
+  {
+    "team_name": "NJIT",
+    "ncaa_id": "591833"
+  },
+  {
+    "team_name": "Saint Francis",
+    "ncaa_id": "591880"
+  },
+  {
+    "team_name": "Saint Peter's",
+    "ncaa_id": "591885"
+  },
+  {
+    "team_name": "ULM",
+    "ncaa_id": "591845"
+  },
+  {
+    "team_name": "UTEP",
+    "ncaa_id": "591925"
+  },
+  {
+    "team_name": "Kansas City",
+    "ncaa_id": "591652"
+  },
+  {
+    "team_name": "Eastern Wash.",
+    "ncaa_id": "591986"
+  },
+  {
+    "team_name": "South Dakota",
+    "ncaa_id": "591897"
+  },
+  {
+    "team_name": "Penn St.",
+    "ncaa_id": "591865"
+  },
+  {
+    "team_name": "Prairie View",
+    "ncaa_id": "591870"
+  },
+  {
+    "team_name": "Purdue",
+    "ncaa_id": "591872"
+  },
+  {
+    "team_name": "Texas A&M",
+    "ncaa_id": "591920"
+  },
+  {
+    "team_name": "Charlotte",
+    "ncaa_id": "591826"
+  },
+  {
+    "team_name": "Fla. Atlantic",
+    "ncaa_id": "591746"
+  },
+  {
+    "team_name": "Iona",
+    "ncaa_id": "591776"
+  },
+  {
+    "team_name": "Nevada",
+    "ncaa_id": "591831"
+  },
+  {
+    "team_name": "Northern Ky.",
+    "ncaa_id": "591851"
+  },
+  {
+    "team_name": "Jacksonville St.",
+    "ncaa_id": "591778"
+  },
+  {
+    "team_name": "Morehead St.",
+    "ncaa_id": "591820"
+  },
+  {
+    "team_name": "New Hampshire",
+    "ncaa_id": "591832"
+  },
+  {
+    "team_name": "SMU",
+    "ncaa_id": "591903"
+  },
+  {
+    "team_name": "Northwestern",
+    "ncaa_id": "591853"
+  },
+  {
+    "team_name": "Akron",
+    "ncaa_id": "591666"
+  },
+  {
+    "team_name": "Bethune-Cookman",
+    "ncaa_id": "591685"
+  },
+  {
+    "team_name": "Canisius",
+    "ncaa_id": "591711"
+  },
+  {
+    "team_name": "Lafayette",
+    "ncaa_id": "591785"
+  },
+  {
+    "team_name": "McNeese",
+    "ncaa_id": "591805"
+  },
+  {
+    "team_name": "Southern Miss.",
+    "ncaa_id": "591904"
+  },
+  {
+    "team_name": "Tennessee St.",
+    "ncaa_id": "591916"
+  },
+  {
+    "team_name": "Arizona St.",
+    "ncaa_id": "591675"
+  },
+  {
+    "team_name": "Arkansas",
+    "ncaa_id": "591678"
+  },
+  {
+    "team_name": "San Jose St.",
+    "ncaa_id": "591891"
+  },
+  {
+    "team_name": "Wichita St.",
+    "ncaa_id": "591956"
+  },
+  {
+    "team_name": "Wright St.",
+    "ncaa_id": "591961"
+  },
+  {
+    "team_name": "Sacred Heart",
+    "ncaa_id": "592002"
+  },
+  {
+    "team_name": "Wake Forest",
+    "ncaa_id": "591947"
+  },
+  {
+    "team_name": "La Salle",
+    "ncaa_id": "591784"
+  },
+  {
+    "team_name": "Denver",
+    "ncaa_id": "591733"
+  },
+  {
+    "team_name": "Florida A&M",
+    "ncaa_id": "591745"
+  },
+  {
+    "team_name": "IU Indy",
+    "ncaa_id": "591974"
+  },
+  {
+    "team_name": "Loyola Maryland",
+    "ncaa_id": "591795"
+  },
+  {
+    "team_name": "N.C. Central",
+    "ncaa_id": "591840"
+  },
+  {
+    "team_name": "Southern Utah",
+    "ncaa_id": "591906"
+  },
+  {
+    "team_name": "USC Upstate",
+    "ncaa_id": "591656"
+  },
+  {
+    "team_name": "Dartmouth",
+    "ncaa_id": "591727"
+  },
+  {
+    "team_name": "Oakland",
+    "ncaa_id": "591854"
+  },
+  {
+    "team_name": "Wagner",
+    "ncaa_id": "591946"
+  },
+  {
+    "team_name": "Mercer",
+    "ncaa_id": "591807"
+  },
+  {
+    "team_name": "Pepperdine",
+    "ncaa_id": "591867"
+  },
+  {
+    "team_name": "Cornell",
+    "ncaa_id": "591725"
+  },
+  {
+    "team_name": "Hampton",
+    "ncaa_id": "591761"
+  },
+  {
+    "team_name": "Mississippi Val.",
+    "ncaa_id": "591814"
+  },
+  {
+    "team_name": "Milwaukee",
+    "ncaa_id": "591960"
+  },
+  {
+    "team_name": "Rider",
+    "ncaa_id": "591876"
+  },
+  {
+    "team_name": "Cal St. Fullerton",
+    "ncaa_id": "591701"
+  },
+  {
+    "team_name": "Memphis",
+    "ncaa_id": "591806"
+  },
+  {
+    "team_name": "San Diego",
+    "ncaa_id": "591889"
+  },
+  {
+    "team_name": "Xavier",
+    "ncaa_id": "591963"
+  },
+  {
+    "team_name": "Evansville",
+    "ncaa_id": "591743"
+  },
+  {
+    "team_name": "Chicago St.",
+    "ncaa_id": "591715"
+  },
+  {
+    "team_name": "Houston Christian",
+    "ncaa_id": "591765"
+  },
+  {
+    "team_name": "Ohio",
+    "ncaa_id": "591856"
+  },
+  {
+    "team_name": "SIUE",
+    "ncaa_id": "591902"
+  },
+  {
+    "team_name": "Southeast Mo. St.",
+    "ncaa_id": "591899"
+  },
+  {
+    "team_name": "Alabama St.",
+    "ncaa_id": "591668"
+  },
+  {
+    "team_name": "LIU",
+    "ncaa_id": "591789"
+  },
+  {
+    "team_name": "Presbyterian",
+    "ncaa_id": "592009"
+  },
+  {
+    "team_name": "South Alabama",
+    "ncaa_id": "591895"
+  },
+  {
+    "team_name": "St. Bonaventure",
+    "ncaa_id": "591879"
+  },
+  {
+    "team_name": "Utah Tech",
+    "ncaa_id": "591931"
+  },
+  {
+    "team_name": "Delaware St.",
+    "ncaa_id": "591731"
+  },
+  {
+    "team_name": "New Orleans",
+    "ncaa_id": "591836"
+  },
+  {
+    "team_name": "Houston",
+    "ncaa_id": "591766"
+  },
+  {
+    "team_name": "North Florida",
+    "ncaa_id": "591653"
+  },
+  {
+    "team_name": "Yale",
+    "ncaa_id": "591964"
+  },
+  {
+    "team_name": "Portland St.",
+    "ncaa_id": "591869"
+  },
+  {
+    "team_name": "CSUN",
+    "ncaa_id": "591703"
+  },
+  {
+    "team_name": "Seattle U",
+    "ncaa_id": "591972"
+  },
+  {
+    "team_name": "Southern Ill.",
+    "ncaa_id": "591901"
+  },
+  {
+    "team_name": "UNC Asheville",
+    "ncaa_id": "591824"
+  },
+  {
+    "team_name": "Utah St.",
+    "ncaa_id": "591937"
+  },
+  {
+    "team_name": "Indiana St.",
+    "ncaa_id": "591773"
+  },
+  {
+    "team_name": "Ark.-Pine Bluff",
+    "ncaa_id": "591973"
+  },
+  {
+    "team_name": "Niagara",
+    "ncaa_id": "591837"
+  },
+  {
+    "team_name": "Northeastern",
+    "ncaa_id": "591846"
+  },
+  {
+    "team_name": "UMass Lowell",
+    "ncaa_id": "591794"
+  },
+  {
+    "team_name": "Eastern Mich.",
+    "ncaa_id": "591742"
+  },
+  {
+    "team_name": "CSU Bakersfield",
+    "ncaa_id": "591699"
+  },
+  {
+    "team_name": "South Carolina St.",
+    "ncaa_id": "591896"
+  },
+  {
+    "team_name": "American",
+    "ncaa_id": "591673"
+  },
+  {
+    "team_name": "Grand Valley St.",
+    "ncaa_id": "592302"
+  },
+  {
+    "team_name": "Cal St. Dom. Hills",
+    "ncaa_id": "592142"
+  },
+  {
+    "team_name": "Bentley",
+    "ncaa_id": "592294"
+  },
+  {
+    "team_name": "Texas Woman's",
+    "ncaa_id": "592296"
+  },
+  {
+    "team_name": "North Georgia",
+    "ncaa_id": "592079"
+  },
+  {
+    "team_name": "Concordia-St. Paul",
+    "ncaa_id": "592048"
+  },
+  {
+    "team_name": "Pittsburg St.",
+    "ncaa_id": "592311"
+  },
+  {
+    "team_name": "Union (TN)",
+    "ncaa_id": "592110"
+  },
+  {
+    "team_name": "Ashland",
+    "ncaa_id": "592293"
+  },
+  {
+    "team_name": "Lewis",
+    "ncaa_id": "592303"
+  },
+  {
+    "team_name": "Lubbock Christian",
+    "ncaa_id": "592112"
+  },
+  {
+    "team_name": "Alas. Anchorage",
+    "ncaa_id": "592127"
+  },
+  {
+    "team_name": "Fort Hays St.",
+    "ncaa_id": "592045"
+  },
+  {
+    "team_name": "Southwest Minn. St.",
+    "ncaa_id": "592035"
+  },
+  {
+    "team_name": "Embry-Riddle (FL)",
+    "ncaa_id": "592051"
+  },
+  {
+    "team_name": "Fairmont St.",
+    "ncaa_id": "592308"
+  },
+  {
+    "team_name": "UT Tyler",
+    "ncaa_id": "592240"
+  },
+  {
+    "team_name": "Belmont Abbey",
+    "ncaa_id": "592023"
+  },
+  {
+    "team_name": "Cal Poly Pomona",
+    "ncaa_id": "592141"
+  },
+  {
+    "team_name": "Colorado Mesa",
+    "ncaa_id": "592056"
+  },
+  {
+    "team_name": "Point Loma",
+    "ncaa_id": "592106"
+  },
+  {
+    "team_name": "Coker",
+    "ncaa_id": "592254"
+  },
+  {
+    "team_name": "Gannon",
+    "ncaa_id": "592301"
+  },
+  {
+    "team_name": "Nova Southeastern",
+    "ncaa_id": "592071"
+  },
+  {
+    "team_name": "Holy Family",
+    "ncaa_id": "592265"
+  },
+  {
+    "team_name": "Tampa",
+    "ncaa_id": "592164"
+  },
+  {
+    "team_name": "Alabama Huntsville",
+    "ncaa_id": "592126"
+  },
+  {
+    "team_name": "Edinboro",
+    "ncaa_id": "592197"
+  },
+  {
+    "team_name": "Harding",
+    "ncaa_id": "592264"
+  },
+  {
+    "team_name": "Lee",
+    "ncaa_id": "592074"
+  },
+  {
+    "team_name": "Seton Hill",
+    "ncaa_id": "592083"
+  },
+  {
+    "team_name": "Francis Marion",
+    "ncaa_id": "592261"
+  },
+  {
+    "team_name": "Virginia St.",
+    "ncaa_id": "592168"
+  },
+  {
+    "team_name": "Chowan",
+    "ncaa_id": "592037"
+  },
+  {
+    "team_name": "Azusa Pacific",
+    "ncaa_id": "592290"
+  },
+  {
+    "team_name": "Drury",
+    "ncaa_id": "592256"
+  },
+  {
+    "team_name": "Miles",
+    "ncaa_id": "592305"
+  },
+  {
+    "team_name": "Minnesota St.",
+    "ncaa_id": "592304"
+  },
+  {
+    "team_name": "Mont. St. Billings",
+    "ncaa_id": "592195"
+  },
+  {
+    "team_name": "Quincy",
+    "ncaa_id": "592149"
+  },
+  {
+    "team_name": "Chico St.",
+    "ncaa_id": "592144"
+  },
+  {
+    "team_name": "Clark Atlanta",
+    "ncaa_id": "592188"
+  },
+  {
+    "team_name": "Jefferson",
+    "ncaa_id": "592307"
+  },
+  {
+    "team_name": "Shorter",
+    "ncaa_id": "592108"
+  },
+  {
+    "team_name": "Central Wash.",
+    "ncaa_id": "592250"
+  },
+  {
+    "team_name": "Indiana (PA)",
+    "ncaa_id": "592206"
+  },
+  {
+    "team_name": "Southern Nazarene",
+    "ncaa_id": "592109"
+  },
+  {
+    "team_name": "Daemen",
+    "ncaa_id": "592291"
+  },
+  {
+    "team_name": "Dominican (NY)",
+    "ncaa_id": "592042"
+  },
+  {
+    "team_name": "Malone",
+    "ncaa_id": "592100"
+  },
+  {
+    "team_name": "Fayetteville St.",
+    "ncaa_id": "592300"
+  },
+  {
+    "team_name": "Western Colo.",
+    "ncaa_id": "592030"
+  },
+  {
+    "team_name": "Carson-Newman",
+    "ncaa_id": "592247"
+  },
+  {
+    "team_name": "Northern Mich.",
+    "ncaa_id": "592235"
+  },
+  {
+    "team_name": "UNC Pembroke",
+    "ncaa_id": "592306"
+  },
+  {
+    "team_name": "Young Harris",
+    "ncaa_id": "592111"
+  },
+  {
+    "team_name": "Anderson (SC)",
+    "ncaa_id": "592061"
+  },
+  {
+    "team_name": "Columbus St.",
+    "ncaa_id": "592190"
+  },
+  {
+    "team_name": "Virginia Union",
+    "ncaa_id": "592169"
+  },
+  {
+    "team_name": "Augusta",
+    "ncaa_id": "592133"
+  },
+  {
+    "team_name": "Lock Haven",
+    "ncaa_id": "592219"
+  },
+  {
+    "team_name": "Neb.-Kearney",
+    "ncaa_id": "592266"
+  },
+  {
+    "team_name": "Okla. Baptist",
+    "ncaa_id": "592121"
+  },
+  {
+    "team_name": "Eckerd",
+    "ncaa_id": "592299"
+  },
+  {
+    "team_name": "Mo.-St. Louis",
+    "ncaa_id": "592230"
+  },
+  {
+    "team_name": "West Va. Wesleyan",
+    "ncaa_id": "592050"
+  },
+  {
+    "team_name": "Eastern N.M.",
+    "ncaa_id": "592196"
+  },
+  {
+    "team_name": "Hillsdale",
+    "ncaa_id": "592204"
+  },
+  {
+    "team_name": "Staten Island",
+    "ncaa_id": "592239"
+  },
+  {
+    "team_name": "Findlay",
+    "ncaa_id": "592259"
+  },
+  {
+    "team_name": "Missouri Western",
+    "ncaa_id": "592047"
+  },
+  {
+    "team_name": "Tuskegee",
+    "ncaa_id": "592166"
+  },
+  {
+    "team_name": "Allen",
+    "ncaa_id": "592241"
+  },
+  {
+    "team_name": "Barry",
+    "ncaa_id": "592135"
+  },
+  {
+    "team_name": "Dominican (CA)",
+    "ncaa_id": "592090"
+  },
+  {
+    "team_name": "Kutztown",
+    "ncaa_id": "592211"
+  },
+  {
+    "team_name": "Southeastern Okla.",
+    "ncaa_id": "592014"
+  },
+  {
+    "team_name": "West Florida",
+    "ncaa_id": "592057"
+  },
+  {
+    "team_name": "Cal State LA",
+    "ncaa_id": "592146"
+  },
+  {
+    "team_name": "Lane",
+    "ncaa_id": "592213"
+  },
+  {
+    "team_name": "Mercy",
+    "ncaa_id": "592222"
+  },
+  {
+    "team_name": "St. Anselm",
+    "ncaa_id": "592152"
+  },
+  {
+    "team_name": "Wis.-Parkside",
+    "ncaa_id": "592177"
+  },
+  {
+    "team_name": "Edward Waters",
+    "ncaa_id": "592243"
+  },
+  {
+    "team_name": "Ferris St.",
+    "ncaa_id": "592199"
+  },
+  {
+    "team_name": "Frostburg St.",
+    "ncaa_id": "592040"
+  },
+  {
+    "team_name": "Northern St.",
+    "ncaa_id": "592277"
+  },
+  {
+    "team_name": "Southern Conn. St.",
+    "ncaa_id": "592163"
+  },
+  {
+    "team_name": "Wingate",
+    "ncaa_id": "592298"
+  },
+  {
+    "team_name": "Wayne St. (MI)",
+    "ncaa_id": "592170"
+  },
+  {
+    "team_name": "Ark.-Fort Smith",
+    "ncaa_id": "592089"
+  },
+  {
+    "team_name": "Black Hills St.",
+    "ncaa_id": "592099"
+  },
+  {
+    "team_name": "CSU Pueblo",
+    "ncaa_id": "592027"
+  },
+  {
+    "team_name": "Western Wash.",
+    "ncaa_id": "592289"
+  },
+  {
+    "team_name": "Westmont",
+    "ncaa_id": "592244"
+  },
+  {
+    "team_name": "Adams St.",
+    "ncaa_id": "592178"
+  },
+  {
+    "team_name": "Bowie St.",
+    "ncaa_id": "592139"
+  },
+  {
+    "team_name": "Glenville St.",
+    "ncaa_id": "592263"
+  },
+  {
+    "team_name": "UC-Colo. Springs",
+    "ncaa_id": "592052"
+  },
+  {
+    "team_name": "New Haven",
+    "ncaa_id": "592233"
+  },
+  {
+    "team_name": "Angelo St.",
+    "ncaa_id": "592131"
+  },
+  {
+    "team_name": "Bloomsburg",
+    "ncaa_id": "592138"
+  },
+  {
+    "team_name": "Northwood",
+    "ncaa_id": "592237"
+  },
+  {
+    "team_name": "Saint Martin's",
+    "ncaa_id": "592283"
+  },
+  {
+    "team_name": "Tex. A&M-Kingsville",
+    "ncaa_id": "592165"
+  },
+  {
+    "team_name": "West Tex. A&M",
+    "ncaa_id": "592173"
+  },
+  {
+    "team_name": "Catawba",
+    "ncaa_id": "592248"
+  },
+  {
+    "team_name": "Mars Hill",
+    "ncaa_id": "592271"
+  },
+  {
+    "team_name": "Valdosta St.",
+    "ncaa_id": "592297"
+  },
+  {
+    "team_name": "Wheeling",
+    "ncaa_id": "592058"
+  },
+  {
+    "team_name": "Washburn",
+    "ncaa_id": "592031"
+  },
+  {
+    "team_name": "West Virginia St.",
+    "ncaa_id": "592019"
+  },
+  {
+    "team_name": "Claflin",
+    "ncaa_id": "592082"
+  },
+  {
+    "team_name": "Ky. Wesleyan",
+    "ncaa_id": "592210"
+  },
+  {
+    "team_name": "McKendree",
+    "ncaa_id": "592101"
+  },
+  {
+    "team_name": "Assumption",
+    "ncaa_id": "592132"
+  },
+  {
+    "team_name": "Mo. Southern St.",
+    "ncaa_id": "592046"
+  },
+  {
+    "team_name": "CSUSB",
+    "ncaa_id": "592143"
+  },
+  {
+    "team_name": "California (PA)",
+    "ncaa_id": "592184"
+  },
+  {
+    "team_name": "Mary",
+    "ncaa_id": "592084"
+  },
+  {
+    "team_name": "Northwest Nazarene",
+    "ncaa_id": "592278"
+  },
+  {
+    "team_name": "Caldwell",
+    "ncaa_id": "592181"
+  },
+  {
+    "team_name": "Georgia College",
+    "ncaa_id": "592262"
+  },
+  {
+    "team_name": "Missouri S&T",
+    "ncaa_id": "592229"
+  },
+  {
+    "team_name": "Chestnut Hill",
+    "ncaa_id": "592068"
+  },
+  {
+    "team_name": "Millersville",
+    "ncaa_id": "592226"
+  },
+  {
+    "team_name": "Southwestern Okla.",
+    "ncaa_id": "592036"
+  },
+  {
+    "team_name": "Sioux Falls",
+    "ncaa_id": "592098"
+  },
+  {
+    "team_name": "Charleston (WV)",
+    "ncaa_id": "592252"
+  },
+  {
+    "team_name": "Sonoma St.",
+    "ncaa_id": "592162"
+  },
+  {
+    "team_name": "Central Mo.",
+    "ncaa_id": "592185"
+  },
+  {
+    "team_name": "Lander",
+    "ncaa_id": "592267"
+  },
+  {
+    "team_name": "Simon Fraser",
+    "ncaa_id": "592097"
+  },
+  {
+    "team_name": "Concord",
+    "ncaa_id": "592255"
+  },
+  {
+    "team_name": "Limestone",
+    "ncaa_id": "592269"
+  },
+  {
+    "team_name": "Mississippi Col.",
+    "ncaa_id": "592228"
+  },
+  {
+    "team_name": "Saginaw Valley",
+    "ncaa_id": "592151"
+  },
+  {
+    "team_name": "St. Cloud St.",
+    "ncaa_id": "592154"
+  },
+  {
+    "team_name": "Maryville (MO)",
+    "ncaa_id": "592221"
+  },
+  {
+    "team_name": "Molloy",
+    "ncaa_id": "592231"
+  },
+  {
+    "team_name": "Adelphi",
+    "ncaa_id": "592125"
+  },
+  {
+    "team_name": "Northwest Mo. St.",
+    "ncaa_id": "592236"
+  },
+  {
+    "team_name": "Northwestern Okla.",
+    "ncaa_id": "592113"
+  },
+  {
+    "team_name": "West Chester",
+    "ncaa_id": "592171"
+  },
+  {
+    "team_name": "Fresno Pacific",
+    "ncaa_id": "592105"
+  },
+  {
+    "team_name": "St. Mary's (TX)",
+    "ncaa_id": "592011"
+  },
+  {
+    "team_name": "Cedarville",
+    "ncaa_id": "592094"
+  },
+  {
+    "team_name": "Clarion",
+    "ncaa_id": "592187"
+  },
+  {
+    "team_name": "Ga. Southwestern",
+    "ncaa_id": "592309"
+  },
+  {
+    "team_name": "Palm Beach Atl.",
+    "ncaa_id": "592075"
+  },
+  {
+    "team_name": "Southern Ark.",
+    "ncaa_id": "592015"
+  },
+  {
+    "team_name": "N.M. Highlands",
+    "ncaa_id": "592034"
+  },
+  {
+    "team_name": "Upper Iowa",
+    "ncaa_id": "592167"
+  },
+  {
+    "team_name": "Barton",
+    "ncaa_id": "592064"
+  },
+  {
+    "team_name": "MSU Moorhead",
+    "ncaa_id": "592274"
+  },
+  {
+    "team_name": "East Stroudsburg",
+    "ncaa_id": "592194"
+  },
+  {
+    "team_name": "Flagler",
+    "ncaa_id": "592087"
+  },
+  {
+    "team_name": "Lincoln Memorial",
+    "ncaa_id": "592270"
+  },
+  {
+    "team_name": "Lynn",
+    "ncaa_id": "592067"
+  },
+  {
+    "team_name": "Midwestern St.",
+    "ncaa_id": "592272"
+  },
+  {
+    "team_name": "Regis (CO)",
+    "ncaa_id": "592295"
+  },
+  {
+    "team_name": "Truman St.",
+    "ncaa_id": "592234"
+  },
+  {
+    "team_name": "American Int'l",
+    "ncaa_id": "592130"
+  },
+  {
+    "team_name": "Delta St.",
+    "ncaa_id": "592192"
+  },
+  {
+    "team_name": "King (TN)",
+    "ncaa_id": "592078"
+  },
+  {
+    "team_name": "Pace",
+    "ncaa_id": "592238"
+  },
+  {
+    "team_name": "UT Permian Basin",
+    "ncaa_id": "592085"
+  },
+  {
+    "team_name": "Central St. (OH)",
+    "ncaa_id": "592076"
+  },
+  {
+    "team_name": "Savannah St.",
+    "ncaa_id": "592041"
+  },
+  {
+    "team_name": "AUM",
+    "ncaa_id": "592088"
+  },
+  {
+    "team_name": "Ark.-Monticello",
+    "ncaa_id": "592033"
+  },
+  {
+    "team_name": "Colo. Sch. of Mines",
+    "ncaa_id": "592189"
+  },
+  {
+    "team_name": "Emmanuel (GA)",
+    "ncaa_id": "592119"
+  },
+  {
+    "team_name": "Lenoir-Rhyne",
+    "ncaa_id": "592268"
+  },
+  {
+    "team_name": "Ohio Dominican",
+    "ncaa_id": "592091"
+  },
+  {
+    "team_name": "Southern N.H.",
+    "ncaa_id": "592232"
+  },
+  {
+    "team_name": "Michigan Tech",
+    "ncaa_id": "592225"
+  },
+  {
+    "team_name": "Fla. Southern",
+    "ncaa_id": "592201"
+  },
+  {
+    "team_name": "Saint Michael's",
+    "ncaa_id": "592156"
+  },
+  {
+    "team_name": "Wayne St. (NE)",
+    "ncaa_id": "592017"
+  },
+  {
+    "team_name": "Lincoln (PA)",
+    "ncaa_id": "592216"
+  },
+  {
+    "team_name": "Livingstone",
+    "ncaa_id": "592218"
+  },
+  {
+    "team_name": "Academy of Art",
+    "ncaa_id": "592093"
+  },
+  {
+    "team_name": "Montevallo",
+    "ncaa_id": "592273"
+  },
+  {
+    "team_name": "Northeastern St.",
+    "ncaa_id": "592059"
+  },
+  {
+    "team_name": "Saint Leo",
+    "ncaa_id": "592155"
+  },
+  {
+    "team_name": "UVA Wise",
+    "ncaa_id": "592116"
+  },
+  {
+    "team_name": "Winona St.",
+    "ncaa_id": "592174"
+  },
+  {
+    "team_name": "D'Youville",
+    "ncaa_id": "592062"
+  },
+  {
+    "team_name": "Hawaii Pacific",
+    "ncaa_id": "592024"
+  },
+  {
+    "team_name": "Okla. Christian",
+    "ncaa_id": "592114"
+  },
+  {
+    "team_name": "Queens (NY)",
+    "ncaa_id": "592148"
+  },
+  {
+    "team_name": "Rockhurst",
+    "ncaa_id": "592281"
+  },
+  {
+    "team_name": "Felician",
+    "ncaa_id": "592069"
+  },
+  {
+    "team_name": "Dist. Columbia",
+    "ncaa_id": "592193"
+  },
+  {
+    "team_name": "East Central",
+    "ncaa_id": "592043"
+  },
+  {
+    "team_name": "Fort Valley St.",
+    "ncaa_id": "592202"
+  },
+  {
+    "team_name": "Mansfield",
+    "ncaa_id": "592220"
+  },
+  {
+    "team_name": "Bluefield St.",
+    "ncaa_id": "592182"
+  },
+  {
+    "team_name": "Colo. Christian",
+    "ncaa_id": "592055"
+  },
+  {
+    "team_name": "Minn. Duluth",
+    "ncaa_id": "592227"
+  },
+  {
+    "team_name": "Shaw",
+    "ncaa_id": "592159"
+  },
+  {
+    "team_name": "St. Edward's",
+    "ncaa_id": "592282"
+  },
+  {
+    "team_name": "Ouachita Baptist",
+    "ncaa_id": "592279"
+  },
+  {
+    "team_name": "Western Ore.",
+    "ncaa_id": "592021"
+  },
+  {
+    "team_name": "Clayton St.",
+    "ncaa_id": "592066"
+  },
+  {
+    "team_name": "Emporia St.",
+    "ncaa_id": "592257"
+  },
+  {
+    "team_name": "Goldey-Beacom",
+    "ncaa_id": "592032"
+  },
+  {
+    "team_name": "Post",
+    "ncaa_id": "592280"
+  },
+  {
+    "team_name": "Minot St.",
+    "ncaa_id": "592095"
+  },
+  {
+    "team_name": "Albany St. (GA)",
+    "ncaa_id": "592129"
+  },
+  {
+    "team_name": "Benedict",
+    "ncaa_id": "592137"
+  },
+  {
+    "team_name": "Franklin Pierce",
+    "ncaa_id": "592203"
+  },
+  {
+    "team_name": "Kentucky St.",
+    "ncaa_id": "592209"
+  },
+  {
+    "team_name": "Rollins",
+    "ncaa_id": "592150"
+  },
+  {
+    "team_name": "San Fran. St.",
+    "ncaa_id": "592157"
+  },
+  {
+    "team_name": "LeMoyne-Owen",
+    "ncaa_id": "592214"
+  },
+  {
+    "team_name": "Cal Poly Humboldt",
+    "ncaa_id": "592205"
+  },
+  {
+    "team_name": "Converse",
+    "ncaa_id": "592038"
+  },
+  {
+    "team_name": "Henderson St.",
+    "ncaa_id": "592310"
+  },
+  {
+    "team_name": "Johnson C. Smith",
+    "ncaa_id": "592208"
+  },
+  {
+    "team_name": "Tiffin",
+    "ncaa_id": "592016"
+  },
+  {
+    "team_name": "Tusculum",
+    "ncaa_id": "592060"
+  },
+  {
+    "team_name": "Walsh",
+    "ncaa_id": "592104"
+  },
+  {
+    "team_name": "Elizabeth City St.",
+    "ncaa_id": "592198"
+  },
+  {
+    "team_name": "Cal St. East Bay",
+    "ncaa_id": "592145"
+  },
+  {
+    "team_name": "Minn.-Crookston",
+    "ncaa_id": "592072"
+  },
+  {
+    "team_name": "West Liberty",
+    "ncaa_id": "592018"
+  },
+  {
+    "team_name": "Cameron",
+    "ncaa_id": "592246"
+  },
+  {
+    "team_name": "Hawaii Hilo",
+    "ncaa_id": "592025"
+  },
+  {
+    "team_name": "Southwest Baptist",
+    "ncaa_id": "592029"
+  },
+  {
+    "team_name": "William Jewell",
+    "ncaa_id": "592092"
+  },
+  {
+    "team_name": "Shippensburg",
+    "ncaa_id": "592160"
+  },
+  {
+    "team_name": "South Dakota Mines",
+    "ncaa_id": "592102"
+  },
+  {
+    "team_name": "Cal St. San Marcos",
+    "ncaa_id": "592292"
+  },
+  {
+    "team_name": "Central Okla.",
+    "ncaa_id": "592249"
+  },
+  {
+    "team_name": "Rogers St.",
+    "ncaa_id": "592115"
+  },
+  {
+    "team_name": "Southern Wesleyan",
+    "ncaa_id": "592118"
+  },
+  {
+    "team_name": "Spring Hill",
+    "ncaa_id": "592117"
+  },
+  {
+    "team_name": "Trevecca Nazarene",
+    "ncaa_id": "592073"
+  },
+  {
+    "team_name": "UIndy",
+    "ncaa_id": "592207"
+  },
+  {
+    "team_name": "Ursuline",
+    "ncaa_id": "592103"
+  },
+  {
+    "team_name": "Lees-McRae",
+    "ncaa_id": "592063"
+  },
+  {
+    "team_name": "Arkansas Tech",
+    "ncaa_id": "592179"
+  },
+  {
+    "team_name": "Florida Tech",
+    "ncaa_id": "592200"
+  },
+  {
+    "team_name": "Slippery Rock",
+    "ncaa_id": "592161"
+  },
+  {
+    "team_name": "Winston-Salem",
+    "ncaa_id": "592175"
+  },
+  {
+    "team_name": "Seattle Pacific",
+    "ncaa_id": "592158"
+  },
+  {
+    "team_name": "Newman",
+    "ncaa_id": "592080"
+  },
+  {
+    "team_name": "North Greenville",
+    "ncaa_id": "592049"
+  },
+  {
+    "team_name": "Shepherd",
+    "ncaa_id": "592053"
+  },
+  {
+    "team_name": "Biola",
+    "ncaa_id": "592123"
+  },
+  {
+    "team_name": "Bloomfield",
+    "ncaa_id": "592180"
+  },
+  {
+    "team_name": "Emory & Henry",
+    "ncaa_id": "592242"
+  },
+  {
+    "team_name": "Alas. Fairbanks",
+    "ncaa_id": "592128"
+  },
+  {
+    "team_name": "Bemidji St.",
+    "ncaa_id": "592136"
+  },
+  {
+    "team_name": "Chadron St.",
+    "ncaa_id": "592251"
+  },
+  {
+    "team_name": "Chaminade",
+    "ncaa_id": "592186"
+  },
+  {
+    "team_name": "Augustana (SD)",
+    "ncaa_id": "592134"
+  },
+  {
+    "team_name": "Davenport",
+    "ncaa_id": "592039"
+  },
+  {
+    "team_name": "Fort Lewis",
+    "ncaa_id": "592260"
+  },
+  {
+    "team_name": "Georgian Court",
+    "ncaa_id": "592044"
+  },
+  {
+    "team_name": "MSU Denver",
+    "ncaa_id": "592224"
+  },
+  {
+    "team_name": "Newberry",
+    "ncaa_id": "592276"
+  },
+  {
+    "team_name": "Purdue Northwest",
+    "ncaa_id": "592124"
+  },
+  {
+    "team_name": "USC Aiken",
+    "ncaa_id": "592054"
+  },
+  {
+    "team_name": "Westminster (UT)",
+    "ncaa_id": "592122"
+  },
+  {
+    "team_name": "P.R.-Bayamon",
+    "ncaa_id": "592022"
+  },
+  {
+    "team_name": "Erskine",
+    "ncaa_id": "592258"
+  },
+  {
+    "team_name": "CUI",
+    "ncaa_id": "592120"
+  },
+  {
+    "team_name": "Ill. Springfield",
+    "ncaa_id": "592077"
+  },
+  {
+    "team_name": "Lake Superior St.",
+    "ncaa_id": "592212"
+  },
+  {
+    "team_name": "Stanislaus St.",
+    "ncaa_id": "592183"
+  },
+  {
+    "team_name": "Tex. A&M Int'l",
+    "ncaa_id": "592086"
+  },
+  {
+    "team_name": "Lake Erie",
+    "ncaa_id": "592028"
+  },
+  {
+    "team_name": "St. Thomas Aquinas",
+    "ncaa_id": "592013"
+  },
+  {
+    "team_name": "West Ala.",
+    "ncaa_id": "592217"
+  },
+  {
+    "team_name": "Western N.M.",
+    "ncaa_id": "592020"
+  },
+  {
+    "team_name": "Mount Olive",
+    "ncaa_id": "592275"
+  },
+  {
+    "team_name": "Pitt.-Johnstown",
+    "ncaa_id": "592147"
+  },
+  {
+    "team_name": "Bridgeport",
+    "ncaa_id": "592140"
+  },
+  {
+    "team_name": "Cal St. Monterey Bay",
+    "ncaa_id": "592081"
+  },
+  {
+    "team_name": "Roberts Wesleyan",
+    "ncaa_id": "592107"
+  },
+  {
+    "team_name": "Davis & Elkins",
+    "ncaa_id": "592191"
+  },
+  {
+    "team_name": "Lincoln (MO)",
+    "ncaa_id": "592215"
+  },
+  {
+    "team_name": "Christian Brothers",
+    "ncaa_id": "592253"
+  },
+  {
+    "team_name": "Wilmington (DE)",
+    "ncaa_id": "592176"
+  },
+  {
+    "team_name": "Salem (WV)",
+    "ncaa_id": "592065"
+  },
+  {
+    "team_name": "P.R.-Mayaguez",
+    "ncaa_id": "592070"
+  },
+  {
+    "team_name": "P.R.-Rio Piedras",
+    "ncaa_id": "592026"
+  },
+  {
+    "team_name": "NYU",
+    "ncaa_id": "592534"
+  },
+  {
+    "team_name": "Bowdoin",
+    "ncaa_id": "592714"
+  },
+  {
+    "team_name": "Baldwin Wallace",
+    "ncaa_id": "592478"
+  },
+  {
+    "team_name": "Gustavus Adolphus",
+    "ncaa_id": "592723"
+  },
+  {
+    "team_name": "Randolph-Macon",
+    "ncaa_id": "592331"
+  },
+  {
+    "team_name": "Scranton",
+    "ncaa_id": "592730"
+  },
+  {
+    "team_name": "Ill. Wesleyan",
+    "ncaa_id": "592562"
+  },
+  {
+    "team_name": "Whitman",
+    "ncaa_id": "592373"
+  },
+  {
+    "team_name": "Chris. Newport",
+    "ncaa_id": "592717"
+  },
+  {
+    "team_name": "Smith",
+    "ncaa_id": "592731"
+  },
+  {
+    "team_name": "Gettysburg",
+    "ncaa_id": "592722"
+  },
+  {
+    "team_name": "Southern Va.",
+    "ncaa_id": "592736"
+  },
+  {
+    "team_name": "Wartburg",
+    "ncaa_id": "592706"
+  },
+  {
+    "team_name": "Messiah",
+    "ncaa_id": "592520"
+  },
+  {
+    "team_name": "Merchant Marine",
+    "ncaa_id": "592691"
+  },
+  {
+    "team_name": "Webster",
+    "ncaa_id": "592708"
+  },
+  {
+    "team_name": "JWU (Providence)",
+    "ncaa_id": "592633"
+  },
+  {
+    "team_name": "Cortland",
+    "ncaa_id": "592346"
+  },
+  {
+    "team_name": "Ohio Wesleyan",
+    "ncaa_id": "592318"
+  },
+  {
+    "team_name": "Trine",
+    "ncaa_id": "592734"
+  },
+  {
+    "team_name": "Western New Eng.",
+    "ncaa_id": "592709"
+  },
+  {
+    "team_name": "Colorado Col.",
+    "ncaa_id": "592516"
+  },
+  {
+    "team_name": "Immaculata",
+    "ncaa_id": "592563"
+  },
+  {
+    "team_name": "Wis.-Oshkosh",
+    "ncaa_id": "592381"
+  },
+  {
+    "team_name": "Wash. & Lee",
+    "ncaa_id": "592707"
+  },
+  {
+    "team_name": "Catholic",
+    "ncaa_id": "592504"
+  },
+  {
+    "team_name": "Johns Hopkins",
+    "ncaa_id": "592567"
+  },
+  {
+    "team_name": "Montclair St.",
+    "ncaa_id": "592525"
+  },
+  {
+    "team_name": "SUNY Brockport",
+    "ncaa_id": "592490"
+  },
+  {
+    "team_name": "SUNY Cobleskill",
+    "ncaa_id": "592662"
+  },
+  {
+    "team_name": "Texas Lutheran",
+    "ncaa_id": "592431"
+  },
+  {
+    "team_name": "Wash. & Jeff.",
+    "ncaa_id": "592361"
+  },
+  {
+    "team_name": "East Tex. Baptist",
+    "ncaa_id": "592404"
+  },
+  {
+    "team_name": "Elizabethtown",
+    "ncaa_id": "592356"
+  },
+  {
+    "team_name": "Maine Maritime",
+    "ncaa_id": "592726"
+  },
+  {
+    "team_name": "Ripon",
+    "ncaa_id": "592704"
+  },
+  {
+    "team_name": "UMass Dartmouth",
+    "ncaa_id": "592611"
+  },
+  {
+    "team_name": "Millsaps",
+    "ncaa_id": "592718"
+  },
+  {
+    "team_name": "St. Norbert",
+    "ncaa_id": "592601"
+  },
+  {
+    "team_name": "Bridgewater (VA)",
+    "ncaa_id": "592488"
+  },
+  {
+    "team_name": "Hope",
+    "ncaa_id": "592558"
+  },
+  {
+    "team_name": "Whittier",
+    "ncaa_id": "592374"
+  },
+  {
+    "team_name": "Bethel (MN)",
+    "ncaa_id": "592483"
+  },
+  {
+    "team_name": "McMurry",
+    "ncaa_id": "592450"
+  },
+  {
+    "team_name": "Endicott",
+    "ncaa_id": "592458"
+  },
+  {
+    "team_name": "La Roche",
+    "ncaa_id": "592417"
+  },
+  {
+    "team_name": "Transylvania",
+    "ncaa_id": "592733"
+  },
+  {
+    "team_name": "Carnegie Mellon",
+    "ncaa_id": "592500"
+  },
+  {
+    "team_name": "Chatham",
+    "ncaa_id": "592732"
+  },
+  {
+    "team_name": "TCNJ",
+    "ncaa_id": "592687"
+  },
+  {
+    "team_name": "SUNY Geneseo",
+    "ncaa_id": "592545"
+  },
+  {
+    "team_name": "Wis.-Whitewater",
+    "ncaa_id": "592386"
+  },
+  {
+    "team_name": "Brevard",
+    "ncaa_id": "592464"
+  },
+  {
+    "team_name": "Westminster (MO)",
+    "ncaa_id": "592433"
+  },
+  {
+    "team_name": "Cal Lutheran",
+    "ncaa_id": "592495"
+  },
+  {
+    "team_name": "Bryn Athyn",
+    "ncaa_id": "592672"
+  },
+  {
+    "team_name": "Hunter",
+    "ncaa_id": "592559"
+  },
+  {
+    "team_name": "Penn St.-Behrend",
+    "ncaa_id": "592701"
+  },
+  {
+    "team_name": "St. Joseph's (ME)",
+    "ncaa_id": "592729"
+  },
+  {
+    "team_name": "Vassar",
+    "ncaa_id": "592740"
+  },
+  {
+    "team_name": "Wis.-Stout",
+    "ncaa_id": "592711"
+  },
+  {
+    "team_name": "Capital",
+    "ncaa_id": "592498"
+  },
+  {
+    "team_name": "Coe",
+    "ncaa_id": "592513"
+  },
+  {
+    "team_name": "DePauw",
+    "ncaa_id": "592705"
+  },
+  {
+    "team_name": "George Fox",
+    "ncaa_id": "592407"
+  },
+  {
+    "team_name": "Nazareth",
+    "ncaa_id": "592531"
+  },
+  {
+    "team_name": "Bridgewater St.",
+    "ncaa_id": "592489"
+  },
+  {
+    "team_name": "Lebanon Valley",
+    "ncaa_id": "592579"
+  },
+  {
+    "team_name": "Linfield",
+    "ncaa_id": "592420"
+  },
+  {
+    "team_name": "Rhode Island Col.",
+    "ncaa_id": "592703"
+  },
+  {
+    "team_name": "Allegheny",
+    "ncaa_id": "592469"
+  },
+  {
+    "team_name": "Centre",
+    "ncaa_id": "592507"
+  },
+  {
+    "team_name": "Wis. Lutheran",
+    "ncaa_id": "592712"
+  },
+  {
+    "team_name": "Manhattanville",
+    "ncaa_id": "592586"
+  },
+  {
+    "team_name": "Amherst",
+    "ncaa_id": "592471"
+  },
+  {
+    "team_name": "Mt. St. Joseph",
+    "ncaa_id": "592451"
+  },
+  {
+    "team_name": "Piedmont",
+    "ncaa_id": "592630"
+  },
+  {
+    "team_name": "St. Mary's (MD)",
+    "ncaa_id": "592599"
+  },
+  {
+    "team_name": "Grinnell",
+    "ncaa_id": "592548"
+  },
+  {
+    "team_name": "Hamline",
+    "ncaa_id": "592551"
+  },
+  {
+    "team_name": "Hanover",
+    "ncaa_id": "592411"
+  },
+  {
+    "team_name": "Hardin-Simmons",
+    "ncaa_id": "592724"
+  },
+  {
+    "team_name": "Ithaca",
+    "ncaa_id": "592564"
+  },
+  {
+    "team_name": "John Carroll",
+    "ncaa_id": "592565"
+  },
+  {
+    "team_name": "Ohio Northern",
+    "ncaa_id": "592700"
+  },
+  {
+    "team_name": "St. John Fisher",
+    "ncaa_id": "592728"
+  },
+  {
+    "team_name": "Wm. Paterson",
+    "ncaa_id": "592377"
+  },
+  {
+    "team_name": "Berry",
+    "ncaa_id": "592399"
+  },
+  {
+    "team_name": "Lawrence",
+    "ncaa_id": "592578"
+  },
+  {
+    "team_name": "Penn St.-Abington",
+    "ncaa_id": "592666"
+  },
+  {
+    "team_name": "Aurora",
+    "ncaa_id": "592475"
+  },
+  {
+    "team_name": "Stevens",
+    "ncaa_id": "592681"
+  },
+  {
+    "team_name": "Trinity (CT)",
+    "ncaa_id": "592688"
+  },
+  {
+    "team_name": "Northwestern-St. Paul",
+    "ncaa_id": "592645"
+  },
+  {
+    "team_name": "Carroll (WI)",
+    "ncaa_id": "592716"
+  },
+  {
+    "team_name": "Farmingdale St.",
+    "ncaa_id": "592641"
+  },
+  {
+    "team_name": "Luther",
+    "ncaa_id": "592581"
+  },
+  {
+    "team_name": "Penn St. Harrisburg",
+    "ncaa_id": "592735"
+  },
+  {
+    "team_name": "Roger Williams",
+    "ncaa_id": "592341"
+  },
+  {
+    "team_name": "Widener",
+    "ncaa_id": "592710"
+  },
+  {
+    "team_name": "Wis.-Stevens Point",
+    "ncaa_id": "592384"
+  },
+  {
+    "team_name": "Saint Joseph (CT)",
+    "ncaa_id": "592454"
+  },
+  {
+    "team_name": "Arcadia",
+    "ncaa_id": "592398"
+  },
+  {
+    "team_name": "Carthage",
+    "ncaa_id": "592501"
+  },
+  {
+    "team_name": "Mary Hardin-Baylor",
+    "ncaa_id": "592424"
+  },
+  {
+    "team_name": "Rowan",
+    "ncaa_id": "592546"
+  },
+  {
+    "team_name": "St. Joseph's (L.I.)",
+    "ncaa_id": "592428"
+  },
+  {
+    "team_name": "Asbury",
+    "ncaa_id": "592485"
+  },
+  {
+    "team_name": "McDaniel",
+    "ncaa_id": "592369"
+  },
+  {
+    "team_name": "Southern Me.",
+    "ncaa_id": "592612"
+  },
+  {
+    "team_name": "Wittenberg",
+    "ncaa_id": "592387"
+  },
+  {
+    "team_name": "Elmhurst",
+    "ncaa_id": "592357"
+  },
+  {
+    "team_name": "N.C. Wesleyan",
+    "ncaa_id": "592313"
+  },
+  {
+    "team_name": "WashU",
+    "ncaa_id": "592363"
+  },
+  {
+    "team_name": "Albertus Magnus",
+    "ncaa_id": "592445"
+  },
+  {
+    "team_name": "Bates",
+    "ncaa_id": "592479"
+  },
+  {
+    "team_name": "Belhaven",
+    "ncaa_id": "592674"
+  },
+  {
+    "team_name": "Methodist",
+    "ncaa_id": "592521"
+  },
+  {
+    "team_name": "Mount Aloysius",
+    "ncaa_id": "592648"
+  },
+  {
+    "team_name": "Oswego St.",
+    "ncaa_id": "592322"
+  },
+  {
+    "team_name": "SUNY New Paltz",
+    "ncaa_id": "592720"
+  },
+  {
+    "team_name": "Saint Benedict",
+    "ncaa_id": "592596"
+  },
+  {
+    "team_name": "Shenandoah",
+    "ncaa_id": "592607"
+  },
+  {
+    "team_name": "Washington Col.",
+    "ncaa_id": "592362"
+  },
+  {
+    "team_name": "Hamilton",
+    "ncaa_id": "592550"
+  },
+  {
+    "team_name": "Calvin",
+    "ncaa_id": "592497"
+  },
+  {
+    "team_name": "Gallaudet",
+    "ncaa_id": "592544"
+  },
+  {
+    "team_name": "Houghton",
+    "ncaa_id": "592667"
+  },
+  {
+    "team_name": "Babson",
+    "ncaa_id": "592477"
+  },
+  {
+    "team_name": "Coast Guard",
+    "ncaa_id": "592690"
+  },
+  {
+    "team_name": "Concordia-M'head",
+    "ncaa_id": "592343"
+  },
+  {
+    "team_name": "Emerson",
+    "ncaa_id": "592359"
+  },
+  {
+    "team_name": "Keystone",
+    "ncaa_id": "592655"
+  },
+  {
+    "team_name": "Martin Luther",
+    "ncaa_id": "592452"
+  },
+  {
+    "team_name": "Neumann",
+    "ncaa_id": "592677"
+  },
+  {
+    "team_name": "St. Lawrence",
+    "ncaa_id": "592598"
+  },
+  {
+    "team_name": "Ursinus",
+    "ncaa_id": "592693"
+  },
+  {
+    "team_name": "Westfield St.",
+    "ncaa_id": "592370"
+  },
+  {
+    "team_name": "York (PA)",
+    "ncaa_id": "592392"
+  },
+  {
+    "team_name": "Mt. St. Mary (NY)",
+    "ncaa_id": "592438"
+  },
+  {
+    "team_name": "Wis.-Superior",
+    "ncaa_id": "592385"
+  },
+  {
+    "team_name": "Emory",
+    "ncaa_id": "592537"
+  },
+  {
+    "team_name": "Franklin & Marshall",
+    "ncaa_id": "592542"
+  },
+  {
+    "team_name": "Knox",
+    "ncaa_id": "592575"
+  },
+  {
+    "team_name": "Middlebury",
+    "ncaa_id": "592522"
+  },
+  {
+    "team_name": "Muhlenberg",
+    "ncaa_id": "592529"
+  },
+  {
+    "team_name": "UChicago",
+    "ncaa_id": "592509"
+  },
+  {
+    "team_name": "DeSales",
+    "ncaa_id": "592713"
+  },
+  {
+    "team_name": "Eureka",
+    "ncaa_id": "592538"
+  },
+  {
+    "team_name": "Grove City",
+    "ncaa_id": "592549"
+  },
+  {
+    "team_name": "SUNY Canton",
+    "ncaa_id": "592668"
+  },
+  {
+    "team_name": "Brooklyn",
+    "ncaa_id": "592715"
+  },
+  {
+    "team_name": "Principia",
+    "ncaa_id": "592329"
+  },
+  {
+    "team_name": "Wis.-La Crosse",
+    "ncaa_id": "592380"
+  },
+  {
+    "team_name": "Framingham St.",
+    "ncaa_id": "592721"
+  },
+  {
+    "team_name": "St. Thomas (TX)",
+    "ncaa_id": "592459"
+  },
+  {
+    "team_name": "Anna Maria",
+    "ncaa_id": "592472"
+  },
+  {
+    "team_name": "Centenary (NJ)",
+    "ncaa_id": "592621"
+  },
+  {
+    "team_name": "Colby",
+    "ncaa_id": "592514"
+  },
+  {
+    "team_name": "Denison",
+    "ncaa_id": "592349"
+  },
+  {
+    "team_name": "Franklin",
+    "ncaa_id": "592439"
+  },
+  {
+    "team_name": "Guilford",
+    "ncaa_id": "592410"
+  },
+  {
+    "team_name": "Marietta",
+    "ncaa_id": "592587"
+  },
+  {
+    "team_name": "Penn College",
+    "ncaa_id": "592673"
+  },
+  {
+    "team_name": "Rivier",
+    "ncaa_id": "592628"
+  },
+  {
+    "team_name": "Salve Regina",
+    "ncaa_id": "592606"
+  },
+  {
+    "team_name": "Simpson",
+    "ncaa_id": "592608"
+  },
+  {
+    "team_name": "Springfield",
+    "ncaa_id": "592613"
+  },
+  {
+    "team_name": "Susquehanna",
+    "ncaa_id": "592684"
+  },
+  {
+    "team_name": "Tufts",
+    "ncaa_id": "592689"
+  },
+  {
+    "team_name": "Trinity (TX)",
+    "ncaa_id": "592739"
+  },
+  {
+    "team_name": "Cornell College",
+    "ncaa_id": "592345"
+  },
+  {
+    "team_name": "Waynesburg",
+    "ncaa_id": "592432"
+  },
+  {
+    "team_name": "Williams",
+    "ncaa_id": "592378"
+  },
+  {
+    "team_name": "Benedictine (IL)",
+    "ncaa_id": "592560"
+  },
+  {
+    "team_name": "Central (IA)",
+    "ncaa_id": "592506"
+  },
+  {
+    "team_name": "Husson",
+    "ncaa_id": "592414"
+  },
+  {
+    "team_name": "LaGrange",
+    "ncaa_id": "592416"
+  },
+  {
+    "team_name": "MSOE",
+    "ncaa_id": "592629"
+  },
+  {
+    "team_name": "Oglethorpe",
+    "ncaa_id": "592440"
+  },
+  {
+    "team_name": "RIT",
+    "ncaa_id": "592338"
+  },
+  {
+    "team_name": "Saint Elizabeth",
+    "ncaa_id": "592615"
+  },
+  {
+    "team_name": "Skidmore",
+    "ncaa_id": "592609"
+  },
+  {
+    "team_name": "U New England",
+    "ncaa_id": "592678"
+  },
+  {
+    "team_name": "UMSV",
+    "ncaa_id": "592719"
+  },
+  {
+    "team_name": "Wheaton (IL)",
+    "ncaa_id": "592371"
+  },
+  {
+    "team_name": "Baruch",
+    "ncaa_id": "592481"
+  },
+  {
+    "team_name": "Berea",
+    "ncaa_id": "592737"
+  },
+  {
+    "team_name": "Drew",
+    "ncaa_id": "592351"
+  },
+  {
+    "team_name": "Edgewood",
+    "ncaa_id": "592406"
+  },
+  {
+    "team_name": "Oberlin",
+    "ncaa_id": "592317"
+  },
+  {
+    "team_name": "Plattsburgh St.",
+    "ncaa_id": "592325"
+  },
+  {
+    "team_name": "UW-River Falls",
+    "ncaa_id": "592383"
+  },
+  {
+    "team_name": "Pomona-Pitzer",
+    "ncaa_id": "592327"
+  },
+  {
+    "team_name": "Albright",
+    "ncaa_id": "592467"
+  },
+  {
+    "team_name": "Concordia (TX)",
+    "ncaa_id": "592639"
+  },
+  {
+    "team_name": "Nichols",
+    "ncaa_id": "592536"
+  },
+  {
+    "team_name": "Rochester (NY)",
+    "ncaa_id": "592339"
+  },
+  {
+    "team_name": "Saint Mary's (MN)",
+    "ncaa_id": "592600"
+  },
+  {
+    "team_name": "St. Catherine",
+    "ncaa_id": "592597"
+  },
+  {
+    "team_name": "Dickinson",
+    "ncaa_id": "592350"
+  },
+  {
+    "team_name": "Emmanuel (MA)",
+    "ncaa_id": "592360"
+  },
+  {
+    "team_name": "Ferrum",
+    "ncaa_id": "592540"
+  },
+  {
+    "team_name": "Goucher",
+    "ncaa_id": "592437"
+  },
+  {
+    "team_name": "Notre Dame (MD)",
+    "ncaa_id": "592453"
+  },
+  {
+    "team_name": "Salem St.",
+    "ncaa_id": "592604"
+  },
+  {
+    "team_name": "Alfred",
+    "ncaa_id": "592468"
+  },
+  {
+    "team_name": "Alvernia",
+    "ncaa_id": "592393"
+  },
+  {
+    "team_name": "Anderson (IN)",
+    "ncaa_id": "592394"
+  },
+  {
+    "team_name": "Bethany (WV)",
+    "ncaa_id": "592482"
+  },
+  {
+    "team_name": "Concordia Wisconsin",
+    "ncaa_id": "592401"
+  },
+  {
+    "team_name": "Ozarks (AR)",
+    "ncaa_id": "592634"
+  },
+  {
+    "team_name": "Redlands",
+    "ncaa_id": "592333"
+  },
+  {
+    "team_name": "Roanoke",
+    "ncaa_id": "592337"
+  },
+  {
+    "team_name": "Saint Vincent",
+    "ncaa_id": "592656"
+  },
+  {
+    "team_name": "Suffolk",
+    "ncaa_id": "592683"
+  },
+  {
+    "team_name": "Union (NY)",
+    "ncaa_id": "592692"
+  },
+  {
+    "team_name": "Hollins",
+    "ncaa_id": "592557"
+  },
+  {
+    "team_name": "Kean",
+    "ncaa_id": "592571"
+  },
+  {
+    "team_name": "Keene St.",
+    "ncaa_id": "592572"
+  },
+  {
+    "team_name": "Marywood",
+    "ncaa_id": "592591"
+  },
+  {
+    "team_name": "Otterbein",
+    "ncaa_id": "592323"
+  },
+  {
+    "team_name": "Penn St.-Altoona",
+    "ncaa_id": "592640"
+  },
+  {
+    "team_name": "WPI",
+    "ncaa_id": "592389"
+  },
+  {
+    "team_name": "Brandeis",
+    "ncaa_id": "592487"
+  },
+  {
+    "team_name": "Macalester",
+    "ncaa_id": "592584"
+  },
+  {
+    "team_name": "Mount Union",
+    "ncaa_id": "592528"
+  },
+  {
+    "team_name": "Occidental",
+    "ncaa_id": "592699"
+  },
+  {
+    "team_name": "St. Scholastica",
+    "ncaa_id": "592603"
+  },
+  {
+    "team_name": "MIT",
+    "ncaa_id": "592592"
+  },
+  {
+    "team_name": "Chapman",
+    "ncaa_id": "592508"
+  },
+  {
+    "team_name": "Elmira",
+    "ncaa_id": "592358"
+  },
+  {
+    "team_name": "Lakeland",
+    "ncaa_id": "592419"
+  },
+  {
+    "team_name": "Randolph",
+    "ncaa_id": "592332"
+  },
+  {
+    "team_name": "Rose-Hulman",
+    "ncaa_id": "592593"
+  },
+  {
+    "team_name": "Pfeiffer",
+    "ncaa_id": "592463"
+  },
+  {
+    "team_name": "Albion",
+    "ncaa_id": "592466"
+  },
+  {
+    "team_name": "Hiram",
+    "ncaa_id": "592556"
+  },
+  {
+    "team_name": "John Jay",
+    "ncaa_id": "592566"
+  },
+  {
+    "team_name": "Sewanee",
+    "ncaa_id": "592610"
+  },
+  {
+    "team_name": "Caltech",
+    "ncaa_id": "592494"
+  },
+  {
+    "team_name": "Clark (MA)",
+    "ncaa_id": "592511"
+  },
+  {
+    "team_name": "East. Mennonite",
+    "ncaa_id": "592355"
+  },
+  {
+    "team_name": "Geneva",
+    "ncaa_id": "592663"
+  },
+  {
+    "team_name": "Greenville",
+    "ncaa_id": "592409"
+  },
+  {
+    "team_name": "Haverford",
+    "ncaa_id": "592553"
+  },
+  {
+    "team_name": "Me.-Farmington",
+    "ncaa_id": "592585"
+  },
+  {
+    "team_name": "Minn.-Morris",
+    "ncaa_id": "592738"
+  },
+  {
+    "team_name": "Pacific (OR)",
+    "ncaa_id": "592443"
+  },
+  {
+    "team_name": "Rensselaer",
+    "ncaa_id": "592335"
+  },
+  {
+    "team_name": "Salisbury",
+    "ncaa_id": "592605"
+  },
+  {
+    "team_name": "Stockton",
+    "ncaa_id": "592682"
+  },
+  {
+    "team_name": "Bethany Lutheran",
+    "ncaa_id": "592649"
+  },
+  {
+    "team_name": "Bluffton",
+    "ncaa_id": "592400"
+  },
+  {
+    "team_name": "Eastern Conn. St.",
+    "ncaa_id": "592354"
+  },
+  {
+    "team_name": "Huntingdon",
+    "ncaa_id": "592413"
+  },
+  {
+    "team_name": "Lasell",
+    "ncaa_id": "592448"
+  },
+  {
+    "team_name": "Lehman",
+    "ncaa_id": "592555"
+  },
+  {
+    "team_name": "Maryville (TN)",
+    "ncaa_id": "592590"
+  },
+  {
+    "team_name": "Puget Sound",
+    "ncaa_id": "592702"
+  },
+  {
+    "team_name": "Russell Sage",
+    "ncaa_id": "592616"
+  },
+  {
+    "team_name": "SUNY Oneonta",
+    "ncaa_id": "592321"
+  },
+  {
+    "team_name": "Connecticut Col.",
+    "ncaa_id": "592344"
+  },
+  {
+    "team_name": "Lynchburg",
+    "ncaa_id": "592583"
+  },
+  {
+    "team_name": "Mount Mary",
+    "ncaa_id": "592646"
+  },
+  {
+    "team_name": "Norwich",
+    "ncaa_id": "592316"
+  },
+  {
+    "team_name": "Lesley",
+    "ncaa_id": "592638"
+  },
+  {
+    "team_name": "Augustana (IL)",
+    "ncaa_id": "592474"
+  },
+  {
+    "team_name": "Claremont-M-S",
+    "ncaa_id": "592510"
+  },
+  {
+    "team_name": "Clarkson",
+    "ncaa_id": "592512"
+  },
+  {
+    "team_name": "IIT",
+    "ncaa_id": "592671"
+  },
+  {
+    "team_name": "Illinois Col.",
+    "ncaa_id": "592561"
+  },
+  {
+    "team_name": "Juniata",
+    "ncaa_id": "592569"
+  },
+  {
+    "team_name": "Lancaster Bible",
+    "ncaa_id": "592664"
+  },
+  {
+    "team_name": "New England Col.",
+    "ncaa_id": "592533"
+  },
+  {
+    "team_name": "North Central (IL)",
+    "ncaa_id": "592314"
+  },
+  {
+    "team_name": "SUNY Potsdam",
+    "ncaa_id": "592328"
+  },
+  {
+    "team_name": "VTSU Lyndon",
+    "ncaa_id": "592657"
+  },
+  {
+    "team_name": "Cedar Crest",
+    "ncaa_id": "592624"
+  },
+  {
+    "team_name": "Alma",
+    "ncaa_id": "592470"
+  },
+  {
+    "team_name": "Dubuque",
+    "ncaa_id": "592352"
+  },
+  {
+    "team_name": "New Jersey City",
+    "ncaa_id": "592725"
+  },
+  {
+    "team_name": "Spalding",
+    "ncaa_id": "592636"
+  },
+  {
+    "team_name": "UMass Boston",
+    "ncaa_id": "592342"
+  },
+  {
+    "team_name": "Wilson",
+    "ncaa_id": "592622"
+  },
+  {
+    "team_name": "Austin",
+    "ncaa_id": "592395"
+  },
+  {
+    "team_name": "Covenant",
+    "ncaa_id": "592665"
+  },
+  {
+    "team_name": "Fredonia",
+    "ncaa_id": "592543"
+  },
+  {
+    "team_name": "Marymount (VA)",
+    "ncaa_id": "592727"
+  },
+  {
+    "team_name": "St. Joseph's (Brkln)",
+    "ncaa_id": "592660"
+  },
+  {
+    "team_name": "Elms",
+    "ncaa_id": "592324"
+  },
+  {
+    "team_name": "Mary Washington",
+    "ncaa_id": "592589"
+  },
+  {
+    "team_name": "Gordon",
+    "ncaa_id": "592408"
+  },
+  {
+    "team_name": "Kalamazoo",
+    "ncaa_id": "592570"
+  },
+  {
+    "team_name": "King's (PA)",
+    "ncaa_id": "592574"
+  },
+  {
+    "team_name": "Loras",
+    "ncaa_id": "592580"
+  },
+  {
+    "team_name": "Rutgers-Camden",
+    "ncaa_id": "592594"
+  },
+  {
+    "team_name": "Stevenson",
+    "ncaa_id": "592631"
+  },
+  {
+    "team_name": "Worcester St.",
+    "ncaa_id": "592390"
+  },
+  {
+    "team_name": "Colby-Sawyer",
+    "ncaa_id": "592515"
+  },
+  {
+    "team_name": "Hendrix",
+    "ncaa_id": "592412"
+  },
+  {
+    "team_name": "LeTourneau",
+    "ncaa_id": "592449"
+  },
+  {
+    "team_name": "Millikin",
+    "ncaa_id": "592523"
+  },
+  {
+    "team_name": "Manchester",
+    "ncaa_id": "592421"
+  },
+  {
+    "team_name": "Wellesley",
+    "ncaa_id": "592364"
+  },
+  {
+    "team_name": "Wesleyan (CT)",
+    "ncaa_id": "592367"
+  },
+  {
+    "team_name": "Buena Vista",
+    "ncaa_id": "592492"
+  },
+  {
+    "team_name": "Curry",
+    "ncaa_id": "592347"
+  },
+  {
+    "team_name": "Hood",
+    "ncaa_id": "592447"
+  },
+  {
+    "team_name": "MUW",
+    "ncaa_id": "592461"
+  },
+  {
+    "team_name": "Meredith",
+    "ncaa_id": "592519"
+  },
+  {
+    "team_name": "Pacific Lutheran",
+    "ncaa_id": "592680"
+  },
+  {
+    "team_name": "Swarthmore",
+    "ncaa_id": "592685"
+  },
+  {
+    "team_name": "UC Santa Cruz",
+    "ncaa_id": "592496"
+  },
+  {
+    "team_name": "Whitworth",
+    "ncaa_id": "592435"
+  },
+  {
+    "team_name": "Willamette",
+    "ncaa_id": "592376"
+  },
+  {
+    "team_name": "Wis.-Eau Claire",
+    "ncaa_id": "592379"
+  },
+  {
+    "team_name": "Wis.-Platteville",
+    "ncaa_id": "592382"
+  },
+  {
+    "team_name": "La Verne",
+    "ncaa_id": "592576"
+  },
+  {
+    "team_name": "North Central (MN)",
+    "ncaa_id": "592650"
+  },
+  {
+    "team_name": "Bryn Mawr",
+    "ncaa_id": "592491"
+  },
+  {
+    "team_name": "CWRU",
+    "ncaa_id": "592502"
+  },
+  {
+    "team_name": "FDU-Florham",
+    "ncaa_id": "592539"
+  },
+  {
+    "team_name": "Marian (WI)",
+    "ncaa_id": "592423"
+  },
+  {
+    "team_name": "St. Olaf",
+    "ncaa_id": "592602"
+  },
+  {
+    "team_name": "Thomas (ME)",
+    "ncaa_id": "592444"
+  },
+  {
+    "team_name": "VTSU Castleton",
+    "ncaa_id": "592503"
+  },
+  {
+    "team_name": "Wheaton (MA)",
+    "ncaa_id": "592372"
+  },
+  {
+    "team_name": "Wilmington (OH)",
+    "ncaa_id": "592436"
+  },
+  {
+    "team_name": "Adrian",
+    "ncaa_id": "592465"
+  },
+  {
+    "team_name": "Alfred St.",
+    "ncaa_id": "592670"
+  },
+  {
+    "team_name": "Southwestern (TX)",
+    "ncaa_id": "592456"
+  },
+  {
+    "team_name": "Earlham",
+    "ncaa_id": "592353"
+  },
+  {
+    "team_name": "Hartwick",
+    "ncaa_id": "592552"
+  },
+  {
+    "team_name": "Trinity Washington",
+    "ncaa_id": "592637"
+  },
+  {
+    "team_name": "Dean",
+    "ncaa_id": "592675"
+  },
+  {
+    "team_name": "Lewis & Clark",
+    "ncaa_id": "592632"
+  },
+  {
+    "team_name": "Moravian",
+    "ncaa_id": "592526"
+  },
+  {
+    "team_name": "Regis (MA)",
+    "ncaa_id": "592334"
+  },
+  {
+    "team_name": "Rhodes",
+    "ncaa_id": "592336"
+  },
+  {
+    "team_name": "SUNY Morrisville",
+    "ncaa_id": "592658"
+  },
+  {
+    "team_name": "SUNY Poly",
+    "ncaa_id": "592614"
+  },
+  {
+    "team_name": "Sarah Lawrence",
+    "ncaa_id": "592462"
+  },
+  {
+    "team_name": "Schreiner",
+    "ncaa_id": "592429"
+  },
+  {
+    "team_name": "St. Mary's (IN)",
+    "ncaa_id": "592455"
+  },
+  {
+    "team_name": "Misericordia",
+    "ncaa_id": "592626"
+  },
+  {
+    "team_name": "Rockford",
+    "ncaa_id": "592340"
+  },
+  {
+    "team_name": "Greensboro",
+    "ncaa_id": "592547"
+  },
+  {
+    "team_name": "Gwynedd Mercy",
+    "ncaa_id": "592620"
+  },
+  {
+    "team_name": "Va. Wesleyan",
+    "ncaa_id": "592695"
+  },
+  {
+    "team_name": "Warren Wilson",
+    "ncaa_id": "592484"
+  },
+  {
+    "team_name": "Buffalo St.",
+    "ncaa_id": "592493"
+  },
+  {
+    "team_name": "Concordia Chicago",
+    "ncaa_id": "592517"
+  },
+  {
+    "team_name": "Dominican (IL)",
+    "ncaa_id": "592427"
+  },
+  {
+    "team_name": "Keuka",
+    "ncaa_id": "592415"
+  },
+  {
+    "team_name": "Monmouth (IL)",
+    "ncaa_id": "592524"
+  },
+  {
+    "team_name": "Olivet",
+    "ncaa_id": "592320"
+  },
+  {
+    "team_name": "Plymouth St.",
+    "ncaa_id": "592326"
+  },
+  {
+    "team_name": "Purchase",
+    "ncaa_id": "592644"
+  },
+  {
+    "team_name": "WestConn",
+    "ncaa_id": "592368"
+  },
+  {
+    "team_name": "Wooster",
+    "ncaa_id": "592388"
+  },
+  {
+    "team_name": "Crown (MN)",
+    "ncaa_id": "592647"
+  },
+  {
+    "team_name": "Me.-Presque Isle",
+    "ncaa_id": "592651"
+  },
+  {
+    "team_name": "Pitt.-Bradford",
+    "ncaa_id": "592426"
+  },
+  {
+    "team_name": "Valley Forge",
+    "ncaa_id": "592669"
+  },
+  {
+    "team_name": "Averett",
+    "ncaa_id": "592476"
+  },
+  {
+    "team_name": "Lake Forest",
+    "ncaa_id": "592577"
+  },
+  {
+    "team_name": "Lycoming",
+    "ncaa_id": "592582"
+  },
+  {
+    "team_name": "Mount Holyoke",
+    "ncaa_id": "592527"
+  },
+  {
+    "team_name": "Muskingum",
+    "ncaa_id": "592530"
+  },
+  {
+    "team_name": "Pitt.-Greensburg",
+    "ncaa_id": "592619"
+  },
+  {
+    "team_name": "Utica",
+    "ncaa_id": "592694"
+  },
+  {
+    "team_name": "Westminster (PA)",
+    "ncaa_id": "592434"
+  },
+  {
+    "team_name": "William Peace",
+    "ncaa_id": "592627"
+  },
+  {
+    "team_name": "Yeshiva",
+    "ncaa_id": "592391"
+  },
+  {
+    "team_name": "Howard Payne",
+    "ncaa_id": "592442"
+  },
+  {
+    "team_name": "Medgar Evers",
+    "ncaa_id": "592518"
+  },
+  {
+    "team_name": "York (NY)",
+    "ncaa_id": "592441"
+  },
+  {
+    "team_name": "Fontbonne",
+    "ncaa_id": "592618"
+  },
+  {
+    "team_name": "Penn St.-Berks",
+    "ncaa_id": "592654"
+  },
+  {
+    "team_name": "Agnes Scott",
+    "ncaa_id": "592617"
+  },
+  {
+    "team_name": "Augsburg",
+    "ncaa_id": "592473"
+  },
+  {
+    "team_name": "Beloit",
+    "ncaa_id": "592480"
+  },
+  {
+    "team_name": "Carleton",
+    "ncaa_id": "592499"
+  },
+  {
+    "team_name": "Dallas",
+    "ncaa_id": "592402"
+  },
+  {
+    "team_name": "Delaware Valley",
+    "ncaa_id": "592348"
+  },
+  {
+    "team_name": "Heidelberg",
+    "ncaa_id": "592554"
+  },
+  {
+    "team_name": "North Park",
+    "ncaa_id": "592315"
+  },
+  {
+    "team_name": "Ramapo",
+    "ncaa_id": "592330"
+  },
+  {
+    "team_name": "Rutgers-Newark",
+    "ncaa_id": "592595"
+  },
+  {
+    "team_name": "VTSU-Johnson",
+    "ncaa_id": "592568"
+  },
+  {
+    "team_name": "William Smith",
+    "ncaa_id": "592661"
+  },
+  {
+    "team_name": "Fitchburg St.",
+    "ncaa_id": "592541"
+  },
+  {
+    "team_name": "Mitchell",
+    "ncaa_id": "592653"
+  },
+  {
+    "team_name": "Centenary (LA)",
+    "ncaa_id": "592505"
+  },
+  {
+    "team_name": "Kenyon",
+    "ncaa_id": "592573"
+  },
+  {
+    "team_name": "Alverno",
+    "ncaa_id": "592643"
+  },
+  {
+    "team_name": "Bard",
+    "ncaa_id": "592397"
+  },
+  {
+    "team_name": "Eastern",
+    "ncaa_id": "592457"
+  },
+  {
+    "team_name": "Franciscan",
+    "ncaa_id": "592659"
+  },
+  {
+    "team_name": "Hilbert",
+    "ncaa_id": "592446"
+  },
+  {
+    "team_name": "Neb. Wesleyan",
+    "ncaa_id": "592532"
+  },
+  {
+    "team_name": "Rosemont",
+    "ncaa_id": "592625"
+  },
+  {
+    "team_name": "Wentworth",
+    "ncaa_id": "592366"
+  },
+  {
+    "team_name": "CCNY",
+    "ncaa_id": "592535"
+  },
+  {
+    "team_name": "Cairn",
+    "ncaa_id": "592425"
+  },
+  {
+    "team_name": "Salem (NC)",
+    "ncaa_id": "592652"
+  },
+  {
+    "team_name": "Blackburn",
+    "ncaa_id": "592486"
+  },
+  {
+    "team_name": "Maranatha Baptist",
+    "ncaa_id": "592422"
+  },
+  {
+    "team_name": "Northland",
+    "ncaa_id": "592679"
+  },
+  {
+    "team_name": "Old Westbury",
+    "ncaa_id": "592319"
+  },
+  {
+    "team_name": "SUNY Delhi",
+    "ncaa_id": "592676"
+  },
+  {
+    "team_name": "Thiel",
+    "ncaa_id": "592686"
+  },
+  {
+    "team_name": "Wesleyan (GA)",
+    "ncaa_id": "592623"
+  },
+  {
+    "team_name": "Wilkes",
+    "ncaa_id": "592375"
+  }
+]

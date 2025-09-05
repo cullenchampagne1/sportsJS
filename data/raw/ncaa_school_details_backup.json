@@ -2274,7 +2274,7 @@
     "twitter": "https://twitter.com/@MarinersSports",
     "school_url": "https://www.ncaa.com/schools/maine-maritime",
     "scraped_at": "2025-09-02T19:12:23.753Z",
-    "division": "unknown"
+    "division": "d3"
   },
   "/schools/northern-colo": {
     "conference": "Big Sky",
@@ -12712,6 +12712,17 @@
     "website": "https://gojacks.com",
     "twitter": "https://twitter.com/@GoJacksSDSU",
     "school_url": "https://www.ncaa.com/schools/south-dakota-st",
+    "scraped_at": "2025-09-03T03:44:18.478Z",
+    "division": "fcs"
+  },
+  "/schools/east-texas": {
+    "conference": null,
+    "nickname_ncaa": "Lions",
+    "colors": null,
+    "name_ncaa": "East Texas A&M University",
+    "website": null,
+    "twitter": null,
+    "school_url": "https://www.ncaa.com/schools/east-texas-am",
     "scraped_at": "2025-09-03T03:44:18.478Z",
     "division": "fcs"
   }
