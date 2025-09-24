@@ -1,5 +1,5 @@
 // Permission is hereby granted, free of charge, to any person obtaining a copy of
-// this software and associated documentation files (the "Software"), to deal in
+// this software and associated documentation files ("the Software"), to deal in
 // the Software without restriction, including without limitation the rights to
 // use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
 // of the Software, and to permit persons to whom the Software is furnished to do
@@ -19,285 +19,20 @@
 import fs from "fs";
 import crypto from 'crypto';
 import puppeteer from 'puppeteer';
+import ProgressBar from 'progress';
 
 import { getBrowserConfigWithHeaders } from '../util/browser-headers.js';
+import { getCanonicalNcaaId, getCacheEntryByCanonicalId } from '../util/ncaa-id-consolidation.js';
 import cacheManager from '../util/cache-manager.js';
 import get_formated_teams from '../teams/football-teams-college.js';
+import { scrapeWithRetry } from '../util/ncaa-school-util.js';
 
 // File to hold formatted data
 const OUTPUT_FILE = "data/processed/football-games-college.json";
 // Base cache TTL (30 days for global cache)
 const BASE_CACHE_TTL = 30 * 24 * 60 * 60 * 1000;
 // Browser colors for console output
-const BROWSER_COLORS = ['\u001b[33m', '\u001b[34m', '\u001b[32m']; // yellow, blue, green
-
-/**
- * Fetch ESPN games data for a single team and year
- * @param {string} espnId - ESPN team ID
- * @param {number} year - Season year to fetch
- * @param {string} teamName - Team name for logging
- * @param {boolean} verbose - Whether to log progress
- * @returns {Array} Array of game objects for the team/year
- */
-const _fetchEspnTeamGames = async (espnId, year, teamName, verbose) => {
-    const games = [];
-    const scheduleUrl = `https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/${espnId}/schedule?season=${year}`;
-    
-    try {
-        if (verbose) console.log(`\u001b[32mDownloading Schedule: ${scheduleUrl}\u001b[0m`);
-        const response = await fetch(scheduleUrl);
-        if (!response.ok) return games;
-        
-        const scheduleJson = await response.json();
-        if (!scheduleJson?.events) return games;
-        
-        // Process each game in the schedule
-        for (const game of scheduleJson.events) {
-            if (!game.id || !game.competitions || game.competitions.length === 0) continue;
-            
-            const comp = game.competitions[0];
-            const homeComp = comp.competitors?.find(c => c.homeAway === 'home');
-            const awayComp = comp.competitors?.find(c => c.homeAway === 'away');
-            if (!homeComp || !awayComp) continue;
-            
-            // Extract scores
-            const homeScore = homeComp.score?.value || 0;
-            const awayScore = awayComp.score?.value || 0;
-            
-            // Determine winner
-            let winner = null;
-            if (homeScore !== null && awayScore !== null) {
-                if (homeScore > awayScore) {
-                    winner = homeComp.team.id;
-                } else if (awayScore > homeScore) {
-                    winner = awayComp.team.id;
-                }
-            }
-            
-            const gameInfo = {
-                espn_id: game.id,
-                type: "CFB",
-                date_time: game.date,
-                season: year,
-                title: game.name || null,
-                short_title: game.shortName || null,
-                venue: comp.venue?.fullName || null,
-                home_espn_id: homeComp.team.id,
-                away_espn_id: awayComp.team.id,
-                home_score: homeScore,
-                away_score: awayScore,
-                winner: winner,
-                play_by_play: `http://sports.core.api.espn.com/v2/sports/football/leagues/college-football/events/${game.id}/competitions/${game.id}/plays?lang=en&region=us`
-            };
-            
-            games.push(gameInfo);
-        }
-        
-        // Small delay between requests
-        await new Promise(resolve => setTimeout(resolve, 100));
-    } catch (error) {
-        if (verbose) console.log(`\u001b[33mWarning: Failed to fetch schedule for ${teamName}: ${error.message}\u001b[0m`);
-    }
-    
-    return games;
-};
-
-/**
- * Process ESPN games data for a single team with caching
- * @param {string} espnId - ESPN team ID
- * @param {Object} team - Team data object
- * @param {Array<number>} yearsToScrape - Years to scrape data for
- * @param {Object} allSchedulesCache - Cache object for all team schedules
- * @param {boolean} verbose - Whether to log progress
- * @returns {Array} Array of games for the team
- */
-const _processEspnTeamGames = async (espnId, team, yearsToScrape, allSchedulesCache, verbose) => {
-    const teamName = team ? team.short_name : `Team ${espnId}`;
-    let teamGames = [];
-    
-    // Check if this team's data is cached and valid
-    const teamData = allSchedulesCache[espnId];
-    const cacheStatus = _isTeamCacheValid(teamData, yearsToScrape);
-    
-    if (cacheStatus.isValid) {
-        // Filter cached games to only include years we're processing
-        teamGames = teamData.games.filter(game => yearsToScrape.includes(game.season));
-    } else {
-        // Start with existing games if available, filtered to configured years
-        if (teamData && teamData.games) {
-            teamGames = teamData.games.filter(game => yearsToScrape.includes(game.season));
-            
-            // Remove games from years we're about to re-download to avoid duplicates
-            if (cacheStatus.needsCurrentYearOnly) {
-                const currentYear = Math.max(...yearsToScrape);
-                teamGames = teamGames.filter(game => game.season !== currentYear);
-                if (verbose) console.log(`\u001b[33mUpdating current year (${currentYear}) for ${teamName}\u001b[0m`);
-            } else {
-                // Remove games from all missing years
-                teamGames = teamGames.filter(game => !cacheStatus.missingYears.includes(game.season));
-                if (verbose) console.log(`\u001b[33mDownloading missing years [${cacheStatus.missingYears.join(', ')}] for ${teamName}\u001b[0m`);
-            }
-        } else {
-            teamGames = [];
-        }
-        
-        // Fetch games for missing years only
-        const yearsToFetch = cacheStatus.missingYears.length > 0 ? cacheStatus.missingYears : yearsToScrape;
-        for (const year of yearsToFetch) {
-            const newGames = await _fetchEspnTeamGames(espnId, year, teamName, verbose);
-            teamGames.push(...newGames);
-        }
-        
-        // Calculate and store absolute expiration time for this team
-        const expiresAt = _calculateExpirationTime(teamGames);
-        allSchedulesCache[espnId] = {
-            games: teamGames,
-            savedAt: Date.now(),
-            expiresAt: expiresAt
-        };
-        
-        // Save cache immediately after each team to prevent data loss
-        cacheManager.set("football_college_espn_schedules", allSchedulesCache);
-    }
-    
-    return teamGames;
-};
-
-/**
- * Scrape NCAA schedule for a team with session establishment
- * @param {string} ncaaId - NCAA team ID
- * @param {Array<number>} years - Years to scrape
- * @param {Object} page - Puppeteer page instance
- * @param {boolean} verbose - Whether to log progress
- * @param {number} pageIndex - Browser page index for colored logging
- * @returns {Array} Array of games with NCAA opponent IDs
- */
-const _scrapeNcaaTeamSchedule = async (ncaaId, years, page, verbose, pageIndex = 0) => {
-    const games = [];
-    const teamUrl = `https://stats.ncaa.org/teams/${ncaaId}`;
-    
-    try {
-        if (verbose) console.log(`${BROWSER_COLORS[pageIndex]}Visiting NCAA team page: ${teamUrl}\u001b[0m`);
-        await page.goto(teamUrl, { waitUntil: 'networkidle2', timeout: 30000 });
-        
-        // Check for access denied and establish session if needed
-        const bodyText = await page.evaluate(() => document.body.textContent);
-        if (bodyText.includes('Access Denied') || bodyText.includes('403')) {
-            if (verbose) console.log(`\u001b[31mAccess denied for ${teamUrl}, establishing session...\u001b[0m`);
-            await new Promise(resolve => setTimeout(resolve, 5000));
-            await page.goto('https://stats.ncaa.org/', { waitUntil: 'networkidle2' });
-            await page.goto(teamUrl, { waitUntil: 'networkidle2', timeout: 30000 });
-        }
-        
-        // Get the year dropdown options that match the years we want to scrape
-        const yearSelect = await page.$('#year_list');
-        if (yearSelect) {
-            // Get year options that match our target years
-            const yearOptions = await page.evaluate((selectElement, targetYears) => {
-                const options = Array.from(selectElement.options);
-                return options
-                    .map(option => ({
-                        value: option.value,
-                        text: option.text
-                    }))
-                    .filter(option => {
-                        // Extract year from option text (e.g., "2024-25" -> 2024)
-                        const seasonYear = parseInt(option.text.split('-')[0]);
-                        return targetYears.includes(seasonYear);
-                    });
-            }, yearSelect, years);
-            
-            // Process each year option
-            for (const yearOption of yearOptions) {
-                try {
-                    if (verbose) console.log(`${BROWSER_COLORS[pageIndex]}Processing year ${yearOption.text} (${yearOption.value}) for NCAA ID ${ncaaId}\u001b[0m`);
-                    
-                    // Select the year option and wait for navigation
-                    await page.select('#year_list', yearOption.value);
-                    await page.waitForNavigation({ waitUntil: 'networkidle2' });
-                    
-                    // Extract the year from the option text (e.g., "2024-25" -> 2024)
-                    const seasonYear = parseInt(yearOption.text.split('-')[0]);
-                    
-                    // Look for schedule table specifically (not statistics tables)
-                    const tables = await page.$$('table');
-                    let scheduleRows = [];
-                    
-                    for (let tableIndex = 0; tableIndex < tables.length; tableIndex++) {
-                        const table = tables[tableIndex];
-                        const rows = await table.$$('tr');
-                        if (rows.length < 2) continue;
-                        
-                        // Check header row (row 0) for "Date" header
-                        const headerRow = rows[0];
-                        const headerCells = await headerRow.$$('td, th');
-                        if (headerCells.length > 0) {
-                            const firstHeaderText = await headerCells[0].evaluate(el => el.textContent.trim());
-                            // Look for "Date" header - this identifies the schedule table
-                            if (firstHeaderText.toLowerCase() === 'date') {
-                                scheduleRows = rows;
-                                break;
-                            }
-                        }
-                    }
-                    
-                    for (let i = 1; i < scheduleRows.length; i++) { // Skip header row
-                        const row = scheduleRows[i];
-                        const cells = await row.$$('td');
-                        if (cells.length >= 3) {
-                            // Extract game information
-                            const dateCell = cells[0] ? await cells[0].evaluate(el => el.textContent.trim()) : '';
-                            const opponentCell = cells[1] ? await cells[1] : null;
-                            const scoreCell = cells[2] ? await cells[2] : null;
-                            
-                            // Extract opponent NCAA ID from link
-                            let opponentNcaaId = null;
-                            if (opponentCell) {
-                                const opponentLink = await opponentCell.$('a[href*="/teams/"]');
-                                if (opponentLink) {
-                                    const href = await opponentLink.evaluate(el => el.href);
-                                    const match = href.match(/\/teams\/(\d+)/);
-                                    if (match) opponentNcaaId = match[1];
-                                }
-                            }
-                            const opponentName = opponentCell ? await opponentCell.evaluate(el => el.textContent.trim()) : '';
-                            
-                            // Extract NCAA game ID from box score link
-                            let ncaaGameId = null;
-                            const scoreText = scoreCell ? await scoreCell.evaluate(el => el.textContent.trim()) : '';
-                            if (scoreCell) {
-                                const boxScoreLink = await scoreCell.$('a[href*="/contests/"]');
-                                if (boxScoreLink) {
-                                    const href = await boxScoreLink.evaluate(el => el.href);
-                                    const match = href.match(/\/contests\/(\d+)/);
-                                    if (match) ncaaGameId = match[1];
-                                }
-                            }
-                            
-                            if (dateCell && opponentName) {
-                                games.push({
-                                    date: dateCell,
-                                    opponent_name: opponentName,
-                                    opponent_ncaa_id: opponentNcaaId,
-                                    ncaa_game_id: ncaaGameId,
-                                    score: scoreText,
-                                    season: seasonYear,
-                                    home_team_ncaa_id: ncaaId
-                                });
-                            }
-                        }
-                    }
-                } catch (yearError) {
-                    if (verbose) console.log(`\u001b[33mWarning: Failed to process year ${yearOption.text} for NCAA ID ${ncaaId}: ${yearError.message}\u001b[0m`);
-                }
-            }
-        }
-    } catch (error) {
-        if (verbose) console.log(`\u001b[33mWarning: Failed to scrape NCAA schedule for ${ncaaId}: ${error.message}\u001b[0m`);
-    }
-    
-    return games;
-};
+const BROWSER_COLORS = ['\u001b[33m', '\u001b[34m', '\u001b[32m'];
 
 /**
  * Calculate absolute expiration time for a team based on their next upcoming game
@@ -305,309 +40,745 @@ const _scrapeNcaaTeamSchedule = async (ncaaId, years, page, verbose, pageIndex =
  * @returns {number} Absolute expiration time in milliseconds (1 hour after next game, minimum 30 days from now)
  */
 const _calculateExpirationTime = (games) => {
-    if (!games || games.length === 0) return Date.now() + BASE_CACHE_TTL; 
+    if (!games || games.length === 0) return Date.now() + BASE_CACHE_TTL;
     const now = Date.now();
-    
-    // Find the next upcoming game (earliest game that is in the future)
     const upcomingGames = games
         .filter(game => game.date_time)
         .map(game => new Date(game.date_time))
         .filter(gameDate => gameDate.getTime() > now)
         .sort((a, b) => a.getTime() - b.getTime());
-    
     if (upcomingGames.length > 0) {
-        // Set expiry to 1 hour after the next upcoming game
         const nextGame = upcomingGames[0];
-        const oneHourAfterNextGame = nextGame.getTime() + (60 * 60 * 1000);
-        return oneHourAfterNextGame;
+        return nextGame.getTime() + (60 * 60 * 1000);
     }
-    
-    // If no upcoming games, use default TTL of 1 month from now
-    // TTL should never be less than current time to avoid unnecessary updates
     return now + BASE_CACHE_TTL;
 };
 
 /**
- * Check if cached team data has expired based on stored expiration time and covers all required years
- * @param {Object} teamData - Team data with games, savedAt timestamp, and expiresAt
- * @param {Array<number>} requiredYears - Years that must be present in the cache
- * @returns {Object} { isValid: boolean, missingYears: Array<number>, needsCurrentYearOnly: boolean }
+ * Check if cached team data has expired and covers all required years.
+ * @param {Object} teamData - Team data with games, savedAt timestamp, and expiresAt.
+ * @param {Array<number>} requiredYears - Years that must be present in the cache.
+ * @returns {Object} { isValid: boolean, missingYears: Array<number>, needsCurrentYearOnly: boolean }.
  */
 const _isTeamCacheValid = (teamData, requiredYears) => {
-    if (!teamData || !teamData.games || !teamData.savedAt || !teamData.expiresAt) {
-        return { isValid: false, missingYears: requiredYears, needsCurrentYearOnly: false };
+    // If no cache exists, it's invalid
+    if (!teamData || !teamData.savedAt) {
+        return {
+            isValid: false,
+            missingYears: requiredYears,
+            needsCurrentYearOnly: false
+        };
     }
-    if (Array.isArray(teamData.games) && teamData.games.length === 0) {
-        return { isValid: false, missingYears: requiredYears, needsCurrentYearOnly: false };
+    
+    // If cache has expired, need refresh
+    if (Date.now() >= teamData.expiresAt) {
+        const cachedYears = teamData.games ? new Set(teamData.games.map(g => g.season)) : new Set();
+        const missingYears = requiredYears.filter(year => !cachedYears.has(year));
+        const needsCurrentYearOnly = teamData.games?.length > 0;
+        return {
+            isValid: false,
+            missingYears: needsCurrentYearOnly ? [Math.max(...requiredYears)] : missingYears,
+            needsCurrentYearOnly
+        };
     }
     
-    // Check if cache has expired
-    const isExpired = Date.now() >= teamData.expiresAt;
-    
-    // Check which years are present in the cached games
-    const cachedYears = new Set();
-    teamData.games.forEach(game => {
-        if (game.season) cachedYears.add(game.season);
-    });
-    
+    // Cache is fresh - check if it covers all required years
+    // Note: Empty games array is valid if explicitly cached (team genuinely has no games)
+    const cachedYears = new Set((teamData.fetchedYears || teamData.games?.map(g => g.season)) || []);
     const missingYears = requiredYears.filter(year => !cachedYears.has(year));
-    
-    if (isExpired) {
-        // If expired but has some years, only download current year
-        const currentYear = Math.max(...requiredYears);
-        if (missingYears.length < requiredYears.length) {
-            return { isValid: false, missingYears: [currentYear], needsCurrentYearOnly: true };
-        } else {
-            return { isValid: false, missingYears: requiredYears, needsCurrentYearOnly: false };
-        }
-    }
-    
-    // If not expired, check for missing years
-    if (missingYears.length > 0) {
-        return { isValid: false, missingYears: missingYears, needsCurrentYearOnly: false };
-    }
-    
-    return { isValid: true, missingYears: [], needsCurrentYearOnly: false };
+    return {
+        isValid: missingYears.length === 0,
+        missingYears,
+        needsCurrentYearOnly: false
+    };
 };
 
 /**
- * Remove duplicate games by espn_id since we get the same game from both teams' schedules
- * @param {Array} allGames - Array of all games from different sources
- * @returns {Array} Array of unique games sorted by date
+ * Fetches ESPN games data for a single team and year.
+ * @param {string} espnId - ESPN team ID.
+ * @param {number} year - Season year to fetch.
+ * @param {boolean} verbose - Whether to log progress.
+ * @returns {Array} Array of game objects for the team/year.
  */
-const _deduplicateGames = (allGames) => {
-    const uniqueGames = {};
-    allGames.forEach(game => {
-        if (game.espn_id && !uniqueGames[game.espn_id]) uniqueGames[game.espn_id] = game;
+const _fetchEspnTeamGames = async (espnId, year, verbose) => {
+    verbose && console.log(`\u001b[32mDownloading Schedule: https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/${espnId}/schedule?season=${year}\u001b[0m`);
+    const response = await fetch(`https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/${espnId}/schedule?season=${year}`);
+    if (!response.ok) return [];
+    const scheduleJson = await response.json();
+    if (!scheduleJson?.events) return [];
+    const games = scheduleJson.events.flatMap(game => {
+        const comp = game.competitions?.[0];
+        if (!comp || !comp.competitors) return [];
+        const [homeComp, awayComp] = [comp.competitors.find(c => c.homeAway === 'home'), comp.competitors.find(c => c.homeAway === 'away')];
+        if (!homeComp || !awayComp) return [];
+        const [homeScore, awayScore] = [homeComp.score?.value || 0, awayComp.score?.value || 0];
+        const winner = homeScore > awayScore ? homeComp.team.id : (awayScore > homeScore ? awayComp.team.id : null);
+        return [{
+            espn_id: game.id, date_time: game.date, season: year, title: game.name || null, short_title: game.shortName || null,
+            venue: comp.venue?.fullName || null, home_espn_id: homeComp.team.id, away_espn_id: awayComp.team.id, home_score: homeScore,
+            away_score: awayScore, winner: winner
+        }];
     });
-    return Object.values(uniqueGames).sort((a, b) => new Date(a.date_time) - new Date(b.date_time));
+    await new Promise(resolve => setTimeout(resolve, 100));
+    return games;
 };
 
 /**
- * Match ESPN games with NCAA games to add reference IDs and internal team IDs
- * @param {Array} espnGames - Array of ESPN games
- * @param {Object} ncaaSchedulesCache - NCAA schedules cache
- * @param {Array} teamsData - Teams data with ESPN and NCAA IDs
- * @param {Array<number>} yearsToScrape - Years being processed
- * @param {boolean} verbose - Whether to log progress
- * @returns {Array} Array of ESPN games with NCAA references added
+ * Process ESPN games data for a single team with caching and progress tracking.
+ * @param {string} espnId - ESPN team ID.
+ * @param {Object} team - Team data object.
+ * @param {Array<number>} yearsToScrape - Years to scrape data for.
+ * @param {Object} allSchedulesCache - Cache object for all team schedules.
+ * @param {boolean} verbose - Whether to log progress.
+ * @param {ProgressBar} [progressBar] - Optional progress bar to update.
+ * @param {string} [cacheDate] - Cache date for display in progress bar.
+ * @returns {Array} Array of games for the team.
  */
-const _matchEspnWithNcaaGames = async (espnGames, ncaaSchedulesCache, teamsData, yearsToScrape, verbose) => {
-    // Import consolidation utilities
-    const { getCanonicalNcaaId, consolidateGamesNcaaIds, consolidateTeamsNcaaIds } = await import('../util/ncaa-id-consolidation.js');
-    
-    // Consolidate NCAA IDs in teams data to handle duplicates
-    const consolidatedTeamsData = consolidateTeamsNcaaIds(teamsData);
-    // Flatten all NCAA games from cache, filtered to configured years
-    const allNcaaGames = [];
-    Object.values(ncaaSchedulesCache).forEach(teamCache => {
-        if (teamCache.games && Array.isArray(teamCache.games)) {
-            const filteredGames = teamCache.games.filter(game => yearsToScrape.includes(game.season));
-            allNcaaGames.push(...filteredGames);
+const _processEspnTeamGames = async (espnId, team, yearsToScrape, allSchedulesCache, verbose, progressBar = null, cacheDate = null) => {
+    const teamName = team?.short_name || `Team ${espnId}`;
+    const teamData = allSchedulesCache[espnId];
+    const cacheStatus = _isTeamCacheValid(teamData, yearsToScrape);
+
+    if (cacheStatus.isValid) {
+        if (progressBar) {
+            progressBar.tick(1, { 
+                status: `${teamName}`
+            });
         }
-    });
-
-    // Consolidate NCAA IDs in all NCAA games to handle duplicates
-    const consolidatedNcaaGames = consolidateGamesNcaaIds(allNcaaGames);
-
-    // Deduplicate consolidated NCAA games by ncaa_game_id
-    const uniqueNcaaGames = {};
-    consolidatedNcaaGames.forEach(game => {
-        if (game.ncaa_game_id && !uniqueNcaaGames[game.ncaa_game_id]) {
-            uniqueNcaaGames[game.ncaa_game_id] = game;
-        }
-    });
-    const ncaaGames = Object.values(uniqueNcaaGames);
-
-    // Filter ESPN games to only include those with dates in the past (completed games)
-    const now = new Date();
-    const completedEspnGames = espnGames.filter(game => {
-        if (!game.date_time) return false;
-        return new Date(game.date_time) < now;
-    });
-
-    const futureGamesCount = espnGames.length - completedEspnGames.length;
-    const duplicatesRemoved = consolidatedNcaaGames.length - ncaaGames.length;
-
-    if (verbose) console.log(`\u001b[32mMatching ${completedEspnGames.length} completed ESPN games with ${ncaaGames.length} NCAA games (${futureGamesCount} future games and ${duplicatesRemoved} duplicates removed)...\u001b[0m`);
-
-    let matchCount = 0;
-    const matchedNcaaGameIds = new Set();
-    let skippedDuplicateMatches = 0;
+        return teamData.games.filter(game => yearsToScrape.includes(game.season));
+    }
     
-    completedEspnGames.forEach(espnGame => {
-        const espnDate = new Date(espnGame.date_time);
+    let teamGames = (teamData?.games || []).filter(game => yearsToScrape.includes(game.season));
+    const yearsToFetch = cacheStatus.missingYears;
+    
+    if (yearsToFetch.length > 0) {
+        // Create progress bar for years if we have multiple years to fetch
+        let yearProgress = null;
+        if (verbose && yearsToFetch.length > 1) {
+            yearProgress = new ProgressBar('\u001b[36m:task\u001b[0m [\u001b[32m:bar\u001b[0m] \u001b[33m:percent\u001b[0m :current/:total years \u001b[90m(:elapseds elapsed)\u001b[0m', {
+                total: yearsToFetch.length,
+                width: 40,
+                complete: '=',
+                incomplete: '-',
+                renderThrottle: 100,
+                clear: false,
+                task: `${teamName} - ESPN Years`
+            });
+        }
         
-        // Find ESPN teams in our consolidated teams data
-        const homeTeam = consolidatedTeamsData.find(t => t.espn_id === espnGame.home_espn_id);
-        const awayTeam = consolidatedTeamsData.find(t => t.espn_id === espnGame.away_espn_id);
+        teamGames = teamGames.filter(game => !yearsToFetch.includes(game.season));
+        let successCount = 0;
+        let errorCount = 0;
         
-        if (!homeTeam || !awayTeam) return;
-
-        // Look for matching NCAA game within date window that hasn't been used yet
-        const matchingNcaaGame = ncaaGames.find(ncaaGame => {
-            if (!ncaaGame.date || !ncaaGame.ncaa_game_id) return false;
-            
-            // Skip if this NCAA game ID has already been matched
-            if (matchedNcaaGameIds.has(ncaaGame.ncaa_game_id)) {
-                // Check if this would have been a valid match (for logging purposes)
-                let ncaaDate;
-                try {
-                    const dateStr = ncaaGame.date.toString();
-                    if (dateStr.includes('/')) {
-                        const [datePart] = dateStr.split(' ');
-                        const [month, day, year] = datePart.split('/');
-                        ncaaDate = new Date(year, month - 1, day);
-                    } else {
-                        ncaaDate = new Date(ncaaGame.date);
-                    }
-                    
-                    if (!isNaN(ncaaDate.getTime())) {
-                        const daysDiff = Math.abs((espnDate - ncaaDate) / (1000 * 60 * 60 * 24));
-                        const espnTeamIds = new Set([homeTeam.ncaa_id, awayTeam.ncaa_id]);
-                        
-                        let wouldMatch = false;
-                        if (daysDiff < 2.5) {
-                            wouldMatch = homeTeam.ncaa_id && awayTeam.ncaa_id && 
-                                       (espnTeamIds.has(ncaaGame.home_team_ncaa_id) || espnTeamIds.has(ncaaGame.opponent_ncaa_id));
-                        } else if (daysDiff <= 7) {
-                            wouldMatch = homeTeam.ncaa_id && awayTeam.ncaa_id && 
-                                       espnTeamIds.has(ncaaGame.home_team_ncaa_id) && 
-                                       espnTeamIds.has(ncaaGame.opponent_ncaa_id);
-                        }
-                        
-                        if (wouldMatch) {
-                            skippedDuplicateMatches++;
-                        }
-                    }
-                } catch (error) {
-                    // Ignore parsing errors for logging
-                }
-                return false;
-            }
-            
-            // Parse NCAA date
-            let ncaaDate;
+        for (const year of yearsToFetch) {
             try {
-                const dateStr = ncaaGame.date.toString();
-                if (dateStr.includes('/')) {
-                    const [datePart] = dateStr.split(' ');
-                    const [month, day, year] = datePart.split('/');
-                    ncaaDate = new Date(year, month - 1, day);
-                } else {
-                    ncaaDate = new Date(ncaaGame.date);
+                const newGames = await _fetchEspnTeamGames(espnId, year, false); // Suppress individual logs
+                teamGames.push(...newGames);
+                successCount++;
+                
+                if (yearProgress) {
+                    yearProgress.tick(1, {
+                        task: `${teamName} - ESPN Years`,
+                        status: `${year} (${newGames.length} games)`
+                    });
                 }
             } catch (error) {
-                return false;
+                errorCount++;
+                if (yearProgress) {
+                    yearProgress.tick(1, {
+                        task: `${teamName} - ESPN Years`,
+                        status: `${year} (ERROR: ${error.message})`
+                    });
+                }
             }
-            
-            if (isNaN(ncaaDate.getTime())) return false;
-            
-            const daysDiff = Math.abs((espnDate - ncaaDate) / (1000 * 60 * 60 * 24));
-            const espnTeamIds = new Set([homeTeam.ncaa_id, awayTeam.ncaa_id]);
-            const ncaaTeamIds = new Set([ncaaGame.home_team_ncaa_id, ncaaGame.opponent_ncaa_id]);
-            
-            if (daysDiff < 2.5) {
-                // Same day: only need 1 team to match
-                return homeTeam.ncaa_id && awayTeam.ncaa_id && 
-                       (espnTeamIds.has(ncaaGame.home_team_ncaa_id) || espnTeamIds.has(ncaaGame.opponent_ncaa_id));
-            } else if (daysDiff <= 7) {
-                // Different days (within 7 days): both teams must match
-                return homeTeam.ncaa_id && awayTeam.ncaa_id && 
-                       espnTeamIds.has(ncaaGame.home_team_ncaa_id) && 
-                       espnTeamIds.has(ncaaGame.opponent_ncaa_id);
-            } else {
-                return false;
-            }
-        });
-
-        if (matchingNcaaGame) {
-            espnGame.reference_id = matchingNcaaGame.ncaa_game_id;
-            matchedNcaaGameIds.add(matchingNcaaGame.ncaa_game_id);
-            matchCount++;
         }
         
-        // Add internal team IDs regardless of NCAA match
-        espnGame.home_id = homeTeam.id;
-        espnGame.away_id = awayTeam.id;
-        espnGame.home = homeTeam.name;
-        espnGame.away = awayTeam.name;
+        if (yearProgress) yearProgress.terminate();
+    }
+    
+    // Track which years were fetched, even if they returned no games
+    const existingFetchedYears = new Set(teamData?.fetchedYears || []);
+    yearsToFetch.forEach(year => existingFetchedYears.add(year));
+    const allFetchedYears = [...existingFetchedYears, ...(teamData?.games?.map(g => g.season) || [])];
+    
+    allSchedulesCache[espnId] = {
+        games: teamGames,
+        savedAt: Date.now(),
+        expiresAt: _calculateExpirationTime(teamGames),
+        fetchedYears: [...new Set(allFetchedYears)] // Track all years we've attempted to fetch
+    };
+    cacheManager.set("football_college_espn_schedules", allSchedulesCache);
+    
+    if (progressBar) {
+        progressBar.tick(1, { 
+            task: 'ESPN Data Download',
+            status: `${teamName} - ${teamGames.length} games (${yearsToFetch.length} years fetched)`
+        });
+    }
+    
+    return teamGames;
+};
+
+/**
+ * Scrape NCAA schedule for a team with session establishment.
+ * @param {string} ncaaId - NCAA team ID.
+ * @param {Array<number>} years - Years to scrape.
+ * @param {Object} page - Puppeteer page instance.
+ * @param {boolean} verbose - Whether to log progress.
+ * @param {number} pageIndex - Browser page index for colored logging.
+ * @returns {Array} Array of games with NCAA opponent IDs.
+ */
+const _scrapeNcaaTeamSchedule = async (ncaaId, years, page, verbose, pageIndex = 0) => {
+    const log = (msg, color = BROWSER_COLORS[pageIndex]) => verbose && console.log(`${color}${msg}\u001b[0m`);
+    const teamUrl = `https://stats.ncaa.org/teams/${ncaaId}`;
+    log(`Visiting NCAA team page: ${teamUrl}`);
+
+    const scrapeAction = async (page) => {
+        const games = [];
+        const yearOptions = await page.$eval('#year_list', (select, targetYears) =>
+            Array.from(select.options)
+                .map(option => ({ value: option.value, text: option.text }))
+                .filter(option => targetYears.includes(parseInt(option.text.split('-')[0]))), years);
+
+        for (const yearOption of yearOptions) {
+            try {
+                log(`Processing year ${yearOption.text} for NCAA ID ${ncaaId}`);
+                await page.select('#year_list', yearOption.value);
+                await page.waitForNavigation({ waitUntil: 'networkidle2' });
+                const yearGames = await page.evaluate((currentNcaaId, seasonYear) => {
+                    const yearGames = [];
+                    const scheduleTable = Array.from(document.querySelectorAll('table')).find(table => {
+                        const header = table.querySelector('tr > td, tr > th');
+                        return header && header.textContent.trim().toLowerCase() === 'date';
+                    });
+                    if (!scheduleTable) return [];
+                    const rows = Array.from(scheduleTable.querySelectorAll('tr')).slice(1);
+                    for (const row of rows) {
+                        const cells = row.querySelectorAll('td');
+                        if (cells.length < 3) continue;
+                        const opponentLink = cells[1]?.querySelector('a[href*="/teams/"]');
+                        const boxScoreLink = cells[2]?.querySelector('a[href*="/contests/"]');
+                        const rawOpponentNcaaId = opponentLink?.href.match(/\/teams\/(\d+)/)?.[1] || null;
+
+                        yearGames.push({
+                            date: cells[0]?.textContent.trim() || '',
+                            opponent_name: cells[1]?.textContent.trim() || '',
+                            opponent_ncaa_id: rawOpponentNcaaId,
+                            ncaa_game_id: boxScoreLink?.href.match(/\/contests\/(\d+)/)?.[1] || null,
+                            score: cells[2]?.textContent.trim() || '',
+                            season: seasonYear,
+                            home_team_ncaa_id: currentNcaaId
+                        });
+                    }
+                    return yearGames;
+                }, ncaaId, parseInt(yearOption.text.split('-')[0]));
+                
+                // Apply consolidation after getting data from browser context
+                const consolidatedYearGames = yearGames.map(game => ({
+                    ...game,
+                    opponent_ncaa_id: game.opponent_ncaa_id ? getCanonicalNcaaId(game.opponent_ncaa_id, 'football') : null,
+                    home_team_ncaa_id: getCanonicalNcaaId(game.home_team_ncaa_id, 'football')
+                }));
+                games.push(...consolidatedYearGames);
+            } catch (yearError) { log(`Warning: Failed to process year ${yearOption.text} for NCAA ID ${ncaaId}: ${yearError.message}`, '\u001b[33m'); }
+        }
+        return games;
+    };
+    const scrapedGames = await scrapeWithRetry(page, teamUrl, scrapeAction, verbose);
+    return scrapedGames || [];
+};
+
+/**
+ * Processes NCAA schedules for a list of team IDs, scraping data for teams with an invalid cache.
+ * @param {Array<string>} ncaaIds - Array of unique NCAA team IDs to process.
+ * @param {Array<Object>} teamsData - The full list of team data.
+ * @param {Object} cache - The cache object for NCAA schedules.
+ * @param {Array<number>} yearsToScrape - The years to scrape data for.
+ * @param {Array<Object>} pages - The pool of Puppeteer page instances.
+ * @param {boolean} verbose - Whether to log progress.
+ */
+const _processNcaaSchedules = async (ncaaIds, teamsData, cache, yearsToScrape, pages, verbose) => {
+    const teamsToProcess = ncaaIds.filter(id => {
+        const teamCacheData = getCacheEntryByCanonicalId(cache, id, 'football');
+        return !_isTeamCacheValid(teamCacheData, yearsToScrape).isValid;
+    });
+
+    if (pages.length === 0) return;
+    if (teamsToProcess.length === 0) return;
+    
+    // Create comprehensive progress bar for NCAA processing
+    let ncaaProgress = null;
+    if (verbose && teamsToProcess.length > 0) {
+        process.stdout.write('\u001b[1A');
+        ncaaProgress = new ProgressBar('\u001b[36m:task\u001b[0m [\u001b[32m:bar\u001b[0m] \u001b[33m:percent\u001b[0m :current/:total \u001b[90m:status\u001b[0m', {
+            total: teamsToProcess.length,
+            width: 40,
+            complete: '=',
+            incomplete: '-',
+            renderThrottle: 100,
+            clear: false,
+            task: 'NCAA Data Scraping'
+        });
+    }
+
+    let pageIndex = 0;
+    let successCount = 0;
+    let errorCount = 0;
+    
+    for (const ncaaId of teamsToProcess) {
+        const page = pages[pageIndex % pages.length];
+        const team = teamsData.find(t => t.reference_id === ncaaId);
+        const teamName = team?.short_name || `NCAA ${ncaaId}`;
+        const teamCacheData = getCacheEntryByCanonicalId(cache, ncaaId, 'football');
+        const cacheStatus = _isTeamCacheValid(teamCacheData, yearsToScrape);
+        const yearsToFetch = cacheStatus.missingYears.length > 0 ? cacheStatus.missingYears : yearsToScrape;
+        try {
+            const newGames = await _scrapeNcaaTeamSchedule(ncaaId, yearsToFetch, page, false, pageIndex % pages.length); // Suppress individual logs
+
+            const existingGames = (teamCacheData?.games || []).filter(game => !yearsToFetch.includes(game.season));
+            const allGames = [...existingGames, ...newGames];
+
+            const gamesWithDateTime = allGames.map(g => ({ date_time: _parseNcaaDate(g.date)?.toISOString() || null }));
+            // Track which years were fetched, even if they returned no games
+            const existingFetchedYears = new Set(teamCacheData?.fetchedYears || []);
+            yearsToFetch.forEach(year => existingFetchedYears.add(year));
+            const allGameYears = allGames.map(g => g.season);
+            const allFetchedYears = [...existingFetchedYears, ...allGameYears];
+            
+            cache[ncaaId] = {
+                games: allGames,
+                savedAt: Date.now(),
+                expiresAt: _calculateExpirationTime(gamesWithDateTime),
+                fetchedYears: [...new Set(allFetchedYears)] // Track all years we've attempted to fetch
+            };
+
+            successCount++;
+            if (ncaaProgress) {
+                ncaaProgress.tick(1, {
+                    task: 'NCAA Data Scraping',
+                    status: `${teamName} - ${newGames.length} games`,
+                    success: successCount,
+                    errors: errorCount
+                });
+            }
+        } catch (error) {
+            errorCount++;
+            if (ncaaProgress) {
+                ncaaProgress.tick(1, {
+                    task: 'NCAA Data Scraping',
+                    status: `${teamName} - ERROR: ${error.message}`,
+                    success: successCount,
+                    errors: errorCount
+                });
+            }
+        }
+
+        cacheManager.set("football_college_ncaa_schedules", cache);
+        pageIndex++;
+        await new Promise(resolve => setTimeout(resolve, 3000));
+    }
+
+    if (ncaaProgress) {
+        ncaaProgress.terminate();
+    }
+
+    cacheManager.set("football_college_ncaa_schedules", cache);
+};
+
+/**
+ * Determines if an ESPN game and an NCAA game are a valid match based on date proximity and team IDs.
+ * @param {Date} espnDate - The date of the ESPN game.
+ * @param {Date} ncaaDate - The date of the NCAA game.
+ * @param {Object} homeTeam - The home team object from the consolidated data.
+ * @param {Object} awayTeam - The away team object from the consolidated data.
+ * @param {Object} ncaaGame - The NCAA game object being evaluated.
+ * @returns {boolean} True if the games are considered a match, false otherwise.
+ */
+const _isMatch = (espnDate, ncaaDate, homeTeam, awayTeam, ncaaGame) => {
+    const daysDifference = Math.abs((espnDate - ncaaDate) / (1000 * 60 * 60 * 24));
+    if (daysDifference > 7) return false; // Keep a reasonable date window
+    // Collect available NCAA IDs from teams that exist
+    const availableNcaaIds = [];
+    if (homeTeam?.reference_id) availableNcaaIds.push(homeTeam.reference_id);
+    if (awayTeam?.reference_id) availableNcaaIds.push(awayTeam.reference_id);
+    // If no teams have NCAA IDs, cannot match
+    if (availableNcaaIds.length === 0) return false;
+    const espnTeamNcaaIds = new Set(availableNcaaIds);
+    // Removed unused ncaaGameIds variable
+    // For same-day matches (< 1.5 days), require only single team match
+    if (daysDifference <= 1.5) {
+        return espnTeamNcaaIds.has(ncaaGame.home_team_ncaa_id) || espnTeamNcaaIds.has(ncaaGame.opponent_ncaa_id);
+    }
+    // For matches with larger time differences, require more confidence
+    if (availableNcaaIds.length === 2) {
+        // Both teams available - require both teams to match
+        return espnTeamNcaaIds.has(ncaaGame.home_team_ncaa_id) && espnTeamNcaaIds.has(ncaaGame.opponent_ncaa_id);
+    } else {
+        // Only one team available - require it to match and no conflicting team
+        const hasMatchingTeam = espnTeamNcaaIds.has(ncaaGame.home_team_ncaa_id) || espnTeamNcaaIds.has(ncaaGame.opponent_ncaa_id);
+        return hasMatchingTeam;
+    }
+};
+
+/**
+ * Parses an NCAA date string into a valid JavaScript Date object.
+ * @param {string | undefined} dateStr - The date string to parse.
+ * @returns {Date | null} A Date object if parsing is successful, otherwise null.
+ */
+const _parseNcaaDate = (dateStr) => {
+    if (!dateStr) return null;
+    if (dateStr.includes('/')) {
+        const [month, day, year] = dateStr.split(' ')[0].split('/').map(Number);
+        if ([month, day, year].some(isNaN)) return null;
+        const d = new Date(year, month - 1, day);
+        return d.getMonth() + 1 === month ? d : null;
+    }
+    const d = new Date(dateStr);
+    return isNaN(d.getTime()) ? null : d;
+};
+
+/**
+ * Match ESPN games with NCAA games to add reference IDs and internal team IDs.
+ * @param {Array} espnGames - Array of ESPN games.
+ * @param {Object} ncaaSchedulesCache - NCAA schedules cache.
+ * @param {Array} teamsData - Teams data with ESPN and NCAA IDs.
+ * @param {Array<number>} yearsToScrape - Years being processed.
+ * @param {boolean} verbose - Whether to log progress.
+ * @returns {Array} Array of ESPN games with NCAA references added.
+ */
+const _matchEspnWithNcaaGames = async (espnGames, ncaaSchedulesCache, teamsData, yearsToScrape, verbose) => {
+    const { findTeamByName } = await import('../util/ncaa-id-consolidation.js');
+    const now = new Date();
+    const log = (msg, color = '\u001b[36m') => verbose && console.log(`${color}${msg}\u001b[0m`);
+
+    // Use teams data as-is since consolidation has already been applied during team processing
+    const allNcaaGames = Object.values(ncaaSchedulesCache).flatMap(cache => (cache?.games || []).filter(game => yearsToScrape.includes(game.season)));
+    // Use NCAA games as-is since consolidation is already applied during scraping
+    const ncaaGames = Object.values(allNcaaGames.reduce((acc, game) => (game.ncaa_game_id && !acc[game.ncaa_game_id]) ? { ...acc, [game.ncaa_game_id]: game } : acc, {}));
+
+    const completedEspnGames = espnGames.filter(game => new Date(game.date_time) < now);
+    log(`Matching ${completedEspnGames.length} completed ESPN games with ${ncaaGames.length} NCAA games...`, '\u001b[32m');
+
+    let skippedDuplicateMatches = 0;
+    const matchedNcaaGameIds = new Set();
+
+    completedEspnGames.forEach(espnGame => {
+        if (espnGame.reference_id) return; // Already matched in a previous iteration
+
+        const espnDate = new Date(espnGame.date_time);
+        const title = espnGame.title || espnGame.short_title || '';
+        const teams = title.split(/\s(?:vs|at|@)\s/i);
+        let homeTeam = teamsData.find(t => t.espn_id === espnGame.home_espn_id) || (teams.length === 2 ? findTeamByName(teams[1], teamsData) : null);
+        let awayTeam = teamsData.find(t => t.espn_id === espnGame.away_espn_id) || (teams.length === 2 ? findTeamByName(teams[0], teamsData) : null);
+
+        // Allow matching with partial team data - let _isMatch decide if we have enough info
+
+        const ncaaMatch = ncaaGames.find(ncaaGame => {
+            const ncaaDate = _parseNcaaDate(ncaaGame.date);
+            if (!ncaaGame.ncaa_game_id || !ncaaDate) return false;
+            if (matchedNcaaGameIds.has(ncaaGame.ncaa_game_id)) {
+                if (_isMatch(espnDate, ncaaDate, homeTeam, awayTeam, ncaaGame)) skippedDuplicateMatches++;
+                return false;
+            }
+            return _isMatch(espnDate, ncaaDate, homeTeam, awayTeam, ncaaGame);
+        });
+
+        if (ncaaMatch) {
+            espnGame.reference_id = ncaaMatch.ncaa_game_id;
+            matchedNcaaGameIds.add(ncaaMatch.ncaa_game_id);
+        }
+    });
+
+    espnGames.forEach(game => {
+        const title = game.title || game.short_title || '';
+        const teams = title.split(/\s(?:vs|at|@)\s/i);
+        let homeTeam = teamsData.find(t => t.espn_id === game.home_espn_id) || (teams.length === 2 ? findTeamByName(teams[1], teamsData) : null);
+        let awayTeam = teamsData.find(t => t.espn_id === game.away_espn_id) || (teams.length === 2 ? findTeamByName(teams[0], teamsData) : null);
+
+        // Assign team names and IDs using available data, fallback to "Unknown" for missing teams
+        if (homeTeam) { 
+            game.home_id = homeTeam.id; 
+            game.home = homeTeam.short_name;
+            game.home_team_name = homeTeam.short_name;
+        } else {
+            game.home_team_name = "Unknown";
+        }
         
-        // Update winner to use internal ID if available
-        if (espnGame.winner) {
-            if (espnGame.winner === espnGame.home_espn_id && homeTeam.id) {
-                espnGame.winner = homeTeam.id;
-            } else if (espnGame.winner === espnGame.away_espn_id && awayTeam.id) {
-                espnGame.winner = awayTeam.id;
+        if (awayTeam) { 
+            game.away_id = awayTeam.id; 
+            game.away = awayTeam.short_name;
+            game.away_team_name = awayTeam.short_name;
+        } else {
+            game.away_team_name = "Unknown";
+        }
+        if (game.winner) {
+            if (game.winner === game.home_espn_id) game.winner = homeTeam?.id;
+            else if (game.winner === game.away_espn_id) game.winner = awayTeam?.id;
+        }
+    });
+
+    const totalMatched = espnGames.filter(g => g.reference_id).length;
+    log(`Matched ${totalMatched} total games out of ${completedEspnGames.length} completed games`, '\u001b[36m');
+    if (skippedDuplicateMatches > 0) log(`Prevented ${skippedDuplicateMatches} duplicate NCAA game ID matches`, '\u001b[33m');
+
+    return espnGames;
+};
+
+/**
+ * Deduces potential ESPN-to-NCAA team bindings from games where one team is matched and the other is not.
+ * @param {Array} espnGames - Array of processed ESPN games.
+ * @param {Object} ncaaSchedulesCache - The cache of NCAA schedules.
+ * @param {Array} teamsData - The current consolidated teams data.
+ * @param {Array<number>} yearsToScrape - The years being processed.
+ * @returns {Array} An array of potential binding objects.
+ */
+const deducePotentialBindings = (espnGames, ncaaSchedulesCache, teamsData, yearsToScrape) => {
+    const potentialBindingsMap = new Map();
+    const seenBindings = new Set();
+
+    const allNcaaGames = Object.values(ncaaSchedulesCache).flatMap(teamCache =>
+        (teamCache.games || []).filter(game => yearsToScrape.includes(game.season))
+    );
+
+    espnGames.forEach(espnGame => {
+        if (!espnGame.date_time || espnGame.reference_id) return; // Skip if already matched
+
+        const homeTeam = teamsData.find(t => t.espn_id === espnGame.home_espn_id);
+        const awayTeam = teamsData.find(t => t.espn_id === espnGame.away_espn_id);
+
+        const isHomeUnbound = !homeTeam && !!awayTeam?.reference_id;
+        const isAwayUnbound = !awayTeam && !!homeTeam?.reference_id;
+
+        if (!isHomeUnbound && !isAwayUnbound) return;
+
+        const boundTeam = isHomeUnbound ? awayTeam : homeTeam;
+        const unboundEspnId = isHomeUnbound ? espnGame.home_espn_id : espnGame.away_espn_id;
+        const espnDate = new Date(espnGame.date_time);
+
+        const matchingNcaaGames = allNcaaGames.filter(ncaaGame => {
+            const ncaaDate = _parseNcaaDate(ncaaGame.date);
+            if (!ncaaDate) return false;
+            const involvesBoundTeam = ncaaGame.home_team_ncaa_id === boundTeam.reference_id || ncaaGame.opponent_ncaa_id === boundTeam.reference_id;
+            if (!involvesBoundTeam) return false;
+            const daysDiff = Math.abs((espnDate - ncaaDate) / (1000 * 60 * 60 * 24));
+            return daysDiff < 2.5;
+        });
+
+        matchingNcaaGames.forEach(ncaaGame => {
+            const opponentNcaaId = ncaaGame.home_team_ncaa_id === boundTeam.reference_id
+                ? ncaaGame.opponent_ncaa_id
+                : ncaaGame.home_team_ncaa_id;
+
+            if (!opponentNcaaId) return;
+
+            const bindingKey = `${unboundEspnId}-${opponentNcaaId}`;
+            
+            // Aggregate evidence for this potential binding
+            const existingBinding = potentialBindingsMap.get(bindingKey) || {
+                espn_id: unboundEspnId,
+                ncaa_id: opponentNcaaId,
+                evidence_games: [],
+                confidence: 0,
+                bound_team_name: boundTeam.short_name,
+                espn_game_title: espnGame.title
+            };
+
+            existingBinding.evidence_games.push({ espn_game_id: espnGame.espn_id, ncaa_game_id: ncaaGame.ncaa_game_id });
+            existingBinding.confidence = existingBinding.evidence_games.length;
+
+            const existingTeamWithNcaaId = teamsData.find(team => team.reference_id === opponentNcaaId);
+            existingBinding.already_bound = !!existingTeamWithNcaaId;
+            existingBinding.existing_espn_id = existingTeamWithNcaaId?.espn_id || null;
+
+            potentialBindingsMap.set(bindingKey, existingBinding);
+        });
+    });
+
+    return Array.from(potentialBindingsMap.values());
+};
+
+/**
+ * Saves reports of unmatched games and potential new team bindings.
+ * @param {Array} matchedGames - The final array of processed games.
+ * @param {Object} ncaaSchedulesCache - The cache of NCAA schedules.
+ * @param {Array} teamsData - The current consolidated teams data.
+ * @param {Array} potentialBindings - Deduced potential bindings.
+ * @param {boolean} verbose - Whether to log progress.
+ */
+const _saveUnmatchedReports = (matchedGames, ncaaSchedulesCache, teamsData, potentialBindings, yearsToScrape, verbose) => {
+    try {
+        if (!fs.existsSync('output')) fs.mkdirSync('output', { recursive: true });
+        if (!fs.existsSync('output/csv')) fs.mkdirSync('output/csv', { recursive: true });
+
+        const now = new Date();
+        const unmatchedEspnGames = matchedGames
+            .filter(game => new Date(game.date_time) < now && !game.reference_id)
+            .map(game => ({
+                espn_id: game.espn_id,
+                date_time: game.date_time,
+                title: game.title,
+                home_espn_id: game.home_espn_id,
+                away_espn_id: game.away_espn_id,
+                home_team: teamsData.find(t => t.espn_id === game.home_espn_id)?.short_name || 'Unknown',
+                away_team: teamsData.find(t => t.espn_id === game.away_espn_id)?.short_name || 'Unknown',
+            }));
+
+        const allMatchedNcaaIds = new Set(matchedGames.map(g => g.reference_id).filter(Boolean));
+        const uniqueNcaaGames = Object.values(Object.values(ncaaSchedulesCache).flatMap(c => (c.games || []).filter(g => yearsToScrape.includes(g.season))).reduce((acc, game) => {
+            if (game.ncaa_game_id) acc[game.ncaa_game_id] = game;
+            return acc;
+        }, {}));
+
+        const unmatchedNcaaGames = uniqueNcaaGames
+            .filter(game => !allMatchedNcaaIds.has(game.ncaa_game_id))
+            .map(game => ({
+                ncaa_game_id: game.ncaa_game_id,
+                date: game.date,
+                home_team_ncaa_id: game.home_team_ncaa_id,
+                opponent_name: game.opponent_name,
+                opponent_ncaa_id: game.opponent_ncaa_id,
+            }));
+
+        fs.writeFileSync('output/unmatched-espn-football-games.json', JSON.stringify(unmatchedEspnGames, null, 2));
+        fs.writeFileSync('output/unmatched-ncaa-football-games.json', JSON.stringify(unmatchedNcaaGames, null, 2));
+        verbose && console.log(`\u001b[90mSaved ${unmatchedEspnGames.length} unmatched ESPN games and ${unmatchedNcaaGames.length} unmatched NCAA games.\u001b[0m`);
+
+        if (potentialBindings.length > 0) {
+            const csvHeader = 'espn_id,ncaa_id,sport,espn_game_title,bound_team_name,confidence,already_bound,existing_espn_id';
+            const csvRows = potentialBindings.map(b => `${b.espn_id},${b.ncaa_id},football,"${b.espn_game_title}","${b.bound_team_name}",${b.confidence},${b.already_bound},${b.existing_espn_id || ''}`);
+            fs.writeFileSync('output/csv/new-potential-binds.csv', [csvHeader, ...csvRows].join('\n'), 'utf8');
+            verbose && console.log(`\u001b[32mGenerated ${potentialBindings.length} potential bindings in output/csv/new-potential-binds.csv\u001b[0m`);
+        }
+    } catch (error) {
+        verbose && console.log(`\u001b[33mWarning: Failed to save reports: ${error.message}\u001b[0m`);
+    }
+};
+
+/**
+ * Generates a unique game ID using ESPN ID and game title.
+ * @param {string} espnId - The ESPN game ID.
+ * @param {string} shortTitle - The short title of the game.
+ * @returns {string} An 8-character unique identifier.
+ */
+const generateGameId = (espnId, shortTitle) => {
+    if (!espnId) return null;
+    const input = `CF${espnId}-${shortTitle || ''}`;
+    return crypto.createHash('md5').update(input).digest('hex').substring(0, 8).toUpperCase();
+};
+
+/**
+ * Match ESPN games with NCAA games for a specific team
+ * @param {Array} espnGames - ESPN games for the team
+ * @param {Array} ncaaGames - NCAA games for the team  
+ * @param {Object} team - Team data object
+ * @param {boolean} verbose - Whether to log progress
+ * @param {ProgressBar} [progressBar] - Optional progress bar to update
+ * @returns {Array} ESPN games with NCAA references added where matches found
+ */
+const _matchTeamGames = (espnGames, ncaaGames, team, verbose, progressBar = null) => {
+    if (!espnGames.length || !ncaaGames.length) {
+        if (progressBar) {
+            progressBar.tick(1, {
+                task: 'Team-by-Team Matching',
+                status: `${team?.short_name || 'Unknown'} - no data`,
+                success: progressBar.curr,
+                errors: 0
+            });
+        }
+        return espnGames;
+    }
+    
+    const teamName = team?.short_name || `Team ${team?.id}`;
+    let matchCount = 0;
+    const matchedNcaaGameIds = new Set();
+    
+    // Simple approach: match by same internal team ID + same date
+    // Create a date-based lookup for NCAA games (YYYY-MM-DD format)
+    const ncaaGamesByDate = new Map();
+    ncaaGames.forEach(ncaaGame => {
+        if (!ncaaGame.ncaa_game_id || ncaaGame.internal_team_id !== team.id) return;
+        
+        const ncaaDate = _parseNcaaDate(ncaaGame.date);
+        if (!ncaaDate) return;
+        
+        const dateKey = ncaaDate.toISOString().split('T')[0]; // YYYY-MM-DD
+        if (!ncaaGamesByDate.has(dateKey)) {
+            ncaaGamesByDate.set(dateKey, []);
+        }
+        ncaaGamesByDate.get(dateKey).push(ncaaGame);
+    });
+    
+    espnGames.forEach(espnGame => {
+        if (espnGame.reference_id || espnGame.internal_team_id !== team.id) return; // Already matched or wrong team
+        
+        const espnDate = new Date(espnGame.date_time);
+        if (isNaN(espnDate.getTime())) return;
+        
+        const espnDateKey = espnDate.toISOString().split('T')[0]; // YYYY-MM-DD
+        
+        // Look for NCAA games with same internal team ID on the same date
+        const sameDayNcaaGames = ncaaGamesByDate.get(espnDateKey);
+        if (sameDayNcaaGames && sameDayNcaaGames.length > 0) {
+            // Find first available NCAA game on same day with same internal team ID
+            const availableGame = sameDayNcaaGames.find(ncaaGame => 
+                !matchedNcaaGameIds.has(ncaaGame.ncaa_game_id) && 
+                ncaaGame.internal_team_id === team.id
+            );
+            
+            if (availableGame) {
+                // Automatic match - same internal team ID, same date
+                espnGame.reference_id = availableGame.ncaa_game_id;
+                matchedNcaaGameIds.add(availableGame.ncaa_game_id);
+                matchCount++;
             }
         }
     });
     
-    if (verbose) {
-        console.log(`\u001b[36mMatched ${matchCount} games with NCAA data out of ${completedEspnGames.length} completed games\u001b[0m`);
-        if (skippedDuplicateMatches > 0) {
-            console.log(`\u001b[33mPrevented ${skippedDuplicateMatches} duplicate NCAA game ID matches (enforcing 1:1 mapping)\u001b[0m`);
-        }
+    if (progressBar) {
+        progressBar.tick(1, {
+            task: 'Team-by-Team Matching',
+            status: `${teamName} - ${matchCount}/${espnGames.length} matched`,
+            success: progressBar.curr,
+            errors: 0
+        });
     }
+    
     return espnGames;
 };
 
 /**
  * College Football Games
- *
- * Retrieves college football game data from ESPN's API for each team. The combined data
- * is processed into a structured array and saved to a JSON file. Each team's data has
- * individual TTL based on their most recent game time.
- *
+ * Retrieves and processes college football game data from ESPN and NCAA sources.
  * @param {boolean} verbose - Whether to print progress messages (default: true)
  * @param {boolean} save - Whether to save data to data/processed folder
- * 
- * @returns {Array} Array containing game information:
- *  * id [string] - A generated unique identifier for each game
- *  * espn_id [string] - ESPN-assigned game ID
- *  * type [string] - Sport type code ("CFB" for college football)
- *  * date_time [string] - ISO date and time of the game
- *  * season [number] - Season year
- *  * title [string] - Full title of the game
- *  * short_title [string] - Shortened title of the game
- *  * venue [string] - Venue where the game is played
- *  * home_espn_id [string] - ESPN ID for the home team
- *  * away_espn_id [string] - ESPN ID for the away team
- *  * home_score [number] - Home team score (null if not completed)
- *  * away_score [number] - Away team score (null if not completed)
- *  * winner [string] - ESPN ID of the winning team (null if tie/not completed)
- *  * play_by_play [string] - URL for play-by-play data
+ * @returns {Array} Array containing processed game information.
  */
 async function get_formatted_games(verbose = true, save = true) {
-    // Get current year and create year range: current year - 1 through current year - 2
+    const YEAR_COUNT = 3;
     const currentYear = new Date().getFullYear();
-    const yearsToScrape = [currentYear, currentYear - 1, currentYear - 2];
-    // Load teams data using the existing function with caching
-    const teamsData = await get_formated_teams(verbose, save);
+    const yearsToScrape = Array.from({ length: YEAR_COUNT }, (_, i) => currentYear - i);
+
+    // --- Initialize caches and data ---
+    const espnCache = cacheManager.get("football_college_espn_schedules", BASE_CACHE_TTL) || { data: {} };
+    const ncaaCache = cacheManager.get("football_college_ncaa_schedules", BASE_CACHE_TTL) || { data: {} };
+    let initialTeamsData = await get_formated_teams(verbose, save);
+    
     // Get unique ESPN IDs from teams data
     const uniqueEspnIds = [...new Set(
-        teamsData
+        initialTeamsData
             .filter(team => team.espn_id)
             .map(team => team.espn_id)
     )];
-    // Load all cached schedules
-    const cacheWrapper = cacheManager.get("football_college_espn_schedules", BASE_CACHE_TTL);
-    let allSchedulesCache = (cacheWrapper && cacheWrapper.data) ? cacheWrapper.data : {};
-    const allGames = [];
     
-    // Log ESPN cache status
-    if (cacheWrapper && cacheWrapper.savedAt && verbose) {
-        const savedDate = new Date(cacheWrapper.savedAt);
-        console.log(`\u001b[36mUsing cached ESPN schedules data (from ${savedDate.toLocaleDateString('en-US', { month: 'numeric', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true })})\u001b[0m`);
-    }
+    // Get cache date for progress bar display
+    const espnCacheDate = espnCache.savedAt ? new Date(espnCache.savedAt).toLocaleDateString('en-US', { month: 'numeric', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true }) : null;
     
     // Count cached vs new ESPN teams
     let espnCachedCount = 0;
     let espnNewCount = 0;
-
     
     for (const espnId of uniqueEspnIds) {
-        const teamData = allSchedulesCache[espnId];
+        const teamData = espnCache.data[espnId];
         const cacheStatus = _isTeamCacheValid(teamData, yearsToScrape);
         if (cacheStatus.isValid) espnCachedCount++;
         else espnNewCount++;
@@ -618,544 +789,400 @@ async function get_formatted_games(verbose = true, save = true) {
         console.log(`\u001b[36mUsing cached ESPN data: ${espnCachedCount} teams, downloading new data: ${espnNewCount} teams\u001b[0m`);
     }
     
+    // --- Collect all ESPN data with unified cache analysis and loading ---
+    let allEspnGames = [];
     
-    // Process each ESPN ID with individual caching
+    // Create unified progress bar for ESPN processing (cache check + load/download)
+    let espnProgress = null;
+    if (verbose && uniqueEspnIds.length > 0) {
+        const taskName = espnNewCount > 0 ? 'ESPN Data Download' : (espnCacheDate ? `ESPN Data (cached ${espnCacheDate})` : 'ESPN Data (cached)');
+        espnProgress = new ProgressBar('\u001b[36m:task\u001b[0m [\u001b[32m:bar\u001b[0m] \u001b[33m:percent\u001b[0m :current/:total \u001b[90m:status\u001b[0m', {
+            total: uniqueEspnIds.length,
+            width: 40,
+            complete: '=',
+            incomplete: '-',
+            renderThrottle: 100,
+            clear: false,
+            task: taskName
+        });
+    }
+    
+    // Process each ESPN ID with unified progress (cache analysis + loading)
     for (let i = 0; i < uniqueEspnIds.length; i++) {
         const espnId = uniqueEspnIds[i];
-        const team = teamsData.find(t => t.espn_id === espnId);
+        const team = initialTeamsData.find(t => t.espn_id === espnId);
+        const teamName = team?.short_name || `Team ${espnId}`;
         
-        const teamGames = await _processEspnTeamGames(
-            espnId, 
-            team, 
-            yearsToScrape, 
-            allSchedulesCache, 
-            verbose
-        );
+        // Check cache status and process accordingly
+        const teamData = espnCache.data[espnId];
+        const cacheStatus = _isTeamCacheValid(teamData, yearsToScrape);
         
-        allGames.push(...teamGames);
+        let teamGames;
+        if (cacheStatus.isValid) {
+            // Load from cache - cache is keyed by espn_id, add internal team ID
+            teamGames = teamData.games
+                .filter(game => yearsToScrape.includes(game.season))
+                .map(game => ({ ...game, internal_team_id: team.id }));
+            if (espnProgress) {
+                espnProgress.tick(1, { 
+                    task: espnCacheDate ? `ESPN Data (cached ${espnCacheDate})` : 'ESPN Data (cached)',
+                    status: `${teamName}`
+                });
+            }
+        } else {
+            // Download new data and add internal team ID
+            teamGames = await _processEspnTeamGames(
+                espnId, 
+                team, 
+                yearsToScrape, 
+                espnCache.data, 
+                false, // suppress verbose for individual teams
+                espnProgress,
+                null // no cache date for downloads
+            );
+            // Add internal team ID to downloaded games
+            teamGames = teamGames.map(game => ({ ...game, internal_team_id: team.id }));
+        }
+        allEspnGames.push(...teamGames);
     }
-    // Save updated cache once at the end
-    cacheManager.set("football_college_espn_schedules", allSchedulesCache);
-
     
-    // Now process NCAA schedules for additional game data
+    if (espnProgress) espnProgress.terminate();
+    // Save updated cache once at the end
+    cacheManager.set("football_college_espn_schedules", espnCache.data);
+    
+    // Get teams that have both ESPN and NCAA IDs - these can be matched
+    const matchableTeams = initialTeamsData.filter(team => team.espn_id && team.reference_id);
+    const espnOnlyTeams = initialTeamsData.filter(team => team.espn_id && !team.reference_id);
+    
+    // --- Process NCAA schedules for additional game data ---
     // Get unique NCAA IDs for schedule scraping
     const uniqueNcaaIds = [...new Set(
-        teamsData
-            .filter(team => team.ncaa_id)
-            .map(team => team.ncaa_id)
+        initialTeamsData
+            .filter(team => team.reference_id)
+            .map(team => team.reference_id)
     )];
     
-    // Load NCAA schedules cache
-    const ncaaWrapper = cacheManager.get("football_college_ncaa_schedules", BASE_CACHE_TTL);
-    let ncaaSchedulesCache = (ncaaWrapper && ncaaWrapper.data) ? ncaaWrapper.data : {};
-    
-    // Log NCAA cache status
-    if (ncaaWrapper && ncaaWrapper.savedAt && verbose) {
-        const savedDate = new Date(ncaaWrapper.savedAt);
-        console.log(`\u001b[36mUsing cached NCAA schedules data (from ${savedDate.toLocaleDateString('en-US', { month: 'numeric', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true })})\u001b[0m`);
-    }
-    
-    // Count cached vs new NCAA teams
+    // Count cached vs new NCAA teams with progress indication
     let ncaaCachedCount = 0;
     let ncaaNewCount = 0;
     
+    // Create progress bar for cache analysis
+    let cacheAnalysisProgress = null;
+    if (verbose && uniqueNcaaIds.length > 0) {
+        // Move cursor up one line to remove empty space
+        process.stdout.write('\u001b[1A');
+        cacheAnalysisProgress = new ProgressBar('\u001b[36m:task\u001b[0m [\u001b[32m:bar\u001b[0m] \u001b[33m:percent\u001b[0m :current/:total \u001b[90m:status\u001b[0m', {
+            total: uniqueNcaaIds.length,
+            width: 40,
+            complete: '=',
+            incomplete: '-',
+            renderThrottle: 100,
+            clear: false,
+            task: 'NCAA Cache Analysis'
+        });
+    }
+    
+    // Analyze cache status for each team
     for (const ncaaId of uniqueNcaaIds) {
-        const teamNcaaData = ncaaSchedulesCache[ncaaId];
+        const teamNcaaData = getCacheEntryByCanonicalId(ncaaCache.data, ncaaId, 'football');
         const cacheStatus = _isTeamCacheValid(teamNcaaData, yearsToScrape);
-        if (cacheStatus.isValid) ncaaCachedCount++;
-        else ncaaNewCount++;
-    }
-    
-    // Initialize browsers for NCAA scraping only if needed
-    let browsers = [];
-    let pages = [];
-    if (ncaaNewCount > 0) {
-        try {
-            // Create only as many browsers as needed (max 3)
-            const browserCount = Math.min(ncaaNewCount, 3);
-            const browserPromises = [];
-            for (let i = 0; i < browserCount; i++) {
-                browserPromises.push(puppeteer.launch({ headless: true }));
-            }
-            browsers = await Promise.all(browserPromises);
-            
-            // Set up pages with proper headers and configuration
-            for (let i = 0; i < browsers.length; i++) {
-                const page = await browsers[i].newPage();
-                const browserConfig = getBrowserConfigWithHeaders({
-                    'Referer': 'https://stats.ncaa.org/',
-                    'Sec-Fetch-Dest': 'document',
-                    'Sec-Fetch-Mode': 'navigate',
-                    'Sec-Fetch-Site': 'same-origin',
-                    'Sec-GPC': '1',
-                });
-                await page.setUserAgent(browserConfig.userAgent);
-                await page.setViewport({ width: 1920, height: 1080 });
-                await page.setExtraHTTPHeaders(browserConfig.headers);
-                pages.push(page);
-            }
-            
-            // Establish sessions for all browsers
-            for (let i = 0; i < pages.length; i++) {
-                try {
-                    if (verbose) console.log(`${BROWSER_COLORS[i]}Browser ${i + 1} establishing NCAA session...\u001b[0m`);
-                    await pages[i].goto('https://stats.ncaa.org/', { waitUntil: 'networkidle2' });
-                } catch (error) {
-                    if (verbose) console.log(`\u001b[31mFailed to establish session for browser ${i + 1}: ${error.message}\u001b[0m`);
-                }
-            }
-        } catch (error) {
-            if (verbose) console.log(`\u001b[31mFailed to initialize browsers: ${error.message}\u001b[0m`);
-        }
-    }
-    
-    // Process NCAA schedules with concurrent browsers
-    if (verbose && ncaaNewCount > 0) {
-        console.log(`\u001b[32mProcessing NCAA schedules for ${uniqueNcaaIds.length} teams...\u001b[0m`);
-        console.log(`\u001b[36mUsing cached NCAA data: ${ncaaCachedCount} teams, downloading new data: ${ncaaNewCount} teams\u001b[0m`);
-    }
-    
-    for (let i = 0; i < uniqueNcaaIds.length; i++) {
-        const ncaaId = uniqueNcaaIds[i];
-        const team = teamsData.find(t => t.ncaa_id === ncaaId);
-        const teamName = team ? team.short_name : `NCAA ${ncaaId}`;
-        
-        // Check if this team's NCAA data is cached and valid
-        const teamNcaaData = ncaaSchedulesCache[ncaaId];
-        const cacheStatus = _isTeamCacheValid(teamNcaaData, yearsToScrape);
+        const team = initialTeamsData.find(t => t.reference_id === ncaaId);
+        const teamName = team?.short_name || `NCAA ${ncaaId}`;
         
         if (cacheStatus.isValid) {
-            // Filter cached games to only include years we're processing
-            teamNcaaData.games = teamNcaaData.games.filter(game => yearsToScrape.includes(game.season));
-            // Using cached data silently
-        } else if (pages.length > 0) {
-            // Use round-robin browser assignment
-            const pageIndex = i % pages.length;
-            const page = pages[pageIndex];
-            const browserColor = BROWSER_COLORS[pageIndex];
-            
-            // Determine which years to scrape
-            const yearsToFetch = cacheStatus.missingYears.length > 0 ? cacheStatus.missingYears : yearsToScrape;
-            
-            if (cacheStatus.needsCurrentYearOnly) {
-                const currentYear = Math.max(...yearsToScrape);
-                if (verbose) console.log(`${browserColor}Updating current year (${currentYear}) NCAA schedule for ${teamName} (NCAA ID: ${ncaaId})...\u001b[0m`);
-            } else if (cacheStatus.missingYears.length > 0 && cacheStatus.missingYears.length < yearsToScrape.length) {
-                if (verbose) console.log(`${browserColor}Downloading missing years [${cacheStatus.missingYears.join(', ')}] NCAA schedule for ${teamName} (NCAA ID: ${ncaaId})...\u001b[0m`);
-            } else {
-                if (verbose) console.log(`${browserColor}Scraping NCAA schedule for ${teamName} (NCAA ID: ${ncaaId})...\u001b[0m`);
-            }
-            
-            try {
-                const ncaaGames = await _scrapeNcaaTeamSchedule(ncaaId, yearsToFetch, page, verbose, pageIndex);
-                
-                // Start with existing games if available and not doing a full refresh
-                let allGames = [];
-                if (teamNcaaData && teamNcaaData.games && cacheStatus.missingYears.length > 0) {
-                    // Keep existing games from years we're not re-downloading, filtered to configured years
-                    allGames = teamNcaaData.games.filter(game => yearsToScrape.includes(game.season) && !yearsToFetch.includes(game.season));
-                    // Add newly scraped games
-                    allGames.push(...ncaaGames);
-                } else {
-                    // Full refresh or no existing data
-                    allGames = ncaaGames;
-                }
-                
-                const gamesWithDateTime = allGames.map(g => {
-                    if (!g.date) return { date_time: null };
-                    try {
-                        return { date_time: new Date(g.date).toISOString() };
-                    } catch (error) {
-                        return { date_time: null };
-                    }
+            ncaaCachedCount++;
+            if (cacheAnalysisProgress) {
+                cacheAnalysisProgress.tick(1, {
+                    task: 'NCAA Cache Analysis',
+                    status: `${teamName}`
                 });
-                const expiresAt = _calculateExpirationTime(gamesWithDateTime);
-                ncaaSchedulesCache[ncaaId] = {
-                    games: allGames,
-                    savedAt: Date.now(),
-                    expiresAt: expiresAt
-                };
-                // Save NCAA cache immediately after each team to prevent data loss
-                cacheManager.set("football_college_ncaa_schedules", ncaaSchedulesCache);
-                // Delay between requests
-                await new Promise(resolve => setTimeout(resolve, 1000));
-            } catch (error) {
-                // Check if the error is due to detached frame
-                if (error.message.includes('detached') || error.message.includes('Navigating frame was detached')) {
-                    if (verbose) console.log(`${browserColor}Browser frame detached for ${teamName}, recreating browser instance...\u001b[0m`);
-                    
-                    try {
-                        // Close the current browser and create a new one
-                        await browsers[pageIndex].close();
-                        browsers[pageIndex] = await puppeteer.launch({ headless: true });
-                        pages[pageIndex] = await browsers[pageIndex].newPage();
-                        await getBrowserConfigWithHeaders(pages[pageIndex]);
-                        
-                        // Retry the scraping with the new browser instance
-                        const ncaaGames = await _scrapeNcaaTeamSchedule(ncaaId, yearsToScrape, pages[pageIndex], verbose, pageIndex);
-                        
-                        const gamesWithDateTime = ncaaGames.map(g => {
-                            if (!g.date) return { date_time: null };
-                            try {
-                                return { date_time: new Date(g.date).toISOString() };
-                            } catch (error) {
-                                return { date_time: null };
-                            }
-                        });
-                        const expiresAt = _calculateExpirationTime(gamesWithDateTime);
-                        ncaaSchedulesCache[ncaaId] = {
-                            games: ncaaGames,
-                            savedAt: Date.now(),
-                            expiresAt: expiresAt
-                        };
-                        // Save NCAA cache immediately after each team to prevent data loss
-                        cacheManager.set("football_college_ncaa_schedules", ncaaSchedulesCache);
-                        // Delay between requests
-                        await new Promise(resolve => setTimeout(resolve, 1000));
-                        
-                        if (verbose) console.log(`${browserColor}Successfully recovered from browser detachment for ${teamName}\u001b[0m`);
-                    } catch (retryError) {
-                        if (verbose) console.log(`\u001b[33mWarning: Failed to recover from browser detachment for ${teamName}: ${retryError.message}\u001b[0m`);
-                    }
-                } else {
-                    if (verbose) console.log(`\u001b[33mWarning: Failed to scrape NCAA schedule for ${teamName}: ${error.message}\u001b[0m`);
-                }
+            }
+        } else {
+            ncaaNewCount++;
+            if (cacheAnalysisProgress) {
+                cacheAnalysisProgress.tick(1, {
+                    task: 'NCAA Cache Analysis',
+                    status: `${teamName} (needs update)`
+                });
             }
         }
     }
     
-    // Save NCAA schedules cache once at the end
-    cacheManager.set("football_college_ncaa_schedules", ncaaSchedulesCache);
+    if (cacheAnalysisProgress) cacheAnalysisProgress.terminate();
     
-    // Remove duplicates by espn_id since we get the same game from both teams' schedules
-    const games = _deduplicateGames(allGames);
-
-
-    // Apply matching
-    const matchedGames = await _matchEspnWithNcaaGames(games, ncaaSchedulesCache, teamsData, yearsToScrape, verbose);
+    let browsers = [], pages = [];
     
-    /**
-     * Deduce potential ESPN->NCAA bindings from partially matched games
-     * Analyzes games where one team is bound (known) and attempts to find
-     * the corresponding NCAA team for the unbound ESPN team
-     */
-    const deducePotentialBindings = (espnGames, ncaaSchedulesCache, teamsData) => {
-        const potentialBindings = [];
-        const seenBindings = new Set();
+    // Initialize browsers for NCAA scraping if needed
+    if (ncaaNewCount > 0) {
+        const browserCount = Math.min(ncaaNewCount, 3);
         
-        // Flatten all NCAA games for analysis
-        const allNcaaGames = [];
-        Object.values(ncaaSchedulesCache).forEach(teamCache => {
-            if (teamCache.games && Array.isArray(teamCache.games)) {
-                const filteredGames = teamCache.games.filter(game => yearsToScrape.includes(game.season));
-                allNcaaGames.push(...filteredGames);
-            }
-        });
-        
-        // Find ESPN games with exactly one unbound team
-        espnGames.forEach(espnGame => {
-            if (!espnGame.date_time) return;
-            
-            const homeTeam = teamsData.find(t => t.espn_id === espnGame.home_espn_id);
-            const awayTeam = teamsData.find(t => t.espn_id === espnGame.away_espn_id);
-            
-            let unboundEspnId = null;
-            let boundNcaaId = null;
-            let unboundIsHome = false;
-            
-            // Check if exactly one team is unbound
-            if (!homeTeam && awayTeam && awayTeam.ncaa_id) {
-                unboundEspnId = espnGame.home_espn_id;
-                boundNcaaId = awayTeam.ncaa_id;
-                unboundIsHome = true;
-            } else if (!awayTeam && homeTeam && homeTeam.ncaa_id) {
-                unboundEspnId = espnGame.away_espn_id;
-                boundNcaaId = homeTeam.ncaa_id;
-                unboundIsHome = false;
+        try {
+            // Progress bar for browser initialization
+            let browserProgress = null;
+            if (verbose && browserCount > 1) {
+                browserProgress = new ProgressBar('\u001b[36m:task\u001b[0m [\u001b[32m:bar\u001b[0m] \u001b[33m:percent\u001b[0m :current/:total browsers \u001b[90m(:elapseds)\u001b[0m', {
+                    total: browserCount,
+                    width: 40,
+                    complete: '=',
+                    incomplete: '-',
+                    renderThrottle: 100,
+                    clear: false,
+                    task: 'Browser Setup'
+                });
             }
             
-            if (!unboundEspnId || !boundNcaaId) return;
-            
-            // Parse ESPN game date
-            const espnDate = new Date(espnGame.date_time);
-            if (isNaN(espnDate.getTime())) return;
-            
-            // Find matching NCAA games for the bound team
-            const matchingNcaaGames = allNcaaGames.filter(ncaaGame => {
-                if (!ncaaGame.date) return false;
-                
-                // Check if this NCAA game involves the bound team
-                const involvesBoundTeam = 
-                    ncaaGame.home_team_ncaa_id === boundNcaaId || 
-                    ncaaGame.opponent_ncaa_id === boundNcaaId;
-                
-                if (!involvesBoundTeam) return false;
-                
-                // Parse NCAA date
-                let ncaaDate;
+            browsers = [];
+            for (let i = 0; i < browserCount; i++) {
                 try {
-                    if (ncaaGame.date.includes('/')) {
-                        const [month, day, year] = ncaaGame.date.split('/').map(Number);
-                        ncaaDate = new Date(year, month - 1, day);
-                    } else {
-                        ncaaDate = new Date(ncaaGame.date);
+                    const browser = await puppeteer.launch({ headless: true });
+                    browsers.push(browser);
+                    
+                    if (browserProgress) {
+                        browserProgress.tick(1, {
+                            task: 'Browser Setup',
+                            status: `Browser ${i + 1} launched`
+                        });
                     }
                 } catch (error) {
-                    return false;
+                    if (verbose) console.log(`\u001b[31mFailed to launch browser ${i + 1}: ${error.message}\u001b[0m`);
                 }
-                
-                if (isNaN(ncaaDate.getTime())) return false;
-                
-                // Check date proximity (within 2 days)
-                const daysDiff = Math.abs((espnDate - ncaaDate) / (1000 * 60 * 60 * 24));
-                return daysDiff < 2.5;
-            });
+            }
             
-            // For each matching NCAA game, identify the opponent NCAA ID
-            matchingNcaaGames.forEach(ncaaGame => {
-                let opponentNcaaId = null;
-                
-                if (ncaaGame.home_team_ncaa_id === boundNcaaId) {
-                    opponentNcaaId = ncaaGame.opponent_ncaa_id;
-                } else if (ncaaGame.opponent_ncaa_id === boundNcaaId) {
-                    opponentNcaaId = ncaaGame.home_team_ncaa_id;
-                }
-                
-                if (!opponentNcaaId) return;
-                
-                // Check if this NCAA ID is already bound to a different ESPN team
-                const existingTeamWithNcaaId = teamsData.find(team => team.ncaa_id === opponentNcaaId);
-                const isAlreadyBound = existingTeamWithNcaaId ? true : false;
-                const existingEspnId = existingTeamWithNcaaId ? existingTeamWithNcaaId.espn_id : null;
-                
-                // Create unique key to avoid duplicates
-                const bindingKey = `${unboundEspnId}-${opponentNcaaId}`;
-                if (seenBindings.has(bindingKey)) return;
-                seenBindings.add(bindingKey);
-                
-                // Find NCAA team details
-                const ncaaTeam = Object.values(ncaaSchedulesCache).find(teamCache => 
-                    teamCache.games && teamCache.games.some(g => 
-                        g.home_team_ncaa_id === opponentNcaaId || 
-                        g.opponent_ncaa_id === opponentNcaaId
-                    )
-                );
-                
-                const ncaaGameWithTeam = ncaaTeam?.games?.find(g => 
-                    g.home_team_ncaa_id === opponentNcaaId || g.opponent_ncaa_id === opponentNcaaId
-                );
-                
-                let ncaaTeamName = 'Unknown NCAA Team';
-                if (ncaaGameWithTeam) {
-                    if (ncaaGameWithTeam.home_team_ncaa_id === opponentNcaaId) {
-                        ncaaTeamName = ncaaGameWithTeam.home_team || 'Unknown NCAA Team';
-                    } else if (ncaaGameWithTeam.opponent_team) {
-                        // Extract team name from opponent field, removing @ prefix
-                        ncaaTeamName = ncaaGameWithTeam.opponent_team.replace(/^@\s*/, '');
-                    }
-                }
-                
-                potentialBindings.push({
-                    espn_id: unboundEspnId,
-                    ncaa_id: opponentNcaaId,
-                    espn_game_id: espnGame.espn_id,
-                    espn_game_date: espnGame.date_time,
-                    espn_game_title: espnGame.title,
-                    ncaa_game_id: ncaaGame.ncaa_game_id,
-                    ncaa_game_date: ncaaGame.date,
-                    ncaa_team_name: ncaaTeamName,
-                    bound_team_name: unboundIsHome ? 
-                        (awayTeam?.displayName || awayTeam?.name || 'Unknown') : 
-                        (homeTeam?.displayName || homeTeam?.name || 'Unknown'),
-                    confidence: 'medium',
-                    already_bound: isAlreadyBound,
-                    existing_espn_id: existingEspnId
+            if (browserProgress) browserProgress.terminate();
+            
+            // Progress bar for page setup
+            let pageProgress = null;
+            if (verbose && browsers.length > 1) {
+                process.stdout.write('\u001b[1A');
+                pageProgress = new ProgressBar('\u001b[36m:task\u001b[0m [\u001b[32m:bar\u001b[0m] \u001b[33m:percent\u001b[0m :current/:total \u001b[90m:status\u001b[0m', {
+                    total: browsers.length,
+                    width: 40,
+                    complete: '=',
+                    incomplete: '-',
+                    renderThrottle: 100,
+                    clear: false,
+                    task: 'Page Configuration'
                 });
-            });
+            }
+
+            pages = [];
+            for (let i = 0; i < browsers.length; i++) {
+                try {
+                    const browser = browsers[i];
+                    const page = await browser.newPage();
+
+                    const browserConfig = getBrowserConfigWithHeaders({
+                        'Referer': 'https://stats.ncaa.org/',
+                        'Sec-Fetch-Dest': 'document',
+                        'Sec-Fetch-Mode': 'navigate',
+                        'Sec-Fetch-Site': 'same-origin',
+                        'Sec-GPC': '1',
+                    });
+
+                    await page.setUserAgent(browserConfig.userAgent);
+                    await page.setViewport({ width: 1920, height: 1080 });
+                    await page.setExtraHTTPHeaders(browserConfig.headers);
+                    await page.goto('https://stats.ncaa.org/', { waitUntil: 'networkidle2' });
+                    pages.push(page);
+                    
+                    if (pageProgress) {
+                        pageProgress.tick(1, {
+                            task: 'Page Configuration',
+                            status: `Page ${i + 1} configured`,
+                            success: i + 1,
+                            errors: 0
+                        });
+                    }
+                } catch (error) {
+                    if (verbose) console.log(`\u001b[31mFailed to configure page ${i + 1}: ${error.message}\u001b[0m`);
+                }
+            }
+            
+            if (pageProgress) {
+                pageProgress.terminate();
+            }
+        } catch (error) {
+            verbose && console.log(`\u001b[31m--- BROWSER INITIALIZATION FAILED ---\u001b[0m`);
+            verbose && console.error(error);
+            verbose && console.log(`\u001b[31m-------------------------------------\u001b[0m`);
+            if (browsers.length) await Promise.allSettled(browsers.map(b => b.close()));
+            browsers = []; pages = [];
+        }
+    }
+    
+    // Process teams that need downloading (this may take time but is now accounted for above)
+    if (ncaaNewCount > 0) await _processNcaaSchedules(uniqueNcaaIds, initialTeamsData, ncaaCache.data, yearsToScrape, pages, verbose); 
+    let allGames = [...allEspnGames]; // Add all ESPN games to the collection
+    
+    // Deduplicate games BEFORE matching to avoid inflated team game counts
+    allGames = _deduplicateGames(allGames);
+    
+    // Create progress bar for matching process - starts immediately after processing
+    let matchProgress = null;
+    if (verbose && matchableTeams.length > 0) {
+        // Move cursor up one line to remove empty space
+        process.stdout.write('\u001b[1A');
+        matchProgress = new ProgressBar('\u001b[36m:task\u001b[0m [\u001b[32m:bar\u001b[0m] \u001b[33m:percent\u001b[0m :current/:total \u001b[90m:status\u001b[0m', {
+            total: matchableTeams.length,
+            width: 40,
+            complete: '=',
+            incomplete: '-',
+            renderThrottle: 100,
+            clear: false,
+            task: 'Team-by-Team Matching'
+        });
+    }
+    
+    if (matchableTeams.length > 0) {
+        let totalMatched = 0;
+        let processedCount = 0;
+        for (const team of matchableTeams) {
+            // Get ESPN games for this team (already tagged with internal_team_id)
+            const teamEspnGames = allGames.filter(game => game.internal_team_id === team.id);
+            // Get NCAA games from cache - cache is keyed by reference_id, add internal team ID
+            const teamCacheData = getCacheEntryByCanonicalId(ncaaCache.data, team.reference_id, 'football');
+            const ncaaGames = (teamCacheData?.games?.filter(game => yearsToScrape.includes(game.season)) || [])
+                .map(game => ({ ...game, internal_team_id: team.id }));
+            
+            // Match games within this team's context
+            const beforeMatchCount = teamEspnGames.filter(g => g.reference_id).length;
+            _matchTeamGames(teamEspnGames, ncaaGames, team, false, matchProgress); // Pass progress bar
+            const afterMatchCount = teamEspnGames.filter(g => g.reference_id).length;
+            const newMatches = afterMatchCount - beforeMatchCount;
+            totalMatched += newMatches;
+            processedCount++;
+        }
+        
+        if (matchProgress) {
+            matchProgress.terminate();
+        }
+    }
+
+    // --- Final processing: legacy matching for remaining unmatched games ---
+    const unmatchedGames = allGames.filter(g => !g.reference_id);
+    if (verbose && unmatchedGames.length > 0) {
+        // Move cursor up one line to remove empty space
+        process.stdout.write('\u001b[1A');
+        let finalProgress = new ProgressBar('\u001b[36m:task\u001b[0m [\u001b[32m:bar\u001b[0m] \u001b[33m:percent\u001b[0m :current/:total \u001b[90m:status\u001b[0m', {
+            total: 2,
+            width: 40,
+            complete: '=',
+            incomplete: '-',
+            renderThrottle: 100,
+            clear: false,
+            task: 'Final Processing'
         });
         
-        return potentialBindings;
-    };
-    
-    // Generate potential bindings
-    const potentialBindings = deducePotentialBindings(matchedGames, ncaaSchedulesCache, teamsData);
-    
-    // Research and add high-confidence potential bindings to the binding model
-    if (potentialBindings.length > 0) {
-        // Filter for high-confidence bindings that aren't already bound
-        const highConfidenceBindings = potentialBindings.filter(binding => !binding.already_bound)
+        finalProgress.tick(1, {
+            task: 'Final Processing',
+            status: `Deduplicating ${allGames.length} games`
+        });
         
-        if (highConfidenceBindings.length > 0 && verbose) {
-            console.log(`\u001b[36mFound ${highConfidenceBindings.length} high-confidence potential bindings to research...\u001b[0m`);
+        // Run legacy matching
+        allGames = await _matchEspnWithNcaaGames(allGames, ncaaCache.data, initialTeamsData, yearsToScrape, false); // suppress verbose
+        
+        const finalMatchedCount = allGames.filter(g => g.reference_id).length;
+        const finalUnmatchedCount = allGames.length - finalMatchedCount;
+        
+        finalProgress.tick(1, {
+            task: 'Final Processing', 
+            status: `${finalMatchedCount} matched, ${finalUnmatchedCount} unmatched games`
+        });
+        
+        finalProgress.terminate();
+    } else if (verbose) {
+        // Just show deduplication if no legacy matching needed
+        // Move cursor up one line to remove empty space  
+        process.stdout.write('\u001b[1A');
+        let finalProgress = new ProgressBar('\u001b[36m:task\u001b[0m [\u001b[32m:bar\u001b[0m] \u001b[33m:percent\u001b[0m :current/:total \u001b[90m:status\u001b[0m', {
+            total: 1,
+            width: 40,
+            complete: '=',
+            incomplete: '-',
+            renderThrottle: 100,
+            clear: false,
+            task: 'Final Processing'
+        });
+        
+        const finalMatchedCount = allGames.filter(g => g.reference_id).length;
+        const finalUnmatchedCount = allGames.length - finalMatchedCount;
+        
+        finalProgress.tick(1, {
+            task: 'Final Processing',
+            status: `${finalMatchedCount} matched, ${finalUnmatchedCount} unmatched games`
+        });
+        
+        finalProgress.terminate();
+    }
+
+    // --- Optional binding discovery and research ---
+    const potentialBindings = deducePotentialBindings(allGames, ncaaCache.data, initialTeamsData, yearsToScrape);
+    const researchableBindings = potentialBindings.filter(b => !b.already_bound && (b.confidence === 'high' || b.confidence === 'medium'));
+    if (researchableBindings.length > 0) {
+        process.stdout.write('\u001b[1A');
+        verbose && console.log(`\u001b[36mFound ${researchableBindings.length} potential bindings to research...\u001b[0m`);
+        
+        // If we have browsers available from NCAA downloading, use them
+        if (browsers.length > 0 && pages.length > 0) {
+            try {
+                console.log(`\u001b[35mCalling research function with ${researchableBindings.length} researchable bindings...\u001b[0m`);
+                const { researchPotentialNewBindings } = await import('../teams/football-teams-college.js');
+                const researchResults = await researchPotentialNewBindings(researchableBindings, verbose, browsers);
+            } catch (error) { 
+                verbose && console.log(`\u001b[33mWarning: Failed to research bindings: ${error.message}\u001b[0m`); 
+            }
+        } else {
+            // No browsers available - initialize them for binding research
+            verbose && console.log(`\u001b[36mInitializing browsers for binding research...\u001b[0m`);
             
             try {
-                // Import and call the research function from teams script
-                const { researchPotentialNewBindings } = await import('../teams/football-teams-college.js');
-                const researchResults = await researchPotentialNewBindings(
-                    highConfidenceBindings.map(b => ({
-                        espnId: b.espn_id,
-                        ncaaId: b.ncaa_id,
-                        confidence: b.confidence
-                    })),
-                    verbose,
-                    browsers
-                );
+                // Initialize browsers for binding research
+                const browserCount = Math.min(3, researchableBindings.length);
+                const researchBrowsers = [];
                 
-                if (researchResults.successful > 0) {
-                    console.log(`\u001b[32m✓ Successfully added ${researchResults.successful} new bindings to the model!\u001b[0m`);
-                    console.log(`\u001b[90m  Next run will include these new team matches\u001b[0m`);
+                for (let i = 0; i < browserCount; i++) {
+                    try {
+                        const browser = await puppeteer.launch({ headless: true });
+                        researchBrowsers.push(browser);
+                    } catch (error) {
+                        verbose && console.log(`\u001b[31mFailed to launch research browser ${i + 1}: ${error.message}\u001b[0m`);
+                    }
+                }
+                if (researchBrowsers.length > 0) {
+                    verbose && console.log(`\u001b[35mCalling research function with ${researchableBindings.length} researchable bindings...\u001b[0m`);
+                    const { researchPotentialNewBindings } = await import('../teams/football-teams-college.js');
+                    // Close research browsers
+                    await Promise.all(researchBrowsers.map(b => b.close()));
+                } else {
+                    verbose && console.log(`\u001b[31mCould not initialize browsers for binding research.\u001b[0m`);
                 }
             } catch (error) {
-                if (verbose) console.log(`\u001b[33mWarning: Failed to research potential bindings: ${error.message}\u001b[0m`);
+                verbose && console.log(`\u001b[33mWarning: Failed to research bindings: ${error.message}\u001b[0m`);
             }
         }
     }
+    if (browsers.length > 0) await Promise.all(browsers.map(b => b.close()));
+    process.stdout.write('\u001b[1A');
+    // --- Finalize and Save ---
+    const finalGames = _deduplicateGames(allGames);
+    finalGames.forEach(game => { game.id = generateGameId(game.espn_id, game.short_title); });
 
-    // Extract unmatched games and save to output files
     if (save) {
-        try {
-            // Create output directories if they don't exist
-            if (!fs.existsSync('output')) {
-                fs.mkdirSync('output', { recursive: true });
-            }
-            if (!fs.existsSync('output/csv')) {
-                fs.mkdirSync('output/csv', { recursive: true });
-            }
-            
-            // Find unmatched ESPN games (completed games without reference_id)
-            const unmatchedEspnGames = matchedGames.filter(game => {
-                if (!game.date_time) return false;
-                const gameDate = new Date(game.date_time);
-                const now = new Date();
-                return gameDate < now && !game.reference_id;
-            }).map(game => {
-                const homeTeam = teamsData.find(t => t.espn_id === game.home_espn_id);
-                const awayTeam = teamsData.find(t => t.espn_id === game.away_espn_id);
-                return {
-                    espn_id: game.espn_id,
-                    date_time: game.date_time,
-                    season: game.season,
-                    title: game.title,
-                    short_title: game.short_title,
-                    venue: game.venue,
-                    home_team: homeTeam?.short_name || 'Unknown',
-                    home_espn_id: game.home_espn_id,
-                    home_ncaa_id: homeTeam?.ncaa_id || null,
-                    away_team: awayTeam?.short_name || 'Unknown', 
-                    away_espn_id: game.away_espn_id,
-                    away_ncaa_id: awayTeam?.ncaa_id || null,
-                    home_score: game.home_score,
-                    away_score: game.away_score,
-                    winner: game.winner
-                };
-            });
-            
-            // Find unmatched NCAA games
-            const allMatchedNcaaIds = new Set();
-            matchedGames.forEach(game => {
-                if (game.reference_id) allMatchedNcaaIds.add(game.reference_id);
-            });
-            
-            // Flatten all NCAA games from cache
-            const allNcaaGames = [];
-            Object.values(ncaaSchedulesCache).forEach(teamCache => {
-                if (teamCache.games && Array.isArray(teamCache.games)) {
-                    allNcaaGames.push(...teamCache.games);
-                }
-            });
-            
-            // Deduplicate NCAA games and find unmatched ones
-            const uniqueNcaaGames = {};
-            allNcaaGames.forEach(game => {
-                if (game.ncaa_game_id && !uniqueNcaaGames[game.ncaa_game_id]) {
-                    uniqueNcaaGames[game.ncaa_game_id] = game;
-                }
-            });
-            
-            const unmatchedNcaaGames = Object.values(uniqueNcaaGames)
-                .filter(game => !allMatchedNcaaIds.has(game.ncaa_game_id))
-                .map(game => {
-                    const homeTeam = teamsData.find(t => t.ncaa_id === game.home_team_ncaa_id);
-                    const awayTeam = teamsData.find(t => t.ncaa_id === game.opponent_ncaa_id);
-                    return {
-                        ncaa_game_id: game.ncaa_game_id,
-                        date: game.date,
-                        season: game.season,
-                        home_team: homeTeam?.short_name || 'Unknown',
-                        home_team_ncaa_id: game.home_team_ncaa_id,
-                        home_espn_id: homeTeam?.espn_id || null,
-                        opponent_team: awayTeam?.short_name || game.opponent_name || 'Unknown',
-                        opponent_ncaa_id: game.opponent_ncaa_id,
-                        opponent_espn_id: awayTeam?.espn_id || null,
-                        score: game.score
-                    };
-                });
-            
-            // Save unmatched games to files
-            fs.writeFileSync('output/unmatched-espn-games.json', JSON.stringify(unmatchedEspnGames, null, 2));
-            fs.writeFileSync('output/unmatched-ncaa-games.json', JSON.stringify(unmatchedNcaaGames, null, 2));
-            
-            // Generate and save potential bindings CSV
-            if (potentialBindings.length > 0) {
-                const csvHeader = 'espn_id,ncaa_id,sport,espn_game_title,ncaa_team_name,bound_team_name,confidence,evidence_game_date,already_bound,existing_espn_id';
-                const csvRows = potentialBindings.map(binding => {
-                    const espnGameDate = new Date(binding.espn_game_date).toLocaleDateString('en-US');
-                    return `${binding.espn_id},${binding.ncaa_id},football,"${binding.espn_game_title}","${binding.ncaa_team_name}","${binding.bound_team_name}",${binding.confidence},${espnGameDate},${binding.already_bound},${binding.existing_espn_id || ''}`;
-                });
-                const csvContent = [csvHeader, ...csvRows].join('\n');
-                
-                fs.writeFileSync('output/csv/new-potential-binds.csv', csvContent, 'utf8');
-                
-                if (verbose) {
-                    console.log(`\u001b[32mGenerated ${potentialBindings.length} potential ESPN->NCAA bindings in output/csv/new-potential-binds.csv\u001b[0m`);
-                }
-            } else if (verbose) {
-                console.log(`\u001b[90mNo potential bindings found to generate\u001b[0m`);
-            }
-            
-            if (verbose) {
-                console.log(`\u001b[90mSaved ${unmatchedEspnGames.length} unmatched ESPN games to output/unmatched-espn-games.json\u001b[0m`);
-                console.log(`\u001b[90mSaved ${unmatchedNcaaGames.length} unmatched NCAA games to output/unmatched-ncaa-games.json\u001b[0m`);
-            }
-            
-        } catch (error) {
-            if (verbose) console.log(`\u001b[33mWarning: Failed to save unmatched games files: ${error.message}\u001b[0m`);
-        }
+        const potentialBindings = deducePotentialBindings(finalGames, ncaaCache.data, initialTeamsData, yearsToScrape);
+        _saveUnmatchedReports(finalGames, ncaaCache.data, initialTeamsData, potentialBindings, yearsToScrape, verbose);
+        fs.writeFileSync(OUTPUT_FILE, JSON.stringify(finalGames, null, 2), "utf8");
+        verbose && console.log(`\u001b[90mCollege Football Games Data Saved To: ${OUTPUT_FILE}\u001b[0m`);
     }
-
-    // Close browsers
-    if (browsers.length > 0) await Promise.all(browsers.map(browser => browser.close()));
-
-    /**
-     * Generates a unique game ID using ESPN ID and game title
-     * 
-     * @param {string} espnId - The ESPN game ID
-     * @param {string} shortTitle - The short title of the game
-     * @returns {string} An 8-character unique identifier
-     */
-    const generateGameId = (espnId, shortTitle) => {
-        if (!espnId) return null;
-        // Create a consistent hash using ESPN ID as primary identifier
-        const input = `CF${espnId}-${shortTitle || ''}`;
-        const hash = crypto.createHash('md5').update(input).digest('hex');
-        // Return first 8 characters as uppercase
-        return hash.substring(0, 8).toUpperCase();
-    };
-
-    // Generate unique IDs for each game
-    matchedGames.forEach(game => { game.id = generateGameId(game.espn_id, game.short_title); });
-    // Save the final data
-    if (save) {
-        const finalJson = JSON.stringify(matchedGames, null, 2);
-        fs.writeFileSync(OUTPUT_FILE, finalJson, "utf8");
-        if (verbose) console.log(`\u001b[90mCollege Football Games Data Saved To: ${OUTPUT_FILE}\u001b[0m`);
-    }
-    return matchedGames;
+    return finalGames;
 }
 
-// Export the function as default
-export default get_formatted_games;
+const _deduplicateGames = (allGames) => {
+    const uniqueGames = {};
+    allGames.forEach(game => {
+        if (game.espn_id) uniqueGames[game.espn_id] = game;
+    });
+    return Object.values(uniqueGames).sort((a, b) => new Date(a.date_time) - new Date(b.date_time));
+};
 
 // Run if called directly
 if (import.meta.url === `file://${process.argv[1]}`) {
