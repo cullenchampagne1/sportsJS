@@ -77,7 +77,7 @@ const _fetchEspnTeamData = async (verbose) => {
 const _fetchNcaaIdBindings = async (verbose, browsers) => {
     const cachedResult = cacheManager.get("basketball_w_college_ids", NCAA_STAT_TTL);
     if (cachedResult) {
-        if (verbose) console.log(`\u001b[36mUsing cached NCAA Basketball IDs from ${cachedResult.savedAt.toLocaleString()}\u001b[0m`);
+        verbose && console.log(`\u001b[36mUsing cached NCAA Basketball IDs from ${cachedResult.savedAt.toLocaleString()}\u001b[0m`);
         return cachedResult.data;
     }
     const CONCURRENT_BROWSERS = browsers.length;
@@ -97,7 +97,7 @@ const _fetchNcaaIdBindings = async (verbose, browsers) => {
             await page.goto(url, { waitUntil: 'networkidle0', timeout: 60000 });
             await sleep(5000);
         } catch (error) {
-            if (verbose) console.log(`\u001b[33mNavigation failed for ${url}. Retrying...\u001b[0m`);
+            verbose && console.log(`\u001b[33mNavigation failed for ${url}. Retrying...\u001b[0m`);
             await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 });
             await sleep(8000);
         }
@@ -122,7 +122,7 @@ const _fetchNcaaIdBindings = async (verbose, browsers) => {
             await page.setViewport({ width: 1920, height: 1080 });
             await page.setExtraHTTPHeaders(browserConfig.headers);
             for (const link of links) {
-                if (verbose) console.log(`${BROWSER_COLORS[browserIndex]}Scraping NCAA IDs: ${link}\u001b[0m`);
+                verbose && console.log(`${BROWSER_COLORS[browserIndex]}Scraping NCAA IDs: ${link}\u001b[0m`);
                 try {
                     await navigateWithRetry(page, link);
                     // Execute scraping logic in the browser context. This function is async
@@ -204,15 +204,15 @@ const _scrapeWomensBasketballHeadCoaches = async (teams, verbose, browsers) => {
         await page.setExtraHTTPHeaders(cfg.headers);
 
         try {
-            if (verbose) console.log(`${BROWSER_COLORS[idx]}Establishing NCAA session...\u001b[0m`);
+            verbose && console.log(`${BROWSER_COLORS[idx]}Establishing NCAA session...\u001b[0m`);
             await page.goto('https://stats.ncaa.org/', { waitUntil: 'networkidle0', timeout: 30000 });
             await sleep(3000);
         } catch {
-            if (verbose) console.log(`${BROWSER_COLORS[idx]}Warning: Session setup failed, continuing...\u001b[0m`);
+            verbose && console.log(`${BROWSER_COLORS[idx]}Warning: Session setup failed, continuing...\u001b[0m`);
         }
 
         for (const team of batch) {
-            if (verbose) console.log(`${BROWSER_COLORS[idx]}Downloading Head Coach: https://stats.ncaa.org/teams/${team.reference_id}\u001b[0m`);
+            verbose && console.log(`${BROWSER_COLORS[idx]}Downloading Head Coach: https://stats.ncaa.org/teams/${team.reference_id}\u001b[0m`);
             const headCoach = await scrapeHeadCoachFromStatsPage(team.reference_id, page, verbose);
             if (team.reference_id && headCoach) {
                 teamCoachesCache[team.reference_id] = defaultValue(headCoach);
@@ -257,7 +257,7 @@ const _extractDominantColors = async (imageUrl, colorBindings, verbose) => {
     if (cached && cached.colors) return cached.colors;
     // Extract colors from SVG by converting to PNG first
     try {
-        if (verbose) console.log(`\u001b[32mDownloading Logo Colors: ${imageUrl}\u001b[0m`);
+        verbose && console.log(`\u001b[32mDownloading Logo Colors: ${imageUrl}\u001b[0m`);
         // Download the SVG
         const svgResponse = await fetch(imageUrl);
         if (!svgResponse.ok) throw new Error(`HTTP ${svgResponse.status}`);
@@ -293,7 +293,7 @@ const _extractDominantColors = async (imageUrl, colorBindings, verbose) => {
         }
         return null;
     } catch (error) {
-        if (verbose) console.log(`\u001b[33mWarning: Could not extract colors from ${imageUrl}: ${error.message}\u001b[0m`);
+        verbose && console.log(`\u001b[33mWarning: Could not extract colors from ${imageUrl}: ${error.message}\u001b[0m`);
         return null;
     }
 };
@@ -510,21 +510,21 @@ async function get_formated_teams(verbose = true, save = true) {
 export const researchPotentialNewBindings = async (potentialBindings = [], verbose = true, browsers) => {
     const results = { processed: 0, successful: 0, failed: 0, newBindings: {}, errors: [] };
     if (!potentialBindings || potentialBindings.length === 0) return results;
-    if (verbose) console.log(`\u001b[36mResearching ${potentialBindings.length} potential ESPN-NCAA bindings...\u001b[0m`);
+    verbose && console.log(`\u001b[36mResearching ${potentialBindings.length} potential ESPN-NCAA bindings...\u001b[0m`);
 
     // Load current binding model
     const bindingModelPath = "data/models/basketball-w-espn-ncaa-binding.json";
     let currentBindings = {};
     try {
         currentBindings = JSON.parse(fs.readFileSync(bindingModelPath, "utf8"));
-    } catch (error) { if (verbose) console.log(`\u001b[33mWarning: Could not load binding model: ${error.message}\u001b[0m`); }
+    } catch (error) { verbose && console.log(`\u001b[33mWarning: Could not load binding model: ${error.message}\u001b[0m`); }
 
     // Load NCAA IDs cache
     const ncaaIdsPath = "data/raw/basketball_w_college_ids.json";
     let ncaaIdsCache = [];
     try {
         ncaaIdsCache = JSON.parse(fs.readFileSync(ncaaIdsPath, "utf8"));
-    } catch (error) { if (verbose) console.log(`\u001b[33mWarning: Could not load NCAA IDs cache: ${error.message}\u001b[0m`); }
+    } catch (error) { verbose && console.log(`\u001b[33mWarning: Could not load NCAA IDs cache: ${error.message}\u001b[0m`); }
 
     // If we dont have bindings or ncaa ids return empty results to avoid clearing on error
     if (ncaaIdsCache.length < 1 || Object.keys(currentBindings).length < 1) return results
@@ -567,7 +567,7 @@ export const researchPotentialNewBindings = async (potentialBindings = [], verbo
                 if (canonicalEspnBinding) {
                     // Canonical NCAA ID already has an ESPN binding
                     if (canonicalEspnBinding !== binding.espnId) {
-                        if (verbose) console.log(`\u001b[33mWarning: ESPN ID conflict for "${teamName}". Canonical NCAA ID ${canonicalNcaaId} -> ESPN ${canonicalEspnBinding}, but duplicate NCAA ID ${duplicateNcaaId} suggests ESPN ${binding.espnId}\u001b[0m`);
+                        verbose && console.log(`\u001b[33mWarning: ESPN ID conflict for "${teamName}". Canonical NCAA ID ${canonicalNcaaId} -> ESPN ${canonicalEspnBinding}, but duplicate NCAA ID ${duplicateNcaaId} suggests ESPN ${binding.espnId}\u001b[0m`);
                     }
                     // Keep the existing canonical binding
                     results.newBindings[duplicateNcaaId] = canonicalEspnBinding;
@@ -586,11 +586,11 @@ export const researchPotentialNewBindings = async (potentialBindings = [], verbo
     }
     // update the espn->ncaa bindings table with any new bindings
     fs.writeFileSync(bindingModelPath, JSON.stringify(currentBindings, null, 2), "utf8");
-    if (verbose) console.log(`\u001b[32mSuccessfully updated and saved the ESPN-NCAA binding model.\u001b[0m`);
+    verbose && console.log(`\u001b[32mSuccessfully updated and saved the ESPN-NCAA binding model.\u001b[0m`);
     // update the ncaa team_name -> ncaa_id binding
     fs.writeFileSync(ncaaIdsPath, JSON.stringify(ncaaIdsCache, null, 2), "utf8");
-    if (verbose) console.log(`\u001b[32mSuccessfully updated and saved the NCAA IDs cache.\u001b[0m`);
-    if (verbose) console.log(`\u001b[36mBinding research complete. Processed: ${results.processed}, Successful: ${results.successful}, Failed: ${results.failed}\u001b[0m`);
+    verbose && console.log(`\u001b[32mSuccessfully updated and saved the NCAA IDs cache.\u001b[0m`);
+    verbose && console.log(`\u001b[36mBinding research complete. Processed: ${results.processed}, Successful: ${results.successful}, Failed: ${results.failed}\u001b[0m`);
     return results;
 };
 

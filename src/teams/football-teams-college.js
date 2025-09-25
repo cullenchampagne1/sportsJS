@@ -28,6 +28,7 @@ import { fetchNcaaTeamData, scrapeNcaaTeamDetails } from '../util/ncaa-school-ut
 import { scrapeHeadCoachFromStatsPage, getNcaaTeamNamesFromIds } from '../util/ncaa-school-util.js';
 import { addNcaaIdsToTeams } from '../util/ncaa-school-util.js';
 import { matchEspnToNcaaTeams, generateId } from '../util/espn-school-util.js';
+import { addDuplicateMapping, getCanonicalNcaaId } from '../util/ncaa-id-consolidation.js';
 
 // Direct configuration values (previously from configs/football-college.yaml)
 const ESPN_TEAMS_URL = "https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams?limit=200000";
@@ -42,6 +43,20 @@ const NCAA_ID_URLS = [
     "https://stats.ncaa.org/rankings/national_ranking?academic_year=2025.0&division=12.0&ranking_period=39.0&sport_code=MFB&stat_seq=27.0",
     "https://stats.ncaa.org/rankings/national_ranking?academic_year=2025.0&division=2.0&ranking_period=34.0&sport_code=MFB&stat_seq=27.0",
     "https://stats.ncaa.org/rankings/national_ranking?academic_year=2025.0&division=3.0&ranking_period=30.0&sport_code=MFB&stat_seq=27.0"
+];
+const NCAA_ID_URLS_PREVIOUS = [
+    "https://stats.ncaa.org/rankings/national_ranking?academic_year=2024.0&division=11.0&ranking_period=74.0&sport_code=MFB&stat_seq=21.0",
+    "https://stats.ncaa.org/rankings/national_ranking?academic_year=2024.0&division=12.0&ranking_period=40.0&sport_code=MFB&stat_seq=21.0",
+    "https://stats.ncaa.org/rankings/national_ranking?academic_year=2024.0&division=2.0&ranking_period=29.0&sport_code=MFB&stat_seq=27.0",
+    "https://stats.ncaa.org/rankings/national_ranking?academic_year=2024.0&division=3.0&ranking_period=30.0&sport_code=MFB&stat_seq=21.0",
+    "https://stats.ncaa.org/rankings/national_ranking?academic_year=2023.0&division=3.0&ranking_period=30.0&sport_code=MFB&stat_seq=22.0",
+    "https://stats.ncaa.org/rankings/national_ranking?academic_year=2023.0&division=2.0&ranking_period=34.0&sport_code=MFB&stat_seq=21.0",
+    "https://stats.ncaa.org/rankings/national_ranking?academic_year=2023.0&division=12.0&ranking_period=43.0&sport_code=MFB&stat_seq=21.0",
+    "https://stats.ncaa.org/rankings/national_ranking?academic_year=2023.0&division=11.0&ranking_period=70.0&sport_code=MFB&stat_seq=21.0",
+    "https://stats.ncaa.org/rankings/national_ranking?academic_year=2026.0&division=11.0&ranking_period=9.0&sport_code=MFB&stat_seq=21.0",
+    "https://stats.ncaa.org/rankings/national_ranking?academic_year=2026.0&division=12.0&ranking_period=7.0&sport_code=MFB&stat_seq=21.0",
+    "https://stats.ncaa.org/rankings/national_ranking?academic_year=2026.0&division=2.0&ranking_period=8.0&sport_code=MFB&stat_seq=21.0",
+    "https://stats.ncaa.org/rankings/national_ranking?academic_year=2026.0&division=3.0&ranking_period=4.0&sport_code=MFB&stat_seq=21.0"
 ];
 
 const NCAA_TEAM_REF_SELECTOR = "td.reclass a.skipMask[href^='/teams/']";
@@ -90,87 +105,100 @@ const _fetchEspnTeamData = async (verbose) => {
 const _fetchNcaaIdBindings = async (verbose, browsers) => {
     const cachedResult = cacheManager.get("football_college_ids", NCAA_STAT_TTL);
     if (cachedResult) {
-        if (verbose) console.log(`\u001b[36mUsing cached NCAA Football IDs from ${cachedResult.savedAt.toLocaleString()}\u001b[0m`);
+        verbose && console.log(`\u001b[36mUsing cached NCAA Football IDs from ${cachedResult.savedAt.toLocaleString()}\u001b[0m`);
         return cachedResult.data;
     }
     const CONCURRENT_BROWSERS = browsers.length;
-    // Distribute URLs into batches for each concurrent browser.
-    const urlBatches = Array.from({ length: CONCURRENT_BROWSERS }, () => []);
-    NCAA_ID_URLS.forEach((link, index) => {
-        urlBatches[index % CONCURRENT_BROWSERS].push(link);
-    });
 
-    /**
-     * Helper to navigate with a retry mechanism.
-     * @param {import('puppeteer').Page} page - The Puppeteer page instance.
-     * @param {string} url - The URL to navigate to.
-     */
-    const navigateWithRetry = async (page, url) => {
-        try {
-            await page.goto(url, { waitUntil: 'networkidle0', timeout: 60000 });
-            await sleep(5000);
-        } catch (error) {
-            if (verbose) console.log(`\u001b[33mNavigation failed for ${url}. Retrying...\u001b[0m`);
-            await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 });
-            await sleep(8000);
-        }
+    const scrapeUrls = async (urls) => {
+        const urlBatches = Array.from({ length: CONCURRENT_BROWSERS }, () => []);
+        urls.forEach((link, index) => urlBatches[index % CONCURRENT_BROWSERS].push(link));
+
+        const navigateWithRetry = async (page, url) => {
+            try {
+                await page.goto(url, { waitUntil: 'networkidle0', timeout: 60000 });
+                await sleep(5000);
+            } catch (error) {
+                verbose && console.log(`\u001b[33mNavigation failed for ${url}. Retrying...\u001b[0m`);
+                await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 });
+                await sleep(8000);
+            }
+        };
+
+        const scrapingPromises = urlBatches.map(async (links, browserIndex) => {
+            const browser = browsers[browserIndex];
+            const page = await browser.newPage();
+            const batchResults = [];
+            try {
+                const browserConfig = getBrowserConfigWithHeaders({
+                    'Referer': 'https://stats.ncaa.org/',
+                    'Sec-Fetch-Dest': 'document',
+                    'Sec-Fetch-Mode': 'navigate',
+                    'Sec-Fetch-Site': 'same-origin',
+                    'Sec-GPC': '1',
+                    'Upgrade-Insecure-Requests': '1',
+                    'Priority': 'u=0, i'
+                });
+                await page.setUserAgent(browserConfig.userAgent);
+                await page.setViewport({ width: 1920, height: 1080 });
+                await page.setExtraHTTPHeaders(browserConfig.headers);
+                for (const link of links) {
+                    verbose && console.log(`${BROWSER_COLORS[browserIndex]}Scraping NCAA IDs: ${link}\u001b[0m`);
+                    try {
+                        await navigateWithRetry(page, link);
+                        const idsOnPage = await page.evaluate(async (showAllSelector, teamRefSelector) => {
+                            const showAllButton = document.querySelector(showAllSelector);
+                            if (showAllButton) {
+                                showAllButton.selected = true;
+                                showAllButton.parentElement.dispatchEvent(new Event('change', { bubbles: true }));
+                                await new Promise(resolve => setTimeout(resolve, 2000));
+                            }
+                            const linkElements = document.querySelectorAll(teamRefSelector);
+                            return Array.from(linkElements).map(el => {
+                                const teamName = el.textContent.trim().replace(/\s*\([^)]*\)$/, '');
+                                const ncaaId = el.getAttribute('href')?.replace('/teams/', '') ?? null;
+                                return (teamName && ncaaId) ? { team_name: teamName, ncaa_id: ncaaId } : null;
+                            }).filter(Boolean);
+                        }, NCAA_SHOW_ALL_SELECTOR, NCAA_TEAM_REF_SELECTOR);
+                        batchResults.push(...idsOnPage);
+                        await sleep(1000 + Math.random() * 2000);
+                    } catch (error) {
+                        console.error(`${BROWSER_COLORS[browserIndex]}Failed to process ${link}: ${error.message}\u001b[0m`);
+                    }
+                }
+            } finally {
+                await page.close();
+                return batchResults;
+            }
+        });
+        return (await Promise.all(scrapingPromises)).flat();
     };
 
-    // Map over each batch and process it in a separate browser instance.
-    const scrapingPromises = urlBatches.map(async (links, browserIndex) => {
-        const browser = browsers[browserIndex];
-        const page = await browser.newPage();
-        const batchResults = [];
-        try {
-            const browserConfig = getBrowserConfigWithHeaders({
-                'Referer': 'https://stats.ncaa.org/',
-                'Sec-Fetch-Dest': 'document',
-                'Sec-Fetch-Mode': 'navigate',
-                'Sec-Fetch-Site': 'same-origin',
-                'Sec-GPC': '1',
-                'Upgrade-Insecure-Requests': '1',
-                'Priority': 'u=0, i'
-            });
-            await page.setUserAgent(browserConfig.userAgent);
-            await page.setViewport({ width: 1920, height: 1080 });
-            await page.setExtraHTTPHeaders(browserConfig.headers);
-            for (const link of links) {
-                if (verbose) console.log(`${BROWSER_COLORS[browserIndex]}Scraping NCAA IDs: ${link}\u001b[0m`);
-                try {
-                    await navigateWithRetry(page, link);
-                    // Execute scraping logic in the browser context. This function is async
-                    // to properly handle waiting for the DOM to update after pagination.
-                    const idsOnPage = await page.evaluate(async (showAllSelector, teamRefSelector) => {
-                        // Check for a "Show All" dropdown in a paginated table.
-                        const showAllButton = document.querySelector(showAllSelector);
-                        if (showAllButton) {
-                            showAllButton.selected = true;
-                            // Dispatch a 'change' event to trigger the table update.
-                            showAllButton.parentElement.dispatchEvent(new Event('change', { bubbles: true }));
-                            // CRITICAL: Wait for the DOM to update after the event.
-                            await new Promise(resolve => setTimeout(resolve, 2000));
-                        }
-                        // Select all team links and extract the required data.
-                        const linkElements = document.querySelectorAll(teamRefSelector);
-                        return Array.from(linkElements).map(el => {
-                            // Clean the team name by removing parenthetical suffixes (e.g., "(FBS)").
-                            const teamName = el.textContent.trim().replace(/\s*\([^)]*\)$/, '');
-                            // Extract the numeric ID from the href attribute.
-                            const ncaaId = el.getAttribute('href')?.replace('/teams/', '') ?? null;
-                            return (teamName && ncaaId) ? { team_name: teamName, ncaa_id: ncaaId } : null;
-                        }).filter(Boolean); // Filter out any null results.
-                    }, NCAA_SHOW_ALL_SELECTOR, NCAA_TEAM_REF_SELECTOR);
-                    batchResults.push(...idsOnPage);
-                    await sleep(1000 + Math.random() * 2000);
-                } catch (error) {
-                    console.error(`${BROWSER_COLORS[browserIndex]}Failed to process ${link}: ${error.message}\u001b[0m`);
-                }
+    verbose && console.log('\u001b[36mScraping latest and previous year NCAA IDs to build consolidation map...\u001b[0m');
+    const latestIds = await scrapeUrls(NCAA_ID_URLS);
+    const previousIds = await scrapeUrls(NCAA_ID_URLS_PREVIOUS);
+
+    const teamMap = new Map();
+    latestIds.forEach(t => teamMap.set(t.team_name, t));
+
+    let newMappings = 0;
+    previousIds.forEach(prevTeam => {
+        const latestTeam = teamMap.get(prevTeam.team_name);
+        const canonicalPrevId = getCanonicalNcaaId(prevTeam.ncaa_id, 'football');
+        if (latestTeam) {
+            const canonicalLatestId = getCanonicalNcaaId(latestTeam.ncaa_id, 'football');
+            if (canonicalLatestId !== canonicalPrevId) {
+                addDuplicateMapping(canonicalPrevId, canonicalLatestId, 'football');
+                newMappings++;
             }
-        } finally { return batchResults; }
+        } else {
+            teamMap.set(prevTeam.team_name, { ...prevTeam, ncaa_id: canonicalPrevId });
+        }
     });
-    const scrapedIds = (await Promise.all(scrapingPromises)).flat();
-    if (scrapedIds.length > 0) cacheManager.set("football_college_ids", scrapedIds);
-    return scrapedIds;
+    if (newMappings > 0) verbose && console.log(`\u001b[32mAdded ${newMappings} new NCAA ID mappings to the consolidation map.\u001b[0m`);
+    const finalTeamList = Array.from(teamMap.values());
+    if (finalTeamList.length > 0) cacheManager.set("football_college_ids", finalTeamList);
+    return finalTeamList;
 };
 
 
@@ -217,15 +245,15 @@ const _scrapeFootballHeadCoaches = async (teams, verbose, browsers) => {
         await page.setExtraHTTPHeaders(cfg.headers);
 
         try {
-            if (verbose) console.log(`${BROWSER_COLORS[idx]}Establishing NCAA session...\u001b[0m`);
+            verbose && console.log(`${BROWSER_COLORS[idx]}Establishing NCAA session...\u001b[0m`);
             await page.goto('https://stats.ncaa.org/', { waitUntil: 'networkidle0', timeout: 30000 });
             await sleep(3000);
         } catch {
-            if (verbose) console.log(`${BROWSER_COLORS[idx]}Warning: Session setup failed, continuing...\u001b[0m`);
+            verbose && console.log(`${BROWSER_COLORS[idx]}Warning: Session setup failed, continuing...\u001b[0m`);
         }
 
         for (const team of batch) {
-            if (verbose) console.log(`${BROWSER_COLORS[idx]}Downloading Head Coach: https://stats.ncaa.org/teams/${team.reference_id}\u001b[0m`);
+            verbose && console.log(`${BROWSER_COLORS[idx]}Downloading Head Coach: https://stats.ncaa.org/teams/${team.reference_id}\u001b[0m`);
             const headCoach = await scrapeHeadCoachFromStatsPage(team.reference_id, page, verbose);
             if (team.reference_id && headCoach) {
                 teamCoachesCache[team.reference_id] = defaultValue(headCoach);
@@ -254,7 +282,7 @@ const _scrapeFootballCoordinators = async (verbose, browsers) => {
     const cached = cacheManager.get(cacheKey, NCAA_COACH_TTL);
     let coordinatorCache = cached?.data || [];
     if (coordinatorCache.length) {
-        if (verbose) console.log(`\u001b[36mUsing cached coordinator data (${coordinatorCache.length} records from ${cached.savedAt.toLocaleString()})\u001b[0m`);
+        verbose && console.log(`\u001b[36mUsing cached coordinator data (${coordinatorCache.length} records from ${cached.savedAt.toLocaleString()})\u001b[0m`);
         return coordinatorCache;
     }
     const extractCoordinators = (xpath) => {
@@ -318,7 +346,7 @@ const _scrapeFootballCoordinators = async (verbose, browsers) => {
             await page.setExtraHTTPHeaders(browserConfig.headers);
             const results = [];
             for (const url of urls) {
-                if (verbose) console.log(`${BROWSER_COLORS[i]}Downloading NCAA Coordinators: ${url}\u001b[0m`);
+                verbose && console.log(`${BROWSER_COLORS[i]}Downloading NCAA Coordinators: ${url}\u001b[0m`);
                 results.push(...await scrapeCoordinatorsFromWiki(url, page));
                 await sleep(2000);
             }
@@ -359,8 +387,8 @@ const _matchCoordinatorByName = (teamName, coordinatorData) => {
 };
 
 /**
- * Extracts dominant colors from an image URL using SVG to PNG conversion and color analysis
- * 
+ * Extracts dominant colors from an image URL (SVG or PNG) using color analysis
+ *
  * @param {string} imageUrl - URL of the image to process
  * @param {Array<Object>} colorBindings - Cache array of previously processed images
  * @param {boolean} verbose - If true, enables detailed logging to the console
@@ -371,22 +399,32 @@ const _extractDominantColors = async (imageUrl, colorBindings, verbose) => {
     // Check cache first
     const cached = colorBindings.find(binding => binding.url === imageUrl);
     if (cached && cached.colors) return cached.colors;
-    // Extract colors from SVG by converting to PNG first
+
     try {
-        if (verbose) console.log(`\u001b[32mDownloading Logo Colors: ${imageUrl}\u001b[0m`);
-        // Download the SVG
-        const svgResponse = await fetch(imageUrl);
-        if (!svgResponse.ok) throw new Error(`HTTP ${svgResponse.status}`);
-        const svgBuffer = await svgResponse.arrayBuffer();
-        const svgString = new TextDecoder().decode(svgBuffer);
-        // Convert SVG to PNG using svg2img
-        const pngBuffer = await new Promise((resolve, reject) => {
-            svg2img(svgString, { width: 200, height: 200, format: 'png' }, (error, buffer) => {
-                if (error) reject(error);
-                else resolve(buffer);
+        verbose && console.log(`\u001b[32mDownloading Logo Colors: ${imageUrl}\u001b[0m`);
+        // Download the image
+        const imageResponse = await fetch(imageUrl);
+        if (!imageResponse.ok) throw new Error(`HTTP ${imageResponse.status}`);
+        const imageBuffer = await imageResponse.arrayBuffer();
+
+        let pngBuffer;
+        const isSvg = imageUrl.toLowerCase().includes('.svg') || imageUrl.toLowerCase().includes('svg');
+
+        if (isSvg) {
+            // Convert SVG to PNG
+            const svgString = new TextDecoder().decode(imageBuffer);
+            pngBuffer = await new Promise((resolve, reject) => {
+                svg2img(svgString, { width: 200, height: 200, format: 'png' }, (error, buffer) => {
+                    if (error) reject(error);
+                    else resolve(buffer);
+                });
             });
-        });
-        // Use node-vibrant on the converted PNG
+        } else {
+            // Use PNG directly
+            pngBuffer = Buffer.from(imageBuffer);
+        }
+
+        // Use node-vibrant on the PNG buffer
         const palette = await Vibrant.from(pngBuffer).getPalette();
         const colors = [];
         // Get the most vibrant colors, prioritizing vibrant over muted
@@ -409,7 +447,7 @@ const _extractDominantColors = async (imageUrl, colorBindings, verbose) => {
         }
         return null;
     } catch (error) {
-        if (verbose) console.log(`\u001b[33mWarning: Could not extract colors from ${imageUrl}: ${error.message}\u001b[0m`);
+        verbose && console.log(`\u001b[33mWarning: Could not extract colors from ${imageUrl}: ${error.message}\u001b[0m`);
         return null;
     }
 };
@@ -535,15 +573,57 @@ async function get_formated_teams(verbose = true, save = true) {
     // Update bindings file if any new bindings were found
     if (Object.keys(updatedBindings).length > Object.keys(bindings).length) fs.writeFileSync(bindings_path, JSON.stringify(updatedBindings, null, 2), "utf8");
 
-    // Save unmatched teams to file (does not unclude ncaa teams with no id binding)
+    // Create basic team records from unmatched ESPN teams for use in games pipeline
+    const espnOnlyTeams = unmatchedEspn.map(team => ({
+        id: generateId(team.id, team.abbreviation, 12),
+        espn_id: team.id,
+        reference_id: null,
+        league_id: "NCAAF",
+        slug: team.slug || null,
+        abv: team.abbreviation || null,
+        full_name: team.displayName || null,
+        short_name: team.name || null,
+        university: team.location || null,
+        division: null,
+        conference: null,
+        primary: team.color ? `#${team.color}` : null,
+        secondary: team.alternateColor ? `#${team.alternateColor}` : null,
+        logo_ref: team.logos?.[0]?.href || null,
+        head_coach: null,
+        offensive_coordinator: null,
+        defensive_coordinator: null,
+        school_ref: null,
+        website_ref: team.links?.find(l => l.rel?.includes('team'))?.href || null,
+        twitter_ref: null
+    }));
+
+    // Add ESPN-only teams to the main teams array
+    const allFinalTeams = [...finalTeams, ...espnOnlyTeams];
+    if (verbose && espnOnlyTeams.length > 0) {
+        console.log(`\u001b[32mAdded ${espnOnlyTeams.length} ESPN-only teams to fill gaps in teams database\u001b[0m`);
+    }
+
+    // Debug: Check ESPN team coverage
+    const allEspnIds = new Set(espn_teams.map(t => t.id));
+    const matchedEspnIds = new Set(finalTeams.filter(t => t.espn_id).map(t => t.espn_id));
+    const unmatchedEspnIds = new Set(unmatchedEspn.map(t => t.id));
+    const totalCoveredEspnIds = new Set([...matchedEspnIds, ...unmatchedEspnIds]);
+
+    if (verbose) {
+        console.log(`\u001b[36mESPN Coverage: ${espn_teams.length} total, ${finalTeams.filter(t => t.espn_id).length} matched, ${unmatchedEspn.length} unmatched, ${totalCoveredEspnIds.size} total covered\u001b[0m`);
+        if (allEspnIds.size !== totalCoveredEspnIds.size) {
+            const missingEspnIds = [...allEspnIds].filter(id => !totalCoveredEspnIds.has(id));
+            console.log(`\u001b[31mWarning: ${missingEspnIds.length} ESPN team IDs not covered: ${missingEspnIds.slice(0, 10).join(', ')}\u001b[0m`);
+        }
+    }
+
+    // Save unmatched teams to file (does not include ncaa teams with no id binding)
     const espn_output_file = "output/unmatched-espn-football-teams.json"
     if (save & unmatchedEspn.length > 0) fs.writeFileSync(espn_output_file, JSON.stringify(unmatchedEspn, null, 2), "utf8");
     if (verbose && save) console.log(`\u001b[90mCollege Unmatched Espn Data Saved To: ${espn_output_file}\u001b[0m`);
     const ncaa_output_file = "output/unmatched-ncaa-football-teams.json"
     if (save & unmatchedNcaa.length > 0) fs.writeFileSync(ncaa_output_file, JSON.stringify(unmatchedNcaa, null, 2), "utf8");
     if (verbose && save) console.log(`\u001b[90mCollege Unmatched Ncaa Data Saved To: ${ncaa_output_file}\u001b[0m`);
-
-    // TODO: MAP UNMATCHED ESPN TEAMS TO TEAM OBJECTS WITH NULL NCAA_ID ALL OTHER DATA NEEDS TO BE MAPPED FROM PURE ESPN DATA
 
     // Scrape head coaches based on NCAA_ID
     const teamCoachesCache = await _scrapeFootballHeadCoaches(ncaaTeamsWithIds, verbose, browsers);
@@ -564,24 +644,31 @@ async function get_formated_teams(verbose = true, save = true) {
     }));
 
     // Process final teams and add coach data and colors
-    const processedFinalTeams = await Promise.all(finalTeams.map(async team => {
-        // Try to match coordinator data using different team name variations
-        const coordinatorMatch =
-            _matchCoordinatorByName(team.full_name, coordinatorCache) ||
-            _matchCoordinatorByName(team.short_name, coordinatorCache) ||
-            _matchCoordinatorByName(team.university, coordinatorCache) ||
-            _matchCoordinatorByName(team.abv, coordinatorCache);
-        // Get head coach from NCAA ID cache (if available) - this has precedence over coordinator cache
-        const headCoachFromCache = team.reference_id ? teamCoachesCache[team.reference_id] : null;
-        // Get best colors from team logo or defualt to espns asigned colors
+    const processedFinalTeams = await Promise.all(allFinalTeams.map(async team => {
+        // Skip coach matching for ESPN-only teams (they don't have NCAA data for coach lookup)
+        let coordinatorMatch = null;
+        let headCoachFromCache = null;
+
+        if (team.reference_id) {
+            // Only try to match coordinator data for teams with NCAA references
+            coordinatorMatch =
+                _matchCoordinatorByName(team.full_name, coordinatorCache) ||
+                _matchCoordinatorByName(team.short_name, coordinatorCache) ||
+                _matchCoordinatorByName(team.university, coordinatorCache) ||
+                _matchCoordinatorByName(team.abv, coordinatorCache);
+            // Get head coach from NCAA ID cache
+            headCoachFromCache = teamCoachesCache[team.reference_id] || null;
+        }
+
+        // Get best colors from team logo or default to ESPN's assigned colors
         const colors = (await _extractDominantColors(team.logo_ref, colorBindings, verbose))?.split(', ') || [];
         const primaryColor = colors[0] || team.primary;
         const secondaryColor = colors[1] || team.secondary;
         return {
             ...team,
-            // Head coach: NCAA cache has precedence, fallback to coordinator cache
+            // Head coach: NCAA cache has precedence, fallback to coordinator cache, null for ESPN-only
             head_coach: headCoachFromCache || coordinatorMatch?.head_coach || null,
-            // Coordinators always come from coordinator cache
+            // Coordinators always come from coordinator cache, null for ESPN-only
             offensive_coordinator: coordinatorMatch?.offensive_coordinator || null,
             defensive_coordinator: coordinatorMatch?.defensive_coordinator || null,
             // Use formatted colors with proper fallback logic
@@ -595,82 +682,106 @@ async function get_formated_teams(verbose = true, save = true) {
 
     // Save data as JSON - more efficient and maintains data types
     if (save) fs.writeFileSync(OUTPUT_FILE, JSON.stringify(processedFinalTeams, null, 2), "utf8");
-    if (verbose && save) console.log(`\u001b[90mCollege Football Data Saved To: ${OUTPUT_FILE}\u001b[0m`);
+    if (verbose && save) console.log(`\u001b[90mCollege Football Teams Data Saved To: ${OUTPUT_FILE}\u001b[0m`);
     return processedFinalTeams;
 
 }
 
+// Helper function to normalize team names for comparison
+const normalizeName = name => name.toLowerCase().replace(/[^\w\s]/g, '').trim();
+
 /**
- * Research potential new bindings between ESPN and NCAA teams
+ * Research potential new bindings between ESPN and NCAA teams, and handle NCAA ID consolidations
  * @param {Array<Object>} potentialBindings - Array of potential bindings from games script
  * @param {Array<Object>} browsers - Array of browser instances for scraping
  * @param {boolean} verbose - Whether to log progress
  * @returns {Promise<Object>} Object with results of binding research
  */
 export const researchPotentialNewBindings = async (potentialBindings = [], verbose = true, browsers) => {
-    const SPORT = 'football'; // Sport context
-    const results = { processed: 0, successful: 0, failed: 0, newBindings: {}, errors: [] };
-    if (!potentialBindings || potentialBindings.length === 0) return results;
+    const results = { processed: 0, successful: 0, failed: 0, newBindings: {}, consolidations: 0, errors: [] };
+    if (!potentialBindings.length) return results;
 
-    if (verbose) console.log(`\u001b[36mResearching ${potentialBindings.length} potential ESPN-NCAA bindings for ${SPORT}...\u001b[0m`);
-    // Load sport-specific binding model
-    const bindingModelPath = `data/models/${SPORT}-espn-ncaa-binding.json`;
-    let currentBindings = {};
-    try {
-        currentBindings = JSON.parse(fs.readFileSync(bindingModelPath, "utf8"));
-    } catch (error) { 
-        if (verbose) console.log(`\u001b[33mWarning: Could not load binding model for ${SPORT}: ${error.message}\u001b[0m`); 
-    }
-    // Load NCAA IDs cache for this sport
-    const ncaaIdsPath = `data/raw/${SPORT}_college_ids.json`;
-    let ncaaIdsCache = [];
-    try {
-        ncaaIdsCache = JSON.parse(fs.readFileSync(ncaaIdsPath, "utf8"));
-    } catch (error) { 
-        if (verbose) console.log(`\u001b[33mWarning: Could not load NCAA IDs cache for ${SPORT}: ${error.message}\u001b[0m`); 
-    }
-    const newNcaaIds = [...new Set(potentialBindings.map(b => b.ncaaId).filter(id => id && !currentBindings[id]))];
-    if (newNcaaIds.length === 0) {
-        if (verbose) console.log('No new NCAA IDs to research.');
-        return results;
-    }
-    const teamNamesMap = await getNcaaTeamNamesFromIds(newNcaaIds, browsers, verbose);
+    const bindingModelPath = "data/models/football-espn-ncaa-binding.json";
+    const currentBindings = fs.existsSync(bindingModelPath) ? JSON.parse(fs.readFileSync(bindingModelPath, "utf8")) : {};
 
-    for (const ncaaId in teamNamesMap) {
-        const teamName = teamNamesMap[ncaaId];
-        const binding = potentialBindings.find(b => b.ncaaId === ncaaId);
-        if (!teamName || !binding?.espnId) {
-            results.failed++;
-            results.errors.push(`Failed to create binding for NCAA ID: ${ncaaId} - missing team name or ESPN ID.`);
-            continue;
-        }
-        results.processed++;
-        const existingTeam = ncaaIdsCache.find(item => item.team_name === teamName);
-        if (existingTeam) {
-            // Team name already exists, this is a duplicate NCAA ID for the same team.
-            const canonicalNcaaId = existingTeam.ncaa_id;
-            addDuplicateMapping(ncaaId, canonicalNcaaId, SPORT); // Use sport-specific mapping
-            if (verbose) console.log(`\u001b[33mDuplicate found for ${SPORT}: "${teamName}". Mapping ${ncaaId} -> ${canonicalNcaaId}.\u001b[0m`);
+    const [espnBindings, ncaaConsolidations] = [
+        potentialBindings.filter(b => b.type !== 'ncaa_consolidation'),
+        potentialBindings.filter(b => b.type === 'ncaa_consolidation')
+    ];
 
-            // Ensure the canonical ID has the correct ESPN binding
-            if (!currentBindings[canonicalNcaaId]) {
-                currentBindings[canonicalNcaaId] = binding.espnId;
-                results.newBindings[canonicalNcaaId] = binding.espnId;
+    if (verbose) console.log(`Processing ${espnBindings.length} ESPN-NCAA bindings and ${ncaaConsolidations.length} NCAA consolidations...`);
+    if (ncaaConsolidations.length) {
+        const uniqueConsolidations = [...new Map(ncaaConsolidations.map(c => [c.source_ncaa_id, c])).values()].filter(c => getCanonicalNcaaId(c.source_ncaa_id, 'football') === c.source_ncaa_id);
+        if (verbose && uniqueConsolidations.length < ncaaConsolidations.length)  console.log(`Skipped ${ncaaConsolidations.length - uniqueConsolidations.length} already consolidated NCAA IDs.`);
+        if (uniqueConsolidations.length) {
+            const teamNamesMap = await getNcaaTeamNamesFromIds(uniqueConsolidations.map(c => c.source_ncaa_id), browsers, verbose);
+
+            for (const { source_ncaa_id, team_name, target_ncaa_id } of uniqueConsolidations) {
+                results.processed++;
+                const scrapedName = teamNamesMap[source_ncaa_id];
+                if (!scrapedName) {
+                    results.failed++;
+                    results.errors.push(`Could not validate NCAA ID ${source_ncaa_id} - no team name found.`);
+                    continue;
+                }
+                const nameMatch = normalizeName(scrapedName).includes(normalizeName(team_name)) ||
+                                  normalizeName(team_name).includes(normalizeName(scrapedName));
+                if (nameMatch) {
+                    try {
+                        addDuplicateMapping(source_ncaa_id, target_ncaa_id, 'football');
+                        results.consolidations++;
+                        results.successful++;
+                    } catch (e) {
+                        results.failed++;
+                        results.errors.push(`Failed to add consolidation mapping: ${e.message}`);
+                    }
+                } else {
+                    results.failed++;
+                    results.errors.push(`Name mismatch for ID ${source_ncaa_id}: "${scrapedName}" vs expected "${team_name}".`);
+                }
             }
-        } else {
-            // This is a new team and a new binding.
-            ncaaIdsCache.push({ team_name: teamName, ncaa_id: ncaaId });
-            currentBindings[ncaaId] = binding.espnId;
-            results.newBindings[ncaaId] = binding.espnId;
         }
-        results.successful++;
     }
-    // Save updated files
-    fs.writeFileSync(bindingModelPath, JSON.stringify(currentBindings, null, 2), "utf8");
-    fs.writeFileSync(ncaaIdsPath, JSON.stringify(ncaaIdsCache, null, 2), "utf8");
-    if (verbose) console.log(`\u001b[32mSuccessfully updated and saved bindings and IDs for ${SPORT}.\u001b[0m`);
-    if (verbose) console.log(`\u001b[36mBinding research complete. Processed: ${results.processed}, Successful: ${results.successful}, Failed: ${results.failed}\u001b[0m`);
-    
+    // --- Process ESPN-TO-NCAA BINDINGS ---
+    if (espnBindings.length) {
+        const newBindings = espnBindings.filter(b => !currentBindings[getCanonicalNcaaId(b.ncaa_id, 'football')]);
+        const conflictingBindings = espnBindings.filter(b => {
+            const canonicalId = getCanonicalNcaaId(b.ncaa_id, 'football');
+            return currentBindings[canonicalId] && currentBindings[canonicalId] !== b.espn_id;
+        });
+
+        const newUniqueBindings = [...new Map(newBindings.map(b => [b.ncaa_id, b])).values()];
+        const teamNamesMap = await getNcaaTeamNamesFromIds(newUniqueBindings.map(b => b.ncaa_id), browsers, verbose);
+
+        for (const { ncaa_id, espn_id } of newUniqueBindings) {
+            if (teamNamesMap[ncaa_id]) {
+                const canonicalId = getCanonicalNcaaId(ncaa_id, 'football');
+                currentBindings[canonicalId] = espn_id;
+                results.newBindings[canonicalId] = espn_id;
+                results.successful++;
+            } else {
+                results.failed++;
+                results.errors.push(`Failed to validate new binding for NCAA ID: ${ncaa_id}`);
+            }
+        }
+
+        conflictingBindings.forEach(b => {
+            if (b.confidence >= 2) {
+                const canonicalId = getCanonicalNcaaId(b.ncaa_id, 'football');
+                currentBindings[canonicalId] = b.espn_id;
+                results.newBindings[canonicalId] = b.espn_id;
+                results.successful++;
+                if (verbose) console.log(`Overwriting existing binding for ${canonicalId} due to high confidence.`);
+            } else if (verbose) {
+                console.log(`Ignoring low-confidence conflict for ID ${b.ncaa_id}.`);
+            }
+        });
+    }
+    if (Object.keys(results.newBindings).length) {
+        fs.writeFileSync(bindingModelPath, JSON.stringify(currentBindings, null, 2), "utf8");
+        if (verbose) console.log(`Updated and saved binding model with ${Object.keys(results.newBindings).length} changes.`);
+    }
+    if (verbose) console.log(`Research complete. Processed: ${results.processed}, Successful: ${results.successful}, Failed: ${results.failed}, Consolidations: ${results.consolidations}`);
     return results;
 };
 
