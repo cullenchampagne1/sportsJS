@@ -2808,6 +2808,79 @@
     ]
   },
   {
+    "id": "2939",
+    "uid": "s:20~l:23~t:2939",
+    "slug": "jamestown-jimmies",
+    "abbreviation": "JAM",
+    "displayName": "Jamestown Jimmies",
+    "shortDisplayName": "Jamestown",
+    "name": "Jimmies",
+    "nickname": "Jamestown",
+    "location": "Jamestown",
+    "color": "000000",
+    "isActive": true,
+    "isAllStar": false,
+    "logos": [],
+    "links": [
+      {
+        "language": "en-US",
+        "rel": [
+          "clubhouse",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/college-football/team/_/id/2939/jamestown-jimmies",
+        "text": "Clubhouse",
+        "shortText": "Clubhouse",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "roster",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/college-football/team/roster/_/id/2939",
+        "text": "Roster",
+        "shortText": "Roster",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "stats",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/college-football/team/stats/_/id/2939",
+        "text": "Statistics",
+        "shortText": "Statistics",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "schedule",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/college-football/team/schedule/_/id/2939",
+        "text": "Schedule",
+        "shortText": "Schedule",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      }
+    ]
+  },
+  {
     "id": "547",
     "uid": "s:20~l:23~t:547",
     "slug": "kansas-wesleyan-ks-wesleyan",
@@ -3120,7 +3193,7 @@
           "desktop",
           "team"
         ],
-        "href": "https://www.espn.com/college-football/team/_/id/2324/langston-lions",
+        "href": "https://www.espn.com/college-football/team/_/id/2324/langston-university-lions",
         "text": "Clubhouse",
         "shortText": "Clubhouse",
         "isExternal": false,
@@ -3235,6 +3308,78 @@
           "team"
         ],
         "href": "https://www.espn.com/college-football/team/schedule/_/id/111610",
+        "text": "Schedule",
+        "shortText": "Schedule",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      }
+    ]
+  },
+  {
+    "id": "124179",
+    "uid": "s:20~l:23~t:124179",
+    "slug": "lincoln-ca-oaklanders",
+    "abbreviation": "LIN",
+    "displayName": "Lincoln (CA) Oaklanders",
+    "shortDisplayName": "Lincoln (CA)",
+    "name": "Oaklanders",
+    "nickname": "Lincoln (CA)",
+    "location": "Lincoln (CA)",
+    "isActive": true,
+    "isAllStar": false,
+    "logos": [],
+    "links": [
+      {
+        "language": "en-US",
+        "rel": [
+          "clubhouse",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/college-football/team/_/id/124179/lincoln-ca-oaklanders",
+        "text": "Clubhouse",
+        "shortText": "Clubhouse",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "roster",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/college-football/team/roster/_/id/124179",
+        "text": "Roster",
+        "shortText": "Roster",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "stats",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/college-football/team/stats/_/id/124179",
+        "text": "Statistics",
+        "shortText": "Statistics",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "schedule",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/college-football/team/schedule/_/id/124179",
         "text": "Schedule",
         "shortText": "Schedule",
         "isExternal": false,
@@ -3481,7 +3626,7 @@
           "desktop",
           "team"
         ],
-        "href": "https://www.espn.com/college-football/team/_/id/2347/louisiana-christian-university-wildcats",
+        "href": "https://www.espn.com/college-football/team/_/id/2347/louisiana-college-wildcats",
         "text": "Clubhouse",
         "shortText": "Clubhouse",
         "isExternal": false,
@@ -3793,7 +3938,7 @@
           "desktop",
           "team"
         ],
-        "href": "https://www.espn.com/college-football/team/_/id/2366/marian",
+        "href": "https://www.espn.com/college-football/team/_/id/2366/marian-college-marian",
         "text": "Clubhouse",
         "shortText": "Clubhouse",
         "isExternal": false,
@@ -4563,7 +4708,7 @@
           "desktop",
           "team"
         ],
-        "href": "https://www.espn.com/college-football/team/_/id/108358/arizona-christian-firestorm",
+        "href": "https://www.espn.com/college-football/team/_/id/108358/phoenix-firestorm",
         "text": "Clubhouse",
         "shortText": "Clubhouse",
         "isExternal": false,
@@ -4895,6 +5040,65 @@
           "team"
         ],
         "href": "https://www.espn.com/college-football/team/schedule/_/id/599",
+        "text": "Schedule",
+        "shortText": "Schedule",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      }
+    ]
+  },
+  {
+    "id": "127991",
+    "uid": "s:20~l:23~t:127991",
+    "slug": "roosevelt-lakers",
+    "abbreviation": "ROO",
+    "displayName": "Roosevelt Lakers",
+    "shortDisplayName": "Roosevelt",
+    "name": "Lakers",
+    "nickname": "Roosevelt",
+    "location": "Roosevelt",
+    "color": "000000",
+    "isActive": true,
+    "isAllStar": false,
+    "logos": [],
+    "links": [
+      {
+        "language": "en-US",
+        "rel": [
+          "roster",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/college-football/team/roster/_/id/127991",
+        "text": "Roster",
+        "shortText": "Roster",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "stats",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/college-football/team/stats/_/id/127991",
+        "text": "Statistics",
+        "shortText": "Statistics",
+        "isExternal": false,
+        "isPremium": false,
+        "isHidden": false
+      },
+      {
+        "language": "en-US",
+        "rel": [
+          "schedule",
+          "desktop",
+          "team"
+        ],
+        "href": "https://www.espn.com/college-football/team/schedule/_/id/127991",
         "text": "Schedule",
         "shortText": "Schedule",
         "isExternal": false,
@@ -6146,7 +6350,7 @@
           "desktop",
           "team"
         ],
-        "href": "https://www.espn.com/college-football/team/_/id/2355/virginia-lynchburg-dragons",
+        "href": "https://www.espn.com/college-football/team/_/id/2355/virginia-university-of-lynchburg-dragons",
         "text": "Clubhouse",
         "shortText": "Clubhouse",
         "isExternal": false,
@@ -6291,7 +6495,7 @@
           "desktop",
           "team"
         ],
-        "href": "https://www.espn.com/college-football/team/_/id/2683/warner-royals",
+        "href": "https://www.espn.com/college-football/team/_/id/2683/warner-university-royals",
         "text": "Clubhouse",
         "shortText": "Clubhouse",
         "isExternal": false,

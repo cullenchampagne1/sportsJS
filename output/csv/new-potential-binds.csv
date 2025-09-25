@@ -1,0 +1,6 @@
+espn_id,ncaa_id,sport,espn_game_title,bound_team_name,confidence,already_bound,existing_espn_id
+131108,614538,football,"Maine Maritime Mariners at New England College Pilgrims","Mariners",1,false,
+2477,606252,football,"Ohio Dominican Panthers at Thomas More College Saints","Saints",1,false,
+292,614550,football,"East Texas A&M Lions at UT Rio Grande Valley Vaqueros","Lions",1,false,
+undefined,undefined,football,"undefined","undefined",4,undefined,
+undefined,undefined,football,"undefined","undefined",2,undefined,
