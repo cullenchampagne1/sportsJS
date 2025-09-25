@@ -2616,28 +2616,64 @@
     "ncaa_id": "589336"
   },
   {
-    "team_name": "St. Thomas (MN)",
-    "ncaa_id": "557385"
+    "team_name": "Defiance",
+    "ncaa_id": "558129"
   },
   {
-    "team_name": "Lindenwood",
-    "ncaa_id": "557581"
-  },
-  {
-    "team_name": "East Texas A&M",
-    "ncaa_id": "557584"
-  },
-  {
-    "team_name": "Stonehill",
-    "ncaa_id": "557588"
+    "team_name": "Birmingham-So.",
+    "ncaa_id": "558164"
   },
   {
     "team_name": "Kennesaw St.",
-    "ncaa_id": "557738"
+    "ncaa_id": "544835"
+  },
+  {
+    "team_name": "UTRGV",
+    "ncaa_id": "614550"
+  },
+  {
+    "team_name": "St. Thomas (MN)",
+    "ncaa_id": "606235"
+  },
+  {
+    "team_name": "Lindenwood",
+    "ncaa_id": "606175"
+  },
+  {
+    "team_name": "Stonehill",
+    "ncaa_id": "606177"
+  },
+  {
+    "team_name": "East Texas A&M",
+    "ncaa_id": "606176"
+  },
+  {
+    "team_name": "Finlandia",
+    "ncaa_id": "545164"
+  },
+  {
+    "team_name": "Sul Ross St.",
+    "ncaa_id": "545143"
+  },
+  {
+    "team_name": "Whittier",
+    "ncaa_id": "545104"
+  },
+  {
+    "team_name": "Saint Anselm",
+    "ncaa_id": "606314"
+  },
+  {
+    "team_name": "Thomas More",
+    "ncaa_id": "606407"
   },
   {
     "team_name": "Notre Dame (OH)",
     "ncaa_id": "557869"
+  },
+  {
+    "team_name": "West Ga.",
+    "ncaa_id": "557976"
   },
   {
     "team_name": "Mercyhurst",
@@ -2648,39 +2684,23 @@
     "ncaa_id": "557963"
   },
   {
-    "team_name": "West Ga.",
-    "ncaa_id": "557976"
+    "team_name": "Alderson Broaddus",
+    "ncaa_id": "545003"
   },
   {
-    "team_name": "Defiance",
-    "ncaa_id": "558129"
+    "team_name": "Simon Fraser",
+    "ncaa_id": "544912"
   },
   {
-    "team_name": "Sul Ross St.",
-    "ncaa_id": "558145"
+    "team_name": "Roanoke",
+    "ncaa_id": "615691"
   },
   {
-    "team_name": "Birmingham-So.",
-    "ncaa_id": "558164"
-  },
-  {
-    "team_name": "Thomas More",
-    "ncaa_id": "563026"
-  },
-  {
-    "team_name": "Roosevelt ",
-    "ncaa_id": "593844"
-  },
-  {
-    "team_name": "Jamestown",
-    "ncaa_id": "597611"
+    "team_name": "New England Col.",
+    "ncaa_id": "614538"
   },
   {
     "team_name": "Maine Maritime",
-    "ncaa_id": "597867"
-  },
-  {
-    "team_name": "UTRGV",
-    "ncaa_id": "614550"
+    "ncaa_id": "606411"
   }
 ]
