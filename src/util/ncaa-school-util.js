@@ -74,7 +74,7 @@ const _fetchNcaaSchoolsList = async (verbose, browsers) => {
     const batchPromises = urlBatches.map(async (urls, browserIndex) => {
         const batchResults = [];
         for (const url of urls) {
-            if (verbose) console.log(`${BROWSER_COLORS[browserIndex]}Downloading NCAA School List: ${url}\u001b[0m`);
+            verbose && console.log(`${BROWSER_COLORS[browserIndex]}Downloading NCAA School List: ${url}\u001b[0m`);
             try {
                 const response = await fetch(url);
                 if (!response.ok) continue;
@@ -94,7 +94,7 @@ const _fetchNcaaSchoolsList = async (verbose, browsers) => {
                 }
                 await sleep(100);
             } catch (error) {
-                if (verbose) console.log(`${BROWSER_COLORS[browserIndex]}Warning: Failed to scrape ${url}: ${error.message}\u001b[0m`);
+                verbose && console.log(`${BROWSER_COLORS[browserIndex]}Warning: Failed to scrape ${url}: ${error.message}\u001b[0m`);
             }
         }
         return batchResults;
@@ -118,7 +118,7 @@ const fetchNcaaTeamData = async (verbose, browsers) => {
     const CACHE_KEY = "ncaa_schools_backup";
     const cachedResult = cacheManager.get(CACHE_KEY, NCAA_STAT_TTL);
     if (cachedResult) {
-        if (verbose) console.log(`\u001b[36mUsing cached NCAA Schools data from ${cachedResult.savedAt.toLocaleString()}\u001b[0m`)
+        verbose && console.log(`\u001b[36mUsing cached NCAA Schools data from ${cachedResult.savedAt.toLocaleString()}\u001b[0m`)
         // If valid cache exists, return it immediately.
         return cachedResult.data;
     }    
@@ -198,7 +198,7 @@ const scrapeNcaaTeamDetails = async (ncaaTeams, verbose, browsers) => {
 
     if (teamsToScrape.length > 0) {
         if (Object.keys(unifiedSchoolDetailsCache).length > 0 && cachedSchoolDetailsResult) {
-            if (verbose) console.log(`\u001b[36mFound ${Object.keys(unifiedSchoolDetailsCache).length} schools in details cache (from ${cachedSchoolDetailsResult.savedAt.toLocaleString()}). Scraping details for ${teamsToScrape.length} new schools.\u001b[0m`);
+            verbose && console.log(`\u001b[36mFound ${Object.keys(unifiedSchoolDetailsCache).length} schools in details cache (from ${cachedSchoolDetailsResult.savedAt.toLocaleString()}). Scraping details for ${teamsToScrape.length} new schools.\u001b[0m`);
         } else if (verbose) console.log(`\u001b[36mScraping details for ${teamsToScrape.length} schools.\u001b[0m`);
         
         // Concurrent processing with multiple browser instances
@@ -223,7 +223,7 @@ const scrapeNcaaTeamDetails = async (ncaaTeams, verbose, browsers) => {
 
             const results = [];
             for (const team of teams) {
-                if (verbose) console.log(`${BROWSER_COLORS[batchIndex % CONCURRENT_BROWSERS]}Downloading School Details: ${team.school_url}\u001b[0m`);
+                verbose && console.log(`${BROWSER_COLORS[batchIndex % CONCURRENT_BROWSERS]}Downloading School Details: ${team.school_url}\u001b[0m`);
                 const detailedData = await _scrapeTeamDetailsWithPage(team.school_url, page);
                 const urlKey = getUrlKey(team.school_url);
                 // Store all results in unified cache by URL key
@@ -374,7 +374,7 @@ const _scrapeTeamDetailsWithPage = async (teamUrl, page) => {
  * @param {boolean} verbose - If true, enables detailed logging.
  * @returns {Promise<any|null>} The data returned by scrapeAction, or null if all retries fail.
  */
-const _scrapeWithRetry = async (page, url, scrapeAction, verbose) => {
+const scrapeWithRetry = async (page, url, scrapeAction, verbose) => {
     let result = null;
     for (let attempt = 1; attempt <= 3; attempt++) {
         try {
@@ -384,24 +384,24 @@ const _scrapeWithRetry = async (page, url, scrapeAction, verbose) => {
             const pageText = await page.evaluate(() => document.body.textContent);
             if (pageTitle.includes('Access Denied') || pageText.includes('Access Denied') || pageText.includes("don't have permission")) {
                 if (attempt < 3) {
-                    if (verbose) console.log(`\u001b[31mAccess denied for ${url}, re-establishing new session... (attempt ${attempt}/3)\u001b[0m`);
+                    verbose && console.log(`\u001b[31mAccess denied for ${url}, re-establishing new session... (attempt ${attempt}/3)\u001b[0m`);
                     await sleep(5000);
                     try {
                         await page.goto('https://stats.ncaa.org/', { waitUntil: 'networkidle0', timeout: 30000 });
                         await sleep(3000);
                     } catch (sessionError) {
-                        if (verbose) console.log('Warning: Could not re-establish new session, continuing anyway...');
+                        verbose && console.log('Warning: Could not re-establish new session, continuing anyway...');
                     }
                     continue; 
                 } else {
-                    if (verbose) console.log(`\u001b[31mAccess denied for ${url} after 3 attempts\u001b[0m`);
+                    verbose && console.log(`\u001b[31mAccess denied for ${url} after 3 attempts\u001b[0m`);
                     break;
                 }
             }
             result = await scrapeAction(page);
             break;
         } catch (error) {
-            if (verbose) console.error(`Attempt ${attempt} for ${url}: ${error.message}`);
+            verbose && console.error(`Attempt ${attempt} for ${url}: ${error.message}`);
             await sleep(3000 * attempt);
         }
     }
@@ -432,7 +432,7 @@ const scrapeHeadCoachFromStatsPage = async (ncaaId, page, verbose) => {
             return getTextByXPath("//div[contains(@class,'card-header') and contains(text(), 'Coach')]/following-sibling::div//a");
         });
     };
-    return await _scrapeWithRetry(page, statsUrl, coachAction, verbose);
+    return await scrapeWithRetry(page, statsUrl, coachAction, verbose);
 };
 
 /**
@@ -448,6 +448,11 @@ const getNcaaTeamNamesFromIds = async (ncaaIds, browsers, verbose) => {
     const idBatches = Array.from({ length: CONCURRENT_BROWSERS }, () => []);
     ncaaIds.forEach((id, index) => idBatches[index % CONCURRENT_BROWSERS].push(id));
     const batchPromises = idBatches.map(async (ids, browserIndex) => {
+        // Stagger browser starts to avoid simultaneous hits
+        if (browserIndex > 0) {
+            await sleep(2000 * browserIndex);
+        }
+
         const results = {};
         const browser = browsers[browserIndex];
         const page = await browser.newPage();
@@ -464,25 +469,28 @@ const getNcaaTeamNamesFromIds = async (ncaaIds, browsers, verbose) => {
         await page.setUserAgent(browserConfig.userAgent);
         await page.setViewport({ width: 1920, height: 1080 });
         await page.setExtraHTTPHeaders(browserConfig.headers);
-        // Establish session proactively
+        // Establish session proactively following the same pattern as head coach scraping
         try {
-            if (verbose) console.log(`${BROWSER_COLORS[browserIndex % BROWSER_COLORS.length]}Establishing NCAA session...\u001b[0m`);
+            verbose && console.log(`${BROWSER_COLORS[browserIndex % BROWSER_COLORS.length]}Establishing NCAA session...\u001b[0m`);
             await page.goto('https://stats.ncaa.org/', { waitUntil: 'networkidle0', timeout: 30000 });
             await sleep(3000);
-        } catch (sessionError) {
-            if (verbose) console.log(`${BROWSER_COLORS[browserIndex % BROWSER_COLORS.length]}Warning: Session setup failed, continuing anyway...\u001b[0m`);
+        } catch {
+            verbose && console.log(`${BROWSER_COLORS[browserIndex % BROWSER_COLORS.length]}Warning: Session setup failed, continuing...\u001b[0m`);
         }
+
         for (const id of ids) {
-            const url = `https://stats.ncaa.org/teams/${id}`;
-            if (verbose) console.log(`${BROWSER_COLORS[browserIndex % BROWSER_COLORS.length]}Fetching team name for NCAA ID: ${id} from ${url}\u001b[0m`);
             const teamNameAction = async (p) => {
                 return p.evaluate(() => {
                     const el = document.querySelector('a.nav-link.skipMask.dropdown-toggle[data-toggle="collapse"]');
                     return el ? el.textContent.trim().replace(/ Sports$/, '') : null;
                 });
             };
-            const teamName = await _scrapeWithRetry(page, url, teamNameAction, verbose);
+            const url = `https://stats.ncaa.org/teams/${id}`;
+            verbose && console.log(`${BROWSER_COLORS[browserIndex % BROWSER_COLORS.length]}Fetching team name for NCAA ID: ${id} from ${url}\u001b[0m`);
+            const teamName = await scrapeWithRetry(page, url, teamNameAction, verbose);
             if (teamName) results[id] = teamName;
+
+            // Use the same delay pattern as head coach scraping to avoid rate limiting
             await sleep(5000 + Math.random() * 1000);
         }
         await page.close();
@@ -513,23 +521,30 @@ const addNcaaIdsToTeams = (ncaaTeams, ncaaIds, verbose) => {
         });
     });
     const initialResult = ncaaTeams.reduce((acc, team) => {
-        const teamValues = Object.values(team).map(normalize);
-        for (const val of teamValues) {
-            const match = exactMatchMap.get(val);
+        const potentialNames = [team.school_name, team.name_ncaa, team.university, team.nickname_ncaa];
+        let foundMatch = false;
+        for (const name of potentialNames) {
+            const normalizedName = normalize(name);
+            if (!normalizedName) continue;
+
+            const match = exactMatchMap.get(normalizedName);
             if (match && !acc.usedIds.has(match.ncaa_id)) {
                 acc.matched.push({ ...team, ncaa_id: match.ncaa_id });
                 acc.usedIds.add(match.ncaa_id);
-                return acc; // Team matched, move to next team
+                foundMatch = true;
+                break; // Stop after first match for this team
             }
         }
-        acc.unmatched.push(team); // No match found
+        if (!foundMatch) {
+            acc.unmatched.push(team);
+        }
         return acc;
     }, { matched: [], unmatched: [], usedIds: new Set() });
     let { matched: matchedTeams, unmatched: unmatchedTeams, usedIds } = initialResult;
-    if (verbose) console.log(`\u001b[32mExact matching: ${matchedTeams.length} teams matched, ${unmatchedTeams.length} teams remaining\u001b[0m`);
+    verbose && console.log(`\u001b[32mExact matching: ${matchedTeams.length} teams matched, ${unmatchedTeams.length} teams remaining\u001b[0m`);
     const remainingIds = ncaaIds.filter(id => !usedIds.has(id.ncaa_id));
     if (unmatchedTeams.length > 0 && remainingIds.length > 0) {
-        if (verbose) console.log(`\u001b[36mAttempting fuzzy matching for ${unmatchedTeams.length} unmatched teams...\u001b[0m`);
+        verbose && console.log(`\u001b[36mAttempting fuzzy matching for ${unmatchedTeams.length} unmatched teams...\u001b[0m`);
         const preprocess = name => (name || '').replace(/\s*\([^)]*\)/g, '').replace(/University/gi, 'Univ').replace(/State/gi, 'St').replace(/&/g, 'and').trim();
         const generateAbbr = name => (name || '').replace(/\s*\([^)]*\)/g, '').split(/[\s\-\.]+/).filter(w => w && !/^(of|the|and|at|in|a|an|for|to)$/i.test(w)).map(w => w[0]).join('').toUpperCase();
         const fuse = new Fuse(remainingIds, { keys: ['team_name'], threshold: 0.3, distance: 50, includeScore: true });
@@ -548,7 +563,7 @@ const addNcaaIdsToTeams = (ncaaTeams, ncaaIds, verbose) => {
 
         matchedTeams.push(...fuzzyResult.newlyMatched);
         unmatchedTeams = fuzzyResult.stillUnmatched;
-        if (verbose) console.log(`\u001b[32mFuzzy matching: ${fuzzyResult.newlyMatched.length} additional teams matched, ${unmatchedTeams.length} still unmatched\u001b[0m`);
+        verbose && console.log(`\u001b[32mFuzzy matching: ${fuzzyResult.newlyMatched.length} additional teams matched, ${unmatchedTeams.length} still unmatched\u001b[0m`);
     }
     // Decode HTML entities in all returned data
     return {
@@ -558,4 +573,4 @@ const addNcaaIdsToTeams = (ncaaTeams, ncaaIds, verbose) => {
     };
 };
 
-export { fetchNcaaTeamData, scrapeNcaaTeamDetails, scrapeHeadCoachFromStatsPage, getNcaaTeamNamesFromIds, addNcaaIdsToTeams };
+export { fetchNcaaTeamData, scrapeNcaaTeamDetails, scrapeHeadCoachFromStatsPage, getNcaaTeamNamesFromIds, addNcaaIdsToTeams, scrapeWithRetry };

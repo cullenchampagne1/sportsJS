@@ -21,25 +21,38 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-import cacheManager from './cache-manager.js';
+import fs from 'fs';
 
-const CONSOLIDATION_CACHE_KEY = 'ncaa_id_consolidation_map';
-const CACHE_TTL = 365 * 24 * 60 * 60 * 1000; // 1 year
+const CONSOLIDATION_FILE_PATH = 'data/raw/ncaa_id_consolidation_map.json';
 
 /**
- * Loads the entire consolidation map from the cache.
+ * Loads the entire consolidation map from the file system.
  * @returns {Object} The full, multi-sport consolidation map.
  */
 const _loadMap = () => {
-    return cacheManager.get(CONSOLIDATION_CACHE_KEY, CACHE_TTL) || {};
+    try {
+        if (fs.existsSync(CONSOLIDATION_FILE_PATH)) {
+            const rawData = fs.readFileSync(CONSOLIDATION_FILE_PATH, 'utf8');
+            if (rawData) {
+                return JSON.parse(rawData);
+            }
+        }
+    } catch (error) {
+        console.error(`Error loading consolidation map from ${CONSOLIDATION_FILE_PATH}: ${error}`);
+    }
+    return {};
 };
 
 /**
- * Saves the entire consolidation map to the cache.
+ * Saves the entire consolidation map to the file system.
  * @param {Object} map - The full, multi-sport consolidation map to save.
  */
 const _saveMap = (map) => {
-    cacheManager.set(CONSOLIDATION_CACHE_KEY, map);
+    try {
+        fs.writeFileSync(CONSOLIDATION_FILE_PATH, JSON.stringify(map, null, 2), 'utf8');
+    } catch (error) {
+        console.error(`Error saving consolidation map to ${CONSOLIDATION_FILE_PATH}: ${error}`);
+    }
 };
 
 /**
@@ -111,10 +124,84 @@ export const consolidateGamesNcaaIds = (games, sport, ncaaIdFields = ['home_team
 export const consolidateTeamsNcaaIds = (teamsData, sport) => {
     if (!sport) return teamsData;
     return teamsData.map(team => {
-        if (team.ncaa_id) {
-            const canonicalId = getCanonicalNcaaId(team.ncaa_id, sport);
-            return { ...team, ncaa_id: canonicalId };
+        if (team.reference_id) {
+            const canonicalId = getCanonicalNcaaId(team.reference_id, sport);
+            return { ...team, reference_id: canonicalId };
         }
         return team;
     });
+};
+
+/**
+ * Attempts to find a team in the teams data by matching team names.
+ * @param {string} teamName - The team name from ESPN schedule data.
+ * @param {Array<Object>} teamsData - Array of team objects to search.
+ * @returns {Object|null} The matching team object or null if no match found.
+ */
+export const findTeamByName = (teamName, teamsData) => {
+    if (!teamName || !teamsData?.length) return null;
+    
+    const cleanName = (name) => name?.toLowerCase().replace(/[^\w\s]/g, '').trim();
+    const searchName = cleanName(teamName);
+    
+    // Try exact matches first
+    let match = teamsData.find(team => 
+        cleanName(team.short_name) === searchName ||
+        cleanName(team.full_name) === searchName ||
+        cleanName(team.university) === searchName
+    );
+    
+    if (match) return match;
+    
+    // Try partial matches using key words
+    const searchWords = searchName.split(/\s+/).filter(word => word.length > 2);
+    
+    match = teamsData.find(team => {
+        const teamWords = [
+            ...cleanName(team.short_name || '').split(/\s+/),
+            ...cleanName(team.full_name || '').split(/\s+/),
+            ...cleanName(team.university || '').split(/\s+/)
+        ].filter(word => word.length > 2);
+        
+        // Check if most search words are found in team data
+        const matchingWords = searchWords.filter(word => 
+            teamWords.some(teamWord => teamWord.includes(word) || word.includes(teamWord))
+        );
+        
+        return matchingWords.length >= Math.min(searchWords.length, 2);
+    });
+    
+    return match || null;
+};
+
+/**
+ * Retrieves a cache entry by its canonical NCAA ID, handling cases where the cache might contain
+ * entries keyed by non-canonical (older) IDs. If a non-canonical key maps to the desired canonical ID,
+ * the entry is returned. This function does NOT modify the cache to update keys.
+ * 
+ * @param {Object} cache - The cache object (e.g., ncaaSchedulesCache.data).
+ * @param {string} ncaaId - The NCAA ID to look up (can be canonical or non-canonical).
+ * @param {string} sport - The sport context (e.g., 'football').
+ * @returns {Object|null} The cache entry if found, otherwise null.
+ */
+export const getCacheEntryByCanonicalId = (cache, ncaaId, sport) => {
+    if (!cache || !ncaaId || !sport) return null;
+    const canonicalId = getCanonicalNcaaId(ncaaId, sport);
+
+    // First, try direct lookup with the canonical ID
+    if (cache[canonicalId]) {
+        return cache[canonicalId];
+    }
+
+    // If not found directly, iterate through cache keys to find a match
+    // This handles cases where the cache might contain old, non-canonical keys
+    for (const key in cache) {
+        if (getCanonicalNcaaId(key, sport) === canonicalId) {
+            // Found a match under a non-canonical key.
+            // Note: This function does not modify the cache to update the key.
+            // The caller should handle cache updates if desired.
+            return cache[key];
+        }
+    }
+    return null;
 };
